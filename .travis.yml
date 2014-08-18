@@ -1,4 +1,5 @@
 language: python
+
 before_script:
 - git config --global user.name "Olga Botvinnik"
 - git config --global user.email "olga.botvinnik@gmail.com"
@@ -10,11 +11,12 @@ script:
   - echo "script!"
 
 after_script:
-- sudo pip install -r docs/requirements.txt --use-mirrors
+- sudo pip install --allow-external --pre -r docs/requirements.txt --use-mirrors
 - cd docs
 - make setup_gh_pages
 - make generate
 - make deploy
+
 env:
   global:
   - GH_REPO="YeoLab/welcome"
