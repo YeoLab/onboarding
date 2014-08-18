@@ -5,6 +5,10 @@ before_script:
 - export REPO_URL_GITHUB="https://$GH_TOKEN@github.com/$GH_REPO.git"
 - . ./.travis/setup.sh
 - echo $DEPLOY_HTML_DIR
+
+script:
+  - echo "script!"
+
 after_script:
 - sudo pip install -r docs/requirements.txt --use-mirrors
 - cd docs
