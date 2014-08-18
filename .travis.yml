@@ -11,7 +11,7 @@ script:
   - echo "script!"
 
 after_script:
-- sudo pip install --allow-external --pre -r docs/requirements.txt --use-mirrors
+- sudo pip install --allow-all-external --pre -r docs/requirements.txt --use-mirrors
 - cd docs
 - make setup_gh_pages
 - make generate
