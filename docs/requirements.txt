@@ -1,6 +1,8 @@
 # pip requirements for docs generation
 # pip install -r docs/requirements.txt
 
+about
+sh
 pandoc
 Sphinx
 fabric
