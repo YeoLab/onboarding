@@ -1,7 +1,7 @@
 language: python
 before_script:
-- git config --global user.name "Teracy"
-- git config --global user.email "your-friends@teracy.com"
+- git config --global user.name "Olga Botvinnik"
+- git config --global user.email "olga.botvinnik@gmail.com"
 - export REPO_URL_GITHUB="https://$GH_TOKEN@github.com/$GH_REPO.git"
 - . ./.travis/setup.sh
 - echo $DEPLOY_HTML_DIR
@@ -13,7 +13,5 @@ after_script:
 - make deploy
 env:
   global:
-  - git config --global user.name "Olga Botvinnik"
-  - git config --global user.email "olga.botvinnik@gmail.com"
-  - GH_REPO="teracy-official/sphinx-deployment"
+  - GH_REPO="YeoLab/welcome"
   - secure: Y8AbQwnpTwfme6II24Klxjbg83ISTB7z+Uj1XxicbMlQsKs0UP5PsaJnY0+mi+HJMoQXYXjsWpoPbxehjLYHdPICYIcK+9zoaoRj504wEjwFEAXzqzzQVfCTJuAvNnwgo/s2dQGmBb8kr4Tkiio3Q/K+ax05rsM5sU4dw6ALRIk=
