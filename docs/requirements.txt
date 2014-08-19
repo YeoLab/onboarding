@@ -1,10 +1,6 @@
 # pip requirements for docs generation
 # pip install -r docs/requirements.txt
 
-path
-about
-sh
-pandoc
 Sphinx
 fabric
 sphinx_bootstrap_theme
