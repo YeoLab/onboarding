@@ -13,7 +13,6 @@ Welcome to YeoLab/welcome's documentation!
 3. Install hub_. If you have a Mac, install via brew_.
 4. Clone the ``gscripts`` repository:
 
-::
     hub clone YeoLab/gscripts
 
 
@@ -24,19 +23,10 @@ Make a virtual environment
 On TSCC, the easiest way to create a virtual evironment (aka `virtualenv`) is by making one off of the `base` environment, which already has a bunch of modules that we use all the time (`numpy`, `scipy`, `matplotlib`, `pandas`, `scikit-learn`, `ipython`, the list goes on). Here's how you do it:
 
 
-
-Contents:
-
-.. toctree::
-   :maxdepth: 2
-
-.. _JimHayes: 
-   _YeoLab: http://github.com/YeoLab
-   _brew: http://brew.sh
-   _hub: https://hub.github.com/
-
-__ JimHayes_
-
+.. _Jim Hayes: jhayes@sdsc.edu
+.. _YeoLab: http://github.com/YeoLab
+.. _brew: http://brew.sh
+.. _hub: https://hub.github.com/
 
 
 Indices and tables
