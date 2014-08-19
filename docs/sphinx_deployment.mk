@@ -112,7 +112,7 @@ init_gh_pages:
 	@rm -rf $(DEPLOY_DIR)
 	@mkdir -p $(DEPLOY_DIR)
 	@cd $(DEPLOY_DIR); git init;\
-		echo 'sphinx docs comming soon...' > index.html;\
+		echo 'sphinx docs coming soon...' > index.html;\
 		touch .nojekyll;\
 		git add .; git commit -m "sphinx docs init";\
 		git branch -m $(DEPLOY_BRANCH_GITHUB);\
@@ -136,7 +136,7 @@ init_heroku:
 	@mkdir -p $(DEPLOY_DIR_HEROKU)
 	@cd $(DEPLOY_DIR_HEROKU); git init;\
 		cp -r ../.deploy_heroku/* .;\
-		echo 'sphinx docs comming soon...' > public/index.html;\
+		echo 'sphinx docs coming soon...' > public/index.html;\
 		git add .; git commit -m "sphinx docs init";\
 		git remote add origin $(REPO_URL_HEROKU);
 	@cd $(DEPLOY_DIR_HEROKU);\
