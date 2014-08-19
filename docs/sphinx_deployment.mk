@@ -52,7 +52,7 @@ endif
 
 # Copy contents from $(BUILDDIR) to $(DEPLOY_DIR)/$(DEPLOY_HTML_DIR) directory
 ifndef DEPLOY_HTML_DIR
-DEPLOY_HTML_DIR = docs
+DEPLOY_HTML_DIR = ./
 endif
 
 
@@ -90,7 +90,7 @@ endif
 #if REPO_URL_GITHUB was NOT defined by travis-ci
 ifndef REPO_URL_GITHUB
 # Configure your right github project repo
-# REPO_URL       = git@github.com:teracy-official/sphinx-deployment.git
+# REPO_URL       = git@github.com:YeoLab/welcome.git
 endif
 
 ## -- Heroku Deployment Config -- ##
