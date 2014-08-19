@@ -11,6 +11,7 @@ script:
   - echo "script!"
 
 after_script:
+- sudo apt-get install pandoc
 - sudo pip install --allow-all-external --pre -r docs/requirements.txt --use-mirrors
 - cd docs
 - make setup_gh_pages
