@@ -52,7 +52,7 @@ endif
 
 # Copy contents from $(BUILDDIR) to $(DEPLOY_DIR)/$(DEPLOY_HTML_DIR) directory
 ifndef DEPLOY_HTML_DIR
-DEPLOY_HTML_DIR = docs
+DEPLOY_HTML_DIR =
 endif
 
 
@@ -128,7 +128,7 @@ setup_gh_pages: init_gh_pages
 	@cd $(DEPLOY_DIR);\
 		git fetch origin;\
 		git reset --hard origin/$(DEPLOY_BRANCH_GITHUB);\
-		git branch --set-upstream $(DEPLOY_BRANCH_GITHUB) origin/$(DEPLOY_BRANCH_GITHUB)
+		git branch --set-upstream-to $(DEPLOY_BRANCH_GITHUB) origin/$(DEPLOY_BRANCH_GITHUB)
 	@echo "Now you can deploy to Github Pages with 'make generate' and then 'make deploy_gh_pages'"
 
 init_heroku:
