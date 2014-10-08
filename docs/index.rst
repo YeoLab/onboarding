@@ -6,21 +6,26 @@
 Welcome to YeoLab/welcome's documentation!
 ==========================================
 
-1. First thing you'll want to do is get an account on TSCC. Email `Jim Hayes`__
+1. First thing you'll want to do is get an account on TSCC. Email `Jim Hayes`_
 
-2. Next, make sure you ask a drylab person to get added to the YeoLab_ group.
+2. Next, make sure you ask a drylab person to get added to the YeoLab_ group
+on TSCC (called ``yeo-group``).
 
-3. Install hub_. If you have a Mac, install via brew_.
-4. Clone the ``gscripts`` repository:
+3. If you don't have a Github_ account yet, go make one.
+
+4. Ask to get added to the YeoLab group on Github.
+
+5. Install hub_. If you have a Mac, install via brew_.
+6. Clone the ``gscripts`` repository:
 
 .. code::
 
     hub clone YeoLab/gscripts
 
+7. Install PyCharm_ (Community edition is fine).
 
-
-Make a virtual environment
---------------------------
+Make a virtual environment on TSCC
+----------------------------------
 
 On TSCC, the easiest way to create a virtual evironment (aka `virtualenv`) is by making one off of the `base` environment, which already has a bunch of modules that we use all the time (`numpy`, `scipy`, `matplotlib`, `pandas`, `scikit-learn`, `ipython`, the list goes on). Here's how you do it:
 
@@ -76,9 +81,9 @@ Check the status of your jobs:
 
     qstat -u $(whoami)
 
-If you have installed `gscripts` and you `source`
-`gscripts/bashrc/tscc_bash_settings_current`, then you can do the same thing
-with `qme`:
+If you have installed ``gscripts`` and you ``source``
+``gscripts/bashrc/tscc_bash_settings_current``, then you can do the same thing
+with ``qme``:
 
 .. code::
 
@@ -146,14 +151,15 @@ Example output is,
                                                    ----- -----
                                                      321   180
 
-So right now is not a good time to submit to the `hotel` queue,
+So right now is not a good time to submit to the ``hotel`` queue,
 since it has a bunch of both running and queued jobs!
 
 .. _Jim Hayes: jhayes@sdsc.edu
 .. _YeoLab: http://github.com/YeoLab
 .. _brew: http://brew.sh
 .. _hub: https://hub.github.com/
-
+.. _Github: http://github.com/
+.. _PyCharm: http://www.jetbrains.com/pycharm/
 
 Indices and tables
 ==================
