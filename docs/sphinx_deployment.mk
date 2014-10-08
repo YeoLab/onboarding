@@ -52,7 +52,7 @@ endif
 
 # Copy contents from $(BUILDDIR) to $(DEPLOY_DIR)/$(DEPLOY_HTML_DIR) directory
 ifndef DEPLOY_HTML_DIR
-DEPLOY_HTML_DIR =
+DEPLOY_HTML_DIR = docs
 endif
 
 
@@ -168,7 +168,7 @@ deploy_rsync: prepare_rsync_deployment
 prepare_gh_pages_deployment:
 	@echo "Preparing gh_pages deployment..."
 	@echo "Pulling any updates from Github Pages..."
-	@cd $(DEPLOY_DIR); git pull;
+	@cd $(DEPLOY_DIR); git pull origin gh-pages;
 	@mkdir -p $(DEPLOY_DIR)/$(DEPLOY_HTML_DIR)
 	@echo "Copying files from '$(BUILDDIR)/html/.' to '$(DEPLOY_DIR)/$(DEPLOY_HTML_DIR)'"
 	@cp -r $(BUILDDIR)/html/. $(DEPLOY_DIR)/$(DEPLOY_HTML_DIR)
