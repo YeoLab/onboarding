@@ -127,111 +127,115 @@
       
   <div class="section" id="welcome-to-yeolab-welcome-s-documentation">
 <h1>Welcome to YeoLab/welcome&#8217;s documentation!<a class="headerlink" href="#welcome-to-yeolab-welcome-s-documentation" title="Permalink to this headline">¶</a></h1>
-<ol class="arabic">
-<li><p class="first">First thing you&#8217;ll want to do is get an account on TSCC. Email <a href="#id1"><span class="problematic" id="id2">`Jim Hayes`__</span></a></p>
-</li>
-<li><p class="first">Next, make sure you ask a drylab person to get added to the <a class="reference external" href="http://github.com/YeoLab">YeoLab</a> group.</p>
-</li>
-<li><p class="first">Install <a class="reference external" href="https://hub.github.com/">hub</a>. If you have a Mac, install via <a class="reference external" href="http://brew.sh">brew</a>.</p>
-</li>
-<li><p class="first">Clone the <tt class="docutils literal"><span class="pre">gscripts</span></tt> repository:</p>
-<blockquote>
-<div><p>hub clone YeoLab/gscripts</p>
-</div></blockquote>
-</li>
+<ol class="arabic simple">
+<li>First thing you&#8217;ll want to do is get an account on TSCC. Email <a href="#id1"><span class="problematic" id="id2">`Jim Hayes`__</span></a></li>
+<li>Next, make sure you ask a drylab person to get added to the <a class="reference external" href="http://github.com/YeoLab">YeoLab</a> group.</li>
+<li>Install <a class="reference external" href="https://hub.github.com/">hub</a>. If you have a Mac, install via <a class="reference external" href="http://brew.sh">brew</a>.</li>
+<li>Clone the <tt class="docutils literal"><span class="pre">gscripts</span></tt> repository:</li>
 </ol>
+<div class="code highlight-python"><div class="highlight"><pre>hub clone YeoLab/gscripts
+</pre></div>
+</div>
 <div class="section" id="make-a-virtual-environment">
 <h2>Make a virtual environment<a class="headerlink" href="#make-a-virtual-environment" title="Permalink to this headline">¶</a></h2>
 <p>On TSCC, the easiest way to create a virtual evironment (aka <cite>virtualenv</cite>) is by making one off of the <cite>base</cite> environment, which already has a bunch of modules that we use all the time (<cite>numpy</cite>, <cite>scipy</cite>, <cite>matplotlib</cite>, <cite>pandas</cite>, <cite>scikit-learn</cite>, <cite>ipython</cite>, the list goes on). Here&#8217;s how you do it:</p>
-<blockquote>
-<div>conda create &#8211;clone base &#8211;name yourname</div></blockquote>
+<div class="code highlight-python"><div class="highlight"><pre>conda create --clone base --name yourname
+</pre></div>
+</div>
 <p>Then activate your environment with</p>
-<blockquote>
-<div>source activate yourname</div></blockquote>
+<div class="code highlight-python"><div class="highlight"><pre>source activate yourname
+</pre></div>
+</div>
 <p>And exit it with,</p>
-<blockquote>
-<div>source deactivate</div></blockquote>
+<div class="code highlight-python"><div class="highlight"><pre>source deactivate
+</pre></div>
+</div>
 </div>
 <div class="section" id="installing-upgrading-packages">
 <h2>Installing/upgrading packages<a class="headerlink" href="#installing-upgrading-packages" title="Permalink to this headline">¶</a></h2>
 <p>To install Python packages first try <cite>conda install</cite>:</p>
-<blockquote>
-<div>conda install pandas</div></blockquote>
+<div class="code highlight-python"><div class="highlight"><pre>conda install pandas
+</pre></div>
+</div>
 <p>If there is no package in conda, then (and ONLY then) try <cite>pip</cite>:</p>
-<blockquote>
-<div>pip install pandas</div></blockquote>
+<div class="code highlight-python"><div class="highlight"><pre>pip install pandas
+</pre></div>
+</div>
 </div>
 <div class="section" id="useful-things-to-do-on-tscc">
 <h2>Useful things to do on TSCC<a class="headerlink" href="#useful-things-to-do-on-tscc" title="Permalink to this headline">¶</a></h2>
 <p>Submit jobs:</p>
-<blockquote>
-<div>qstat -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00 myscript.sh</div></blockquote>
+<div class="code highlight-python"><div class="highlight"><pre>qstat -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00 myscript.sh
+</pre></div>
+</div>
 <p>Submit an interactive job:</p>
-<blockquote>
-<div>qstat -I -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00</div></blockquote>
+<div class="code highlight-python"><div class="highlight"><pre>qstat -I -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00
+</pre></div>
+</div>
 <p>Check the status of your jobs:</p>
-<blockquote>
-<div>qstat -u $(whoami)</div></blockquote>
+<div class="code highlight-python"><div class="highlight"><pre>qstat -u $(whoami)
+</pre></div>
+</div>
 <p>If you have installed <cite>gscripts</cite> and you <cite>source</cite>
 <cite>gscripts/bashrc/tscc_bash_settings_current</cite>, then you can do the same thing
 with <cite>qme</cite>:</p>
-<blockquote>
-<div>qme</div></blockquote>
+<div class="code highlight-python"><div class="highlight"><pre><span class="n">qme</span>
+</pre></div>
+</div>
 <p>This outputs,</p>
-<blockquote>
-<div><p>(olga)[<a class="reference external" href="mailto:obotvinnik&#37;&#52;&#48;tscc-login2">obotvinnik<span>&#64;</span>tscc-login2</a> ~]$ qme</p>
-<dl class="docutils">
-<dt>tscc-mgr.sdsc.edu:</dt>
-<dd>Req&#8217;d    Req&#8217;d       Elap</dd>
-</dl>
-<p>Job ID                  Username    Queue    Jobname          SessID  NDS   TSK   Memory   Time    S   Time
-&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211; &#8212;&#8212;&#8212;&#8211; &#8212;&#8212;&#8211; &#8212;&#8212;&#8212;&#8212;&#8212;- &#8212;&#8212; &#8212;&#8211; &#8212;&#8212; &#8212;&#8212; &#8212;&#8212;&#8212; - &#8212;&#8212;&#8212;
-2006527.tscc-mgr.local  obotvinnik  home-yeo STDIN             35367     1     16    &#8211;   04:00:00 R  02:35:36
-2007542.tscc-mgr.local  obotvinnik  home-yeo STDIN              6168     1      1    &#8211;   08:00:00 R  00:28:08
-2007621.tscc-mgr.local  obotvinnik  home-yeo STDIN               &#8211;      1     16    &#8211;   04:00:00 Q       &#8211;</p>
-</div></blockquote>
+<div class="code highlight-python"><div class="highlight"><pre>(olga)[obotvinnik@tscc-login2 ~]$ qme
+
+tscc-mgr.sdsc.edu:
+                                                                                  Req&#39;d    Req&#39;d       Elap
+Job ID                  Username    Queue    Jobname          SessID  NDS   TSK   Memory   Time    S   Time
+----------------------- ----------- -------- ---------------- ------ ----- ------ ------ --------- - ---------
+2006527.tscc-mgr.local  obotvinnik  home-yeo STDIN             35367     1     16    --   04:00:00 R  02:35:36
+2007542.tscc-mgr.local  obotvinnik  home-yeo STDIN              6168     1      1    --   08:00:00 R  00:28:08
+2007621.tscc-mgr.local  obotvinnik  home-yeo STDIN               --      1     16    --   04:00:00 Q       --
+</pre></div>
+</div>
 <p>Check the status of your array jobs:</p>
-<blockquote>
-<div>qstat -t</div></blockquote>
+<div class="code highlight-python"><div class="highlight"><pre><span class="n">qstat</span> <span class="o">-</span><span class="n">t</span>
+</pre></div>
+</div>
 <p>Check the status of the queue (so you know which queues to NOT submit to!)</p>
-<blockquote>
-<div>qstat -q</div></blockquote>
+<div class="code highlight-python"><div class="highlight"><pre><span class="n">qstat</span> <span class="o">-</span><span class="n">q</span>
+</pre></div>
+</div>
 <p>Example output is,</p>
-<blockquote>
-<div><p>(olga)[<a class="reference external" href="mailto:obotvinnik&#37;&#52;&#48;tscc-login2">obotvinnik<span>&#64;</span>tscc-login2</a> ~]$ qstat -q</p>
-<p>server: tscc-mgr.local</p>
-<p>Queue            Memory CPU Time Walltime Node  Run Que Lm  State
-&#8212;&#8212;&#8212;&#8212;&#8212;- &#8212;&#8212; &#8212;&#8212;&#8211; &#8212;&#8212;&#8211; &#8212;-  &#8212; &#8212; &#8211;  &#8212;&#8211;
-home-dkeres        &#8211;      &#8211;       &#8211;      &#8211;    2   0 &#8211;   E R
-home-komunjer      &#8211;      &#8211;       &#8211;      &#8211;    0   0 &#8211;   E R
-home-ong           &#8211;      &#8211;       &#8211;      &#8211;    2   0 &#8211;   E R
-home-tg            &#8211;      &#8211;       &#8211;      &#8211;    0   0 &#8211;   E R
-home-yeo           &#8211;      &#8211;       &#8211;      &#8211;    3   1 &#8211;   E R
-home-visres        &#8211;      &#8211;       &#8211;      &#8211;    0   0 &#8211;   E R
-home-mccammon      &#8211;      &#8211;       &#8211;      &#8211;   15  29 &#8211;   E R
-home-scrm          &#8211;      &#8211;       &#8211;      &#8211;    1   0 &#8211;   E R
-hotel              &#8211;      &#8211;    168:00:0   &#8211;  232  26 &#8211;   E R
-home-k4zhang       &#8211;      &#8211;       &#8211;      &#8211;    0   0 &#8211;   E R
-home-kkey          &#8211;      &#8211;       &#8211;      &#8211;    0   0 &#8211;   E R
-home-kyang         &#8211;      &#8211;       &#8211;      &#8211;    2   1 &#8211;   E R
-home-jsebat        &#8211;      &#8211;       &#8211;      &#8211;    1   0 &#8211;   E R
-pdafm              &#8211;      &#8211;    72:00:00   &#8211;    1   0 &#8211;   E R
-condo              &#8211;      &#8211;    08:00:00   &#8211;   18   6 &#8211;   E R
-gpu-hotel          &#8211;      &#8211;    336:00:0   &#8211;    0   0 &#8211;   E R
-glean              &#8211;      &#8211;       &#8211;      &#8211;   24  75 &#8211;   E R
-gpu-condo          &#8211;      &#8211;    08:00:00   &#8211;   16  36 &#8211;   E R
-home-fpaesani      &#8211;      &#8211;       &#8211;      &#8211;    4   2 &#8211;   E R
-home-builder       &#8211;      &#8211;       &#8211;      &#8211;    0   0 &#8211;   E R
-home               &#8211;      &#8211;       &#8211;      &#8211;    0   0 &#8211;   E R
-home-mgilson       &#8211;      &#8211;       &#8211;      &#8211;    0   4 &#8211;   E R
-home-eallen        &#8211;      &#8211;       &#8211;      &#8211;    0   0 &#8211;   E R</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>&#8212;&#8211; &#8212;&#8211;</dt>
-<dd>321   180</dd>
-</dl>
-</div></blockquote>
-</div></blockquote>
+<div class="code highlight-python"><div class="highlight"><pre>(olga)[obotvinnik@tscc-login2 ~]$ qstat -q
+
+server: tscc-mgr.local
+
+Queue            Memory CPU Time Walltime Node  Run Que Lm  State
+---------------- ------ -------- -------- ----  --- --- --  -----
+home-dkeres        --      --       --      --    2   0 --   E R
+home-komunjer      --      --       --      --    0   0 --   E R
+home-ong           --      --       --      --    2   0 --   E R
+home-tg            --      --       --      --    0   0 --   E R
+home-yeo           --      --       --      --    3   1 --   E R
+home-visres        --      --       --      --    0   0 --   E R
+home-mccammon      --      --       --      --   15  29 --   E R
+home-scrm          --      --       --      --    1   0 --   E R
+hotel              --      --    168:00:0   --  232  26 --   E R
+home-k4zhang       --      --       --      --    0   0 --   E R
+home-kkey          --      --       --      --    0   0 --   E R
+home-kyang         --      --       --      --    2   1 --   E R
+home-jsebat        --      --       --      --    1   0 --   E R
+pdafm              --      --    72:00:00   --    1   0 --   E R
+condo              --      --    08:00:00   --   18   6 --   E R
+gpu-hotel          --      --    336:00:0   --    0   0 --   E R
+glean              --      --       --      --   24  75 --   E R
+gpu-condo          --      --    08:00:00   --   16  36 --   E R
+home-fpaesani      --      --       --      --    4   2 --   E R
+home-builder       --      --       --      --    0   0 --   E R
+home               --      --       --      --    0   0 --   E R
+home-mgilson       --      --       --      --    0   4 --   E R
+home-eallen        --      --       --      --    0   0 --   E R
+                                               ----- -----
+                                                 321   180
+</pre></div>
+</div>
 <p>So right now is not a good time to submit to the <cite>hotel</cite> queue,
 since it has a bunch of both running and queued jobs!</p>
 </div>

@@ -13,6 +13,8 @@ Welcome to YeoLab/welcome's documentation!
 3. Install hub_. If you have a Mac, install via brew_.
 4. Clone the ``gscripts`` repository:
 
+.. code::
+
     hub clone YeoLab/gscripts
 
 
@@ -22,13 +24,19 @@ Make a virtual environment
 
 On TSCC, the easiest way to create a virtual evironment (aka `virtualenv`) is by making one off of the `base` environment, which already has a bunch of modules that we use all the time (`numpy`, `scipy`, `matplotlib`, `pandas`, `scikit-learn`, `ipython`, the list goes on). Here's how you do it:
 
+.. code::
+
     conda create --clone base --name yourname
 
 Then activate your environment with
 
+.. code::
+
     source activate yourname
 
 And exit it with,
+
+.. code::
 
     source deactivate
 
@@ -37,9 +45,13 @@ Installing/upgrading packages
 
 To install Python packages first try `conda install`:
 
+.. code::
+
     conda install pandas
 
 If there is no package in conda, then (and ONLY then) try `pip`:
+
+.. code::
 
     pip install pandas
 
@@ -48,13 +60,19 @@ Useful things to do on TSCC
 
 Submit jobs:
 
+.. code::
+
     qstat -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00 myscript.sh
 
 Submit an interactive job:
 
+.. code::
+
     qstat -I -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00
 
 Check the status of your jobs:
+
+.. code::
 
     qstat -u $(whoami)
 
@@ -62,9 +80,13 @@ If you have installed `gscripts` and you `source`
 `gscripts/bashrc/tscc_bash_settings_current`, then you can do the same thing
 with `qme`:
 
+.. code::
+
     qme
 
 This outputs,
+
+.. code::
 
     (olga)[obotvinnik@tscc-login2 ~]$ qme
 
@@ -78,13 +100,19 @@ This outputs,
 
 Check the status of your array jobs:
 
+.. code::
+
     qstat -t
 
 Check the status of the queue (so you know which queues to NOT submit to!)
 
+.. code::
+
     qstat -q
 
 Example output is,
+
+.. code::
 
     (olga)[obotvinnik@tscc-login2 ~]$ qstat -q
 
