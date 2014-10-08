@@ -46,6 +46,14 @@ If there is no package in conda, then (and ONLY then) try `pip`:
 Useful things to do on TSCC
 ---------------------------
 
+Submit jobs:
+
+    qstat -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00 myscript.sh
+
+Submit an interactive job:
+
+    qstat -I -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00
+
 Check the status of your jobs:
 
     qstat -u $(whoami)
@@ -68,6 +76,50 @@ This outputs,
     2007542.tscc-mgr.local  obotvinnik  home-yeo STDIN              6168     1      1    --   08:00:00 R  00:28:08
     2007621.tscc-mgr.local  obotvinnik  home-yeo STDIN               --      1     16    --   04:00:00 Q       --
 
+Check the status of your array jobs:
+
+    qstat -t
+
+Check the status of the queue (so you know which queues to NOT submit to!)
+
+    qstat -q
+
+Example output is,
+
+    (olga)[obotvinnik@tscc-login2 ~]$ qstat -q
+
+    server: tscc-mgr.local
+
+    Queue            Memory CPU Time Walltime Node  Run Que Lm  State
+    ---------------- ------ -------- -------- ----  --- --- --  -----
+    home-dkeres        --      --       --      --    2   0 --   E R
+    home-komunjer      --      --       --      --    0   0 --   E R
+    home-ong           --      --       --      --    2   0 --   E R
+    home-tg            --      --       --      --    0   0 --   E R
+    home-yeo           --      --       --      --    3   1 --   E R
+    home-visres        --      --       --      --    0   0 --   E R
+    home-mccammon      --      --       --      --   15  29 --   E R
+    home-scrm          --      --       --      --    1   0 --   E R
+    hotel              --      --    168:00:0   --  232  26 --   E R
+    home-k4zhang       --      --       --      --    0   0 --   E R
+    home-kkey          --      --       --      --    0   0 --   E R
+    home-kyang         --      --       --      --    2   1 --   E R
+    home-jsebat        --      --       --      --    1   0 --   E R
+    pdafm              --      --    72:00:00   --    1   0 --   E R
+    condo              --      --    08:00:00   --   18   6 --   E R
+    gpu-hotel          --      --    336:00:0   --    0   0 --   E R
+    glean              --      --       --      --   24  75 --   E R
+    gpu-condo          --      --    08:00:00   --   16  36 --   E R
+    home-fpaesani      --      --       --      --    4   2 --   E R
+    home-builder       --      --       --      --    0   0 --   E R
+    home               --      --       --      --    0   0 --   E R
+    home-mgilson       --      --       --      --    0   4 --   E R
+    home-eallen        --      --       --      --    0   0 --   E R
+                                                   ----- -----
+                                                     321   180
+
+So right now is not a good time to submit to the `hotel` queue,
+since it has a bunch of both running and queued jobs!
 
 .. _Jim Hayes: jhayes@sdsc.edu
 .. _YeoLab: http://github.com/YeoLab
