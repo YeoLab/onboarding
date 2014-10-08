@@ -52,14 +52,14 @@ endif
 
 # Copy contents from $(BUILDDIR) to $(DEPLOY_DIR)/$(DEPLOY_HTML_DIR) directory
 ifndef DEPLOY_HTML_DIR
-DEPLOY_HTML_DIR = docs
+DEPLOY_HTML_DIR =
 endif
 
 
 ## -- Rsync Deploy config -- ##
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
 ifndef SSH_USER
-SSH_USER       = user@domain.com
+SSH_USER       = olga.botvinnik@gmail.com
 endif
 
 ifndef SSH_PORT
@@ -90,7 +90,7 @@ endif
 #if REPO_URL_GITHUB was NOT defined by travis-ci
 ifndef REPO_URL_GITHUB
 # Configure your right github project repo
-# REPO_URL       = git@github.com:YeoLab/welcome.git
+REPO_URL       = git@github.com:YeoLab/welcome.git
 endif
 
 ## -- Heroku Deployment Config -- ##
