@@ -109,11 +109,11 @@ RSYNC_DELETE_OPT = --delete
 endif
 
 init_gh_pages:
-    echo DEPLOY_DIR is, $(DEPLOY_DIR)
+    echo "DEPLOY_DIR is" $(DEPLOY_DIR)
 	rm -rf $(DEPLOY_DIR)
 	mkdir -p $(DEPLOY_DIR)
 	cd $(DEPLOY_DIR); git init;\
-		echo 'sphinx docs comming soon...' > index.html;\
+		echo 'sphinx docs coming soon...' > index.html;\
 		touch .nojekyll;\
 		git add .; git commit -m "sphinx docs init";\
 		git branch -m $(DEPLOY_BRANCH_GITHUB);\
