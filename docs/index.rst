@@ -154,6 +154,71 @@ Example output is,
 So right now is not a good time to submit to the ``hotel`` queue,
 since it has a bunch of both running and queued jobs!
 
+
+IPython notebooks on TSCC
+-------------------------
+
+1. To set up IPython notebooks on TSCC, you will want to add some ``alias``es to
+ your ``~/.bashrc``. First, on your personal computer, you will want to set up
+ `passwordless ``ssh```_ from your laptop to TSCC. On my laptop,
+ I have this alias in my `~/.bashrc` file:
+
+.. code:
+
+    IPYNB_PORT=[some number above 1024]
+    alias tscc='ssh obotvinnik@tscc-login2.sdsc.edu'
+
+This way, I can just type ``tscc`` and log onto ``tscc-login2``
+**specifically**. It is important for IPython notebooks that you always log
+on to the same node. You can use ``tscc-login1`` instead, too,
+this is just what I have set up. Just replace my login name
+("``obotvinnik``") with yours.
+
+2. Next, type ``tscc`` and log on to the server.
+
+3. On TSCC, add these lines to your ``~/.bashrc`` file.
+
+.. code::
+
+    IPYNB_PORT=[same number as above IPYNB_PORT]
+    alias ipynb="ipython notebook --no-browser --port $IPYNB_PORT --matplotlib inline &"
+    alias sshtscc="ssh -NR $IPYNB_PORT:localhost:$IPYNB_PORT tscc-login2 &"
+
+Notice that in ``sshtscc``, I use the same port as I logged in to,
+`tscc-login2`. The ampersands "`&`" at the end of the lines tell the computer
+ to run these processes in the background, which is super useful.
+
+4. Now that you have those set up, start up a ``screen`` session,
+which allows you to have something running continuously,
+without being logged in.
+
+.. code::
+
+    screen -x
+
+5. In this ``screen`` session, now request an interactive job, e.g.:
+
+.. code::
+
+    qsub -I -l walltime=8:00:00 -q home-yeo -l nodes=1:ppn=8
+
+6. Wait for the job to start, then type ``ipynb``, press ``ENTER``,
+then ``sshtscc`` and press ``ENTER``. again.
+
+7. Back on your home laptop, type
+
+.. code::
+
+    ssh -NL $IPYNB_PORT:localhost:$IPYNB_PORT yourname@tscc-login2.sdsc.edu &
+
+Make sure to replace "``yourname``" with your TSCC login :)
+
+8. On your laptop, type the url ``http://localhost:[IPYNB_PORT]`` and replace
+ "``IPYNB_PORT``" with your actual numbers of the port you're using.
+
+You should now have IPython notebooks on TSCC!
+
+.. _passwordless ``ssh``: http://www.linuxproblem.org/art_9.html
 .. _Jim Hayes: jhayes@sdsc.edu
 .. _YeoLab: http://github.com/YeoLab
 .. _brew: http://brew.sh
