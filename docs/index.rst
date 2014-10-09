@@ -8,8 +8,7 @@ Welcome to YeoLab/welcome's documentation!
 
 1. First thing you'll want to do is get an account on TSCC. Email `Jim Hayes`_
 
-2. Next, make sure you ask a drylab person to get added to the YeoLab_ group
-on TSCC (called ``yeo-group``).
+2. Next, make sure you ask a drylab person to get added to the YeoLab_ group on TSCC (called ``yeo-group``).
 
 3. If you don't have a Github_ account yet, go make one.
 
@@ -159,9 +158,9 @@ IPython notebooks on TSCC
 -------------------------
 
 1. To set up IPython notebooks on TSCC, you will want to add some ``alias``es to
- your ``~/.bashrc``. First, on your personal computer, you will want to set up
- `passwordless ``ssh```_ from your laptop to TSCC. On my laptop,
- I have this alias in my `~/.bashrc` file:
+your ``~/.bashrc``. First, on your personal computer, you will want to set up
+`passwordless ``ssh```_ from your laptop to TSCC. On my laptop,
+I have this alias in my `~/.bashrc` file:
 
 .. code:
 
@@ -186,7 +185,7 @@ this is just what I have set up. Just replace my login name
 
 Notice that in ``sshtscc``, I use the same port as I logged in to,
 `tscc-login2`. The ampersands "`&`" at the end of the lines tell the computer
- to run these processes in the background, which is super useful.
+to run these processes in the background, which is super useful.
 
 4. Now that you have those set up, start up a ``screen`` session,
 which allows you to have something running continuously,
@@ -214,7 +213,7 @@ then ``sshtscc`` and press ``ENTER``. again.
 Make sure to replace "``yourname``" with your TSCC login :)
 
 8. On your laptop, type the url ``http://localhost:[IPYNB_PORT]`` and replace
- "``IPYNB_PORT``" with your actual numbers of the port you're using.
+"``IPYNB_PORT``" with your actual numbers of the port you're using.
 
 You should now have IPython notebooks on TSCC!
 
