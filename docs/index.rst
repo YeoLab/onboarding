@@ -157,9 +157,9 @@ since it has a bunch of both running and queued jobs!
 IPython notebooks on TSCC
 -------------------------
 
-1. To set up IPython notebooks on TSCC, you will want to add some ``alias``es to
-your ``~/.bashrc``. First, on your personal computer, you will want to set up
-`passwordless ``ssh```_ from your laptop to TSCC. On my laptop,
+1. To set up IPython notebooks on TSCC, you will want to add some ``alias``
+variables to your ``~/.bashrc``. First, on your personal computer, you will want to set up
+`passwordless ssh`_ from your laptop to TSCC. On my laptop,
 I have this alias in my `~/.bashrc` file:
 
 .. code:
@@ -201,8 +201,7 @@ without being logged in.
 
     qsub -I -l walltime=8:00:00 -q home-yeo -l nodes=1:ppn=8
 
-6. Wait for the job to start, then type ``ipynb``, press ``ENTER``,
-then ``sshtscc`` and press ``ENTER``. again.
+6. Wait for the job to start, then type ``ipynb``, press ``ENTER``, then ``sshtscc`` and press ``ENTER``. again.
 
 7. Back on your home laptop, type
 
