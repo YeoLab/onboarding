@@ -51,9 +51,9 @@ DEPLOY_DIR_HEROKU = _deploy_heroku
 endif
 
 # Copy contents from $(BUILDDIR) to $(DEPLOY_DIR)/$(DEPLOY_HTML_DIR) directory
-ifndef DEPLOY_HTML_DIR
+#ifndef DEPLOY_HTML_DIR
 DEPLOY_HTML_DIR =
-endif
+#endif
 
 
 ## -- Rsync Deploy config -- ##
