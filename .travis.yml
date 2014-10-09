@@ -4,6 +4,8 @@ before_script:
 - git config --global push.default simple
 - git config --global user.name "Olga Botvinnik"
 - git config --global user.email "olga.botvinnik@gmail.com"
+- git config --global push.default matching
+- git config --global pull.default matching
 - export REPO_URL_GITHUB="https://$GH_TOKEN@github.com/$GH_REPO.git"
 - . ./.travis/setup.sh
 - echo $DEPLOY_HTML_DIR
