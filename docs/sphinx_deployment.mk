@@ -109,7 +109,6 @@ RSYNC_DELETE_OPT = --delete
 endif
 
 init_gh_pages:
-    echo "DEPLOY_DIR is" $(DEPLOY_DIR)
     echo "DEPLOY_DIR is $(DEPLOY_DIR)"
 	rm -rf $(DEPLOY_DIR)
 	mkdir -p $(DEPLOY_DIR)
@@ -185,11 +184,11 @@ prepare_heroku_deployment:
 	@echo "Preparing heroku deployment..."
 	@echo "Pulling any updates from Heroku..."
 	@cd $(DEPLOY_DIR_HEROKU); git pull;
-	@mkdir -p $(DEPLOY_DIR_HEROKU)/public/$(DEPLOY_HTML_DIR)
+	@mkdir -p $(DEPLOY_DIR_HEROKU)/public/
 	@echo "Copying files from .deploy_heroku to $(DEPLOY_DIR_HEROKU)"
 	@cp -r .deploy_heroku/. $(DEPLOY_DIR_HEROKU)
-	@echo "Copying files from '$(BUILDDIR)/html/.' to '$(DEPLOY_DIR_HEROKU)/public/$(DEPLOY_HTML_DIR)'"
-	@cp -r $(BUILDDIR)/html/. $(DEPLOY_DIR_HEROKU)/public/$(DEPLOY_HTML_DIR)
+	@echo "Copying files from '$(BUILDDIR)/html/.' to '$(DEPLOY_DIR_HEROKU)/public/'"
+	@cp -r $(BUILDDIR)/html/. $(DEPLOY_DIR_HEROKU)/public/
 
 
 deploy_heroku: prepare_heroku_deployment
