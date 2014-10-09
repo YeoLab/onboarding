@@ -163,7 +163,7 @@ html_theme_options = {
     #
     # Options are nothing with "" (default) or the name of a valid theme
     # such as "amelia" or "cosmo".
-    'bootswatch_theme': "darkly",  #"united",
+    'bootswatch_theme': "lumen",  #"united",
 
     # Choose Bootstrap version.
     # Values: "3" (default) or "2" (in quotes)
