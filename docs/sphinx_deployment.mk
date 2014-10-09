@@ -159,7 +159,7 @@ prepare_rsync_deployment:
 	@echo "Preparing rsync deployment..."
 	@mkdir -p $(DEPLOY_DIR)/$(DEPLOY_HTML_DIR)
 	@echo "Copying files from '$(BUILDDIR)/html/.' to '$(DEPLOY_DIR)/$(DEPLOY_HTML_DIR)'"
-	@cp -r $(BUILDDIR)/html/. $(DEPLOY_DIR)/$(DEPLOY_HTML_DIR)
+	@cp -r $(BUILDDIR)/html/. $(DEPLOY_DIR)/
 
 deploy_rsync: prepare_rsync_deployment
 	@echo "Deploying on rsync now..."
@@ -171,7 +171,7 @@ prepare_gh_pages_deployment:
 	cd $(DEPLOY_DIR); git pull;
 	mkdir -p $(DEPLOY_DIR)/$(DEPLOY_HTML_DIR)
 	echo "Copying files from '$(BUILDDIR)/html/.' to '$(DEPLOY_DIR)/$(DEPLOY_HTML_DIR)'"
-	cp -r $(BUILDDIR)/html/. $(DEPLOY_DIR)/$(DEPLOY_HTML_DIR)
+	cp -r $(BUILDDIR)/html/. $(DEPLOY_DIR)/
 
 deploy_gh_pages: prepare_gh_pages_deployment
 	echo "Deploying on github pages now..."
