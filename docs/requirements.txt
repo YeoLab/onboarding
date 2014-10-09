@@ -1,7 +1,0 @@
-# pip requirements for docs generation
-# pip install -r docs/requirements.txt
-
-Sphinx
-fabric
-sphinx_bootstrap_theme
-runipy
