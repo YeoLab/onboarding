@@ -112,7 +112,7 @@ init_gh_pages:
 	@rm -rf $(DEPLOY_DIR)
 	@mkdir -p $(DEPLOY_DIR)
 	@cd $(DEPLOY_DIR); git init;\
-		echo 'sphinx docs coming soon...' > index.html;\
+		echo 'sphinx docs comming soon...' > index.html;\
 		touch .nojekyll;\
 		git add .; git commit -m "sphinx docs init";\
 		git branch -m $(DEPLOY_BRANCH_GITHUB);\
@@ -128,7 +128,7 @@ setup_gh_pages: init_gh_pages
 	@cd $(DEPLOY_DIR);\
 		git fetch origin;\
 		git reset --hard origin/$(DEPLOY_BRANCH_GITHUB);\
-		git branch --set-upstream-to $(DEPLOY_BRANCH_GITHUB) origin/$(DEPLOY_BRANCH_GITHUB)
+		git branch --set-upstream $(DEPLOY_BRANCH_GITHUB) origin/$(DEPLOY_BRANCH_GITHUB)
 	@echo "Now you can deploy to Github Pages with 'make generate' and then 'make deploy_gh_pages'"
 
 init_heroku:
@@ -136,7 +136,7 @@ init_heroku:
 	@mkdir -p $(DEPLOY_DIR_HEROKU)
 	@cd $(DEPLOY_DIR_HEROKU); git init;\
 		cp -r ../.deploy_heroku/* .;\
-		echo 'sphinx docs coming soon...' > public/index.html;\
+		echo 'sphinx docs comming soon...' > public/index.html;\
 		git add .; git commit -m "sphinx docs init";\
 		git remote add origin $(REPO_URL_HEROKU);
 	@cd $(DEPLOY_DIR_HEROKU);\
@@ -168,10 +168,10 @@ deploy_rsync: prepare_rsync_deployment
 prepare_gh_pages_deployment:
 	@echo "Preparing gh_pages deployment..."
 	@echo "Pulling any updates from Github Pages..."
-	@cd $(DEPLOY_DIR); git pull origin gh-pages; git push --set-upstream origin gh-pages
+	@cd $(DEPLOY_DIR); git pull;
 	@mkdir -p $(DEPLOY_DIR)/$(DEPLOY_HTML_DIR)
-	@echo "Copying files from '$(BUILDDIR)/html/.' to '$(DEPLOY_DIR)'"
-	@cp -r $(BUILDDIR)/html/. $(DEPLOY_DIR)
+	@echo "Copying files from '$(BUILDDIR)/html/.' to '$(DEPLOY_DIR)/$(DEPLOY_HTML_DIR)'"
+	@cp -r $(BUILDDIR)/html/. $(DEPLOY_DIR)/$(DEPLOY_HTML_DIR)
 
 deploy_gh_pages: prepare_gh_pages_deployment
 	@echo "Deploying on github pages now..."
