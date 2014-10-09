@@ -109,6 +109,7 @@ RSYNC_DELETE_OPT = --delete
 endif
 
 init_gh_pages:
+    echo DEPLOY_DIR is, $(DEPLOY_DIR)
 	rm -rf $(DEPLOY_DIR)
 	mkdir -p $(DEPLOY_DIR)
 	cd $(DEPLOY_DIR); git init;\
@@ -128,7 +129,7 @@ setup_gh_pages: init_gh_pages
 	cd $(DEPLOY_DIR);\
 		git fetch origin;\
 		git reset --hard origin/$(DEPLOY_BRANCH_GITHUB);\
-		git branch --set-upstream-to origin/$(DEPLOY_BRANCH_GITHUB) $(DEPLOY_BRANCH_GITHUB)
+		git branch --set-upstream-to origin/$(DEPLOY_BRANCH_GITHUB)
 	echo "Now you can deploy to Github Pages with 'make generate' and then 'make deploy_gh_pages'"
 
 init_heroku:
