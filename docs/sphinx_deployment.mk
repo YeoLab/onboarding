@@ -40,9 +40,9 @@ DEPLOY_DEFAULT = deploy_gh_pages
 endif
 
 # The deployment directory to be deployed
-ifndef DEPLOY_DIR
+#ifndef DEPLOY_DIR
 DEPLOY_DIR      = _deploy
-endif
+#endif
 
 # The heroku deployment directory to be deployed
 # we must create this separated dir to avoid any conflict with _deploy (rsync and gh_pages)
