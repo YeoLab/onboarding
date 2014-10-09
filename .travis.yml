@@ -17,9 +17,9 @@ after_script:
 - sudo apt-get install pandoc libzmq-dev
 - sudo pip install --allow-all-external --pre -r docs/requirements.txt --use-mirrors
 - cd docs
-- make -d setup_gh_pages
-- make -d generate
-- make -d deploy
+- make setup_gh_pages
+- make generate
+- make deploy
 
 env:
   global:
