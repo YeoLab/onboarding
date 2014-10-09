@@ -35,7 +35,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body>
+  <body role="document">
 
   <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
     <div class="container">
@@ -80,9 +80,10 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Welcome to YeoLab/welcome&#8217;s documentation!</a><ul>
-<li><a class="reference internal" href="#make-a-virtual-environment">Make a virtual environment</a></li>
+<li><a class="reference internal" href="#make-a-virtual-environment-on-tscc">Make a virtual environment on TSCC</a></li>
 <li><a class="reference internal" href="#installing-upgrading-packages">Installing/upgrading packages</a></li>
 <li><a class="reference internal" href="#useful-things-to-do-on-tscc">Useful things to do on TSCC</a></li>
+<li><a class="reference internal" href="#ipython-notebooks-on-tscc">IPython notebooks on TSCC</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
@@ -128,16 +129,24 @@
   <div class="section" id="welcome-to-yeolab-welcome-s-documentation">
 <h1>Welcome to YeoLab/welcome&#8217;s documentation!<a class="headerlink" href="#welcome-to-yeolab-welcome-s-documentation" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
-<li>First thing you&#8217;ll want to do is get an account on TSCC. Email <a href="#id1"><span class="problematic" id="id2">`Jim Hayes`__</span></a></li>
-<li>Next, make sure you ask a drylab person to get added to the <a class="reference external" href="http://github.com/YeoLab">YeoLab</a> group.</li>
+<li>First thing you&#8217;ll want to do is get an account on TSCC. Email <a class="reference external" href="mailto:jhayes&#37;&#52;&#48;sdsc&#46;edu">Jim Hayes</a></li>
+</ol>
+<p>2. Next, make sure you ask a drylab person to get added to the <a class="reference external" href="http://github.com/YeoLab">YeoLab</a> group
+on TSCC (called <code class="docutils literal"><span class="pre">yeo-group</span></code>).</p>
+<ol class="arabic simple" start="3">
+<li>If you don&#8217;t have a <a class="reference external" href="http://github.com/">Github</a> account yet, go make one.</li>
+<li>Ask to get added to the YeoLab group on Github.</li>
 <li>Install <a class="reference external" href="https://hub.github.com/">hub</a>. If you have a Mac, install via <a class="reference external" href="http://brew.sh">brew</a>.</li>
-<li>Clone the <tt class="docutils literal"><span class="pre">gscripts</span></tt> repository:</li>
+<li>Clone the <code class="docutils literal"><span class="pre">gscripts</span></code> repository:</li>
 </ol>
 <div class="code highlight-python"><div class="highlight"><pre>hub clone YeoLab/gscripts
 </pre></div>
 </div>
-<div class="section" id="make-a-virtual-environment">
-<h2>Make a virtual environment<a class="headerlink" href="#make-a-virtual-environment" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple" start="7">
+<li>Install <a class="reference external" href="http://www.jetbrains.com/pycharm/">PyCharm</a> (Community edition is fine).</li>
+</ol>
+<div class="section" id="make-a-virtual-environment-on-tscc">
+<h2>Make a virtual environment on TSCC<a class="headerlink" href="#make-a-virtual-environment-on-tscc" title="Permalink to this headline">¶</a></h2>
 <p>On TSCC, the easiest way to create a virtual evironment (aka <cite>virtualenv</cite>) is by making one off of the <cite>base</cite> environment, which already has a bunch of modules that we use all the time (<cite>numpy</cite>, <cite>scipy</cite>, <cite>matplotlib</cite>, <cite>pandas</cite>, <cite>scikit-learn</cite>, <cite>ipython</cite>, the list goes on). Here&#8217;s how you do it:</p>
 <div class="code highlight-python"><div class="highlight"><pre>conda create --clone base --name yourname
 </pre></div>
@@ -176,9 +185,9 @@
 <div class="code highlight-python"><div class="highlight"><pre>qstat -u $(whoami)
 </pre></div>
 </div>
-<p>If you have installed <cite>gscripts</cite> and you <cite>source</cite>
-<cite>gscripts/bashrc/tscc_bash_settings_current</cite>, then you can do the same thing
-with <cite>qme</cite>:</p>
+<p>If you have installed <code class="docutils literal"><span class="pre">gscripts</span></code> and you <code class="docutils literal"><span class="pre">source</span></code>
+<code class="docutils literal"><span class="pre">gscripts/bashrc/tscc_bash_settings_current</span></code>, then you can do the same thing
+with <code class="docutils literal"><span class="pre">qme</span></code>:</p>
 <div class="code highlight-python"><div class="highlight"><pre><span class="n">qme</span>
 </pre></div>
 </div>
@@ -236,8 +245,63 @@ home-eallen        --      --       --      --    0   0 --   E R
                                                  321   180
 </pre></div>
 </div>
-<p>So right now is not a good time to submit to the <cite>hotel</cite> queue,
+<p>So right now is not a good time to submit to the <code class="docutils literal"><span class="pre">hotel</span></code> queue,
 since it has a bunch of both running and queued jobs!</p>
+</div>
+<div class="section" id="ipython-notebooks-on-tscc">
+<h2>IPython notebooks on TSCC<a class="headerlink" href="#ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>To set up IPython notebooks on TSCC, you will want to add some <a href="#id1"><span class="problematic" id="id2">``</span></a>alias``es to</li>
+</ol>
+<blockquote>
+<div>your <code class="docutils literal"><span class="pre">~/.bashrc</span></code>. First, on your personal computer, you will want to set up
+<a class="reference external" href="http://www.linuxproblem.org/art_9.html">passwordless ``ssh``</a> from your laptop to TSCC. On my laptop,
+I have this alias in my <cite>~/.bashrc</cite> file:</div></blockquote>
+<p>This way, I can just type <code class="docutils literal"><span class="pre">tscc</span></code> and log onto <code class="docutils literal"><span class="pre">tscc-login2</span></code>
+<strong>specifically</strong>. It is important for IPython notebooks that you always log
+on to the same node. You can use <code class="docutils literal"><span class="pre">tscc-login1</span></code> instead, too,
+this is just what I have set up. Just replace my login name
+(&#8220;<code class="docutils literal"><span class="pre">obotvinnik</span></code>&#8221;) with yours.</p>
+<ol class="arabic simple" start="2">
+<li>Next, type <code class="docutils literal"><span class="pre">tscc</span></code> and log on to the server.</li>
+<li>On TSCC, add these lines to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file.</li>
+</ol>
+<div class="code highlight-python"><div class="highlight"><pre>IPYNB_PORT=[same number as above IPYNB_PORT]
+alias ipynb=&quot;ipython notebook --no-browser --port $IPYNB_PORT --matplotlib inline &amp;&quot;
+alias sshtscc=&quot;ssh -NR $IPYNB_PORT:localhost:$IPYNB_PORT tscc-login2 &amp;&quot;
+</pre></div>
+</div>
+<p>Notice that in <code class="docutils literal"><span class="pre">sshtscc</span></code>, I use the same port as I logged in to,
+<cite>tscc-login2</cite>. The ampersands &#8220;<cite>&amp;</cite>&#8221; at the end of the lines tell the computer</p>
+<blockquote>
+<div>to run these processes in the background, which is super useful.</div></blockquote>
+<p>4. Now that you have those set up, start up a <code class="docutils literal"><span class="pre">screen</span></code> session,
+which allows you to have something running continuously,
+without being logged in.</p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="n">screen</span> <span class="o">-</span><span class="n">x</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>In this <code class="docutils literal"><span class="pre">screen</span></code> session, now request an interactive job, e.g.:</li>
+</ol>
+<div class="code highlight-python"><div class="highlight"><pre>qsub -I -l walltime=8:00:00 -q home-yeo -l nodes=1:ppn=8
+</pre></div>
+</div>
+<p>6. Wait for the job to start, then type <code class="docutils literal"><span class="pre">ipynb</span></code>, press <code class="docutils literal"><span class="pre">ENTER</span></code>,
+then <code class="docutils literal"><span class="pre">sshtscc</span></code> and press <code class="docutils literal"><span class="pre">ENTER</span></code>. again.</p>
+<ol class="arabic simple" start="7">
+<li>Back on your home laptop, type</li>
+</ol>
+<div class="code highlight-python"><div class="highlight"><pre>ssh -NL $IPYNB_PORT:localhost:$IPYNB_PORT yourname@tscc-login2.sdsc.edu &amp;
+</pre></div>
+</div>
+<p>Make sure to replace &#8220;<code class="docutils literal"><span class="pre">yourname</span></code>&#8221; with your TSCC login :)</p>
+<ol class="arabic simple" start="8">
+<li>On your laptop, type the url <code class="docutils literal"><span class="pre">http://localhost:[IPYNB_PORT]</span></code> and replace</li>
+</ol>
+<blockquote>
+<div>&#8220;<code class="docutils literal"><span class="pre">IPYNB_PORT</span></code>&#8221; with your actual numbers of the port you&#8217;re using.</div></blockquote>
+<p>You should now have IPython notebooks on TSCC!</p>
 </div>
 </div>
 <div class="section" id="indices-and-tables">
@@ -262,7 +326,7 @@ since it has a bunch of both running and queued jobs!</p>
     </p>
     <p>
         &copy; Copyright 2014, Olga Botvinnik.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3b1.<br/>
     </p>
   </div>
 </footer>
