@@ -112,7 +112,7 @@ html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 # theme further.
 html_theme_options = {
     # Navigation bar title. (Default: ``project`` value)
-    'navbar_title': "Flotilla",
+    'navbar_title': "Welcome",
 
     # Tab name for entire site. (Default: "Site")
     'navbar_site_name': "Site",
@@ -164,7 +164,7 @@ html_theme_options = {
     #
     # Options are nothing with "" (default) or the name of a valid theme
     # such as "amelia" or "cosmo".
-    'bootswatch_theme': "flatly",  #"united",
+    'bootswatch_theme': "darkly",  #"united",
 
     # Choose Bootstrap version.
     # Values: "3" (default) or "2" (in quotes)
