@@ -140,10 +140,7 @@
 <h2>Set up your computer for drylab development<a class="headerlink" href="#set-up-your-computer-for-drylab-development" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>First thing you&#8217;ll want to do is get an account on TSCC. Email <a class="reference external" href="mailto:jhayes&#37;&#52;&#48;sdsc&#46;edu">Jim Hayes</a></li>
-</ol>
-<p>2. Next, make sure you ask a drylab person to get added to the <a class="reference external" href="http://github.com/YeoLab">YeoLab</a> group
-on TSCC (called <code class="docutils literal"><span class="pre">yeo-group</span></code>).</p>
-<ol class="arabic simple" start="3">
+<li>Next, make sure you ask a drylab person to get added to the <a class="reference external" href="http://github.com/YeoLab">YeoLab</a> group on TSCC (called <code class="docutils literal"><span class="pre">yeo-group</span></code>).</li>
 <li>If you don&#8217;t have a <a class="reference external" href="http://github.com/">Github</a> account yet, go make one.</li>
 <li>Ask to get added to the YeoLab group on Github.</li>
 <li>Install <a class="reference external" href="https://hub.github.com/">hub</a>. If you have a Mac, install via <a class="reference external" href="http://brew.sh">brew</a>.</li>
@@ -261,13 +258,10 @@ since it has a bunch of both running and queued jobs!</p>
 </div>
 <div class="section" id="ipython-notebooks-on-tscc">
 <h2>IPython notebooks on TSCC<a class="headerlink" href="#ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>To set up IPython notebooks on TSCC, you will want to add some <a href="#id1"><span class="problematic" id="id2">``</span></a>alias``es to</li>
-</ol>
-<blockquote>
-<div>your <code class="docutils literal"><span class="pre">~/.bashrc</span></code>. First, on your personal computer, you will want to set up
+<p>1. To set up IPython notebooks on TSCC, you will want to add some <code class="docutils literal"><span class="pre">alias``es</span> <span class="pre">to</span>
+<span class="pre">your</span> <span class="pre">``~/.bashrc</span></code>. First, on your personal computer, you will want to set up
 <a class="reference external" href="http://www.linuxproblem.org/art_9.html">passwordless ``ssh``</a> from your laptop to TSCC. On my laptop,
-I have this alias in my <cite>~/.bashrc</cite> file:</div></blockquote>
+I have this alias in my <cite>~/.bashrc</cite> file:</p>
 <p>This way, I can just type <code class="docutils literal"><span class="pre">tscc</span></code> and log onto <code class="docutils literal"><span class="pre">tscc-login2</span></code>
 <strong>specifically</strong>. It is important for IPython notebooks that you always log
 on to the same node. You can use <code class="docutils literal"><span class="pre">tscc-login1</span></code> instead, too,
@@ -283,9 +277,8 @@ alias sshtscc=&quot;ssh -NR $IPYNB_PORT:localhost:$IPYNB_PORT tscc-login2 &amp;&
 </pre></div>
 </div>
 <p>Notice that in <code class="docutils literal"><span class="pre">sshtscc</span></code>, I use the same port as I logged in to,
-<cite>tscc-login2</cite>. The ampersands &#8220;<cite>&amp;</cite>&#8221; at the end of the lines tell the computer</p>
-<blockquote>
-<div>to run these processes in the background, which is super useful.</div></blockquote>
+<cite>tscc-login2</cite>. The ampersands &#8220;<cite>&amp;</cite>&#8221; at the end of the lines tell the computer
+to run these processes in the background, which is super useful.</p>
 <p>4. Now that you have those set up, start up a <code class="docutils literal"><span class="pre">screen</span></code> session,
 which allows you to have something running continuously,
 without being logged in.</p>
