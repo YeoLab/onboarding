@@ -28,8 +28,9 @@ Set up your computer for drylab development
 .. code::
 
     hub clone YeoLab/gscripts
+7. Install the `Anaconda Python Distribution`_ to your laptop.
 
-7. Install PyCharm_ (Community edition is fine).
+8. Install PyCharm_ (Community edition is fine).
 
 Make a virtual environment on TSCC
 ----------------------------------
@@ -243,6 +244,7 @@ You should now have IPython notebooks on TSCC!
 .. _Github: http://github.com/
 .. _PyCharm: http://www.jetbrains.com/pycharm/
 .. _Shashank: shas.sathe@gmail.com
+.. _Anaconda Python Distribution: http://continuum.io/downloads
 
 Indices and tables
 ==================
