@@ -112,7 +112,7 @@ html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 # theme further.
 html_theme_options = {
     # Navigation bar title. (Default: ``project`` value)
-    'navbar_title': "Flotilla",
+    'navbar_title': "Yeolab Onboarding",
 
     # Tab name for entire site. (Default: "Site")
     'navbar_site_name': "Site",
@@ -125,8 +125,7 @@ html_theme_options = {
     # Note the "1" or "True" value above as the third argument to indicate
     # an arbitrary url.
     'navbar_links': [
-        ("YeoLab", "http://yeolab.ucsd.edu"),
-        ("Link", "http://example.com", True),
+        ("YeoLab@UCSD", "http://yeolab.ucsd.edu"),
     ],
 
     # Render the next and previous page links in navbar. (Default: true)
