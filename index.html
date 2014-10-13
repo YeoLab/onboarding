@@ -155,7 +155,14 @@
 </div>
 <div class="section" id="make-a-virtual-environment-on-tscc">
 <h2>Make a virtual environment on TSCC<a class="headerlink" href="#make-a-virtual-environment-on-tscc" title="Permalink to this headline">¶</a></h2>
-<p>On TSCC, the easiest way to create a virtual evironment (aka <cite>virtualenv</cite>) is by making one off of the <cite>base</cite> environment, which already has a bunch of modules that we use all the time (<cite>numpy</cite>, <cite>scipy</cite>, <cite>matplotlib</cite>, <cite>pandas</cite>, <cite>scikit-learn</cite>, <cite>ipython</cite>, the list goes on). Here&#8217;s how you do it:</p>
+<p>On TSCC, the easiest way to create a virtual evironment (aka <code class="docutils literal"><span class="pre">virtualenv</span></code>)
+is by making one off of the <code class="docutils literal"><span class="pre">base</span></code> environment, which already has a bunch of</p>
+<blockquote>
+<div><p>modules that we use all the time (<code class="docutils literal"><span class="pre">numpy</span></code>, <code class="docutils literal"><span class="pre">scipy</span></code>, <code class="docutils literal"><span class="pre">matplotlib</span></code>,
+<code class="docutils literal"><span class="pre">pandas</span></code>,</p>
+<blockquote>
+<div><cite>scikit-learn</cite>, <cite>ipython</cite>, the list goes on). Here&#8217;s how you do it:</div></blockquote>
+</div></blockquote>
 <div class="code highlight-python"><div class="highlight"><pre>conda create --clone base --name yourname
 </pre></div>
 </div>
@@ -187,6 +194,11 @@
 </div>
 <p>Submit an interactive job:</p>
 <div class="code highlight-python"><div class="highlight"><pre>qstat -I -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00
+</pre></div>
+</div>
+<p>To submit to the <code class="docutils literal"><span class="pre">home-scrm</span></code> queue, add <code class="docutils literal"><span class="pre">-W</span> <span class="pre">group_list=scrm-group</span></code> to
+your <code class="docutils literal"><span class="pre">qsub</span></code> command:</p>
+<div class="code highlight-python"><div class="highlight"><pre>qsub -I -l walltime=0:30:00 -q home-scrm -W group_list=scrm-group
 </pre></div>
 </div>
 <p>Check the status of your jobs:</p>
@@ -258,9 +270,10 @@ since it has a bunch of both running and queued jobs!</p>
 </div>
 <div class="section" id="ipython-notebooks-on-tscc">
 <h2>IPython notebooks on TSCC<a class="headerlink" href="#ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h2>
-<p>1. To set up IPython notebooks on TSCC, you will want to add some <code class="docutils literal"><span class="pre">alias``es</span> <span class="pre">to</span>
-<span class="pre">your</span> <span class="pre">``~/.bashrc</span></code>. First, on your personal computer, you will want to set up
-<a class="reference external" href="http://www.linuxproblem.org/art_9.html">passwordless ``ssh``</a> from your laptop to TSCC. On my laptop,
+<p>1. To set up IPython notebooks on TSCC, you will want to add some <code class="docutils literal"><span class="pre">alias</span></code>
+variables to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code>. First, on your personal computer,
+you will want to set up
+<a class="reference external" href="http://www.linuxproblem.org/art_9.html">passwordless ssh</a> from your laptop to TSCC. On my laptop,
 I have this alias in my <cite>~/.bashrc</cite> file:</p>
 <p>This way, I can just type <code class="docutils literal"><span class="pre">tscc</span></code> and log onto <code class="docutils literal"><span class="pre">tscc-login2</span></code>
 <strong>specifically</strong>. It is important for IPython notebooks that you always log
@@ -300,11 +313,8 @@ then <code class="docutils literal"><span class="pre">sshtscc</span></code> and 
 </pre></div>
 </div>
 <p>Make sure to replace &#8220;<code class="docutils literal"><span class="pre">yourname</span></code>&#8221; with your TSCC login :)</p>
-<ol class="arabic simple" start="8">
-<li>On your laptop, type the url <code class="docutils literal"><span class="pre">http://localhost:[IPYNB_PORT]</span></code> and replace</li>
-</ol>
-<blockquote>
-<div>&#8220;<code class="docutils literal"><span class="pre">IPYNB_PORT</span></code>&#8221; with your actual numbers of the port you&#8217;re using.</div></blockquote>
+<p>8. On your laptop, type the url <code class="docutils literal"><span class="pre">http://localhost:[IPYNB_PORT]</span></code> and replace
+&#8220;<code class="docutils literal"><span class="pre">IPYNB_PORT</span></code>&#8221; with your actual numbers of the port you&#8217;re using.</p>
 <p>You should now have IPython notebooks on TSCC!</p>
 </div>
 </div>

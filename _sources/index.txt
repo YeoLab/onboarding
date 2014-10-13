@@ -34,7 +34,11 @@ Set up your computer for drylab development
 Make a virtual environment on TSCC
 ----------------------------------
 
-On TSCC, the easiest way to create a virtual evironment (aka `virtualenv`) is by making one off of the `base` environment, which already has a bunch of modules that we use all the time (`numpy`, `scipy`, `matplotlib`, `pandas`, `scikit-learn`, `ipython`, the list goes on). Here's how you do it:
+On TSCC, the easiest way to create a virtual evironment (aka ``virtualenv``)
+is by making one off of the ``base`` environment, which already has a bunch of
+ modules that we use all the time (``numpy``, ``scipy``, ``matplotlib``,
+ ``pandas``,
+  `scikit-learn`, `ipython`, the list goes on). Here's how you do it:
 
 .. code::
 
@@ -81,6 +85,13 @@ Submit an interactive job:
 .. code::
 
     qstat -I -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00
+
+To submit to the ``home-scrm`` queue, add ``-W group_list=scrm-group`` to
+your ``qsub`` command:
+
+.. code::
+
+    qsub -I -l walltime=0:30:00 -q home-scrm -W group_list=scrm-group
 
 Check the status of your jobs:
 
@@ -165,9 +176,10 @@ since it has a bunch of both running and queued jobs!
 IPython notebooks on TSCC
 -------------------------
 
-1. To set up IPython notebooks on TSCC, you will want to add some ``alias``es to
-your ``~/.bashrc``. First, on your personal computer, you will want to set up
-`passwordless ``ssh```_ from your laptop to TSCC. On my laptop,
+1. To set up IPython notebooks on TSCC, you will want to add some ``alias``
+variables to your ``~/.bashrc``. First, on your personal computer,
+you will want to set up
+`passwordless ssh`_ from your laptop to TSCC. On my laptop,
 I have this alias in my `~/.bashrc` file:
 
 .. code:
@@ -221,11 +233,11 @@ then ``sshtscc`` and press ``ENTER``. again.
 Make sure to replace "``yourname``" with your TSCC login :)
 
 8. On your laptop, type the url ``http://localhost:[IPYNB_PORT]`` and replace
- "``IPYNB_PORT``" with your actual numbers of the port you're using.
+"``IPYNB_PORT``" with your actual numbers of the port you're using.
 
 You should now have IPython notebooks on TSCC!
 
-.. _passwordless ``ssh``: http://www.linuxproblem.org/art_9.html
+.. _passwordless ssh: http://www.linuxproblem.org/art_9.html
 .. _Jim Hayes: jhayes@sdsc.edu
 .. _YeoLab: http://github.com/YeoLab
 .. _brew: http://brew.sh
