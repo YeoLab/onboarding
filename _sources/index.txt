@@ -36,9 +36,9 @@ Make a virtual environment on TSCC
 
 On TSCC, the easiest way to create a virtual evironment (aka ``virtualenv``)
 is by making one off of the ``base`` environment, which already has a bunch of
-modules that we use all the time (``numpy``, ``scipy``, ``matplotlib``,
-``pandas``, ``scikit-learn``, ``ipython``, the list goes on). Here's how you
-do it:
+ modules that we use all the time (``numpy``, ``scipy``, ``matplotlib``,
+ ``pandas``,
+  `scikit-learn`, `ipython`, the list goes on). Here's how you do it:
 
 .. code::
 
