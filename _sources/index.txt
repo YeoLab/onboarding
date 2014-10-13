@@ -6,6 +6,14 @@
 Welcome to YeoLab/welcome's documentation!
 ==========================================
 
+Email lists
+-----------
+
+* Email Shashank_ to get onto the "All Yeo" mailing list.
+
+Set up your computer for drylab development
+-------------------------------------------
+
 1. First thing you'll want to do is get an account on TSCC. Email `Jim Hayes`_
 
 2. Next, make sure you ask a drylab person to get added to the YeoLab_ group
@@ -225,6 +233,7 @@ You should now have IPython notebooks on TSCC!
 .. _hub: https://hub.github.com/
 .. _Github: http://github.com/
 .. _PyCharm: http://www.jetbrains.com/pycharm/
+.. _Shashank: shas.sathe@gmail.com
 
 Indices and tables
 ==================
