@@ -9,7 +9,7 @@ Welcome to YeoLab/welcome's documentation!
 Email lists
 -----------
 
-* Email Keri_ to get onto the "All Yeo" mailing list.
+* Email Shashank_ to get onto the "All Yeo" mailing list.
 
 Set up your computer for drylab development
 -------------------------------------------
@@ -69,16 +69,6 @@ If there is no package in conda, then (and ONLY then) try `pip`:
 .. code::
 
     pip install pandas
-
-
-Link your scratch directory to your home
-----------------------------------------
-
-The "``scratch``" storage on TSCC is for temporary (after 90 days it gets purged) storage. It's very useful for storing intermediate files, and outputs from compute jobs because the data there is stored on solid-state drives (SSDs) which have incredibly fast read-write speeds, which is perfect for outputs from alignment algorithms. It can be annoying to go back and forth between your scratch directory, so it's convenient to have a link to your scratch from home, which you can make like this:
-
-.. code::
-
-   ln -s /oasis/tscc/scratch/$USER $HOME/scratch
 
 Useful things to do on TSCC
 ---------------------------
