@@ -83,6 +83,7 @@
 <li><a class="reference internal" href="#set-up-your-computer-for-drylab-development">Set up your computer for drylab development</a></li>
 <li><a class="reference internal" href="#make-a-virtual-environment-on-tscc">Make a virtual environment on TSCC</a></li>
 <li><a class="reference internal" href="#installing-upgrading-packages">Installing/upgrading packages</a></li>
+<li><a class="reference internal" href="#link-your-scratch-directory-to-your-home">Link your scratch directory to your home</a></li>
 <li><a class="reference internal" href="#useful-things-to-do-on-tscc">Useful things to do on TSCC</a></li>
 <li><a class="reference internal" href="#ipython-notebooks-on-tscc">IPython notebooks on TSCC</a></li>
 </ul>
@@ -132,7 +133,7 @@
 <div class="section" id="email-lists">
 <h2>Email lists<a class="headerlink" href="#email-lists" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Email <a class="reference external" href="mailto:shas&#46;sathe&#37;&#52;&#48;gmail&#46;com">Shashank</a> to get onto the &#8220;All Yeo&#8221; mailing list.</li>
+<li>Email <a href="#id1"><span class="problematic" id="id2">Keri_</span></a> to get onto the &#8220;All Yeo&#8221; mailing list.</li>
 </ul>
 </div>
 <div class="section" id="set-up-your-computer-for-drylab-development">
@@ -178,6 +179,13 @@ modules that we use all the time (<code class="docutils literal"><span class="pr
 </div>
 <p>If there is no package in conda, then (and ONLY then) try <cite>pip</cite>:</p>
 <div class="code highlight-python"><div class="highlight"><pre>pip install pandas
+</pre></div>
+</div>
+</div>
+<div class="section" id="link-your-scratch-directory-to-your-home">
+<h2>Link your scratch directory to your home<a class="headerlink" href="#link-your-scratch-directory-to-your-home" title="Permalink to this headline">¶</a></h2>
+<p>The &#8220;<code class="docutils literal"><span class="pre">scratch</span></code>&#8221; storage on TSCC is for temporary (after 90 days it gets purged) storage. It&#8217;s very useful for storing intermediate files, and outputs from compute jobs because the data there is stored on solid-state drives (SSDs) which have incredibly fast read-write speeds, which is perfect for outputs from alignment algorithms. It can be annoying to go back and forth between your scratch directory, so it&#8217;s convenient to have a link to your scratch from home, which you can make like this:</p>
+<div class="code highlight-python"><div class="highlight"><pre>ln -s /oasis/tscc/scratch/$USER $HOME/scratch
 </pre></div>
 </div>
 </div>
