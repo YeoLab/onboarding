@@ -29,6 +29,7 @@
     <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="YeoLab-welcome 0.1.0 documentation" href="#" />
+    <link rel="next" title="Getting Started" href="getting_started.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -65,7 +66,23 @@
      href="#">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"></ul>
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#sanford-internet-access">Sanford Internet Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#access-to-compute-environments">Access to Compute Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#online-resources">Online Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#internal-resources">Internal Resources</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tscc.html">TSCC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tscc.html#first-steps">First Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tscc.html#running-qscripts-gatk-queue-pipelines-on-tscc">Running qscripts GATK Queue pipelines on TSCC</a></li>
+</ul>
+</li>
+</ul>
+</ul>
 </li>
               
                 <li class="dropdown">
@@ -79,62 +96,8 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Welcome to YeoLab/welcome&#8217;s documentation!</a><ul>
 <li><a class="reference internal" href="#getting-started-everyone">Getting started (everyone)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#getting-started">Getting Started</a><ul>
-<li><a class="reference internal" href="#sanford-internet-access">Sanford Internet Access</a></li>
-<li><a class="reference internal" href="#access-to-compute-environments">Access to Compute Environments</a><ul>
-<li><a class="reference internal" href="#tscc">TSCC</a></li>
-<li><a class="reference internal" href="#oolite">Oolite</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#online-resources">Online Resources</a></li>
-<li><a class="reference internal" href="#internal-resources">Internal Resources</a><ul>
-<li><a class="reference internal" href="#google-drive">Google Drive</a></li>
-<li><a class="reference internal" href="#google-calendar">Google Calendar</a></li>
-<li><a class="reference internal" href="#mailing-lists">Mailing Lists</a></li>
-<li><a class="reference internal" href="#sauron-web-server">Sauron web server</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#getting-started-drylab">Getting started (drylab)</a><ul>
 <li><a class="reference internal" href="#set-up-your-computer-for-drylab-development">Set up your computer for drylab development</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id1">TSCC</a><ul>
-<li><a class="reference internal" href="#first-steps">First Steps</a><ul>
-<li><a class="reference internal" href="#log-on">Log on!</a></li>
-<li><a class="reference internal" href="#start-a-screen-session">Start a screen session</a></li>
-<li><a class="reference internal" href="#get-gscripts-access-to-software">Get <code class="docutils literal"><span class="pre">gscripts</span></code> access to software</a></li>
-<li><a class="reference internal" href="#organize-your-home-directory">Organize your home directory</a><ul>
-<li><a class="reference internal" href="#link-your-scratch-directory-to-your-home">Link your scratch directory to your home</a></li>
-<li><a class="reference internal" href="#create-workflow-and-projects-folders">Create workflow and projects folders</a></li>
-<li><a class="reference internal" href="#let-us-see-your-stuff">Let us see your stuff</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#share-your-dropbox-account-for-easy-figure-syncing">Share your Dropbox account for easy figure syncing</a></li>
-<li><a class="reference internal" href="#make-a-virtual-environment-on-tscc">Make a virtual environment on TSCC</a></li>
-<li><a class="reference internal" href="#installing-and-upgrading-python-packages">Installing and upgrading Python packages</a></li>
-<li><a class="reference internal" href="#submitting-and-managing-compute-jobs-on-tscc">Submitting and managing compute jobs on TSCC</a><ul>
-<li><a class="reference internal" href="#submit-jobs">Submit jobs</a></li>
-<li><a class="reference internal" href="#submit-interactive-jobs">Submit interactive jobs</a></li>
-<li><a class="reference internal" href="#submit-jobs-to-home-scrm">Submit jobs to <code class="docutils literal"><span class="pre">home-scrm</span></code></a></li>
-<li><a class="reference internal" href="#submitting-many-jobs-at-once">Submitting many jobs at once</a></li>
-<li><a class="reference internal" href="#check-job-status-aka-why-is-my-job-stuck">Check job status, aka &#8220;why is my job stuck?&#8221;</a></li>
-<li><a class="reference internal" href="#check-job-status-of-array-jobs">Check job status of array jobs</a></li>
-<li><a class="reference internal" href="#killing-jobs">Killing jobs</a></li>
-<li><a class="reference internal" href="#kill-an-array-job">Kill an array job</a></li>
-<li><a class="reference internal" href="#kill-all-your-jobs">Kill all your jobs</a></li>
-<li><a class="reference internal" href="#which-queue-do-i-submit-to-check-status-of-queues">Which queue do I submit to? (check status of queues)</a></li>
-<li><a class="reference internal" href="#show-available-service-units">Show available &#8220;Service Units&#8221;</a></li>
-<li><a class="reference internal" href="#show-available-processors">Show available processors</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#ipython-notebooks-on-tscc">IPython notebooks on TSCC</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#running-qscripts-gatk-queue-pipelines-on-tscc">Running qscripts GATK Queue pipelines on TSCC</a><ul>
 <li><a class="reference internal" href="#create-flotilla-inputs">Create <code class="docutils literal"><span class="pre">flotilla</span></code> inputs</a></li>
 </ul>
 </li>
@@ -149,6 +112,10 @@
             
               
                 
+  <li>
+    <a href="getting_started.html" title="Next Chapter: Getting Started"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Getting Started &raquo;</span>
+    </a>
+  </li>
               
             
             
@@ -184,69 +151,16 @@
 <h1>Welcome to YeoLab/welcome&#8217;s documentation!<a class="headerlink" href="#welcome-to-yeolab-welcome-s-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="getting-started-everyone">
 <h2>Getting started (everyone)<a class="headerlink" href="#getting-started-everyone" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
-<div class="section" id="getting-started">
-<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="sanford-internet-access">
-<h2>Sanford Internet Access<a class="headerlink" href="#sanford-internet-access" title="Permalink to this headline">¶</a></h2>
-<p>For access to wired internet in SCRM, submit your machine ID via this
-<a class="reference external" href="http://netapps-web.ucsd.edu/cgi-bin/etherreg/etherform.pl">ethernet form</a>.</p>
-</div>
-<div class="section" id="access-to-compute-environments">
-<h2>Access to Compute Environments<a class="headerlink" href="#access-to-compute-environments" title="Permalink to this headline">¶</a></h2>
-<p>The lab currently uses two compute clusters, which each require separate
-access. To gain access, an email request must be sent to the admins. CC
-<a class="reference external" href="mailto:geneyeo&#37;&#52;&#48;ucsd&#46;edu">Gene Yeo</a> on the email.</p>
-<div class="section" id="tscc">
-<h3>TSCC<a class="headerlink" href="#tscc" title="Permalink to this headline">¶</a></h3>
-<p>For TSCC, new user access will be requested from  <a class="reference external" href="mailto:jhayes&#37;&#52;&#48;sdsc&#46;edu">Jim Hayes</a>. You will
-need to ask him to be added to the groups <code class="docutils literal"><span class="pre">yeo-group</span></code> and <code class="docutils literal"><span class="pre">scrm-group</span></code>.</p>
-</div>
-<div class="section" id="oolite">
-<h3>Oolite<a class="headerlink" href="#oolite" title="Permalink to this headline">¶</a></h3>
-<p>For Oolite, new user access will be requested from <a class="reference external" href="mailto:qianliu&#37;&#52;&#48;eng&#46;ucsd&#46;edu">Qian Liu</a>. You will
-need to ask him to be added to the group &#8216;yeolab&#8217;.</p>
-</div>
-</div>
-<div class="section" id="online-resources">
-<h2>Online Resources<a class="headerlink" href="#online-resources" title="Permalink to this headline">¶</a></h2>
-<p>There are a few internet resources utilized by the lab. You will have to make accounts on these websites:</p>
-<ul class="simple">
-<li><a href="#id7"><span class="problematic" id="id8">Github_</span></a> &#8211; Code repository, for sharing code within the lab.</li>
-<li><a class="reference external" href="https://yeolab.slack.com/">Slack</a> &#8211; For lab communication. Chat client with integration with
-Github, etc for sharing code and FIGURES! No more emailing random figures</li>
-<li><a class="reference external" href="https://asana.com/">Asana</a>&#8211; Task manager.</li>
-<li><a class="reference external" href="https://www.dropbox.com/">Dropbox</a> &#8211; File sharing.</li>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#sanford-internet-access">Sanford Internet Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#access-to-compute-environments">Access to Compute Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#online-resources">Online Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#internal-resources">Internal Resources</a></li>
 </ul>
-</div>
-<div class="section" id="internal-resources">
-<h2>Internal Resources<a class="headerlink" href="#internal-resources" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="google-drive">
-<h3>Google Drive<a class="headerlink" href="#google-drive" title="Permalink to this headline">¶</a></h3>
-<p>There is a folder on Google Drive that contains information shared within
-the lab. Ask anyone with access to invite you to this folder. Once invited,
-please insert your own information into the &#8216;Yeo Lab personnel&#8217; document.</p>
-</div>
-<div class="section" id="google-calendar">
-<h3>Google Calendar<a class="headerlink" href="#google-calendar" title="Permalink to this headline">¶</a></h3>
-<p>There is a Google Calendar that has Gene&#8217;s and lab member&#8217;s meeting
-schedules and out of town dates. Ask someone with admin level privileges to
-give you access.</p>
-<p>Currently: <a class="reference external" href="mailto:obotvinn&#37;&#52;&#48;ucsd&#46;edu">Olga Botvinnik</a></p>
-</div>
-<div class="section" id="mailing-lists">
-<h3>Mailing Lists<a class="headerlink" href="#mailing-lists" title="Permalink to this headline">¶</a></h3>
-<p>There is a shared mailing list that goes to every member of the lab. Ask
-someone with admin level privileges to add you to this mailing list.</p>
-<p>Currently: <a class="reference external" href="mailto:dnelles&#37;&#52;&#48;ucsd&#46;edu">Dave Nelles</a></p>
-</div>
-<div class="section" id="sauron-web-server">
-<h3>Sauron web server<a class="headerlink" href="#sauron-web-server" title="Permalink to this headline">¶</a></h3>
-<p>At some point you may require access to our web-server Sauron in order to
-make data web-visible. Ask someone with admin level privileges to create a
-user account for you.</p>
-<p>Currently: <a class="reference external" href="mailto:shsathe&#37;&#52;&#48;ucsd&#46;edu">Shashank Sathe</a></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="section" id="getting-started-drylab">
@@ -256,532 +170,22 @@ user account for you.</p>
 <p>1. First thing you&#8217;ll want to do is get an account on TSCC. Email <a class="reference external" href="mailto:jhayes&#37;&#52;&#48;sdsc&#46;edu">Jim
 Hayes</a> and ask to be added to the groups <code class="docutils literal"><span class="pre">yeo-group</span></code> and <code class="docutils literal"><span class="pre">scrm-group</span></code>.</p>
 <ol class="arabic simple" start="2">
-<li>If you don&#8217;t have a <a href="#id9"><span class="problematic" id="id10">Github_</span></a> account yet, go make one.</li>
+<li>If you don&#8217;t have a <a class="reference external" href="http://github.com/">Github</a> account yet, go make one.</li>
 <li>Ask to get added to the YeoLab group on Github.</li>
 <li>Install <a class="reference external" href="https://hub.github.com/">hub</a>. If you have a Mac, install via <a class="reference external" href="http://brew.sh">brew</a>.</li>
 <li>Install the <a class="reference external" href="http://continuum.io/downloads">Anaconda Python Distribution</a> to your laptop.</li>
 <li>Install <a class="reference external" href="http://www.jetbrains.com/pycharm/">PyCharm</a> (Community edition is fine).</li>
 </ol>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tscc.html">TSCC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tscc.html#first-steps">First Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tscc.html#running-qscripts-gatk-queue-pipelines-on-tscc">Running qscripts GATK Queue pipelines on TSCC</a></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
-</div>
-<div class="section" id="id1">
-<h1>TSCC<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="http://rci.ucsd.edu/computing/index.html">TSCC</a> houses our 640-core supercomputer as part of a condo resource sharing
-system which allows other researchers (mostly bioinformaticians from the
-Ideker, Ren, Zhang labs) to use our portion for their jobs (with an 8 hour
-time limit) which allows us to use their portions when we need extra
-computing power. We lead the pack in terms of pure crunching power,
-with the Ideker lab in close second place with 512 cores. But they have 2x
-the RAM per core for jobs that require lots of memory,
-so our purchases are complimentary and sharing is encouraged.</p>
-<p>The main contacts for questions about TSCC are the <a class="reference external" href="mailto:dryyeo-l&#37;&#52;&#48;googlegroups&#46;com">dry lab</a> and
-<a class="reference external" href="mailto:tscc-l&#37;&#52;&#48;mailman&#46;ucsd&#46;edu">TSCC users</a> mailing lists. The main contact for problems with TSCC is <a class="reference external" href="mailto:jhayes&#37;&#52;&#48;sdsc&#46;edu">Jim Hayes</a></p>
-<div class="section" id="first-steps">
-<h2>First Steps<a class="headerlink" href="#first-steps" title="Permalink to this headline">¶</a></h2>
-<p>Your first login session should include some of the following commands,
-which will familiarize you with the cluster, teach you how to do some useful
-tasks on the queue, and help you set up a common directory structure shared
-by everyone in the lab.</p>
-<div class="section" id="log-on">
-<h3>Log on!<a class="headerlink" href="#log-on" title="Permalink to this headline">¶</a></h3>
-<p>First, log in to TSCC!</p>
-<div class="code highlight-python"><div class="highlight"><pre>ssh YOUR_TSCC_USERNAME@tscc-login2.sdsc.edu
-</pre></div>
-</div>
-<p>TSCC has two login nodes, <code class="docutils literal"><span class="pre">login1</span></code> and <code class="docutils literal"><span class="pre">login2</span></code> for load-balancing (i.e.
-so if you just log on to <code class="docutils literal"><span class="pre">tscc.sdsc.edu</span></code>, it&#8217;ll choose whichever login
-node is less occupied. We&#8217;re logging in to a specific node because then
-we&#8217;ll always have our screen session on the same node) This is logging
-specifically on to <code class="docutils literal"><span class="pre">login2</span></code>. You can do <code class="docutils literal"><span class="pre">login1</span></code> if you like, as well,
-to balance it out :)</p>
-</div>
-<div class="section" id="start-a-screen-session">
-<h3>Start a screen session<a class="headerlink" href="#start-a-screen-session" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://kb.iu.edu/d/acuy">Screen</a> is an awesome tool which allows you to have multiple &#8220;tabs&#8221; open in
-the same login session, and you can easily transition between screens. Plus,
-they&#8217;re persistent, so you can leave something running in a screen session,
-log out of TSCC, and it will still be running! Amazing! If you have
-suggestions of things to add to this <code class="docutils literal"><span class="pre">.screenrc</span></code>, feel free to make a pull
-request on Olga&#8217;s <code class="docutils literal"><span class="pre">rcfiles_</span></code> github repo.</p>
-<p>To get a nice status bar at the bottom of your terminal window, get this``
-.screenrc`` file:</p>
-<div class="code highlight-python"><div class="highlight"><pre>cd
-wget https://raw.githubusercontent.com/olgabot/rcfiles/master/.screenrc
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The control letter is <code class="docutils literal"><span class="pre">j</span></code>, not <code class="docutils literal"><span class="pre">a</span></code> in the documentation above,
-so for example to create a new window, do <code class="docutils literal"><span class="pre">Ctrl-j</span> <span class="pre">c</span></code> and to kill the
-current window, do <code class="docutils literal"><span class="pre">Ctrl-j</span> <span class="pre">k</span></code>. Do <code class="docutils literal"><span class="pre">Ctrl-j</span> <span class="pre">j</span></code> to switch between
-windows, and <code class="docutils literal"><span class="pre">Ctrl-j</span> <span class="pre">#</span></code>, where # is some window number,
-to switch to a numbered tab specifically (e.g. <code class="docutils literal"><span class="pre">Ctrl-j</span> <span class="pre">2</span></code> to switch to
-tab number 2.</p>
-</div>
-<p>This <code class="docutils literal"><span class="pre">.screenrc</span></code> adds a status bar at the bottom of your screen, like this:</p>
-<img alt="_images/screen_status.png" src="_images/screen_status.png" />
-<p>Now to start a screen session do:</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">screen</span>
-</pre></div>
-</div>
-<p>If you&#8217;re re-logging in and you have an old screen session,
-do this to &#8220;re-attach&#8221; the screen window.</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">screen</span> <span class="o">-</span><span class="n">x</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="get-gscripts-access-to-software">
-<h3>Get <code class="docutils literal"><span class="pre">gscripts</span></code> access to software<a class="headerlink" href="#get-gscripts-access-to-software" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li>First, clone the <code class="docutils literal"><span class="pre">gscripts</span></code> github repo to your home directory on TSCC</li>
-</ol>
-<blockquote>
-<div>(this assumes you&#8217;ve already created a github account). We will use
-<code class="docutils literal"><span class="pre">hub_</span></code>, a command-line wrapper for git that makes using <code class="docutils literal"><span class="pre">git</span></code> + Github
-much easier.</div></blockquote>
-<div class="code highlight-python"><div class="highlight"><pre># &lt;on TSCC&gt;
-cd
-hub clone YeoLab/gscripts
-</pre></div>
-</div>
-<ol class="arabic simple" start="2">
-<li>Add this line to your <code class="docutils literal"><span class="pre">.bashrc</span></code> file (using either <code class="docutils literal"><span class="pre">emacs</span></code> or</li>
-</ol>
-<blockquote>
-<div><code class="docutils literal"><span class="pre">vim</span></code>, your choice)</div></blockquote>
-<div class="code highlight-python"><div class="highlight"><pre>source ~/gscripts/bashrc/tscc_bash_settings_current
-</pre></div>
-</div>
-<ol class="arabic simple" start="3">
-<li>&#8220;source&#8221; the <code class="docutils literal"><span class="pre">.bashrc</span></code> file so you load all the convenient environment
-variables we&#8217;ve created.</li>
-</ol>
-<div class="code highlight-python"><div class="highlight"><pre>source ~/.bashrc
-</pre></div>
-</div>
-</div>
-<div class="section" id="organize-your-home-directory">
-<h3>Organize your home directory<a class="headerlink" href="#organize-your-home-directory" title="Permalink to this headline">¶</a></h3>
-<p>Create an organized <code class="docutils literal"><span class="pre">home</span></code> directory structure following a common
-template, so others can find your scripts, workflows,
-and even final results/papers!  Do not store actual data in your home
-directory as is is limited to 100 GB only.</p>
-<div class="section" id="link-your-scratch-directory-to-your-home">
-<h4>Link your scratch directory to your home<a class="headerlink" href="#link-your-scratch-directory-to-your-home" title="Permalink to this headline">¶</a></h4>
-<p>The &#8220;<code class="docutils literal"><span class="pre">scratch</span></code>&#8221; storage on TSCC is for temporary (after 90 days it gets
-purged) storage. It&#8217;s very useful for storing intermediate files,
-and outputs from compute jobs because the data there is stored on
-solid-state drives (SSDs, currently 300TB) which have incredibly fast
-read-write speeds, which is perfect for outputs from alignment algorithms.
-It can be annoying to go back and forth between your scratch directory,
-so it&#8217;s convenient to have a link to your scratch from home,
-which you can make like this:</p>
-<div class="code highlight-python"><div class="highlight"><pre>ln -s /oasis/tscc/scratch/$USER $HOME/scratch
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This is virtually unlimited temporary storage space,
-designed for heavy I/O.  Aside from common reference files (e.g.
-Genomes, GENCODE, etc.) this should be the only space that you can
-read/write to from your scripts/workflows! The &#8216;&#8217;&#8216;parallel&#8217;&#8216;&#8217; throughput
-of this storage is 100 GB/s (e.g. 10 tasks can each read/write at 10
-GB/s at the same time)</p>
-</div>
-</div>
-<div class="section" id="create-workflow-and-projects-folders">
-<h4>Create workflow and projects folders<a class="headerlink" href="#create-workflow-and-projects-folders" title="Permalink to this headline">¶</a></h4>
-<p>Create <code class="docutils literal"><span class="pre">~/workflows</span></code> for your personal bash, makefile, queue, and so on,
-scripts, before you add them to gscripts, and <code class="docutils literal"><span class="pre">~/projects</span></code> for your
-projects to organize figures, notebooks, final results, and even manuscripts.</p>
-<div class="code highlight-python"><div class="highlight"><pre>mkdir ~/workflows ~/projects
-</pre></div>
-</div>
-<p>Here&#8217;s an example project directory structure:</p>
-<div class="code highlight-python"><div class="highlight"><pre>$ ls -lha /home/gpratt/projects/fox2_iclip/
-total 9.5K
-drwxr-xr-x  2 gpratt yeo-group  5 Sep 16  2013 .
-drwxr-xr-x 40 gpratt yeo-group 40 Nov 24 12:20 ..
-lrwxrwxrwx  1 gpratt yeo-group 49 Aug 21  2013 analysis -&gt; /home/gpratt/scratch/projects/fox2_iclip/analysis
-lrwxrwxrwx  1 gpratt yeo-group 45 Aug 21  2013 data -&gt; /home/gpratt/scratch/projects/fox2_iclip/data
-lrwxrwxrwx  1 gpratt yeo-group 50 Aug 21  2013 scripts -&gt; /home/gpratt/processing_scripts/fox2_iclip/scripts
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Notice that all of these are soft-links to either <code class="docutils literal"><span class="pre">~/scratch</span></code> or some
-other processing scripts.</p>
-</div>
-</div>
-<div class="section" id="let-us-see-your-stuff">
-<h4>Let us see your stuff<a class="headerlink" href="#let-us-see-your-stuff" title="Permalink to this headline">¶</a></h4>
-<p>Make everything readable by other yeo lab members and restrict access from
-other users (per HIPAA/HITECH requirements)</p>
-<div class="code highlight-python"><div class="highlight"><pre>chmod -R g+r ~/
-chmod -R g+r ~/data/
-chmod -R g+r ~/scratch/
-chmod -R o-rwx ~/
-chmod -R o-rwx ~/data/
-chmod -R o-rwx ~/scratch/
-</pre></div>
-</div>
-<p>But <code class="docutils literal"><span class="pre">git</span></code> will get mad at you if your ~/.ssh keys private keys are visible
-by others, so make them visible to only you via:</p>
-<div class="code highlight-python"><div class="highlight"><pre>chmod -R go-rwx ~/.ssh/
-</pre></div>
-</div>
-<p>In the end, your &#8216;&#8217;&#8216;home&#8217;&#8216;&#8217; directory should look something like this:</p>
-<div class="code highlight-python"><div class="highlight"><pre>$ ls -l $HOME
-lrwxrwxrwx  1 bkakarad yeo-group    29 Jun 24  2013 scratch -&gt; /oasis/tscc/scratch/bkakarad/
-drwxr-x---+ 2 bkakarad yeo-group     2 Jun 24  2013 gscripts
-drwxr-x---+ 3 bkakarad yeo-group     3 Jun 24  2013 projects
-drwxr-x---+ 2 bkakarad yeo-group     2 Jun 24  2013 workflows
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="share-your-dropbox-account-for-easy-figure-syncing">
-<h3>Share your Dropbox account for easy figure syncing<a class="headerlink" href="#share-your-dropbox-account-for-easy-figure-syncing" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="make-a-virtual-environment-on-tscc">
-<h3>Make a virtual environment on TSCC<a class="headerlink" href="#make-a-virtual-environment-on-tscc" title="Permalink to this headline">¶</a></h3>
-<p>On TSCC, the easiest way to create a virtual evironment (aka <code class="docutils literal"><span class="pre">virtualenv</span></code>)
-is by making one off of the <code class="docutils literal"><span class="pre">base</span></code> environment, which already has a bunch of
-modules that we use all the time (<code class="docutils literal"><span class="pre">numpy</span></code>, <code class="docutils literal"><span class="pre">scipy</span></code>, <code class="docutils literal"><span class="pre">matplotlib</span></code>, <code class="docutils literal"><span class="pre">pandas</span></code>, <code class="docutils literal"><span class="pre">scikit-learn</span></code>, <code class="docutils literal"><span class="pre">ipython</span></code>, the list goes on). Here&#8217;s how you do it:</p>
-<div class="code highlight-python"><div class="highlight"><pre>conda create --clone base --name $USER
-</pre></div>
-</div>
-<p>Then activate your environment with</p>
-<div class="code highlight-python"><div class="highlight"><pre>source activate yourname
-</pre></div>
-</div>
-<p>You&#8217;ll probably stay in this environment all the time.</p>
-<p>If you need to switch to another environment, then exit your environment with:</p>
-<div class="code highlight-python"><div class="highlight"><pre>source deactivate
-</pre></div>
-</div>
-</div>
-<div class="section" id="installing-and-upgrading-python-packages">
-<h3>Installing and upgrading Python packages<a class="headerlink" href="#installing-and-upgrading-python-packages" title="Permalink to this headline">¶</a></h3>
-<p>To install Python packages first try <code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span></code>:</p>
-<div class="code highlight-python"><div class="highlight"><pre>conda install &lt;package name&gt;
-</pre></div>
-</div>
-<p>If there is no package in conda, then (and ONLY then) try <cite>pip</cite>:</p>
-<div class="code highlight-python"><div class="highlight"><pre>pip install &lt;package name&gt;
-</pre></div>
-</div>
-<p>To upgrade packages, do:</p>
-<p>(using <code class="docutils literal"><span class="pre">conda</span></code>)</p>
-<div class="code highlight-python"><div class="highlight"><pre>conda update &lt;package name&gt;
-</pre></div>
-</div>
-<p>(using <code class="docutils literal"><span class="pre">pip</span></code>)</p>
-<div class="code highlight-python"><div class="highlight"><pre>pip install -U &lt;package name&gt;
-</pre></div>
-</div>
-</div>
-<div class="section" id="submitting-and-managing-compute-jobs-on-tscc">
-<h3>Submitting and managing compute jobs on TSCC<a class="headerlink" href="#submitting-and-managing-compute-jobs-on-tscc" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="submit-jobs">
-<h4>Submit jobs<a class="headerlink" href="#submit-jobs" title="Permalink to this headline">¶</a></h4>
-<p>To submit a script that you wrote, in this case called <code class="docutils literal"><span class="pre">myscript.sh</span></code>,
-to TSCC, do:</p>
-<div class="code highlight-python"><div class="highlight"><pre>qsub -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00 myscript.sh
-</pre></div>
-</div>
-</div>
-<div class="section" id="submit-interactive-jobs">
-<h4>Submit interactive jobs<a class="headerlink" href="#submit-interactive-jobs" title="Permalink to this headline">¶</a></h4>
-<p>To submit interactive jobs, do:</p>
-<div class="code highlight-python"><div class="highlight"><pre>qsub -I -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00
-</pre></div>
-</div>
-</div>
-<div class="section" id="submit-jobs-to-home-scrm">
-<h4>Submit jobs to <code class="docutils literal"><span class="pre">home-scrm</span></code><a class="headerlink" href="#submit-jobs-to-home-scrm" title="Permalink to this headline">¶</a></h4>
-<p>To submit to the <code class="docutils literal"><span class="pre">home-scrm</span></code> queue, add <code class="docutils literal"><span class="pre">-W</span> <span class="pre">group_list=scrm-group</span></code> to
-your <code class="docutils literal"><span class="pre">qsub</span></code> command:</p>
-<div class="code highlight-python"><div class="highlight"><pre>qsub -I -l walltime=0:30:00 -q home-scrm -W group_list=scrm-group
-</pre></div>
-</div>
-</div>
-<div class="section" id="submitting-many-jobs-at-once">
-<h4>Submitting many jobs at once<a class="headerlink" href="#submitting-many-jobs-at-once" title="Permalink to this headline">¶</a></h4>
-<p>If you have a bunch of commands you want to run at once,
-you can use this script to submit them all at once. In the next example,
-<code class="docutils literal"><span class="pre">commands.sh</span></code> is a file has the commands you want on their own line,
-i.e. one command per line.</p>
-<div class="code highlight-python"><div class="highlight"><pre>java -Xms512m -Xmx512m -jar /home/yeo-lab/software/gatk/dist/Queue.jar \
--S ~/gscripts/qscripts/do_stuff.scala --input commands.sh -run -qsub \
--jobQueue &lt;queue&gt; -jobLimit &lt;n&gt; --ncores &lt;n&gt; --jobname &lt;name&gt; -startFromScratch
-</pre></div>
-</div>
-<p>This runs a scala job that submits sub-jobs to the PBS queue under name you
-fill in where &lt;name&gt; now sits as a placeholder.</p>
-</div>
-<div class="section" id="check-job-status-aka-why-is-my-job-stuck">
-<h4>Check job status, aka &#8220;why is my job stuck?&#8221;<a class="headerlink" href="#check-job-status-aka-why-is-my-job-stuck" title="Permalink to this headline">¶</a></h4>
-<p>Check the status of your jobs:</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">qme</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This will only work if you have followed instructions and have</p>
-</div>
-<p><code class="docutils literal"><span class="pre">source</span></code>&#8216;d the <code class="docutils literal"><span class="pre">~/gscripts/tscc_bash_settings_current</span></code>  :)</p>
-<p><code class="docutils literal"><span class="pre">qme</span></code> outputs,</p>
-<div class="code highlight-python"><div class="highlight"><pre>(olga)[obotvinnik@tscc-login2 ~]$ qme
-
-tscc-mgr.sdsc.edu:
-                                                                                  Req&#39;d    Req&#39;d       Elap
-Job ID                  Username    Queue    Jobname          SessID  NDS   TSK   Memory   Time    S   Time
------------------------ ----------- -------- ---------------- ------ ----- ------ ------ --------- - ---------
-2006527.tscc-mgr.local  obotvinnik  home-yeo STDIN             35367     1     16    --   04:00:00 R  02:35:36
-2007542.tscc-mgr.local  obotvinnik  home-yeo STDIN              6168     1      1    --   08:00:00 R  00:28:08
-2007621.tscc-mgr.local  obotvinnik  home-yeo STDIN               --      1     16    --   04:00:00 Q       --
-</pre></div>
-</div>
-</div>
-<div class="section" id="check-job-status-of-array-jobs">
-<h4>Check job status of array jobs<a class="headerlink" href="#check-job-status-of-array-jobs" title="Permalink to this headline">¶</a></h4>
-<p>Check the status of your array jobs:</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">qstat</span> <span class="o">-</span><span class="n">t</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="killing-jobs">
-<h4>Killing jobs<a class="headerlink" href="#killing-jobs" title="Permalink to this headline">¶</a></h4>
-<p>If you have a job you want to stop, kill it with <code class="docutils literal"><span class="pre">qdel</span> <span class="pre">JOBID</span></code>, e.g.</p>
-<div class="code highlight-python"><div class="highlight"><pre>qdel 2006527
-</pre></div>
-</div>
-</div>
-<div class="section" id="kill-an-array-job">
-<h4>Kill an array job<a class="headerlink" href="#kill-an-array-job" title="Permalink to this headline">¶</a></h4>
-<p>If the job is an array job, you&#8217;ll need to add brackets, like this:</p>
-<div class="code highlight-python"><div class="highlight"><pre>qdel 2006527[]
-</pre></div>
-</div>
-</div>
-<div class="section" id="kill-all-your-jobs">
-<h4>Kill all your jobs<a class="headerlink" href="#kill-all-your-jobs" title="Permalink to this headline">¶</a></h4>
-<p>To kill all the jobs that you&#8217;ve submitted, do:</p>
-<div class="code highlight-python"><div class="highlight"><pre>qdel $(qselect -u $USER)
-</pre></div>
-</div>
-</div>
-<div class="section" id="which-queue-do-i-submit-to-check-status-of-queues">
-<h4>Which queue do I submit to? (check status of queues)<a class="headerlink" href="#which-queue-do-i-submit-to-check-status-of-queues" title="Permalink to this headline">¶</a></h4>
-<p>Check the status of the queue (so you know which queues to NOT submit to!)</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">qstat</span> <span class="o">-</span><span class="n">q</span>
-</pre></div>
-</div>
-<p>Example output is,</p>
-<div class="code highlight-python"><div class="highlight"><pre>(olga)[obotvinnik@tscc-login2 ~]$ qstat -q
-
-server: tscc-mgr.local
-
-Queue            Memory CPU Time Walltime Node  Run Que Lm  State
----------------- ------ -------- -------- ----  --- --- --  -----
-home-dkeres        --      --       --      --    2   0 --   E R
-home-komunjer      --      --       --      --    0   0 --   E R
-home-ong           --      --       --      --    2   0 --   E R
-home-tg            --      --       --      --    0   0 --   E R
-home-yeo           --      --       --      --    3   1 --   E R
-home-visres        --      --       --      --    0   0 --   E R
-home-mccammon      --      --       --      --   15  29 --   E R
-home-scrm          --      --       --      --    1   0 --   E R
-hotel              --      --    168:00:0   --  232  26 --   E R
-home-k4zhang       --      --       --      --    0   0 --   E R
-home-kkey          --      --       --      --    0   0 --   E R
-home-kyang         --      --       --      --    2   1 --   E R
-home-jsebat        --      --       --      --    1   0 --   E R
-pdafm              --      --    72:00:00   --    1   0 --   E R
-condo              --      --    08:00:00   --   18   6 --   E R
-gpu-hotel          --      --    336:00:0   --    0   0 --   E R
-glean              --      --       --      --   24  75 --   E R
-gpu-condo          --      --    08:00:00   --   16  36 --   E R
-home-fpaesani      --      --       --      --    4   2 --   E R
-home-builder       --      --       --      --    0   0 --   E R
-home               --      --       --      --    0   0 --   E R
-home-mgilson       --      --       --      --    0   4 --   E R
-home-eallen        --      --       --      --    0   0 --   E R
-                                               ----- -----
-                                                 321   180
-</pre></div>
-</div>
-<p>So right now is not a good time to submit to the <code class="docutils literal"><span class="pre">hotel</span></code> queue,
-since it has a bunch of both running and queued jobs!</p>
-</div>
-<div class="section" id="show-available-service-units">
-<h4>Show available &#8220;Service Units&#8221;<a class="headerlink" href="#show-available-service-units" title="Permalink to this headline">¶</a></h4>
-<p>List the available Service Units (1 SU = 1 core*hour) ... for a quick ego
-boost. Also note that our supercomputer is separated in two: yeo-group and
-scrm-group, but the total balance is 5.29 million SU, just enough secure us
-the top honors :-)</p>
-<div class="code highlight-python"><div class="highlight"><pre>gbalance | sort -nrk 3 | head
-
-Id Name                 Amount  Reserved Balance CreditLimit Available
--- -------------------- ------- -------- ------- ----------- ---------
-19 tideker-group        5211035    27922 5183113           0   5183113
-82 yeo-group            3262925        0 3262925           0   3262925
-81 scrm-group           2039328        0 2039328           0   2039328
-14 mgilson-group         663095   208000  455095           0    455095
-73 nanosprings-ucm       650000        0  650000           0    650000
-17 kkey-group            635056     7104  627952           0    627952
-16 k4zhang-group         534430        0  534430           0    534430
-</pre></div>
-</div>
-<p>List the available TORQUE queues, for a quick boost in motivation!</p>
-<div class="code highlight-python"><div class="highlight"><pre>qstat -q
-
-Queue            Memory CPU Time Walltime Node  Run Que Lm  State
----------------- ------ -------- -------- ----  --- --- --  -----
-home-tideker       --      --       --       16   1   0 --   E R
-home-visres        --      --       --        1   0   0 --   E R
-hotel              --      --    72:00:00   --   25  18 --   E R
-home-k4zhang       --      --       --        4  21   0 --   E R
-home-kkey          --      --       --        5   0   0 --   E R
-pdafm              --      --    72:00:00   --    0   0 --   E R
-condo              --      --    08:00:00   --    0   0 --   E R
-glean              --      --       --      --    0   0 --   E R
-home-builder       --      --       --        8   0   0 --   E R
-home               --      --       --      --    0   0 --   E R
-home-ewyeo         --      --       --       15   0   0 --   E R
-home-mgilson       --      --       --        8   0   0 --   E R
-                                           ----- -----
-                                              47    18
-</pre></div>
-</div>
-</div>
-<div class="section" id="show-available-processors">
-<h4>Show available processors<a class="headerlink" href="#show-available-processors" title="Permalink to this headline">¶</a></h4>
-<dl class="docutils">
-<dt>show available processors:</dt>
-<dd>showbf</dd>
-<dt>show specs of all nodes:</dt>
-<dd>pbsnodes -a</dd>
-<dt>check on status of job (&#8220;why is my job stuck&#8221;):</dt>
-<dd>checkjob &lt;jobid&gt;</dd>
-</dl>
-</div>
-</div>
-<div class="section" id="ipython-notebooks-on-tscc">
-<h3>IPython notebooks on TSCC<a class="headerlink" href="#ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h3>
-<p>1. To set up IPython notebooks on TSCC, you will want to add some <code class="docutils literal"><span class="pre">alias</span></code>
-variables to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code>. First, on your personal computer,
-you will want to set up
-<a class="reference external" href="http://www.linuxproblem.org/art_9.html">passwordless ssh</a> from your laptop to TSCC. On my laptop,
-I have this alias in my <cite>~/.bashrc</cite> file:</p>
-<div class="code highlight-python"><div class="highlight"><pre>IPYNB_PORT=[some number above 1024]
-alias tscc=&#39;ssh obotvinnik@tscc-login2.sdsc.edu&#39;
-</pre></div>
-</div>
-<p>This way, I can just type <code class="docutils literal"><span class="pre">tscc</span></code> and log onto <code class="docutils literal"><span class="pre">tscc-login2</span></code>
-<strong>specifically</strong>. It is important for IPython notebooks that you always log
-on to the same node. You can use <code class="docutils literal"><span class="pre">tscc-login1</span></code> instead, too,
-this is just what I have set up. Just replace my login name
-(&#8220;<code class="docutils literal"><span class="pre">obotvinnik</span></code>&#8221;) with yours.</p>
-<ol class="arabic simple" start="2">
-<li>Next, type <code class="docutils literal"><span class="pre">tscc</span></code> and log on to the server.</li>
-<li>On TSCC, add these lines to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file.</li>
-</ol>
-<div class="code highlight-python"><div class="highlight"><pre>IPYNB_PORT=[same number as the above IPYNB_PORT]
-alias ipynb=&quot;ipython notebook --no-browser --port $IPYNB_PORT --matplotlib inline &amp;&quot;
-alias sshtscc=&quot;ssh -NR $IPYNB_PORT:localhost:$IPYNB_PORT tscc-login2 &amp;&quot;
-</pre></div>
-</div>
-<p>Notice that in <code class="docutils literal"><span class="pre">sshtscc</span></code>, I use the same port as I logged in to,
-<cite>tscc-login2</cite>. The ampersands &#8220;<cite>&amp;</cite>&#8221; at the end of the lines tell the computer
-to run these processes in the background, which is super useful.</p>
-<p>4. Now that you have those set up, start up a <code class="docutils literal"><span class="pre">screen</span></code> session,
-which allows you to have something running continuously,
-without being logged in.</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">screen</span> <span class="o">-</span><span class="n">x</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="5">
-<li>In this <code class="docutils literal"><span class="pre">screen</span></code> session, now request an interactive job, e.g.:</li>
-</ol>
-<div class="code highlight-python"><div class="highlight"><pre>qsub -I -l walltime=8:00:00 -q home-yeo -l nodes=1:ppn=8
-</pre></div>
-</div>
-<ol class="arabic simple" start="6">
-<li>Wait for the job to start.</li>
-<li>Set up passwordless ssh between the compute nodes and TSCC with:</li>
-</ol>
-<div class="code highlight-python"><div class="highlight"><pre>cat .ssh/id_rsa.pub | ssh tscc-login2 &#39;cat &gt;&gt; .ssh/authorized_keys&#39;
-</pre></div>
-</div>
-<p>8. Wait for the job to start, then type <code class="docutils literal"><span class="pre">ipynb</span></code>, press <code class="docutils literal"><span class="pre">ENTER</span></code>,
-then <code class="docutils literal"><span class="pre">sshtscc</span></code> and press <code class="docutils literal"><span class="pre">ENTER</span></code>. again.</p>
-<ol class="arabic simple" start="9">
-<li>Back on your home laptop, type</li>
-</ol>
-<div class="code highlight-python"><div class="highlight"><pre>ssh -NL $IPYNB_PORT:localhost:$IPYNB_PORT YOUR_TSCC_USERNAME@tscc-login2
-.sdsc.edu &amp;
-</pre></div>
-</div>
-<p>Make sure to replace &#8220;<code class="docutils literal"><span class="pre">YOUR_TSCC_USERNAME</span></code>&#8221; with your TSCC login :)</p>
-<p>8. On your laptop, type the url <code class="docutils literal"><span class="pre">http://localhost:[IPYNB_PORT]</span></code> and replace
-&#8220;<code class="docutils literal"><span class="pre">IPYNB_PORT</span></code>&#8221; with your actual numbers of the port you&#8217;re using.</p>
-<p>You should now have IPython notebooks on TSCC!</p>
-<p>Software goes in <code class="docutils literal"><span class="pre">/projects/ps-yeolab/software</span></code></p>
-<p>Make sure to recursively set group read/write permissions to the software
-directory so others can use and update the common software, using:</p>
-<div class="code highlight-python"><div class="highlight"><pre>chmod ug+rw /projects/ps-yeolab/software
-</pre></div>
-</div>
-<p>If your&#8217;e installing something from source and using <code class="docutils literal"><span class="pre">./configure</span></code>
-and <code class="docutils literal"><span class="pre">make</span></code> and all that, then always set the flag
-<code class="docutils literal"><span class="pre">--prefix=/projects/ps-yeolab/software</span></code> when you run <code class="docutils literal"><span class="pre">./configure</span></code></p>
-<div class="code highlight-python"><div class="highlight"><pre>./configure --prefix /projects/ps-yeolab/software
-</pre></div>
-</div>
-<p>When possible install bins to <code class="docutils literal"><span class="pre">/projects/ps-yeolab/software/bin</span></code></p>
-</div>
-</div>
-<div class="section" id="running-qscripts-gatk-queue-pipelines-on-tscc">
-<h2>Running qscripts GATK Queue pipelines on TSCC<a class="headerlink" href="#running-qscripts-gatk-queue-pipelines-on-tscc" title="Permalink to this headline">¶</a></h2>
-<p>Example scripts can be found in:</p>
-<div class="code highlight-python"><div class="highlight"><pre>/home/gpratt/projects/upf1/scripts/*.sh
-</pre></div>
-</div>
-<p>e.g. for RNA-Seq:</p>
-<div class="code highlight-python"><div class="highlight"><pre>java -Xms512m -Xmx512m -jar /home/yeo-lab/software/gatk/dist/Queue.jar \
--S /home/gpratt/gscripts/qscripts/analyze_rna_seq.scala --input upf1_rnaseq.txt \
---species hg19 --chr_sizes /home/gpratt/scratch/hg19/hg19.chrom.sizes \
---adapter TCGTATGCCGTCTTCTGCTTG --adapter ATCTCGTATGCCGTCTTCTGCTTG \
---adapter CGACAGGTTCAGAGTTCTACAGTCCGACGATC \
---star_genome_location /home/gpratt/scratch/ftp2.cshl.edu/gingeraslab/tracks/STARrelease/STARgenomes/hg19 \
---tags_annotation /home/gpratt/gencode.v17.exons.bed -qsub -jobQueue home-yeo -emailHost smtp.gmail.com \
--emailPort 587 -emailTLS -emailUser gabriel.pratt@gmail.com -statusTo gabriel.pratt@gmail.com \
---location rna_seq -runDir /home/gpratt/projects/upf1/analysis/rna -run -log upf1_rna_seq.log
-</pre></div>
-</div>
-<p>GATK Queue runs exclusively on TSCC (for now, some paths are hard coded and
-Gabe doesn&#8217;t know scala well enough to un-hardcode them)</p>
-<p>Running instructions are documented in the each queue file,
-as long as you have a checked out copy of gscripts then</p>
-<p>This command will show documentation</p>
-<div class="code highlight-python"><div class="highlight"><pre>java -Xms512m -Xmx512m -jar /home/yeo-lab/software/gatk/dist/Queue.jar -S ~/gscripts/qscripts/analyze_rna_seq.scala
-</pre></div>
-</div>
-<p>will show documentation</p>
-<p>Further documentations can be found at the <a class="reference external" href="http://gatkforums.broadinstitute.org/discussion/1306/overview-of-queue">GATK Queue website</a></p>
-<p>The queue script <code class="docutils literal"><span class="pre">analyze_rna_seq.scala</span></code> runs:</p>
-<ol class="arabic simple">
-<li><a class="reference external" href="http://www.broadinstitute.org/cancer/cga/rna-seqc">RNA-SeQC</a></li>
-<li>...</li>
-</ol>
-<p>The queue script <code class="docutils literal"><span class="pre">analyze_rna_seq_gently.scala</span></code> runs:</p>
-<ol class="arabic simple">
-<li><a class="reference external" href="http://www.broadinstitute.org/cancer/cga/rna-seqc">RNA-SeQC</a></li>
-<li>...</li>
-</ol>
 <div class="section" id="create-flotilla-inputs">
 <h3>Create <code class="docutils literal"><span class="pre">flotilla</span></code> inputs<a class="headerlink" href="#create-flotilla-inputs" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
