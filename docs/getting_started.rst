@@ -8,6 +8,20 @@ Sanford Internet Access
 For access to wired internet in SCRM, submit your machine ID via this
 `ethernet form`_.
 
+Printing
+--------
+
+To get set up with printing go to the `SCRM Printing`_ website. We use the
+3rd floor printer. Ask someone in the lab for the account password.
+
+Reserving rooms in SCRM building
+--------------------------------
+
+To reserve rooms in the SCRM building, use their clunky `room reservation`_
+website. You need to be physically located in the SCRM building to use it,
+as it will only work for building occupants. You could also be fancy and VPN
+ in.
+
 Access to Compute Environments
 ------------------------------
 
@@ -86,3 +100,5 @@ Currently: `Shashank Sathe`_
 .. _Olga Botvinnik: obotvinn@ucsd.edu
 .. _Dave Nelles: dnelles@ucsd.edu
 .. _Shashank Sathe: shsathe@ucsd.edu
+.. _SCRM Printing: http://www.sanfordbizhub.com/
+.. _room reservation: http://172.21.195.194/RoomHomepage
