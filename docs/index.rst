@@ -14,6 +14,12 @@ Getting started (everyone)
 
     getting_started
 
+
+Getting started (wetlab)
+------------------------
+
+Check out this google doc on our `wet lab practices`_.
+
 Getting started (drylab)
 ------------------------
 
@@ -63,3 +69,4 @@ Indices and tables
 .. _PyCharm: http://www.jetbrains.com/pycharm/
 .. _Shashank: shshathe@ucsd.edu
 .. _Anaconda Python Distribution: http://continuum.io/downloads
+.. _wet lab practices: https://docs.google.com/document/d/1HiSIjGrThBlqpBhNhAu8V3HCXzmC8SdidjOblDL8DOI/edit
