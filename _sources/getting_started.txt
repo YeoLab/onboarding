@@ -20,7 +20,7 @@ Reserving rooms in SCRM building
 To reserve rooms in the SCRM building, use their clunky `room reservation`_
 website. You need to be physically located in the SCRM building to use it,
 as it will only work for building occupants. You could also be fancy and VPN
- in.
+in.
 
 Access to Compute Environments
 ------------------------------
