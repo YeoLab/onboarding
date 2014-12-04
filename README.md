@@ -3,5 +3,5 @@
 welcome
 =======
 
-Getting started in the yeolab. Go to http://yeolab.github.io/welcome/ to see
- the website
+Source files for the "welcome" website. Go to http://yeolab.github.io/welcome/ 
+to see the website
