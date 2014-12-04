@@ -86,7 +86,7 @@ Get ``gscripts`` access to software
 
 1. First, clone the ``gscripts`` github repo to your home directory on TSCC
    (this assumes you've already created a github account). We will use
-   ``hub_``, a command-line wrapper for git that makes using ``git`` + Github
+   hub_, a command-line wrapper for git that makes using ``git`` + Github
    much easier.
 
 .. code::
