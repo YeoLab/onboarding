@@ -249,30 +249,28 @@ do this to &#8220;re-attach&#8221; the screen window.</p>
 <div class="section" id="get-gscripts-access-to-software">
 <h3>Get <code class="docutils literal"><span class="pre">gscripts</span></code> access to software<a class="headerlink" href="#get-gscripts-access-to-software" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>First, clone the <code class="docutils literal"><span class="pre">gscripts</span></code> github repo to your home directory on TSCC
-(this assumes you&#8217;ve already created a github account). We will use
-<code class="docutils literal"><span class="pre">hub_</span></code>, a command-line wrapper for git that makes using <code class="docutils literal"><span class="pre">git</span></code> + Github
-much easier.</li>
+<li>First, clone the <code class="docutils literal"><span class="pre">gscripts</span></code> github repo to your home directory on TSCC</li>
 </ol>
+<blockquote>
+<div>(this assumes you&#8217;ve already created a github account). We will use
+<code class="docutils literal"><span class="pre">hub_</span></code>, a command-line wrapper for git that makes using <code class="docutils literal"><span class="pre">git</span></code> + Github
+much easier.</div></blockquote>
 <div class="code highlight-python"><div class="highlight"><pre># &lt;on TSCC&gt;
 cd
 hub clone YeoLab/gscripts
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Add this line to your <code class="docutils literal"><span class="pre">.bashrc</span></code> file (using either <code class="docutils literal"><span class="pre">emacs</span></code> or
-<code class="docutils literal"><span class="pre">vim</span></code>, your choice)</li>
+<li>Add this line to your <code class="docutils literal"><span class="pre">.bashrc</span></code> file (using either <code class="docutils literal"><span class="pre">emacs</span></code> or</li>
 </ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">vim</span></code>, your choice)</div></blockquote>
 <div class="code highlight-python"><div class="highlight"><pre>source ~/gscripts/bashrc/tscc_bash_settings_current
 </pre></div>
 </div>
-<ol class="arabic" start="3">
-<li><dl class="first docutils">
-<dt>&#8220;source&#8221; the <code class="docutils literal"><span class="pre">.bashrc</span></code> file so you load all the convenient environment</dt>
-<dd><p class="first last">variables we&#8217;ve created.</p>
-</dd>
-</dl>
-</li>
+<ol class="arabic simple" start="3">
+<li>&#8220;source&#8221; the <code class="docutils literal"><span class="pre">.bashrc</span></code> file so you load all the convenient environment
+variables we&#8217;ve created.</li>
 </ol>
 <div class="code highlight-python"><div class="highlight"><pre>source ~/.bashrc
 </pre></div>
@@ -336,8 +334,10 @@ other processing scripts.</p>
 <p>Make everything readable by other yeo lab members and restrict access from
 other users (per HIPAA/HITECH requirements)</p>
 <div class="code highlight-python"><div class="highlight"><pre>chmod -R g+r ~/
+chmod -R g+r ~/data/
 chmod -R g+r ~/scratch/
 chmod -R o-rwx ~/
+chmod -R o-rwx ~/data/
 chmod -R o-rwx ~/scratch/
 </pre></div>
 </div>
