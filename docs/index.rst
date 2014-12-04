@@ -20,8 +20,9 @@ Getting started (drylab)
 Set up your computer for drylab development
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. First thing you'll want to do is get an account on TSCC. Email `Jim
-Hayes`_ and ask to be added to the groups ``yeo-group`` and ``scrm-group``.
+1. First thing you'll want to do is get an account on TSCC. Email
+  `Jim Hayes`_ and ask to be added to the groups ``yeo-group`` and
+ ``scrm-group``.
 
 2. If you don't have a Github_ account yet, go make one.
 
