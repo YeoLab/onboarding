@@ -9,7 +9,10 @@ Welcome to YeoLab/welcome's documentation!
 Getting started (everyone)
 --------------------------
 
-.. include:: getting_started.rst
+.. toctree::
+    :maxdepth: 2
+
+    getting_started
 
 Getting started (drylab)
 ------------------------
@@ -30,7 +33,11 @@ Hayes`_ and ask to be added to the groups ``yeo-group`` and ``scrm-group``.
 
 6. Install PyCharm_ (Community edition is fine).
 
-.. include:: tscc.rst
+.. toctree::
+    :maxdepth: 2
+
+    tscc
+
 
 Create ``flotilla`` inputs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
