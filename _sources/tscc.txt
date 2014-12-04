@@ -235,7 +235,7 @@ If you need to switch to another environment, then exit your environment with:
     source deactivate
 
 Installing and upgrading Python packages
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------------
 
 To install Python packages first try ``conda install``:
 
@@ -265,10 +265,10 @@ To upgrade packages, do:
 
 
 Submitting and managing compute jobs on TSCC
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------
 
 Submit jobs
-+++++++++++
+~~~~~~~~~~~
 
 To submit a script that you wrote, in this case called ``myscript.sh``,
 to TSCC, do:
@@ -278,7 +278,7 @@ to TSCC, do:
     qsub -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00 myscript.sh
 
 Submit interactive jobs
-+++++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~~~
 
 To submit interactive jobs, do:
 
@@ -287,7 +287,7 @@ To submit interactive jobs, do:
     qsub -I -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00
 
 Submit jobs to ``home-scrm``
-++++++++++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To submit to the ``home-scrm`` queue, add ``-W group_list=scrm-group`` to
 your ``qsub`` command:
@@ -298,7 +298,7 @@ your ``qsub`` command:
 
 
 Submitting many jobs at once
-++++++++++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you have a bunch of commands you want to run at once,
 you can use this script to submit them all at once. In the next example,
@@ -315,7 +315,7 @@ This runs a scala job that submits sub-jobs to the PBS queue under name you
 fill in where <name> now sits as a placeholder.
 
 Check job status, aka "why is my job stuck?"
-++++++++++++++++++++++++++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Check the status of your jobs:
 
@@ -341,9 +341,10 @@ Check the status of your jobs:
     2007621.tscc-mgr.local  obotvinnik  home-yeo STDIN               --      1     16    --   04:00:00 Q       --
 
 Check job status of array jobs
-++++++++++++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Check the status of your array jobs:
+Check the status of your array jobs, you need to specify ``-t`` to see the
+status of the individual array pieces.
 
 .. code::
 
@@ -351,7 +352,7 @@ Check the status of your array jobs:
 
 
 Killing jobs
-++++++++++++
+~~~~~~~~~~~~
 
 If you have a job you want to stop, kill it with ``qdel JOBID``, e.g.
 
@@ -360,7 +361,7 @@ If you have a job you want to stop, kill it with ``qdel JOBID``, e.g.
     qdel 2006527
 
 Kill an array job
-+++++++++++++++++
+~~~~~~~~~~~~~~~~~
 
 If the job is an array job, you'll need to add brackets, like this:
 
@@ -370,7 +371,7 @@ If the job is an array job, you'll need to add brackets, like this:
 
 
 Kill all your jobs
-++++++++++++++++++
+~~~~~~~~~~~~~~~~~~
 
 To kill all the jobs that you've submitted, do:
 
@@ -380,7 +381,7 @@ To kill all the jobs that you've submitted, do:
 
 
 Which queue do I submit to? (check status of queues)
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Check the status of the queue (so you know which queues to NOT submit to!)
 
@@ -428,8 +429,7 @@ So right now is not a good time to submit to the ``hotel`` queue,
 since it has a bunch of both running and queued jobs!
 
 Show available "Service Units"
-++++++++++++++++++++++++++++++
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 List the available Service Units (1 SU = 1 core*hour) ... for a quick ego
 boost. Also note that our supercomputer is separated in two: yeo-group and
@@ -474,20 +474,24 @@ List the available TORQUE queues, for a quick boost in motivation!
                                                   47    18
 
 Show available processors
-+++++++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-show available processors:
-  showbf
+To show available processors, do
 
-show specs of all nodes:
-  pbsnodes -a
+.. code::
 
-check on status of job ("why is my job stuck"):
-  checkjob <jobid>
+    showbf
+
+Show specs of all nodes
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code::
+
+    pbsnodes -a
 
 
 IPython notebooks on TSCC
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 1. To set up IPython notebooks on TSCC, you will want to add some ``alias``
 variables to your ``~/.bashrc``. First, on your personal computer,
@@ -620,8 +624,12 @@ will show documentation
 Further documentations can be found at the `GATK Queue website`_
 
 
+.. note::
+
+    Should you be in a screen session to run these pipelines?
+
 analyze_rna_seq
-+++++++++++++++
+~~~~~~~~~~~~~~~
 
 The queue script ``analyze_rna_seq.scala`` runs:
 
@@ -630,7 +638,7 @@ The queue script ``analyze_rna_seq.scala`` runs:
 
 
 analyze_rna_seq_gently
-++++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~~
 
 The queue script ``analyze_rna_seq_gently.scala`` runs:
 

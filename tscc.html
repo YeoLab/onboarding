@@ -78,6 +78,9 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">TSCC</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#first-steps">First Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-and-upgrading-python-packages">Installing and upgrading Python packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#submitting-and-managing-compute-jobs-on-tscc">Submitting and managing compute jobs on TSCC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ipython-notebooks-on-tscc">IPython notebooks on TSCC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#running-qscripts-gatk-queue-pipelines-on-tscc">Running qscripts GATK Queue pipelines on TSCC</a></li>
 </ul>
 </li>
@@ -107,6 +110,8 @@
 </li>
 <li><a class="reference internal" href="#share-your-dropbox-account-for-easy-figure-syncing">Share your Dropbox account for easy figure syncing</a></li>
 <li><a class="reference internal" href="#make-a-virtual-environment-on-tscc">Make a virtual environment on TSCC</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#installing-and-upgrading-python-packages">Installing and upgrading Python packages</a></li>
 <li><a class="reference internal" href="#submitting-and-managing-compute-jobs-on-tscc">Submitting and managing compute jobs on TSCC</a><ul>
 <li><a class="reference internal" href="#submit-jobs">Submit jobs</a></li>
@@ -121,12 +126,15 @@
 <li><a class="reference internal" href="#which-queue-do-i-submit-to-check-status-of-queues">Which queue do I submit to? (check status of queues)</a></li>
 <li><a class="reference internal" href="#show-available-service-units">Show available &#8220;Service Units&#8221;</a></li>
 <li><a class="reference internal" href="#show-available-processors">Show available processors</a></li>
+<li><a class="reference internal" href="#show-specs-of-all-nodes">Show specs of all nodes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ipython-notebooks-on-tscc">IPython notebooks on TSCC</a></li>
+<li><a class="reference internal" href="#running-qscripts-gatk-queue-pipelines-on-tscc">Running qscripts GATK Queue pipelines on TSCC</a><ul>
+<li><a class="reference internal" href="#analyze-rna-seq">analyze_rna_seq</a></li>
+<li><a class="reference internal" href="#analyze-rna-seq-gently">analyze_rna_seq_gently</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-qscripts-gatk-queue-pipelines-on-tscc">Running qscripts GATK Queue pipelines on TSCC</a></li>
 </ul>
 </li>
 </ul>
@@ -369,8 +377,9 @@ modules that we use all the time (<code class="docutils literal"><span class="pr
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="installing-and-upgrading-python-packages">
-<h3>Installing and upgrading Python packages<a class="headerlink" href="#installing-and-upgrading-python-packages" title="Permalink to this headline">¶</a></h3>
+<h2>Installing and upgrading Python packages<a class="headerlink" href="#installing-and-upgrading-python-packages" title="Permalink to this headline">¶</a></h2>
 <p>To install Python packages first try <code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span></code>:</p>
 <div class="code highlight-python"><div class="highlight"><pre>conda install &lt;package name&gt;
 </pre></div>
@@ -390,9 +399,9 @@ modules that we use all the time (<code class="docutils literal"><span class="pr
 </div>
 </div>
 <div class="section" id="submitting-and-managing-compute-jobs-on-tscc">
-<h3>Submitting and managing compute jobs on TSCC<a class="headerlink" href="#submitting-and-managing-compute-jobs-on-tscc" title="Permalink to this headline">¶</a></h3>
+<h2>Submitting and managing compute jobs on TSCC<a class="headerlink" href="#submitting-and-managing-compute-jobs-on-tscc" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="submit-jobs">
-<h4>Submit jobs<a class="headerlink" href="#submit-jobs" title="Permalink to this headline">¶</a></h4>
+<h3>Submit jobs<a class="headerlink" href="#submit-jobs" title="Permalink to this headline">¶</a></h3>
 <p>To submit a script that you wrote, in this case called <code class="docutils literal"><span class="pre">myscript.sh</span></code>,
 to TSCC, do:</p>
 <div class="code highlight-python"><div class="highlight"><pre>qsub -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00 myscript.sh
@@ -400,14 +409,14 @@ to TSCC, do:</p>
 </div>
 </div>
 <div class="section" id="submit-interactive-jobs">
-<h4>Submit interactive jobs<a class="headerlink" href="#submit-interactive-jobs" title="Permalink to this headline">¶</a></h4>
+<h3>Submit interactive jobs<a class="headerlink" href="#submit-interactive-jobs" title="Permalink to this headline">¶</a></h3>
 <p>To submit interactive jobs, do:</p>
 <div class="code highlight-python"><div class="highlight"><pre>qsub -I -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00
 </pre></div>
 </div>
 </div>
 <div class="section" id="submit-jobs-to-home-scrm">
-<h4>Submit jobs to <code class="docutils literal"><span class="pre">home-scrm</span></code><a class="headerlink" href="#submit-jobs-to-home-scrm" title="Permalink to this headline">¶</a></h4>
+<h3>Submit jobs to <code class="docutils literal"><span class="pre">home-scrm</span></code><a class="headerlink" href="#submit-jobs-to-home-scrm" title="Permalink to this headline">¶</a></h3>
 <p>To submit to the <code class="docutils literal"><span class="pre">home-scrm</span></code> queue, add <code class="docutils literal"><span class="pre">-W</span> <span class="pre">group_list=scrm-group</span></code> to
 your <code class="docutils literal"><span class="pre">qsub</span></code> command:</p>
 <div class="code highlight-python"><div class="highlight"><pre>qsub -I -l walltime=0:30:00 -q home-scrm -W group_list=scrm-group
@@ -415,7 +424,7 @@ your <code class="docutils literal"><span class="pre">qsub</span></code> command
 </div>
 </div>
 <div class="section" id="submitting-many-jobs-at-once">
-<h4>Submitting many jobs at once<a class="headerlink" href="#submitting-many-jobs-at-once" title="Permalink to this headline">¶</a></h4>
+<h3>Submitting many jobs at once<a class="headerlink" href="#submitting-many-jobs-at-once" title="Permalink to this headline">¶</a></h3>
 <p>If you have a bunch of commands you want to run at once,
 you can use this script to submit them all at once. In the next example,
 <code class="docutils literal"><span class="pre">commands.sh</span></code> is a file has the commands you want on their own line,
@@ -429,7 +438,7 @@ i.e. one command per line.</p>
 fill in where &lt;name&gt; now sits as a placeholder.</p>
 </div>
 <div class="section" id="check-job-status-aka-why-is-my-job-stuck">
-<h4>Check job status, aka &#8220;why is my job stuck?&#8221;<a class="headerlink" href="#check-job-status-aka-why-is-my-job-stuck" title="Permalink to this headline">¶</a></h4>
+<h3>Check job status, aka &#8220;why is my job stuck?&#8221;<a class="headerlink" href="#check-job-status-aka-why-is-my-job-stuck" title="Permalink to this headline">¶</a></h3>
 <p>Check the status of your jobs:</p>
 <div class="code highlight-python"><div class="highlight"><pre><span class="n">qme</span>
 </pre></div>
@@ -453,35 +462,36 @@ Job ID                  Username    Queue    Jobname          SessID  NDS   TSK 
 </div>
 </div>
 <div class="section" id="check-job-status-of-array-jobs">
-<h4>Check job status of array jobs<a class="headerlink" href="#check-job-status-of-array-jobs" title="Permalink to this headline">¶</a></h4>
-<p>Check the status of your array jobs:</p>
+<h3>Check job status of array jobs<a class="headerlink" href="#check-job-status-of-array-jobs" title="Permalink to this headline">¶</a></h3>
+<p>Check the status of your array jobs, you need to specify <code class="docutils literal"><span class="pre">-t</span></code> to see the
+status of the individual array pieces.</p>
 <div class="code highlight-python"><div class="highlight"><pre><span class="n">qstat</span> <span class="o">-</span><span class="n">t</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="killing-jobs">
-<h4>Killing jobs<a class="headerlink" href="#killing-jobs" title="Permalink to this headline">¶</a></h4>
+<h3>Killing jobs<a class="headerlink" href="#killing-jobs" title="Permalink to this headline">¶</a></h3>
 <p>If you have a job you want to stop, kill it with <code class="docutils literal"><span class="pre">qdel</span> <span class="pre">JOBID</span></code>, e.g.</p>
 <div class="code highlight-python"><div class="highlight"><pre>qdel 2006527
 </pre></div>
 </div>
 </div>
 <div class="section" id="kill-an-array-job">
-<h4>Kill an array job<a class="headerlink" href="#kill-an-array-job" title="Permalink to this headline">¶</a></h4>
+<h3>Kill an array job<a class="headerlink" href="#kill-an-array-job" title="Permalink to this headline">¶</a></h3>
 <p>If the job is an array job, you&#8217;ll need to add brackets, like this:</p>
 <div class="code highlight-python"><div class="highlight"><pre>qdel 2006527[]
 </pre></div>
 </div>
 </div>
 <div class="section" id="kill-all-your-jobs">
-<h4>Kill all your jobs<a class="headerlink" href="#kill-all-your-jobs" title="Permalink to this headline">¶</a></h4>
+<h3>Kill all your jobs<a class="headerlink" href="#kill-all-your-jobs" title="Permalink to this headline">¶</a></h3>
 <p>To kill all the jobs that you&#8217;ve submitted, do:</p>
 <div class="code highlight-python"><div class="highlight"><pre>qdel $(qselect -u $USER)
 </pre></div>
 </div>
 </div>
 <div class="section" id="which-queue-do-i-submit-to-check-status-of-queues">
-<h4>Which queue do I submit to? (check status of queues)<a class="headerlink" href="#which-queue-do-i-submit-to-check-status-of-queues" title="Permalink to this headline">¶</a></h4>
+<h3>Which queue do I submit to? (check status of queues)<a class="headerlink" href="#which-queue-do-i-submit-to-check-status-of-queues" title="Permalink to this headline">¶</a></h3>
 <p>Check the status of the queue (so you know which queues to NOT submit to!)</p>
 <div class="code highlight-python"><div class="highlight"><pre><span class="n">qstat</span> <span class="o">-</span><span class="n">q</span>
 </pre></div>
@@ -524,7 +534,7 @@ home-eallen        --      --       --      --    0   0 --   E R
 since it has a bunch of both running and queued jobs!</p>
 </div>
 <div class="section" id="show-available-service-units">
-<h4>Show available &#8220;Service Units&#8221;<a class="headerlink" href="#show-available-service-units" title="Permalink to this headline">¶</a></h4>
+<h3>Show available &#8220;Service Units&#8221;<a class="headerlink" href="#show-available-service-units" title="Permalink to this headline">¶</a></h3>
 <p>List the available Service Units (1 SU = 1 core*hour) ... for a quick ego
 boost. Also note that our supercomputer is separated in two: yeo-group and
 scrm-group, but the total balance is 5.29 million SU, just enough secure us
@@ -565,19 +575,21 @@ home-mgilson       --      --       --        8   0   0 --   E R
 </div>
 </div>
 <div class="section" id="show-available-processors">
-<h4>Show available processors<a class="headerlink" href="#show-available-processors" title="Permalink to this headline">¶</a></h4>
-<dl class="docutils">
-<dt>show available processors:</dt>
-<dd>showbf</dd>
-<dt>show specs of all nodes:</dt>
-<dd>pbsnodes -a</dd>
-<dt>check on status of job (&#8220;why is my job stuck&#8221;):</dt>
-<dd>checkjob &lt;jobid&gt;</dd>
-</dl>
+<h3>Show available processors<a class="headerlink" href="#show-available-processors" title="Permalink to this headline">¶</a></h3>
+<p>To show available processors, do</p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="n">showbf</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="show-specs-of-all-nodes">
+<h3>Show specs of all nodes<a class="headerlink" href="#show-specs-of-all-nodes" title="Permalink to this headline">¶</a></h3>
+<div class="code highlight-python"><div class="highlight"><pre><span class="n">pbsnodes</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="ipython-notebooks-on-tscc">
-<h3>IPython notebooks on TSCC<a class="headerlink" href="#ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h3>
+<h2>IPython notebooks on TSCC<a class="headerlink" href="#ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h2>
 <p>1. To set up IPython notebooks on TSCC, you will want to add some <code class="docutils literal"><span class="pre">alias</span></code>
 variables to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code>. First, on your personal computer,
 you will want to set up
@@ -650,7 +662,6 @@ and <code class="docutils literal"><span class="pre">make</span></code> and all 
 </div>
 <p>When possible install bins to <code class="docutils literal"><span class="pre">/projects/ps-yeolab/software/bin</span></code></p>
 </div>
-</div>
 <div class="section" id="running-qscripts-gatk-queue-pipelines-on-tscc">
 <h2>Running qscripts GATK Queue pipelines on TSCC<a class="headerlink" href="#running-qscripts-gatk-queue-pipelines-on-tscc" title="Permalink to this headline">¶</a></h2>
 <p>Example scripts can be found in:</p>
@@ -679,16 +690,26 @@ as long as you have a checked out copy of gscripts then</p>
 </div>
 <p>will show documentation</p>
 <p>Further documentations can be found at the <a class="reference external" href="http://gatkforums.broadinstitute.org/discussion/1306/overview-of-queue">GATK Queue website</a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Should you be in a screen session to run these pipelines?</p>
+</div>
+<div class="section" id="analyze-rna-seq">
+<h3>analyze_rna_seq<a class="headerlink" href="#analyze-rna-seq" title="Permalink to this headline">¶</a></h3>
 <p>The queue script <code class="docutils literal"><span class="pre">analyze_rna_seq.scala</span></code> runs:</p>
 <ol class="arabic simple">
 <li><a class="reference external" href="http://www.broadinstitute.org/cancer/cga/rna-seqc">RNA-SeQC</a></li>
 <li>...</li>
 </ol>
+</div>
+<div class="section" id="analyze-rna-seq-gently">
+<h3>analyze_rna_seq_gently<a class="headerlink" href="#analyze-rna-seq-gently" title="Permalink to this headline">¶</a></h3>
 <p>The queue script <code class="docutils literal"><span class="pre">analyze_rna_seq_gently.scala</span></code> runs:</p>
 <ol class="arabic simple">
 <li><a class="reference external" href="http://www.broadinstitute.org/cancer/cga/rna-seqc">RNA-SeQC</a></li>
 <li>...</li>
 </ol>
+</div>
 </div>
 </div>
 
