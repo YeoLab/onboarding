@@ -125,7 +125,7 @@ html_theme_options = {
     # Note the "1" or "True" value above as the third argument to indicate
     # an arbitrary url.
     'navbar_links': [
-        ("YeoLab@UCSD", "http://yeolab.ucsd.edu"),
+        ("YeoLab@UCSD", "http://yeolab.ucsd.edu/yeolab/Home.html", TrueFix),
     ],
 
     # Render the next and previous page links in navbar. (Default: true)
