@@ -39,7 +39,7 @@ Oolite
 ~~~~~~
 
 For Oolite, new user access will be requested from `Qian Liu`_. You will
-need to ask him to be added to the group 'yeolab'.
+need to ask him to be added to the group ``yeolab``.
 
 Online Resources
 ----------------
