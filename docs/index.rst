@@ -6,13 +6,10 @@
 Welcome to YeoLab/welcome's documentation!
 ==========================================
 
-Email lists
------------
-
-* Email Keri_ to get onto the "All Yeo" mailing list.
-
 Getting started (everyone)
 --------------------------
+
+.. include:: getting_started.rst
 
 Getting started (drylab)
 ------------------------
@@ -20,247 +17,26 @@ Getting started (drylab)
 Set up your computer for drylab development
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. First thing you'll want to do is get an account on TSCC. Email `Jim Hayes`_
+1. First thing you'll want to do is get an account on TSCC. Email `Jim
+Hayes`_ and ask to be added to the groups ``yeo-group`` and ``scrm-group``.
 
-2. Next, make sure you ask a drylab person to get added to the YeoLab_ group on TSCC (called ``yeo-group``).
+2. If you don't have a Github_ account yet, go make one.
 
-3. If you don't have a Github_ account yet, go make one.
+3. Ask to get added to the YeoLab group on Github.
 
-4. Ask to get added to the YeoLab group on Github.
+4. Install hub_. If you have a Mac, install via brew_.
 
-5. Install hub_. If you have a Mac, install via brew_.
-6. Clone the ``gscripts`` repository:
+5. Install the `Anaconda Python Distribution`_ to your laptop.
 
-.. code::
+6. Install PyCharm_ (Community edition is fine).
 
-    hub clone YeoLab/gscripts
-7. Install the `Anaconda Python Distribution`_ to your laptop.
+.. include:: tscc.rst
 
-8. Install PyCharm_ (Community edition is fine).
+Create ``flotilla`` inputs
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Make a virtual environment on TSCC
-----------------------------------
-
-On TSCC, the easiest way to create a virtual evironment (aka ``virtualenv``)
-is by making one off of the ``base`` environment, which already has a bunch of
-modules that we use all the time (``numpy``, ``scipy``, ``matplotlib``, ``pandas``, ``scikit-learn``, ``ipython``, the list goes on). Here's how you do it:
-
-.. code::
-
-    conda create --clone base --name yourname
-
-Then activate your environment with
-
-.. code::
-
-    source activate yourname
-
-And exit it with,
-
-.. code::
-
-    source deactivate
-
-Installing/upgrading packages
------------------------------
-
-To install Python packages first try `conda install`:
-
-.. code::
-
-    conda install pandas
-
-If there is no package in conda, then (and ONLY then) try `pip`:
-
-.. code::
-
-    pip install pandas
-
-
-Link your scratch directory to your home
-----------------------------------------
-
-The "``scratch``" storage on TSCC is for temporary (after 90 days it gets purged) storage. It's very useful for storing intermediate files, and outputs from compute jobs because the data there is stored on solid-state drives (SSDs) which have incredibly fast read-write speeds, which is perfect for outputs from alignment algorithms. It can be annoying to go back and forth between your scratch directory, so it's convenient to have a link to your scratch from home, which you can make like this:
-
-.. code::
-
-   ln -s /oasis/tscc/scratch/$USER $HOME/scratch
-
-Useful things to do on TSCC
----------------------------
-
-Submit jobs:
-
-.. code::
-
-    qsub -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00 myscript.sh
-
-Submit an interactive job:
-
-.. code::
-
-    qsub -I -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00
-
-To submit to the ``home-scrm`` queue, add ``-W group_list=scrm-group`` to
-your ``qsub`` command:
-
-.. code::
-
-    qsub -I -l walltime=0:30:00 -q home-scrm -W group_list=scrm-group
-
-Check the status of your jobs:
-
-.. code::
-
-    qstat -u $(whoami)
-
-If you have installed ``gscripts`` and you ``source``
-``gscripts/bashrc/tscc_bash_settings_current``, then you can do the same thing
-with ``qme``:
-
-.. code::
-
-    qme
-
-This outputs,
-
-.. code::
-
-    (olga)[obotvinnik@tscc-login2 ~]$ qme
-
-    tscc-mgr.sdsc.edu:
-                                                                                      Req'd    Req'd       Elap
-    Job ID                  Username    Queue    Jobname          SessID  NDS   TSK   Memory   Time    S   Time
-    ----------------------- ----------- -------- ---------------- ------ ----- ------ ------ --------- - ---------
-    2006527.tscc-mgr.local  obotvinnik  home-yeo STDIN             35367     1     16    --   04:00:00 R  02:35:36
-    2007542.tscc-mgr.local  obotvinnik  home-yeo STDIN              6168     1      1    --   08:00:00 R  00:28:08
-    2007621.tscc-mgr.local  obotvinnik  home-yeo STDIN               --      1     16    --   04:00:00 Q       --
-
-Check the status of your array jobs:
-
-.. code::
-
-    qstat -t
-
-Check the status of the queue (so you know which queues to NOT submit to!)
-
-.. code::
-
-    qstat -q
-
-Example output is,
-
-.. code::
-
-    (olga)[obotvinnik@tscc-login2 ~]$ qstat -q
-
-    server: tscc-mgr.local
-
-    Queue            Memory CPU Time Walltime Node  Run Que Lm  State
-    ---------------- ------ -------- -------- ----  --- --- --  -----
-    home-dkeres        --      --       --      --    2   0 --   E R
-    home-komunjer      --      --       --      --    0   0 --   E R
-    home-ong           --      --       --      --    2   0 --   E R
-    home-tg            --      --       --      --    0   0 --   E R
-    home-yeo           --      --       --      --    3   1 --   E R
-    home-visres        --      --       --      --    0   0 --   E R
-    home-mccammon      --      --       --      --   15  29 --   E R
-    home-scrm          --      --       --      --    1   0 --   E R
-    hotel              --      --    168:00:0   --  232  26 --   E R
-    home-k4zhang       --      --       --      --    0   0 --   E R
-    home-kkey          --      --       --      --    0   0 --   E R
-    home-kyang         --      --       --      --    2   1 --   E R
-    home-jsebat        --      --       --      --    1   0 --   E R
-    pdafm              --      --    72:00:00   --    1   0 --   E R
-    condo              --      --    08:00:00   --   18   6 --   E R
-    gpu-hotel          --      --    336:00:0   --    0   0 --   E R
-    glean              --      --       --      --   24  75 --   E R
-    gpu-condo          --      --    08:00:00   --   16  36 --   E R
-    home-fpaesani      --      --       --      --    4   2 --   E R
-    home-builder       --      --       --      --    0   0 --   E R
-    home               --      --       --      --    0   0 --   E R
-    home-mgilson       --      --       --      --    0   4 --   E R
-    home-eallen        --      --       --      --    0   0 --   E R
-                                                   ----- -----
-                                                     321   180
-
-So right now is not a good time to submit to the ``hotel`` queue,
-since it has a bunch of both running and queued jobs!
-
-
-IPython notebooks on TSCC
--------------------------
-
-1. To set up IPython notebooks on TSCC, you will want to add some ``alias``
-variables to your ``~/.bashrc``. First, on your personal computer,
-you will want to set up
-`passwordless ssh`_ from your laptop to TSCC. On my laptop,
-I have this alias in my `~/.bashrc` file:
-
-.. code:
-
-    IPYNB_PORT=[some number above 1024]
-    alias tscc='ssh obotvinnik@tscc-login2.sdsc.edu'
-
-This way, I can just type ``tscc`` and log onto ``tscc-login2``
-**specifically**. It is important for IPython notebooks that you always log
-on to the same node. You can use ``tscc-login1`` instead, too,
-this is just what I have set up. Just replace my login name
-("``obotvinnik``") with yours.
-
-2. Next, type ``tscc`` and log on to the server.
-
-3. On TSCC, add these lines to your ``~/.bashrc`` file.
-
-.. code::
-
-    IPYNB_PORT=[same number as above IPYNB_PORT]
-    alias ipynb="ipython notebook --no-browser --port $IPYNB_PORT --matplotlib inline &"
-    alias sshtscc="ssh -NR $IPYNB_PORT:localhost:$IPYNB_PORT tscc-login2 &"
-
-Notice that in ``sshtscc``, I use the same port as I logged in to,
-`tscc-login2`. The ampersands "`&`" at the end of the lines tell the computer
-to run these processes in the background, which is super useful.
-
-4. Now that you have those set up, start up a ``screen`` session,
-which allows you to have something running continuously,
-without being logged in.
-
-.. code::
-
-    screen -x
-
-5. In this ``screen`` session, now request an interactive job, e.g.:
-
-.. code::
-
-    qsub -I -l walltime=8:00:00 -q home-yeo -l nodes=1:ppn=8
-
-6. Wait for the job to start, then type ``ipynb``, press ``ENTER``,
-then ``sshtscc`` and press ``ENTER``. again.
-
-7. Back on your home laptop, type
-
-.. code::
-
-    ssh -NL $IPYNB_PORT:localhost:$IPYNB_PORT yourname@tscc-login2.sdsc.edu &
-
-Make sure to replace "``yourname``" with your TSCC login :)
-
-8. On your laptop, type the url ``http://localhost:[IPYNB_PORT]`` and replace
-"``IPYNB_PORT``" with your actual numbers of the port you're using.
-
-You should now have IPython notebooks on TSCC!
-
-.. _passwordless ssh: http://www.linuxproblem.org/art_9.html
-.. _Jim Hayes: jhayes@sdsc.edu
-.. _YeoLab: http://github.com/YeoLab
-.. _brew: http://brew.sh
-.. _hub: https://hub.github.com/
-.. _Github: http://github.com/
-.. _PyCharm: http://www.jetbrains.com/pycharm/
-.. _Shashank: shas.sathe@gmail.com
-.. _Anaconda Python Distribution: http://continuum.io/downloads
+Here is an example IPython notebook of scripts to create `flotilla inputs`_.
+ (really should be a few scripts in ``gscripts``, but that will come later)
 
 Indices and tables
 ==================
@@ -269,3 +45,12 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+.. _flotilla inputs: http://nbviewer.ipython.org/gist/olgabot/33f5a81ab1e5cedbda35
+.. _Jim Hayes: jhayes@sdsc.edu
+.. _YeoLab: http://github.com/YeoLab
+.. _brew: http://brew.sh
+.. _hub: https://hub.github.com/
+.. _Github: http://github.com/
+.. _PyCharm: http://www.jetbrains.com/pycharm/
+.. _Shashank: shshathe@ucsd.edu
+.. _Anaconda Python Distribution: http://continuum.io/downloads
