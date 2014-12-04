@@ -11,8 +11,14 @@ Email lists
 
 * Email Keri_ to get onto the "All Yeo" mailing list.
 
+Getting started (everyone)
+--------------------------
+
+Getting started (drylab)
+------------------------
+
 Set up your computer for drylab development
--------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. First thing you'll want to do is get an account on TSCC. Email `Jim Hayes`_
 
@@ -87,13 +93,13 @@ Submit jobs:
 
 .. code::
 
-    qstat -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00 myscript.sh
+    qsub -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00 myscript.sh
 
 Submit an interactive job:
 
 .. code::
 
-    qstat -I -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00
+    qsub -I -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00
 
 To submit to the ``home-scrm`` queue, add ``-W group_list=scrm-group`` to
 your ``qsub`` command:
