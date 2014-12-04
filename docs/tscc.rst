@@ -182,10 +182,8 @@ other users (per HIPAA/HITECH requirements)
 .. code::
 
     chmod -R g+r ~/
-    chmod -R g+r ~/data/
     chmod -R g+r ~/scratch/
     chmod -R o-rwx ~/
-    chmod -R o-rwx ~/data/
     chmod -R o-rwx ~/scratch/
 
 But ``git`` will get mad at you if your ~/.ssh keys private keys are visible
