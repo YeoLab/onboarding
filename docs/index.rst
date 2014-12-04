@@ -34,6 +34,9 @@ Set up your computer for drylab development
 
 6. Install PyCharm_ (Community edition is fine).
 
+Next, here are the TSCC-specific setups. This is pretty big so it's a
+separate page.
+
 .. toctree::
     :maxdepth: 2
 
