@@ -69,6 +69,8 @@
       aria-labelledby="dLabelGlobalToc"><ul>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#sanford-internet-access">Sanford Internet Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#printing">Printing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#reserving-rooms-in-scrm-building">Reserving rooms in SCRM building</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#access-to-compute-environments">Access to Compute Environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#online-resources">Online Resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#internal-resources">Internal Resources</a></li>
@@ -218,9 +220,9 @@ the same login session, and you can easily transition between screens. Plus,
 they&#8217;re persistent, so you can leave something running in a screen session,
 log out of TSCC, and it will still be running! Amazing! If you have
 suggestions of things to add to this <code class="docutils literal"><span class="pre">.screenrc</span></code>, feel free to make a pull
-request on Olga&#8217;s <code class="docutils literal"><span class="pre">rcfiles_</span></code> github repo.</p>
-<p>To get a nice status bar at the bottom of your terminal window, get this``
-.screenrc`` file:</p>
+request on Olga&#8217;s <a class="reference external" href="https://github.com/olgabot/rcfiles">rcfiles</a> github repo.</p>
+<p>To get a nice status bar at the bottom of your terminal window, get this
+<code class="docutils literal"><span class="pre">.screenrc</span></code> file:</p>
 <div class="code highlight-python"><div class="highlight"><pre>cd
 wget https://raw.githubusercontent.com/olgabot/rcfiles/master/.screenrc
 </pre></div>
@@ -249,28 +251,30 @@ do this to &#8220;re-attach&#8221; the screen window.</p>
 <div class="section" id="get-gscripts-access-to-software">
 <h3>Get <code class="docutils literal"><span class="pre">gscripts</span></code> access to software<a class="headerlink" href="#get-gscripts-access-to-software" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>First, clone the <code class="docutils literal"><span class="pre">gscripts</span></code> github repo to your home directory on TSCC</li>
-</ol>
-<blockquote>
-<div>(this assumes you&#8217;ve already created a github account). We will use
+<li>First, clone the <code class="docutils literal"><span class="pre">gscripts</span></code> github repo to your home directory on TSCC
+(this assumes you&#8217;ve already created a github account). We will use
 <code class="docutils literal"><span class="pre">hub_</span></code>, a command-line wrapper for git that makes using <code class="docutils literal"><span class="pre">git</span></code> + Github
-much easier.</div></blockquote>
+much easier.</li>
+</ol>
 <div class="code highlight-python"><div class="highlight"><pre># &lt;on TSCC&gt;
 cd
 hub clone YeoLab/gscripts
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Add this line to your <code class="docutils literal"><span class="pre">.bashrc</span></code> file (using either <code class="docutils literal"><span class="pre">emacs</span></code> or</li>
+<li>Add this line to your <code class="docutils literal"><span class="pre">.bashrc</span></code> file (using either <code class="docutils literal"><span class="pre">emacs</span></code> or
+<code class="docutils literal"><span class="pre">vim</span></code>, your choice)</li>
 </ol>
-<blockquote>
-<div><code class="docutils literal"><span class="pre">vim</span></code>, your choice)</div></blockquote>
 <div class="code highlight-python"><div class="highlight"><pre>source ~/gscripts/bashrc/tscc_bash_settings_current
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
-<li>&#8220;source&#8221; the <code class="docutils literal"><span class="pre">.bashrc</span></code> file so you load all the convenient environment
-variables we&#8217;ve created.</li>
+<ol class="arabic" start="3">
+<li><dl class="first docutils">
+<dt>&#8220;source&#8221; the <code class="docutils literal"><span class="pre">.bashrc</span></code> file so you load all the convenient environment</dt>
+<dd><p class="first last">variables we&#8217;ve created.</p>
+</dd>
+</dl>
+</li>
 </ol>
 <div class="code highlight-python"><div class="highlight"><pre>source ~/.bashrc
 </pre></div>
@@ -334,10 +338,8 @@ other processing scripts.</p>
 <p>Make everything readable by other yeo lab members and restrict access from
 other users (per HIPAA/HITECH requirements)</p>
 <div class="code highlight-python"><div class="highlight"><pre>chmod -R g+r ~/
-chmod -R g+r ~/data/
 chmod -R g+r ~/scratch/
 chmod -R o-rwx ~/
-chmod -R o-rwx ~/data/
 chmod -R o-rwx ~/scratch/
 </pre></div>
 </div>
