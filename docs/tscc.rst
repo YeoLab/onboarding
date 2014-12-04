@@ -45,10 +45,10 @@ the same login session, and you can easily transition between screens. Plus,
 they're persistent, so you can leave something running in a screen session,
 log out of TSCC, and it will still be running! Amazing! If you have
 suggestions of things to add to this ``.screenrc``, feel free to make a pull
-request on Olga's ``rcfiles_`` github repo.
+request on Olga's rcfiles_ github repo.
 
-To get a nice status bar at the bottom of your terminal window, get this``
-.screenrc`` file:
+To get a nice status bar at the bottom of your terminal window, get this
+``.screenrc`` file:
 
 .. code::
 
