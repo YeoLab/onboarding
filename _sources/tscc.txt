@@ -634,12 +634,12 @@ The queue script ``analyze_rna_seq.scala`` runs or generates:
 8. Counts of reads mapping to repetitive elements
 9. Estimates of PCR Duplication
 
-For a detailed description of all output files from analyze_rna_.scala refer to:
+For a detailed description of all output files from analyze_rna_seq.scala refer to:
 
 .. toctree::
     :maxdepth: 1
 
-    analyze_rna_seq
+    analyze_rna_seq_
 
 
 analyze_rna_seq_gently
