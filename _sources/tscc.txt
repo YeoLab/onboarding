@@ -648,7 +648,7 @@ For a detailed description of all output files from analyze_rna_seq.scala refer 
 .. toctree::
     :maxdepth: 1
 
-    analyze_rna_seq
+    analyze_rna_seq_
 
 
 analyze_rna_seq_gently
