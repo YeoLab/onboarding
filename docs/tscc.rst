@@ -81,6 +81,10 @@ do this to "re-attach" the screen window.
 
     screen -x
 
+Every time you log in to TSCC, you'll want to reattach the screens from
+before, so the first step I always take when I log in to TSCC is exactly
+that, ``screen -x``.
+
 Get ``gscripts`` access to software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -222,9 +226,14 @@ Then activate your environment with
 
 .. code::
 
-    source activate yourname
+    source activate $USER
 
 You'll probably stay in this environment all the time.
+
+.. warning::
+
+    Make sure to add ``source activate $USER`` to your ``.bashrc`` file!
+    Then you will always be in your environment
 
 If you need to switch to another environment, then exit your environment with:
 
