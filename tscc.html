@@ -29,6 +29,7 @@
     <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="YeoLab-welcome 0.1.0 documentation" href="index.html" />
+    <link rel="next" title="&lt;no title&gt;" href="analyze_rna_seq.html" />
     <link rel="prev" title="Getting Started" href="getting_started.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -149,6 +150,10 @@
                 
   <li>
     <a href="getting_started.html" title="Previous Chapter: Getting Started"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Getting Started</span>
+    </a>
+  </li>
+  <li>
+    <a href="analyze_rna_seq.html" title="Next Chapter: <no title>"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet"><no title> &raquo;</span>
     </a>
   </li>
               
@@ -667,21 +672,15 @@ and <code class="docutils literal"><span class="pre">make</span></code> and all 
 <div class="section" id="running-qscripts-gatk-queue-pipelines-on-tscc">
 <h2>Running qscripts GATK Queue pipelines on TSCC<a class="headerlink" href="#running-qscripts-gatk-queue-pipelines-on-tscc" title="Permalink to this headline">¶</a></h2>
 <p>Example scripts can be found in:</p>
-<div class="code highlight-python"><div class="highlight"><pre>/home/gpratt/projects/upf1/scripts/*.sh
+<div class="code highlight-python"><div class="highlight"><pre>/home/gpratt/templates
 </pre></div>
 </div>
-<p>e.g. for RNA-Seq:</p>
-<div class="code highlight-python"><div class="highlight"><pre>java -Xms512m -Xmx512m -jar /home/yeo-lab/software/gatk/dist/Queue.jar \
--S /home/gpratt/gscripts/qscripts/analyze_rna_seq.scala --input upf1_rnaseq.txt \
---species hg19 --chr_sizes /home/gpratt/scratch/hg19/hg19.chrom.sizes \
---adapter TCGTATGCCGTCTTCTGCTTG --adapter ATCTCGTATGCCGTCTTCTGCTTG \
---adapter CGACAGGTTCAGAGTTCTACAGTCCGACGATC \
---star_genome_location /home/gpratt/scratch/ftp2.cshl.edu/gingeraslab/tracks/STARrelease/STARgenomes/hg19 \
---tags_annotation /home/gpratt/gencode.v17.exons.bed -qsub -jobQueue home-yeo -emailHost smtp.gmail.com \
--emailPort 587 -emailTLS -emailUser gabriel.pratt@gmail.com -statusTo gabriel.pratt@gmail.com \
---location rna_seq -runDir /home/gpratt/projects/upf1/analysis/rna -run -log upf1_rna_seq.log
-</pre></div>
-</div>
+<dl class="docutils">
+<dt>e.g. for RNA-Seq look at this gist:</dt>
+<dd><a class="reference external" href="https://gist.github.com/gpratt/294cbdf553ac4f44648a">https://gist.github.com/gpratt/294cbdf553ac4f44648a</a></dd>
+</dl>
+<p>Each Queue job requires a manifest file with a list of all files to process, and the genome to process them
+on</p>
 <p>GATK Queue runs exclusively on TSCC (for now, some paths are hard coded and
 Gabe doesn&#8217;t know scala well enough to un-hardcode them)</p>
 <p>Running instructions are documented in the each queue file,
@@ -694,15 +693,28 @@ as long as you have a checked out copy of gscripts then</p>
 <p>Further documentations can be found at the <a class="reference external" href="http://gatkforums.broadinstitute.org/discussion/1306/overview-of-queue">GATK Queue website</a></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Should you be in a screen session to run these pipelines?</p>
+<p class="last">Sometimes the login node kills these jobs, logging into a worker node to run these pipelines is a good idea.
+Also these are long running jobs you should you be in a screen session to run these pipelines</p>
 </div>
 <div class="section" id="analyze-rna-seq">
 <h3>analyze_rna_seq<a class="headerlink" href="#analyze-rna-seq" title="Permalink to this headline">¶</a></h3>
-<p>The queue script <code class="docutils literal"><span class="pre">analyze_rna_seq.scala</span></code> runs:</p>
+<p>The queue script <code class="docutils literal"><span class="pre">analyze_rna_seq.scala</span></code> runs or generates:</p>
 <ol class="arabic simple">
 <li><a class="reference external" href="http://www.broadinstitute.org/cancer/cga/rna-seqc">RNA-SeQC</a></li>
-<li>...</li>
+<li>cutadapt</li>
+<li>miso</li>
+<li>OldSplice</li>
+<li>Sailfish</li>
+<li>A-&gt;I editing predictions</li>
+<li>bigWig files</li>
+<li>Counts of reads mapping to repetitive elements</li>
+<li>Estimates of PCR Duplication</li>
 </ol>
+<p>For a detailed description of all output files from <a href="#id2"><span class="problematic" id="id3">analyze_rna_</span></a>.scala refer to:</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
 </div>
 <div class="section" id="analyze-rna-seq-gently">
 <h3>analyze_rna_seq_gently<a class="headerlink" href="#analyze-rna-seq-gently" title="Permalink to this headline">¶</a></h3>

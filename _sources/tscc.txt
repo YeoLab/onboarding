@@ -588,22 +588,13 @@ Example scripts can be found in:
 
 .. code::
 
-    /home/gpratt/projects/upf1/scripts/*.sh
+    /home/gpratt/templates
 
-e.g. for RNA-Seq:
+e.g. for RNA-Seq look at this gist:
+    https://gist.github.com/gpratt/294cbdf553ac4f44648a
 
-.. code::
-
-    java -Xms512m -Xmx512m -jar /home/yeo-lab/software/gatk/dist/Queue.jar \
-    -S /home/gpratt/gscripts/qscripts/analyze_rna_seq.scala --input upf1_rnaseq.txt \
-    --species hg19 --chr_sizes /home/gpratt/scratch/hg19/hg19.chrom.sizes \
-    --adapter TCGTATGCCGTCTTCTGCTTG --adapter ATCTCGTATGCCGTCTTCTGCTTG \
-    --adapter CGACAGGTTCAGAGTTCTACAGTCCGACGATC \
-    --star_genome_location /home/gpratt/scratch/ftp2.cshl.edu/gingeraslab/tracks/STARrelease/STARgenomes/hg19 \
-    --tags_annotation /home/gpratt/gencode.v17.exons.bed -qsub -jobQueue home-yeo -emailHost smtp.gmail.com \
-    -emailPort 587 -emailTLS -emailUser gabriel.pratt@gmail.com -statusTo gabriel.pratt@gmail.com \
-    --location rna_seq -runDir /home/gpratt/projects/upf1/analysis/rna -run -log upf1_rna_seq.log
-
+Each Queue job requires a manifest file with a list of all files to process, and the genome to process them
+on
 
 GATK Queue runs exclusively on TSCC (for now, some paths are hard coded and
 Gabe doesn't know scala well enough to un-hardcode them)
@@ -624,15 +615,31 @@ Further documentations can be found at the `GATK Queue website`_
 
 .. note::
 
-    Should you be in a screen session to run these pipelines?
+    Sometimes the login node kills these jobs, logging into a worker node to run these pipelines is a good \
+    idea.
+    Also these are long running jobs you should you be in a screen session to run these pipelines
 
 analyze_rna_seq
 ~~~~~~~~~~~~~~~
 
-The queue script ``analyze_rna_seq.scala`` runs:
+The queue script ``analyze_rna_seq.scala`` runs or generates:
 
 1. RNA-SeQC_
-2. ...
+2. cutadapt
+3. miso
+4. OldSplice
+5. Sailfish
+6. A->I editing predictions
+7. bigWig files
+8. Counts of reads mapping to repetitive elements
+9. Estimates of PCR Duplication
+
+For a detailed description of all output files from analyze_rna_.scala refer to:
+
+.. toctree::
+    :maxdepth: 1
+
+    analyze_rna_seq
 
 
 analyze_rna_seq_gently
