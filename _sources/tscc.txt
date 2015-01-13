@@ -643,13 +643,7 @@ The queue script ``analyze_rna_seq.scala`` runs or generates:
 8. Counts of reads mapping to repetitive elements
 9. Estimates of PCR Duplication
 
-For a detailed description of all output files from analyze_rna_seq.scala refer to:
-
-.. toctree::
-    :maxdepth: 1
-
-    analyze_rna_seq_
-
+Detailed description of `analyze_rna_seq.scala`_ outputs.
 
 analyze_rna_seq_gently
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -669,3 +663,4 @@ The queue script ``analyze_rna_seq_gently.scala`` runs:
 .. _passwordless ssh: http://www.linuxproblem.org/art_9.html
 .. _GATK Queue website: http://gatkforums.broadinstitute.org/discussion/1306/overview-of-queue
 .. _RNA-SeQC: http://www.broadinstitute.org/cancer/cga/rna-seqc
+.. _analyze_rna_seq.scala: analyze_rna_seq
