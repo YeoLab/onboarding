@@ -234,6 +234,23 @@ modules that we use all the time (``numpy``, ``scipy``, ``matplotlib``, ``pandas
 
     conda create --clone base --name $USER
 
+.. note::
+
+    You can also create an environment from scratch using ``conda`` to install
+    all the Anaconda Python packages, and then using ``pip`` in the environment
+    to install the remaining packages, like so:
+
+    .. code::
+
+        conda create --yes --name ENVIRONMENT_NAME pip numpy scipy cython matplotlib nose six scikit-learn ipython networkx pandas tornado statsmodels setuptools pytest pyzmq jinja2 pyyaml pymongo
+        source activate ENVIRONMENT_NAME
+        pip install seaborn fastcluster gspread brewer2mpl husl semantic_version joblib pybedtools gffutils matplotlib-venn HTSeq
+        pip install https://github.com/YeoLab/clipper/tarball/master
+        pip install https://github.com/YeoLab/gscripts/tarball/master
+        pip install https://github.com/YeoLab/flotilla/tarball/master
+
+    These commands is how the ``base`` environment was created.
+
 Then activate your environment with
 
 .. code::

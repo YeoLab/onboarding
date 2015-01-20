@@ -388,6 +388,21 @@ modules that we use all the time (<code class="docutils literal"><span class="pr
 <div class="code highlight-python"><div class="highlight"><pre>conda create --clone base --name $USER
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You can also create an environment from scratch using <code class="docutils literal"><span class="pre">conda</span></code> to install
+all the Anaconda Python packages, and then using <code class="docutils literal"><span class="pre">pip</span></code> in the environment
+to install the remaining packages, like so:</p>
+<div class="code highlight-python"><div class="highlight"><pre>conda create --yes --name ENVIRONMENT_NAME pip numpy scipy cython matplotlib nose six scikit-learn ipython networkx pandas tornado statsmodels setuptools pytest pyzmq jinja2 pyyaml pymongo
+source activate ENVIRONMENT_NAME
+pip install seaborn fastcluster gspread brewer2mpl husl semantic_version joblib pybedtools gffutils matplotlib-venn HTSeq
+pip install https://github.com/YeoLab/clipper/tarball/master
+pip install https://github.com/YeoLab/gscripts/tarball/master
+pip install https://github.com/YeoLab/flotilla/tarball/master
+</pre></div>
+</div>
+<p class="last">These commands is how the <code class="docutils literal"><span class="pre">base</span></code> environment was created.</p>
+</div>
 <p>Then activate your environment with</p>
 <div class="code highlight-python"><div class="highlight"><pre>source activate $USER
 </pre></div>
