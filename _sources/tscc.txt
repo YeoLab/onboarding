@@ -13,6 +13,18 @@ so our purchases are complimentary and sharing is encouraged.
 The main contacts for questions about TSCC are the `dry lab`_ and
 `TSCC users`_ mailing lists. The main contact for problems with TSCC is `Jim Hayes`_
 
+Important rules
+---------------
+
+.. warning::
+
+    1. All sequencing data is stored in the ``/projects/ps-yeolab/seqdata`` folder
+    2. The folder ``seqdata`` is intended as permanent storage and no folders
+       or files there should ever be deleted
+    3. Do not process data in ``seqdata``. Use the directory structure
+       described in `Organize your home directory`_ to create a ``scratch``
+       folder for all data processing.
+
 First Steps
 -----------
 
