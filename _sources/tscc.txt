@@ -100,6 +100,10 @@ that, ``screen -x``.
 Get ``gscripts`` access to software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+0. Before you're able to clone the gscripts github repo, you'll need to add
+   your ssh keys on TSCC to your Github account. Follow `Github's instructions
+   for generating SSH keys`_.
+
 1. First, clone the ``gscripts`` github repo to your home directory on TSCC
    (this assumes you've already created a github account). We will use
    hub_, a command-line wrapper for git that makes using ``git`` + Github
@@ -111,7 +115,7 @@ Get ``gscripts`` access to software
     cd
     hub clone YeoLab/gscripts
 
-2. Add this line to your ``.bashrc`` file (using either ``emacs`` or
+2. Add this line to the **end** of your ``.bashrc`` file (using either ``emacs`` or
    ``vim``, your choice)
 
 .. code::
@@ -235,7 +239,6 @@ modules that we use all the time (``numpy``, ``scipy``, ``matplotlib``, ``pandas
     conda create --clone base --name $USER
 
 .. note::
-
     You can also create an environment from scratch using ``conda`` to install
     all the Anaconda Python packages, and then using ``pip`` in the environment
     to install the remaining packages, like so:
@@ -693,3 +696,4 @@ The queue script ``analyze_rna_seq_gently.scala`` runs:
 .. _GATK Queue website: http://gatkforums.broadinstitute.org/discussion/1306/overview-of-queue
 .. _RNA-SeQC: http://www.broadinstitute.org/cancer/cga/rna-seqc
 .. _analyze_rna_seq.scala: analyze_rna_seq
+.. _Github's instructions     for generating SSH keys: https://help.github.com/articles/generating-ssh-keys/

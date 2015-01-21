@@ -269,7 +269,10 @@ that, <code class="docutils literal"><span class="pre">screen</span> <span class
 </div>
 <div class="section" id="get-gscripts-access-to-software">
 <h3>Get <code class="docutils literal"><span class="pre">gscripts</span></code> access to software<a class="headerlink" href="#get-gscripts-access-to-software" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
+<ol class="arabic simple" start="0">
+<li>Before you&#8217;re able to clone the gscripts github repo, you&#8217;ll need to add
+your ssh keys on TSCC to your Github account. Follow <a class="reference external" href="https://help.github.com/articles/generating-ssh-keys/">Github&#8217;s instructions
+for generating SSH keys</a>.</li>
 <li>First, clone the <code class="docutils literal"><span class="pre">gscripts</span></code> github repo to your home directory on TSCC
 (this assumes you&#8217;ve already created a github account). We will use
 <a class="reference external" href="https://hub.github.com/">hub</a>, a command-line wrapper for git that makes using <code class="docutils literal"><span class="pre">git</span></code> + Github
@@ -281,7 +284,7 @@ hub clone YeoLab/gscripts
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Add this line to your <code class="docutils literal"><span class="pre">.bashrc</span></code> file (using either <code class="docutils literal"><span class="pre">emacs</span></code> or
+<li>Add this line to the <strong>end</strong> of your <code class="docutils literal"><span class="pre">.bashrc</span></code> file (using either <code class="docutils literal"><span class="pre">emacs</span></code> or
 <code class="docutils literal"><span class="pre">vim</span></code>, your choice)</li>
 </ol>
 <div class="code highlight-python"><div class="highlight"><pre>source ~/gscripts/bashrc/tscc_bash_settings_current
