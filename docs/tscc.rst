@@ -134,6 +134,24 @@ On TSCC, the easiest way to create a virtual evironment (aka ``virtualenv``)
 is by making one off of the ``base`` environment, which already has a bunch of
 modules that we use all the time (``numpy``, ``scipy``, ``matplotlib``, ``pandas``, ``scikit-learn``, ``ipython``, the list goes on). Here's how you do it:
 
+.. note::
+
+    The command ``$USER`` is meant to be literal, meaning you can exactly copy
+    the below command, and TSCC will create an environment with your username.
+    If you don't believe me, compare the output of:
+
+    .. code::
+
+        echo USER
+
+    to the output of:
+
+    .. code::
+
+        echo $USER
+
+    The second one should output your TSCC username.
+
 .. code::
 
     conda create --clone base --name $USER
