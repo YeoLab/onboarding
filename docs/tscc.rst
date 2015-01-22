@@ -105,15 +105,13 @@ Get ``gscripts`` access to software
    for generating SSH keys`_.
 
 1. First, clone the ``gscripts`` github repo to your home directory on TSCC
-   (this assumes you've already created a github account). We will use
-   hub_, a command-line wrapper for git that makes using ``git`` + Github
-   much easier.
+   (this assumes you've already created a github account).
 
 .. code::
 
     # <on TSCC>
     cd
-    hub clone YeoLab/gscripts
+    git clone git@github.comYeoLab/gscripts
 
 2. Add this line to the **end** of your ``.bashrc`` file (using either ``emacs`` or
    ``vim``, your choice)
