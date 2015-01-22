@@ -317,7 +317,9 @@ If you don&#8217;t believe me, compare the output of:</p>
 <div class="code highlight-python"><div class="highlight"><pre>echo $USER
 </pre></div>
 </div>
-<p class="last">The second one should output your TSCC username.</p>
+<p class="last">The second one should output your TSCC username, because the <code class="docutils literal"><span class="pre">$</span></code> dollar
+sign indicates to the shell that you&#8217;re asking for the variable <code class="docutils literal"><span class="pre">$USER</span></code>,
+not the literal word &#8220;USER&#8221;.</p>
 </div>
 <div class="code highlight-python"><div class="highlight"><pre>conda create --clone base --name $USER
 </pre></div>

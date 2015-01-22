@@ -150,7 +150,9 @@ modules that we use all the time (``numpy``, ``scipy``, ``matplotlib``, ``pandas
 
         echo $USER
 
-    The second one should output your TSCC username.
+    The second one should output your TSCC username, because the ``$`` dollar
+    sign indicates to the shell that you're asking for the variable ``$USER``,
+    not the literal word "USER".
 
 .. code::
 
