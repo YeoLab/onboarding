@@ -111,7 +111,7 @@ Get ``gscripts`` access to software
 
     # <on TSCC>
     cd
-    git clone git@github.com:YeoLab/gscripts
+    git clone http://github.com/YeoLab/gscripts
 
 2. Add this line to the **end** of your ``.bashrc`` file (using either ``emacs`` or
    ``vim``, your choice)
