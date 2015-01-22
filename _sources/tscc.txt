@@ -204,6 +204,14 @@ If you need to switch to another environment, then exit your environment with:
         cd ~/gscripts
         pip install .  # The "." means install "this," as in "this folder where I am"
 
+Add the location of ``GENOME`` to your ``~/.bashrc``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To run the analysis pipeline, you will need to specify where the genomes are
+on TSCC, and you can do this by adding this line to your ``~/.bashrc``:
+
+.. code::
+
+    GENOME=/projects/ps-yeolab/genomes
 
 Organize your home directory
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -107,6 +107,7 @@
 <li><a class="reference internal" href="#start-a-screen-session">Start a screen session</a></li>
 <li><a class="reference internal" href="#get-gscripts-access-to-software">Get <code class="docutils literal"><span class="pre">gscripts</span></code> access to software</a></li>
 <li><a class="reference internal" href="#make-a-virtual-environment-on-tscc">Make a virtual environment on TSCC</a></li>
+<li><a class="reference internal" href="#add-the-location-of-genome-to-your-bashrc">Add the location of <code class="docutils literal"><span class="pre">GENOME</span></code> to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code></a></li>
 <li><a class="reference internal" href="#organize-your-home-directory">Organize your home directory</a><ul>
 <li><a class="reference internal" href="#link-your-scratch-directory-to-your-home">Link your scratch directory to your home</a></li>
 <li><a class="reference internal" href="#create-workflow-and-projects-folders">Create workflow and projects folders</a></li>
@@ -362,6 +363,14 @@ version.</p>
 pip install .  # The &quot;.&quot; means install &quot;this,&quot; as in &quot;this folder where I am&quot;
 </pre></div>
 </div>
+</div>
+</div>
+<div class="section" id="add-the-location-of-genome-to-your-bashrc">
+<h3>Add the location of <code class="docutils literal"><span class="pre">GENOME</span></code> to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code><a class="headerlink" href="#add-the-location-of-genome-to-your-bashrc" title="Permalink to this headline">¶</a></h3>
+<p>To run the analysis pipeline, you will need to specify where the genomes are
+on TSCC, and you can do this by adding this line to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code>:</p>
+<div class="code highlight-python"><div class="highlight"><pre>GENOME=/projects/ps-yeolab/genomes
+</pre></div>
 </div>
 </div>
 <div class="section" id="organize-your-home-directory">
