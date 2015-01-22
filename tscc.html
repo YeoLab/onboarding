@@ -106,6 +106,7 @@
 <li><a class="reference internal" href="#log-on">Log on!</a></li>
 <li><a class="reference internal" href="#start-a-screen-session">Start a screen session</a></li>
 <li><a class="reference internal" href="#get-gscripts-access-to-software">Get <code class="docutils literal"><span class="pre">gscripts</span></code> access to software</a></li>
+<li><a class="reference internal" href="#make-a-virtual-environment-on-tscc">Make a virtual environment on TSCC</a></li>
 <li><a class="reference internal" href="#organize-your-home-directory">Organize your home directory</a><ul>
 <li><a class="reference internal" href="#link-your-scratch-directory-to-your-home">Link your scratch directory to your home</a></li>
 <li><a class="reference internal" href="#create-workflow-and-projects-folders">Create workflow and projects folders</a></li>
@@ -113,7 +114,6 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#share-your-dropbox-account-for-easy-figure-syncing">Share your Dropbox account for easy figure syncing</a></li>
-<li><a class="reference internal" href="#make-a-virtual-environment-on-tscc">Make a virtual environment on TSCC</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#installing-and-upgrading-python-packages">Installing and upgrading Python packages</a></li>
@@ -300,6 +300,54 @@ git clone http://github.com/YeoLab/gscripts
 </pre></div>
 </div>
 </div>
+<div class="section" id="make-a-virtual-environment-on-tscc">
+<h3>Make a virtual environment on TSCC<a class="headerlink" href="#make-a-virtual-environment-on-tscc" title="Permalink to this headline">¶</a></h3>
+<p>On TSCC, the easiest way to create a virtual evironment (aka <code class="docutils literal"><span class="pre">virtualenv</span></code>)
+is by making one off of the <code class="docutils literal"><span class="pre">base</span></code> environment, which already has a bunch of
+modules that we use all the time (<code class="docutils literal"><span class="pre">numpy</span></code>, <code class="docutils literal"><span class="pre">scipy</span></code>, <code class="docutils literal"><span class="pre">matplotlib</span></code>, <code class="docutils literal"><span class="pre">pandas</span></code>, <code class="docutils literal"><span class="pre">scikit-learn</span></code>, <code class="docutils literal"><span class="pre">ipython</span></code>, the list goes on). Here&#8217;s how you do it:</p>
+<div class="code highlight-python"><div class="highlight"><pre>conda create --clone base --name $USER
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You can also create an environment from scratch using <code class="docutils literal"><span class="pre">conda</span></code> to install
+all the Anaconda Python packages, and then using <code class="docutils literal"><span class="pre">pip</span></code> in the environment
+to install the remaining packages, like so:</p>
+<div class="code highlight-python"><div class="highlight"><pre>conda create --yes --name ENVIRONMENT_NAME pip numpy scipy cython matplotlib nose six scikit-learn ipython networkx pandas tornado statsmodels setuptools pytest pyzmq jinja2 pyyaml pymongo
+source activate ENVIRONMENT_NAME
+pip install seaborn fastcluster gspread brewer2mpl husl semantic_version joblib pybedtools gffutils matplotlib-venn HTSeq
+pip install https://github.com/YeoLab/clipper/tarball/master
+pip install https://github.com/YeoLab/gscripts/tarball/master
+pip install https://github.com/YeoLab/flotilla/tarball/master
+</pre></div>
+</div>
+<p class="last">These commands is how the <code class="docutils literal"><span class="pre">base</span></code> environment was created.</p>
+</div>
+<p>Then activate your environment with</p>
+<div class="code highlight-python"><div class="highlight"><pre>source activate $USER
+</pre></div>
+</div>
+<p>You&#8217;ll probably stay in this environment all the time.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Make sure to add <code class="docutils literal"><span class="pre">source</span> <span class="pre">activate</span> <span class="pre">$USER</span></code> to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file!
+Then you will always be in your environment</p>
+</div>
+<p>If you need to switch to another environment, then exit your environment with:</p>
+<div class="code highlight-python"><div class="highlight"><pre>source deactivate
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Now that you&#8217;ve created your own environment, go to your gscripts folder
+and install your own personal gscripts, to make sure it&#8217;s the most updated
+version.</p>
+<div class="code last highlight-python"><div class="highlight"><pre>cd ~/gscripts
+pip install .  # The &quot;.&quot; means install &quot;this,&quot; as in &quot;this folder where I am&quot;
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="organize-your-home-directory">
 <h3>Organize your home directory<a class="headerlink" href="#organize-your-home-directory" title="Permalink to this headline">¶</a></h3>
 <p>Create an organized <code class="docutils literal"><span class="pre">home</span></code> directory structure following a common
@@ -380,44 +428,6 @@ drwxr-x---+ 2 bkakarad yeo-group     2 Jun 24  2013 workflows
 </div>
 <div class="section" id="share-your-dropbox-account-for-easy-figure-syncing">
 <h3>Share your Dropbox account for easy figure syncing<a class="headerlink" href="#share-your-dropbox-account-for-easy-figure-syncing" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="make-a-virtual-environment-on-tscc">
-<h3>Make a virtual environment on TSCC<a class="headerlink" href="#make-a-virtual-environment-on-tscc" title="Permalink to this headline">¶</a></h3>
-<p>On TSCC, the easiest way to create a virtual evironment (aka <code class="docutils literal"><span class="pre">virtualenv</span></code>)
-is by making one off of the <code class="docutils literal"><span class="pre">base</span></code> environment, which already has a bunch of
-modules that we use all the time (<code class="docutils literal"><span class="pre">numpy</span></code>, <code class="docutils literal"><span class="pre">scipy</span></code>, <code class="docutils literal"><span class="pre">matplotlib</span></code>, <code class="docutils literal"><span class="pre">pandas</span></code>, <code class="docutils literal"><span class="pre">scikit-learn</span></code>, <code class="docutils literal"><span class="pre">ipython</span></code>, the list goes on). Here&#8217;s how you do it:</p>
-<div class="code highlight-python"><div class="highlight"><pre>conda create --clone base --name $USER
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>You can also create an environment from scratch using <code class="docutils literal"><span class="pre">conda</span></code> to install
-all the Anaconda Python packages, and then using <code class="docutils literal"><span class="pre">pip</span></code> in the environment
-to install the remaining packages, like so:</p>
-<div class="code highlight-python"><div class="highlight"><pre>conda create --yes --name ENVIRONMENT_NAME pip numpy scipy cython matplotlib nose six scikit-learn ipython networkx pandas tornado statsmodels setuptools pytest pyzmq jinja2 pyyaml pymongo
-source activate ENVIRONMENT_NAME
-pip install seaborn fastcluster gspread brewer2mpl husl semantic_version joblib pybedtools gffutils matplotlib-venn HTSeq
-pip install https://github.com/YeoLab/clipper/tarball/master
-pip install https://github.com/YeoLab/gscripts/tarball/master
-pip install https://github.com/YeoLab/flotilla/tarball/master
-</pre></div>
-</div>
-<p class="last">These commands is how the <code class="docutils literal"><span class="pre">base</span></code> environment was created.</p>
-</div>
-<p>Then activate your environment with</p>
-<div class="code highlight-python"><div class="highlight"><pre>source activate $USER
-</pre></div>
-</div>
-<p>You&#8217;ll probably stay in this environment all the time.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Make sure to add <code class="docutils literal"><span class="pre">source</span> <span class="pre">activate</span> <span class="pre">$USER</span></code> to your <code class="docutils literal"><span class="pre">.bashrc</span></code> file!
-Then you will always be in your environment</p>
-</div>
-<p>If you need to switch to another environment, then exit your environment with:</p>
-<div class="code highlight-python"><div class="highlight"><pre>source deactivate
-</pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="installing-and-upgrading-python-packages">

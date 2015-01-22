@@ -127,6 +127,63 @@ Get ``gscripts`` access to software
 
     source ~/.bashrc
 
+Make a virtual environment on TSCC
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+On TSCC, the easiest way to create a virtual evironment (aka ``virtualenv``)
+is by making one off of the ``base`` environment, which already has a bunch of
+modules that we use all the time (``numpy``, ``scipy``, ``matplotlib``, ``pandas``, ``scikit-learn``, ``ipython``, the list goes on). Here's how you do it:
+
+.. code::
+
+    conda create --clone base --name $USER
+
+.. note::
+    You can also create an environment from scratch using ``conda`` to install
+    all the Anaconda Python packages, and then using ``pip`` in the environment
+    to install the remaining packages, like so:
+
+    .. code::
+
+        conda create --yes --name ENVIRONMENT_NAME pip numpy scipy cython matplotlib nose six scikit-learn ipython networkx pandas tornado statsmodels setuptools pytest pyzmq jinja2 pyyaml pymongo
+        source activate ENVIRONMENT_NAME
+        pip install seaborn fastcluster gspread brewer2mpl husl semantic_version joblib pybedtools gffutils matplotlib-venn HTSeq
+        pip install https://github.com/YeoLab/clipper/tarball/master
+        pip install https://github.com/YeoLab/gscripts/tarball/master
+        pip install https://github.com/YeoLab/flotilla/tarball/master
+
+    These commands is how the ``base`` environment was created.
+
+Then activate your environment with
+
+.. code::
+
+    source activate $USER
+
+You'll probably stay in this environment all the time.
+
+.. warning::
+
+    Make sure to add ``source activate $USER`` to your ``~/.bashrc`` file!
+    Then you will always be in your environment
+
+If you need to switch to another environment, then exit your environment with:
+
+.. code::
+
+    source deactivate
+
+.. note::
+
+    Now that you've created your own environment, go to your gscripts folder
+    and install your own personal gscripts, to make sure it's the most updated
+    version.
+
+    .. code::
+
+        cd ~/gscripts
+        pip install .  # The "." means install "this," as in "this folder where I am"
+
 
 Organize your home directory
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -225,51 +282,6 @@ Share your Dropbox account for easy figure syncing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Make a virtual environment on TSCC
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-On TSCC, the easiest way to create a virtual evironment (aka ``virtualenv``)
-is by making one off of the ``base`` environment, which already has a bunch of
-modules that we use all the time (``numpy``, ``scipy``, ``matplotlib``, ``pandas``, ``scikit-learn``, ``ipython``, the list goes on). Here's how you do it:
-
-.. code::
-
-    conda create --clone base --name $USER
-
-.. note::
-    You can also create an environment from scratch using ``conda`` to install
-    all the Anaconda Python packages, and then using ``pip`` in the environment
-    to install the remaining packages, like so:
-
-    .. code::
-
-        conda create --yes --name ENVIRONMENT_NAME pip numpy scipy cython matplotlib nose six scikit-learn ipython networkx pandas tornado statsmodels setuptools pytest pyzmq jinja2 pyyaml pymongo
-        source activate ENVIRONMENT_NAME
-        pip install seaborn fastcluster gspread brewer2mpl husl semantic_version joblib pybedtools gffutils matplotlib-venn HTSeq
-        pip install https://github.com/YeoLab/clipper/tarball/master
-        pip install https://github.com/YeoLab/gscripts/tarball/master
-        pip install https://github.com/YeoLab/flotilla/tarball/master
-
-    These commands is how the ``base`` environment was created.
-
-Then activate your environment with
-
-.. code::
-
-    source activate $USER
-
-You'll probably stay in this environment all the time.
-
-.. warning::
-
-    Make sure to add ``source activate $USER`` to your ``.bashrc`` file!
-    Then you will always be in your environment
-
-If you need to switch to another environment, then exit your environment with:
-
-.. code::
-
-    source deactivate
 
 Installing and upgrading Python packages
 ----------------------------------------
