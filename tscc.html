@@ -305,6 +305,20 @@ git clone http://github.com/YeoLab/gscripts
 <p>On TSCC, the easiest way to create a virtual evironment (aka <code class="docutils literal"><span class="pre">virtualenv</span></code>)
 is by making one off of the <code class="docutils literal"><span class="pre">base</span></code> environment, which already has a bunch of
 modules that we use all the time (<code class="docutils literal"><span class="pre">numpy</span></code>, <code class="docutils literal"><span class="pre">scipy</span></code>, <code class="docutils literal"><span class="pre">matplotlib</span></code>, <code class="docutils literal"><span class="pre">pandas</span></code>, <code class="docutils literal"><span class="pre">scikit-learn</span></code>, <code class="docutils literal"><span class="pre">ipython</span></code>, the list goes on). Here&#8217;s how you do it:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The command <code class="docutils literal"><span class="pre">$USER</span></code> is meant to be literal, meaning you can exactly copy
+the below command, and TSCC will create an environment with your username.
+If you don&#8217;t believe me, compare the output of:</p>
+<div class="code highlight-python"><div class="highlight"><pre>echo USER
+</pre></div>
+</div>
+<p>to the output of:</p>
+<div class="code highlight-python"><div class="highlight"><pre>echo $USER
+</pre></div>
+</div>
+<p class="last">The second one should output your TSCC username.</p>
+</div>
 <div class="code highlight-python"><div class="highlight"><pre>conda create --clone base --name $USER
 </pre></div>
 </div>
