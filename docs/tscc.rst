@@ -113,8 +113,8 @@ Get ``gscripts`` access to software
     cd
     git clone http://github.com/YeoLab/gscripts
 
-2. Add this line to the **end** of your ``.bashrc`` file (using either ``emacs`` or
-   ``vim``, your choice)
+2. Add this line to the **end** of your ``~/.bashrc`` file (using either
+   ``emacs`` or ``vi``/``vim``, your choice)
 
 .. code::
 
