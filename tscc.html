@@ -401,6 +401,30 @@ read/write to from your scripts/workflows! The &#8216;&#8217;&#8216;parallel&#82
 of this storage is 100 GB/s (e.g. 10 tasks can each read/write at 10
 GB/s at the same time)</p>
 </div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Anything saved here is subject to deletion without warning after 3 months
+or less of storage. In particular, the large <code class="docutils literal"><span class="pre">.sam</span></code> and <code class="docutils literal"><span class="pre">.bam</span></code> files
+can get deleted, even though their <code class="docutils literal"><span class="pre">.done</span></code> files (produced by the
+GATK Queue RNA-seq pipeline as a placeholder) will still exist, and they
+will seem done to the pipeline. To avoid lost data, here are a few steps:</p>
+<ol class="last arabic">
+<li><p class="first">Keep your metadata sample/cell counts are in your <code class="docutils literal"><span class="pre">$HOME/projects</span></code> or
+<code class="docutils literal"><span class="pre">/projects/ps-yeolab/$USER</span></code> folder, which don&#8217;t get purged
+periodically.</p>
+</li>
+<li><p class="first">Delete <code class="docutils literal"><span class="pre">*.done</span></code> files when re-rerunning a partially eroded pipeline
+run.</p>
+</li>
+<li><p class="first">Use this recursive touch command to &#8220;refresh&#8221; the decay clock on your
+files before important meetings and re-analysis steps:</p>
+<div class="code highlight-python"><div class="highlight"><pre>cd important_scratch_dir
+find . | xargs touch
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="section" id="create-workflow-and-projects-folders">
 <h4>Create workflow and projects folders<a class="headerlink" href="#create-workflow-and-projects-folders" title="Permalink to this headline">¶</a></h4>

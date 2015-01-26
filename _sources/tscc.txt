@@ -248,6 +248,27 @@ which you can make like this:
     of this storage is 100 GB/s (e.g. 10 tasks can each read/write at 10
     GB/s at the same time)
 
+.. warning::
+
+    Anything saved here is subject to deletion without warning after 3 months
+    or less of storage. In particular, the large ``.sam`` and ``.bam`` files
+    can get deleted, even though their ``.done`` files (produced by the
+    GATK Queue RNA-seq pipeline as a placeholder) will still exist, and they
+    will seem done to the pipeline. To avoid lost data, here are a few steps:
+
+    1. Keep your metadata sample/cell counts are in your ``$HOME/projects`` or
+       ``/projects/ps-yeolab/$USER`` folder, which don't get purged
+       periodically.
+    2. Delete ``*.done`` files when re-rerunning a partially eroded pipeline
+       run.
+    3. Use this recursive touch command to "refresh" the decay clock on your
+       files before important meetings and re-analysis steps:
+
+       .. code::
+
+            cd important_scratch_dir
+            find . | xargs touch
+
 Create workflow and projects folders
 ++++++++++++++++++++++++++++++++++++
 
