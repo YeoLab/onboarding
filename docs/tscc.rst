@@ -681,8 +681,8 @@ and ``make`` and all that, then always set the flag
 
 When possible install bins to ``/projects/ps-yeolab/software/bin``
 
-Running qscripts GATK Queue pipelines on TSCC
----------------------------------------------
+Running RNA-seq, CLIP-Seq, Ribo-Seq, etc qscripts GATK Queue pipelines
+----------------------------------------------------------------------
 
 Example scripts can be found in:
 
@@ -690,11 +690,134 @@ Example scripts can be found in:
 
     /home/gpratt/templates
 
+Gabe has created a bunch of helpful templates:
+
+.. code::
+
+    $ ls -lh /home/gpratt/templates
+    total 26K
+    -rwxr-xr-x 1 gpratt yeo-group 660 May  7  2014 bacode_split.sh
+    -rwxr-xr-x 1 gpratt yeo-group 554 May  7  2014 bacode_split.sh~
+    -rwxr-xr-x 1 gpratt yeo-group 524 Sep 18 00:08 #clipseq.sh#
+    -rwxr-xr-x 1 gpratt yeo-group 524 Jul 12  2014 clipseq.sh
+    -rwxr-xr-x 1 gpratt yeo-group 516 Mar 26  2014 clipseq.sh~
+    -rwxr-xr-x 1 gpratt yeo-group 473 Aug 21 18:47 riboseq.sh
+    -rwxr-xr-x 1 gpratt yeo-group 528 Aug 21 18:46 riboseq.sh~
+    -rwxr-xr-x 1 gpratt yeo-group 530 Sep  5 17:29 rnaseq.sh
+    -rwxr-xr-x 1 gpratt yeo-group 527 Mar 26  2014 rnaseq.sh~
+
 e.g. for RNA-Seq look at this gist:
     https://gist.github.com/gpratt/294cbdf553ac4f44648a
 
-Each Queue job requires a manifest file with a list of all files to process, and the genome to process them
-on
+Each Queue job requires a manifest file with a list of all files to process,
+and the genome to process them on.
+
+.. warning::
+
+    All further instructions depend on you having followed the directions in
+    `Create workflow and projects folders`_, where for this particular project,
+    you've created these folders:
+
+    .. code::
+
+        ~/projects/PROJECT_NAME
+        ~/processing_scripts/PROJECT_NAME/scripts
+        ~/scratch/PROJECT_NAME/data
+        ~/scratch/PROJECT_NAME/analysis
+
+    And that you've linked the scratch and home directories correctly. For
+    example, here's how you can create the project directory structure for a
+    project called ``singlecell_pnms``:
+
+    .. code::
+
+        NAME=singlecell_pnms
+        mkdir -p ~/projects/$NAME ~/scratch/$NAME ~/scratch/$NAME/data ~/scratch/$NAME/analysis ~/processing_scripts/$NAME/scripts
+        ln -s ~/scratch/$NAME/data ~/projects/$NAME/data
+        ln -s ~/scratch/$NAME/analysis ~/projects/$NAME/analysis
+        ln -s ~/processing_scripts/$NAME/scripts ~/projects/$NAME/scripts
+
+Here's an example queue script for single-end, not strand-specific RNA-seq,
+from the file ``singlecell_pnms_se_v3.sh``:
+
+.. code::
+
+    #!/bin/bash
+
+    NAME=singlecell_pnms_se
+    VERSION=v3
+    DIR=singlecell_pnms
+    java -Xms512m -Xmx512m -jar $HOME/workspace-git/gatk/dist/Queue.jar -S $HOME/gscripts/qscripts/analyze_rna_seq.scala --input ${NAME}_${VERSION}.txt --adapter TCGTATGCCGTCTTCTGCTTG --adapter ATCTCGTATGCCGTCTTCTGCTTG --adapter CGACAGGTTCAGAGTTCTACAGTCCGACGATC --adapter GATCGGAAGAGCACACGTCTGAACTCCAGTCAC -qsub -jobQueue home-yeo -runDir ~/projects/${DIR}/analysis/${NAME}_${VERSION}  -log ${NAME}_${VERSION}.log --location ${NAME}  --strict -keepIntermediates --not_stranded -single_end -run
+
+Notice that the "``--input``" is the file ``${NAME}_${VERSION}.txt``, which
+translates to ``singlecell_pnms_se_v3.txt`` in this case, since
+``NAME=singlecell_pnms_se`` and ``VERSION=v3`` are defined at the beginning of
+the file. This file is the "manifest" of the sequencing run. In the case of
+single-end reads, this is a file with
+``/path/to/read1.fastq.gz\tspecies``,
+where ``\t`` indicates a tab (using the ``<TAB>`` character). Here is the first
+10 lines of ``singlecell_pnms_se_v3.txt`` (obtained via
+``head singlecell_pnms_se_v3.txt``):
+
+.. code::
+
+    /home/obotvinnik/projects/singlecell_pnms/data/CVN_01_R1.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/CVN_02_R1.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/CVN_03_R1.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/CVN_04_R1.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/CVN_05_R1.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/CVN_06_R1.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/CVN_07_R1.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/CVN_08_R1.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/CVN_09_R1.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/CVN_10_R1.fastq.gz       hg19
+
+For paired-end, not strand-specific RNA-seq, here's the script of the file
+``singlecell_pnms_pe_v2.sh``
+
+.. code::
+
+    #!/bin/bash
+
+    NAME=singlecell_pnms_pe
+    VERSION=v2
+    DIR=singlecell_pnms
+    java -Xms512m -Xmx512m -jar $HOME/workspace-git/gatk/dist/Queue.jar -S $HOME/gscripts/qscripts/analyze_rna_seq.scala --input ${NAME}_${VERSION}.txt --adapter TCGTATGCCGTCTTCTGCTTG --adapter ATCTCGTATGCCGTCTTCTGCTTG --adapter CGACAGGTTCAGAGTTCTACAGTCCGACGATC --adapter GATCGGAAGAGCACACGTCTGAACTCCAGTCAC -qsub -jobQueue home-yeo -runDir ~/projects/${DIR}/analysis/${NAME}_${VERSION}  -log ${NAME}_${VERSION}.log --location ${NAME}  --strict -keepIntermediates --not_stranded -run
+
+Notice that the "``--input``" is the file ``${NAME}_${VERSION}.txt``, which
+translates to ``singlecell_pnms_pe_v2.txt`` in this case, since
+``NAME=singlecell_pnms_pe`` and ``VERSION=v2`` are defined at the beginning of
+the file. This file is the "manifest" of the sequencing run. In the case of
+single-end reads, this is a file with
+``/path/to/read1.fastq.gz\t/path/to/read2.fastq.gz\tspecies``,
+where ``\t`` indicates a tab (using the ``<TAB>`` character). Here is the first
+10 lines of ``singlecell_pnms_pe_v2.txt`` (obtained via
+``singlecell_pnms_pe_v2.txt``):
+
+.. code::
+
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_01_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_01_R2.fastq.gz        hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_02_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_02_R2.fastq.gz        hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_03_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_03_R2.fastq.gz        hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_04_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_04_R2.fastq.gz        hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_05_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_05_R2.fastq.gz        hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_06_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_06_R2.fastq.gz        hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_07_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_07_R2.fastq.gz        hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_08_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_08_R2.fastq.gz        hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_09_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_09_R2.fastq.gz        hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_10_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_10_R2.fastq.gz        hg19
+
+For this project, I had a mix of both paired-end and single-end reads, so
+that's why ``DIR`` is the same for both the ``singlecell_pnms_se_v3.sh`` and
+``singlecell_pnms_pe_v2.sh`` scripts, but ``NAME`` was different - then they're
+saved in different files.
+
+
+Running GATK Queue pipeline scripts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Now that you've created manifest file called ``${NAME}_${VERSION}.txt`` and
+``${NAME}_${VERSION}.sh``, you are almost ready to run the pipeline.
 
 GATK Queue runs exclusively on TSCC (for now, some paths are hard coded and
 Gabe doesn't know scala well enough to un-hardcode them)
@@ -718,6 +841,34 @@ Further documentations can be found at the `GATK Queue website`_
     Sometimes the login node kills these jobs, logging into a worker node to run these pipelines is a good \
     idea.
     Also these are long running jobs you should you be in a screen session to run these pipelines
+
+Pipeline frequently asked questions (FAQ)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+How do I ...
+++++++++++++
+
+... deal with multiple species? Do I have to create different manifest files?
+    Fortunately, no! You can create a single manifest file.
+
+Looking at ``/home/gpratt/projects/msi2/scripts``, we see the file
+``msi2_v2.txt``, which has the contents:
+
+.. code::
+
+    /home/gpratt/projects/msi2/data/msi2/MSI2_ACAGTG_ACAGTG_L008_R1.fastq.gz        hg19
+    /home/gpratt/projects/msi2/data/msi2/MSI2_CAGATC_CAGATC_L008_R1.fastq.gz        mm9
+    /home/gpratt/projects/msi2/data/msi2/MSI2_GCCAAT_GCCAAT_L008_R1.fastq.gz        mm9
+    /home/gpratt/projects/msi2/data/msi2/MSI2_TAGCTT_TAGCTT_L008_R1.fastq.gz        hg19
+    /home/gpratt/projects/msi2/data/msi2/MSI2_TGACCA_TGACCA_L008_R1.fastq.gz        hg19
+    /home/gpratt/projects/msi2/data/msi2/MSI2_TTAGGC_TTAGGC_L008_R1.fastq.gz        hg19
+
+So you can reference multiple genomes in a single manifest file!
+
+
+... deal with both single-end and paired-end reads in one project? Do I need to create separate manifest files?
+    Yes, unfortunately. :( Check out the ``singlecell_pnms`` project above as
+    an example.
 
 analyze_rna_seq
 ~~~~~~~~~~~~~~~
