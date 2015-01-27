@@ -684,13 +684,16 @@ When possible install bins to ``/projects/ps-yeolab/software/bin``
 Running RNA-seq, CLIP-Seq, Ribo-Seq, etc qscripts GATK Queue pipelines
 ----------------------------------------------------------------------
 
-Example scripts can be found in:
+We use the Broad Institute's Genome Analysis Toolkit (GATK_) Queue_ software
+to run our pipelines. This software solves a lot of problems for us, such as
+dealing with multiple-stage pipelines that have cross-dependencies (e.g. you
+can't calculate splicing until you've mapped the reads, and you can't map
+the reads until after you've removed adapters and repetitive genomic regions
+from them), and properly scheduling jobs so that one person's analysis doesn't
+completely take over the compute cluster.
 
-.. code::
-
-    /home/gpratt/templates
-
-Gabe has created a bunch of helpful templates:
+Gabe has created a bunch of helpful template scripts for GATK Queue in his
+folder ``/home/gpratt/templates``:
 
 .. code::
 
@@ -705,9 +708,6 @@ Gabe has created a bunch of helpful templates:
     -rwxr-xr-x 1 gpratt yeo-group 528 Aug 21 18:46 riboseq.sh~
     -rwxr-xr-x 1 gpratt yeo-group 530 Sep  5 17:29 rnaseq.sh
     -rwxr-xr-x 1 gpratt yeo-group 527 Mar 26  2014 rnaseq.sh~
-
-e.g. for RNA-Seq look at this gist:
-    https://gist.github.com/gpratt/294cbdf553ac4f44648a
 
 Each Queue job requires a manifest file with a list of all files to process,
 and the genome to process them on.
@@ -907,3 +907,5 @@ The queue script ``analyze_rna_seq_gently.scala`` runs:
 .. _RNA-SeQC: http://www.broadinstitute.org/cancer/cga/rna-seqc
 .. _analyze_rna_seq.scala: analyze_rna_seq
 .. _Github's instructions     for generating SSH keys: https://help.github.com/articles/generating-ssh-keys/
+.. _GATK: https://www.broadinstitute.org/gatk/
+.. _Queue: http://gatkforums.broadinstitute.org/discussion/1306/overview-of-queue
