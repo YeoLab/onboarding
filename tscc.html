@@ -84,7 +84,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#installing-and-upgrading-python-packages">Installing and upgrading Python packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#submitting-and-managing-compute-jobs-on-tscc">Submitting and managing compute jobs on TSCC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ipython-notebooks-on-tscc">IPython notebooks on TSCC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#running-qscripts-gatk-queue-pipelines-on-tscc">Running qscripts GATK Queue pipelines on TSCC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-rna-seq-clip-seq-ribo-seq-etc-qscripts-gatk-queue-pipelines">Running RNA-seq, CLIP-Seq, Ribo-Seq, etc qscripts GATK Queue pipelines</a></li>
 </ul>
 </li>
 </ul>
@@ -135,7 +135,12 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#ipython-notebooks-on-tscc">IPython notebooks on TSCC</a></li>
-<li><a class="reference internal" href="#running-qscripts-gatk-queue-pipelines-on-tscc">Running qscripts GATK Queue pipelines on TSCC</a><ul>
+<li><a class="reference internal" href="#running-rna-seq-clip-seq-ribo-seq-etc-qscripts-gatk-queue-pipelines">Running RNA-seq, CLIP-Seq, Ribo-Seq, etc qscripts GATK Queue pipelines</a><ul>
+<li><a class="reference internal" href="#running-gatk-queue-pipeline-scripts">Running GATK Queue pipeline scripts</a></li>
+<li><a class="reference internal" href="#pipeline-frequently-asked-questions-faq">Pipeline frequently asked questions (FAQ)</a><ul>
+<li><a class="reference internal" href="#how-do-i">How do I ...</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#analyze-rna-seq">analyze_rna_seq</a></li>
 <li><a class="reference internal" href="#analyze-rna-seq-gently">analyze_rna_seq_gently</a></li>
 </ul>
@@ -763,18 +768,124 @@ and <code class="docutils literal"><span class="pre">make</span></code> and all 
 </div>
 <p>When possible install bins to <code class="docutils literal"><span class="pre">/projects/ps-yeolab/software/bin</span></code></p>
 </div>
-<div class="section" id="running-qscripts-gatk-queue-pipelines-on-tscc">
-<h2>Running qscripts GATK Queue pipelines on TSCC<a class="headerlink" href="#running-qscripts-gatk-queue-pipelines-on-tscc" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="running-rna-seq-clip-seq-ribo-seq-etc-qscripts-gatk-queue-pipelines">
+<h2>Running RNA-seq, CLIP-Seq, Ribo-Seq, etc qscripts GATK Queue pipelines<a class="headerlink" href="#running-rna-seq-clip-seq-ribo-seq-etc-qscripts-gatk-queue-pipelines" title="Permalink to this headline">¶</a></h2>
 <p>Example scripts can be found in:</p>
 <div class="code highlight-python"><div class="highlight"><pre>/home/gpratt/templates
+</pre></div>
+</div>
+<p>Gabe has created a bunch of helpful templates:</p>
+<div class="code highlight-python"><div class="highlight"><pre>$ ls -lh /home/gpratt/templates
+total 26K
+-rwxr-xr-x 1 gpratt yeo-group 660 May  7  2014 bacode_split.sh
+-rwxr-xr-x 1 gpratt yeo-group 554 May  7  2014 bacode_split.sh~
+-rwxr-xr-x 1 gpratt yeo-group 524 Sep 18 00:08 #clipseq.sh#
+-rwxr-xr-x 1 gpratt yeo-group 524 Jul 12  2014 clipseq.sh
+-rwxr-xr-x 1 gpratt yeo-group 516 Mar 26  2014 clipseq.sh~
+-rwxr-xr-x 1 gpratt yeo-group 473 Aug 21 18:47 riboseq.sh
+-rwxr-xr-x 1 gpratt yeo-group 528 Aug 21 18:46 riboseq.sh~
+-rwxr-xr-x 1 gpratt yeo-group 530 Sep  5 17:29 rnaseq.sh
+-rwxr-xr-x 1 gpratt yeo-group 527 Mar 26  2014 rnaseq.sh~
 </pre></div>
 </div>
 <dl class="docutils">
 <dt>e.g. for RNA-Seq look at this gist:</dt>
 <dd><a class="reference external" href="https://gist.github.com/gpratt/294cbdf553ac4f44648a">https://gist.github.com/gpratt/294cbdf553ac4f44648a</a></dd>
 </dl>
-<p>Each Queue job requires a manifest file with a list of all files to process, and the genome to process them
-on</p>
+<p>Each Queue job requires a manifest file with a list of all files to process,
+and the genome to process them on.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>All further instructions depend on you having followed the directions in
+<a class="reference internal" href="#create-workflow-and-projects-folders">Create workflow and projects folders</a>, where for this particular project,
+you&#8217;ve created these folders:</p>
+<div class="code highlight-python"><div class="highlight"><pre>~/projects/PROJECT_NAME
+~/processing_scripts/PROJECT_NAME/scripts
+~/scratch/PROJECT_NAME/data
+~/scratch/PROJECT_NAME/analysis
+</pre></div>
+</div>
+<p>And that you&#8217;ve linked the scratch and home directories correctly. For
+example, here&#8217;s how you can create the project directory structure for a
+project called <code class="docutils literal"><span class="pre">singlecell_pnms</span></code>:</p>
+<div class="code last highlight-python"><div class="highlight"><pre>NAME=singlecell_pnms
+mkdir -p ~/projects/$NAME ~/scratch/$NAME ~/scratch/$NAME/data ~/scratch/$NAME/analysis ~/processing_scripts/$NAME/scripts
+ln -s ~/scratch/$NAME/data ~/projects/$NAME/data
+ln -s ~/scratch/$NAME/analysis ~/projects/$NAME/analysis
+ln -s ~/processing_scripts/$NAME/scripts ~/projects/$NAME/scripts
+</pre></div>
+</div>
+</div>
+<p>Here&#8217;s an example queue script for single-end, not strand-specific RNA-seq,
+from the file <code class="docutils literal"><span class="pre">singlecell_pnms_se_v3.sh</span></code>:</p>
+<div class="code highlight-python"><div class="highlight"><pre>#!/bin/bash
+
+NAME=singlecell_pnms_se
+VERSION=v3
+DIR=singlecell_pnms
+java -Xms512m -Xmx512m -jar $HOME/workspace-git/gatk/dist/Queue.jar -S $HOME/gscripts/qscripts/analyze_rna_seq.scala --input ${NAME}_${VERSION}.txt --adapter TCGTATGCCGTCTTCTGCTTG --adapter ATCTCGTATGCCGTCTTCTGCTTG --adapter CGACAGGTTCAGAGTTCTACAGTCCGACGATC --adapter GATCGGAAGAGCACACGTCTGAACTCCAGTCAC -qsub -jobQueue home-yeo -runDir ~/projects/${DIR}/analysis/${NAME}_${VERSION}  -log ${NAME}_${VERSION}.log --location ${NAME}  --strict -keepIntermediates --not_stranded -single_end -run
+</pre></div>
+</div>
+<p>Notice that the &#8220;<code class="docutils literal"><span class="pre">--input</span></code>&#8221; is the file <code class="docutils literal"><span class="pre">${NAME}_${VERSION}.txt</span></code>, which
+translates to <code class="docutils literal"><span class="pre">singlecell_pnms_se_v3.txt</span></code> in this case, since
+<code class="docutils literal"><span class="pre">NAME=singlecell_pnms_se</span></code> and <code class="docutils literal"><span class="pre">VERSION=v3</span></code> are defined at the beginning of
+the file. This file is the &#8220;manifest&#8221; of the sequencing run. In the case of
+single-end reads, this is a file with
+<code class="docutils literal"><span class="pre">/path/to/read1.fastq.gz\tspecies</span></code>,
+where <code class="docutils literal"><span class="pre">\t</span></code> indicates a tab (using the <code class="docutils literal"><span class="pre">&lt;TAB&gt;</span></code> character). Here is the first
+10 lines of <code class="docutils literal"><span class="pre">singlecell_pnms_se_v3.txt</span></code> (obtained via
+<code class="docutils literal"><span class="pre">head</span> <span class="pre">singlecell_pnms_se_v3.txt</span></code>):</p>
+<div class="code highlight-python"><div class="highlight"><pre>/home/obotvinnik/projects/singlecell_pnms/data/CVN_01_R1.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/CVN_02_R1.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/CVN_03_R1.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/CVN_04_R1.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/CVN_05_R1.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/CVN_06_R1.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/CVN_07_R1.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/CVN_08_R1.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/CVN_09_R1.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/CVN_10_R1.fastq.gz       hg19
+</pre></div>
+</div>
+<p>For paired-end, not strand-specific RNA-seq, here&#8217;s the script of the file
+<code class="docutils literal"><span class="pre">singlecell_pnms_pe_v2.sh</span></code></p>
+<div class="code highlight-python"><div class="highlight"><pre>#!/bin/bash
+
+NAME=singlecell_pnms_pe
+VERSION=v2
+DIR=singlecell_pnms
+java -Xms512m -Xmx512m -jar $HOME/workspace-git/gatk/dist/Queue.jar -S $HOME/gscripts/qscripts/analyze_rna_seq.scala --input ${NAME}_${VERSION}.txt --adapter TCGTATGCCGTCTTCTGCTTG --adapter ATCTCGTATGCCGTCTTCTGCTTG --adapter CGACAGGTTCAGAGTTCTACAGTCCGACGATC --adapter GATCGGAAGAGCACACGTCTGAACTCCAGTCAC -qsub -jobQueue home-yeo -runDir ~/projects/${DIR}/analysis/${NAME}_${VERSION}  -log ${NAME}_${VERSION}.log --location ${NAME}  --strict -keepIntermediates --not_stranded -run
+</pre></div>
+</div>
+<p>Notice that the &#8220;<code class="docutils literal"><span class="pre">--input</span></code>&#8221; is the file <code class="docutils literal"><span class="pre">${NAME}_${VERSION}.txt</span></code>, which
+translates to <code class="docutils literal"><span class="pre">singlecell_pnms_pe_v2.txt</span></code> in this case, since
+<code class="docutils literal"><span class="pre">NAME=singlecell_pnms_pe</span></code> and <code class="docutils literal"><span class="pre">VERSION=v2</span></code> are defined at the beginning of
+the file. This file is the &#8220;manifest&#8221; of the sequencing run. In the case of
+single-end reads, this is a file with
+<code class="docutils literal"><span class="pre">/path/to/read1.fastq.gz\t/path/to/read2.fastq.gz\tspecies</span></code>,
+where <code class="docutils literal"><span class="pre">\t</span></code> indicates a tab (using the <code class="docutils literal"><span class="pre">&lt;TAB&gt;</span></code> character). Here is the first
+10 lines of <code class="docutils literal"><span class="pre">singlecell_pnms_pe_v2.txt</span></code> (obtained via
+<code class="docutils literal"><span class="pre">singlecell_pnms_pe_v2.txt</span></code>):</p>
+<div class="code highlight-python"><div class="highlight"><pre>/home/obotvinnik/projects/singlecell_pnms/data/M1_01_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_01_R2.fastq.gz        hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_02_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_02_R2.fastq.gz        hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_03_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_03_R2.fastq.gz        hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_04_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_04_R2.fastq.gz        hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_05_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_05_R2.fastq.gz        hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_06_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_06_R2.fastq.gz        hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_07_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_07_R2.fastq.gz        hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_08_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_08_R2.fastq.gz        hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_09_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_09_R2.fastq.gz        hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_10_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_10_R2.fastq.gz        hg19
+</pre></div>
+</div>
+<p>For this project, I had a mix of both paired-end and single-end reads, so
+that&#8217;s why <code class="docutils literal"><span class="pre">DIR</span></code> is the same for both the <code class="docutils literal"><span class="pre">singlecell_pnms_se_v3.sh</span></code> and
+<code class="docutils literal"><span class="pre">singlecell_pnms_pe_v2.sh</span></code> scripts, but <code class="docutils literal"><span class="pre">NAME</span></code> was different - then they&#8217;re
+saved in different files.</p>
+<div class="section" id="running-gatk-queue-pipeline-scripts">
+<h3>Running GATK Queue pipeline scripts<a class="headerlink" href="#running-gatk-queue-pipeline-scripts" title="Permalink to this headline">¶</a></h3>
+<p>Now that you&#8217;ve created manifest file called <code class="docutils literal"><span class="pre">${NAME}_${VERSION}.txt</span></code> and
+<code class="docutils literal"><span class="pre">${NAME}_${VERSION}.sh</span></code>, you are almost ready to run the pipeline.</p>
 <p>GATK Queue runs exclusively on TSCC (for now, some paths are hard coded and
 Gabe doesn&#8217;t know scala well enough to un-hardcode them)</p>
 <p>Running instructions are documented in the each queue file,
@@ -789,6 +900,33 @@ as long as you have a checked out copy of gscripts then</p>
 <p class="first admonition-title">Note</p>
 <p class="last">Sometimes the login node kills these jobs, logging into a worker node to run these pipelines is a good idea.
 Also these are long running jobs you should you be in a screen session to run these pipelines</p>
+</div>
+</div>
+<div class="section" id="pipeline-frequently-asked-questions-faq">
+<h3>Pipeline frequently asked questions (FAQ)<a class="headerlink" href="#pipeline-frequently-asked-questions-faq" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="how-do-i">
+<h4>How do I ...<a class="headerlink" href="#how-do-i" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>... deal with multiple species? Do I have to create different manifest files?</dt>
+<dd>Fortunately, no! You can create a single manifest file.</dd>
+</dl>
+<p>Looking at <code class="docutils literal"><span class="pre">/home/gpratt/projects/msi2/scripts</span></code>, we see the file
+<code class="docutils literal"><span class="pre">msi2_v2.txt</span></code>, which has the contents:</p>
+<div class="code highlight-python"><div class="highlight"><pre>/home/gpratt/projects/msi2/data/msi2/MSI2_ACAGTG_ACAGTG_L008_R1.fastq.gz        hg19
+/home/gpratt/projects/msi2/data/msi2/MSI2_CAGATC_CAGATC_L008_R1.fastq.gz        mm9
+/home/gpratt/projects/msi2/data/msi2/MSI2_GCCAAT_GCCAAT_L008_R1.fastq.gz        mm9
+/home/gpratt/projects/msi2/data/msi2/MSI2_TAGCTT_TAGCTT_L008_R1.fastq.gz        hg19
+/home/gpratt/projects/msi2/data/msi2/MSI2_TGACCA_TGACCA_L008_R1.fastq.gz        hg19
+/home/gpratt/projects/msi2/data/msi2/MSI2_TTAGGC_TTAGGC_L008_R1.fastq.gz        hg19
+</pre></div>
+</div>
+<p>So you can reference multiple genomes in a single manifest file!</p>
+<dl class="docutils">
+<dt>... deal with both single-end and paired-end reads in one project? Do I need to create separate manifest files?</dt>
+<dd>Yes, unfortunately. :( Check out the <code class="docutils literal"><span class="pre">singlecell_pnms</span></code> project above as
+an example.</dd>
+</dl>
+</div>
 </div>
 <div class="section" id="analyze-rna-seq">
 <h3>analyze_rna_seq<a class="headerlink" href="#analyze-rna-seq" title="Permalink to this headline">¶</a></h3>
