@@ -823,7 +823,7 @@ from the file <code class="docutils literal"><span class="pre">singlecell_pnms_s
 NAME=singlecell_pnms_se
 VERSION=v3
 DIR=singlecell_pnms
-java -Xms512m -Xmx512m -jar $HOME/workspace-git/gatk/dist/Queue.jar -S $HOME/gscripts/qscripts/analyze_rna_seq.scala --input ${NAME}_${VERSION}.txt --adapter TCGTATGCCGTCTTCTGCTTG --adapter ATCTCGTATGCCGTCTTCTGCTTG --adapter CGACAGGTTCAGAGTTCTACAGTCCGACGATC --adapter GATCGGAAGAGCACACGTCTGAACTCCAGTCAC -qsub -jobQueue home-yeo -runDir ~/projects/${DIR}/analysis/${NAME}_${VERSION}  -log ${NAME}_${VERSION}.log --location ${NAME}  --strict -keepIntermediates --not_stranded -single_end -run
+java -Xms512m -Xmx512m -jar /projects/ps-yeolab/software/gatk/dist/Queue.jar -S $HOME/gscripts/qscripts/analyze_rna_seq.scala --input ${NAME}_${VERSION}.txt --adapter TCGTATGCCGTCTTCTGCTTG --adapter ATCTCGTATGCCGTCTTCTGCTTG --adapter CGACAGGTTCAGAGTTCTACAGTCCGACGATC --adapter GATCGGAAGAGCACACGTCTGAACTCCAGTCAC -qsub -jobQueue home-yeo -runDir ~/projects/${DIR}/analysis/${NAME}_${VERSION}  -log ${NAME}_${VERSION}.log --location ${NAME}  --strict -keepIntermediates --not_stranded -single_end -run
 </pre></div>
 </div>
 <p>Notice that the &#8220;<code class="docutils literal"><span class="pre">--input</span></code>&#8221; is the file <code class="docutils literal"><span class="pre">${NAME}_${VERSION}.txt</span></code>, which
@@ -854,7 +854,7 @@ where <code class="docutils literal"><span class="pre">\t</span></code> indicate
 NAME=singlecell_pnms_pe
 VERSION=v2
 DIR=singlecell_pnms
-java -Xms512m -Xmx512m -jar $HOME/workspace-git/gatk/dist/Queue.jar -S $HOME/gscripts/qscripts/analyze_rna_seq.scala --input ${NAME}_${VERSION}.txt --adapter TCGTATGCCGTCTTCTGCTTG --adapter ATCTCGTATGCCGTCTTCTGCTTG --adapter CGACAGGTTCAGAGTTCTACAGTCCGACGATC --adapter GATCGGAAGAGCACACGTCTGAACTCCAGTCAC -qsub -jobQueue home-yeo -runDir ~/projects/${DIR}/analysis/${NAME}_${VERSION}  -log ${NAME}_${VERSION}.log --location ${NAME}  --strict -keepIntermediates --not_stranded -run
+java -Xms512m -Xmx512m -jar /projects/ps-yeolab/software/gatk/dist/Queue.jar -S $HOME/gscripts/qscripts/analyze_rna_seq.scala --input ${NAME}_${VERSION}.txt --adapter TCGTATGCCGTCTTCTGCTTG --adapter ATCTCGTATGCCGTCTTCTGCTTG --adapter CGACAGGTTCAGAGTTCTACAGTCCGACGATC --adapter GATCGGAAGAGCACACGTCTGAACTCCAGTCAC -qsub -jobQueue home-yeo -runDir ~/projects/${DIR}/analysis/${NAME}_${VERSION}  -log ${NAME}_${VERSION}.log --location ${NAME}  --strict -keepIntermediates --not_stranded -run
 </pre></div>
 </div>
 <p>Notice that the &#8220;<code class="docutils literal"><span class="pre">--input</span></code>&#8221; is the file <code class="docutils literal"><span class="pre">${NAME}_${VERSION}.txt</span></code>, which
@@ -891,7 +891,7 @@ Gabe doesn&#8217;t know scala well enough to un-hardcode them)</p>
 <p>Running instructions are documented in the each queue file,
 as long as you have a checked out copy of gscripts then</p>
 <p>This command will show documentation</p>
-<div class="code highlight-python"><div class="highlight"><pre>java -Xms512m -Xmx512m -jar /home/yeo-lab/software/gatk/dist/Queue.jar -S ~/gscripts/qscripts/analyze_rna_seq.scala
+<div class="code highlight-python"><div class="highlight"><pre>java -Xms512m -Xmx512m -jar /projects/ps-yeolab/software/gatk/dist/Queue.jar -S ~/gscripts/qscripts/analyze_rna_seq.scala
 </pre></div>
 </div>
 <p>will show documentation</p>
