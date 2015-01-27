@@ -849,40 +849,40 @@ indicates a new line, created by <code class="docutils literal"><span class="pre
 </pre></div>
 </div>
 <p>For paired-end, not strand-specific RNA-seq, here&#8217;s the script of the file
-<code class="docutils literal"><span class="pre">singlecell_pnms_pe_v2.sh</span></code></p>
+<code class="docutils literal"><span class="pre">singlecell_pnms_pe_v3.sh</span></code></p>
 <div class="code highlight-python"><div class="highlight"><pre>#!/bin/bash
 
 NAME=singlecell_pnms_pe
-VERSION=v2
+VERSION=v3
 DIR=singlecell_pnms
 java -Xms512m -Xmx512m -jar /projects/ps-yeolab/software/gatk/dist/Queue.jar -S $HOME/gscripts/qscripts/analyze_rna_seq.scala --input ${NAME}_${VERSION}.txt --adapter TCGTATGCCGTCTTCTGCTTG --adapter ATCTCGTATGCCGTCTTCTGCTTG --adapter CGACAGGTTCAGAGTTCTACAGTCCGACGATC --adapter GATCGGAAGAGCACACGTCTGAACTCCAGTCAC -qsub -jobQueue home-yeo -runDir ~/projects/${DIR}/analysis/${NAME}_${VERSION}  -log ${NAME}_${VERSION}.log --location ${NAME}  --strict -keepIntermediates --not_stranded -run
 </pre></div>
 </div>
 <p>Notice that the &#8220;<code class="docutils literal"><span class="pre">--input</span></code>&#8221; is the file <code class="docutils literal"><span class="pre">${NAME}_${VERSION}.txt</span></code>, which
-translates to <code class="docutils literal"><span class="pre">singlecell_pnms_pe_v2.txt</span></code> in this case, since
+translates to <code class="docutils literal"><span class="pre">singlecell_pnms_pe_v3.txt</span></code> in this case, since
 <code class="docutils literal"><span class="pre">NAME=singlecell_pnms_pe</span></code> and <code class="docutils literal"><span class="pre">VERSION=v2</span></code> are defined at the beginning of
 the file. This file is the &#8220;manifest&#8221; of the sequencing run. In the case of
 single-end reads, this is a file where each line has:
-<code class="docutils literal"><span class="pre">/path/to/read1.fastq.gz\t/path/to/read2.fastq.gz\tspecies\n</span></code>,
+<code class="docutils literal"><span class="pre">read1.fastq.gz;read2.fastq.gz\tspecies\n</span></code>,
 where <code class="docutils literal"><span class="pre">\t</span></code> indicates a tab (using the <code class="docutils literal"><span class="pre">&lt;TAB&gt;</span></code> character), and <code class="docutils literal"><span class="pre">\n</span></code>
 indicates a new line, created by <code class="docutils literal"><span class="pre">&lt;ENTER&gt;</span></code>. Here is the first
-10 lines of <code class="docutils literal"><span class="pre">singlecell_pnms_pe_v2.txt</span></code> (obtained via
-<code class="docutils literal"><span class="pre">singlecell_pnms_pe_v2.txt</span></code>):</p>
-<div class="code highlight-python"><div class="highlight"><pre>/home/obotvinnik/projects/singlecell_pnms/data/M1_01_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_01_R2.fastq.gz        hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_02_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_02_R2.fastq.gz        hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_03_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_03_R2.fastq.gz        hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_04_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_04_R2.fastq.gz        hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_05_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_05_R2.fastq.gz        hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_06_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_06_R2.fastq.gz        hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_07_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_07_R2.fastq.gz        hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_08_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_08_R2.fastq.gz        hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_09_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_09_R2.fastq.gz        hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_10_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_10_R2.fastq.gz        hg19
+10 lines of <code class="docutils literal"><span class="pre">singlecell_pnms_pe_v3.txt</span></code> (obtained via
+<code class="docutils literal"><span class="pre">head</span> <span class="pre">singlecell_pnms_pe_v3.txt</span></code>):</p>
+<div class="code highlight-python"><div class="highlight"><pre>/home/obotvinnik/projects/singlecell_pnms/data/M1_01_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_01_R2.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_02_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_02_R2.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_03_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_03_R2.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_04_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_04_R2.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_05_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_05_R2.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_06_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_06_R2.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_07_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_07_R2.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_08_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_08_R2.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_09_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_09_R2.fastq.gz       hg19
+/home/obotvinnik/projects/singlecell_pnms/data/M1_10_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_10_R2.fastq.gz       hg19
 </pre></div>
 </div>
 <p>For this project, I had a mix of both paired-end and single-end reads, so
 that&#8217;s why <code class="docutils literal"><span class="pre">DIR</span></code> is the same for both the <code class="docutils literal"><span class="pre">singlecell_pnms_se_v3.sh</span></code> and
-<code class="docutils literal"><span class="pre">singlecell_pnms_pe_v2.sh</span></code> scripts, but <code class="docutils literal"><span class="pre">NAME</span></code> was different - then they&#8217;re
+<code class="docutils literal"><span class="pre">singlecell_pnms_pe_v3.sh</span></code> scripts, but <code class="docutils literal"><span class="pre">NAME</span></code> was different - then they&#8217;re
 saved in different folders.</p>
 <div class="section" id="running-gatk-queue-pipeline-scripts">
 <h3>Running GATK Queue pipeline scripts<a class="headerlink" href="#running-gatk-queue-pipeline-scripts" title="Permalink to this headline">¶</a></h3>

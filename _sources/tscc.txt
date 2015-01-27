@@ -774,44 +774,44 @@ indicates a new line, created by ``<ENTER>``. Here is the first
     /home/obotvinnik/projects/singlecell_pnms/data/CVN_10_R1.fastq.gz       hg19
 
 For paired-end, not strand-specific RNA-seq, here's the script of the file
-``singlecell_pnms_pe_v2.sh``
+``singlecell_pnms_pe_v3.sh``
 
 .. code::
 
     #!/bin/bash
 
     NAME=singlecell_pnms_pe
-    VERSION=v2
+    VERSION=v3
     DIR=singlecell_pnms
     java -Xms512m -Xmx512m -jar /projects/ps-yeolab/software/gatk/dist/Queue.jar -S $HOME/gscripts/qscripts/analyze_rna_seq.scala --input ${NAME}_${VERSION}.txt --adapter TCGTATGCCGTCTTCTGCTTG --adapter ATCTCGTATGCCGTCTTCTGCTTG --adapter CGACAGGTTCAGAGTTCTACAGTCCGACGATC --adapter GATCGGAAGAGCACACGTCTGAACTCCAGTCAC -qsub -jobQueue home-yeo -runDir ~/projects/${DIR}/analysis/${NAME}_${VERSION}  -log ${NAME}_${VERSION}.log --location ${NAME}  --strict -keepIntermediates --not_stranded -run
 
 Notice that the "``--input``" is the file ``${NAME}_${VERSION}.txt``, which
-translates to ``singlecell_pnms_pe_v2.txt`` in this case, since
+translates to ``singlecell_pnms_pe_v3.txt`` in this case, since
 ``NAME=singlecell_pnms_pe`` and ``VERSION=v2`` are defined at the beginning of
 the file. This file is the "manifest" of the sequencing run. In the case of
 single-end reads, this is a file where each line has:
-``/path/to/read1.fastq.gz\t/path/to/read2.fastq.gz\tspecies\n``,
+``read1.fastq.gz;read2.fastq.gz\tspecies\n``,
 where ``\t`` indicates a tab (using the ``<TAB>`` character), and ``\n``
 indicates a new line, created by ``<ENTER>``. Here is the first
-10 lines of ``singlecell_pnms_pe_v2.txt`` (obtained via
-``singlecell_pnms_pe_v2.txt``):
+10 lines of ``singlecell_pnms_pe_v3.txt`` (obtained via
+``head singlecell_pnms_pe_v3.txt``):
 
 .. code::
 
-    /home/obotvinnik/projects/singlecell_pnms/data/M1_01_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_01_R2.fastq.gz        hg19
-    /home/obotvinnik/projects/singlecell_pnms/data/M1_02_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_02_R2.fastq.gz        hg19
-    /home/obotvinnik/projects/singlecell_pnms/data/M1_03_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_03_R2.fastq.gz        hg19
-    /home/obotvinnik/projects/singlecell_pnms/data/M1_04_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_04_R2.fastq.gz        hg19
-    /home/obotvinnik/projects/singlecell_pnms/data/M1_05_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_05_R2.fastq.gz        hg19
-    /home/obotvinnik/projects/singlecell_pnms/data/M1_06_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_06_R2.fastq.gz        hg19
-    /home/obotvinnik/projects/singlecell_pnms/data/M1_07_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_07_R2.fastq.gz        hg19
-    /home/obotvinnik/projects/singlecell_pnms/data/M1_08_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_08_R2.fastq.gz        hg19
-    /home/obotvinnik/projects/singlecell_pnms/data/M1_09_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_09_R2.fastq.gz        hg19
-    /home/obotvinnik/projects/singlecell_pnms/data/M1_10_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_10_R2.fastq.gz        hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_01_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_01_R2.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_02_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_02_R2.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_03_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_03_R2.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_04_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_04_R2.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_05_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_05_R2.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_06_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_06_R2.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_07_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_07_R2.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_08_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_08_R2.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_09_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_09_R2.fastq.gz       hg19
+    /home/obotvinnik/projects/singlecell_pnms/data/M1_10_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_10_R2.fastq.gz       hg19
 
 For this project, I had a mix of both paired-end and single-end reads, so
 that's why ``DIR`` is the same for both the ``singlecell_pnms_se_v3.sh`` and
-``singlecell_pnms_pe_v2.sh`` scripts, but ``NAME`` was different - then they're
+``singlecell_pnms_pe_v3.sh`` scripts, but ``NAME`` was different - then they're
 saved in different folders.
 
 
