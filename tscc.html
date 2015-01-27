@@ -830,9 +830,10 @@ java -Xms512m -Xmx512m -jar /projects/ps-yeolab/software/gatk/dist/Queue.jar -S 
 translates to <code class="docutils literal"><span class="pre">singlecell_pnms_se_v3.txt</span></code> in this case, since
 <code class="docutils literal"><span class="pre">NAME=singlecell_pnms_se</span></code> and <code class="docutils literal"><span class="pre">VERSION=v3</span></code> are defined at the beginning of
 the file. This file is the &#8220;manifest&#8221; of the sequencing run. In the case of
-single-end reads, this is a file with
-<code class="docutils literal"><span class="pre">/path/to/read1.fastq.gz\tspecies</span></code>,
-where <code class="docutils literal"><span class="pre">\t</span></code> indicates a tab (using the <code class="docutils literal"><span class="pre">&lt;TAB&gt;</span></code> character). Here is the first
+single-end reads, this is a file where each line has,
+<code class="docutils literal"><span class="pre">/path/to/read1.fastq.gz\tspecies\n</span></code>,
+where <code class="docutils literal"><span class="pre">\t</span></code> indicates a tab (using the <code class="docutils literal"><span class="pre">&lt;TAB&gt;</span></code> character), and <code class="docutils literal"><span class="pre">\n</span></code>
+indicates a new line, created by <code class="docutils literal"><span class="pre">&lt;ENTER&gt;</span></code>. Here is the first
 10 lines of <code class="docutils literal"><span class="pre">singlecell_pnms_se_v3.txt</span></code> (obtained via
 <code class="docutils literal"><span class="pre">head</span> <span class="pre">singlecell_pnms_se_v3.txt</span></code>):</p>
 <div class="code highlight-python"><div class="highlight"><pre>/home/obotvinnik/projects/singlecell_pnms/data/CVN_01_R1.fastq.gz       hg19
@@ -861,9 +862,10 @@ java -Xms512m -Xmx512m -jar /projects/ps-yeolab/software/gatk/dist/Queue.jar -S 
 translates to <code class="docutils literal"><span class="pre">singlecell_pnms_pe_v2.txt</span></code> in this case, since
 <code class="docutils literal"><span class="pre">NAME=singlecell_pnms_pe</span></code> and <code class="docutils literal"><span class="pre">VERSION=v2</span></code> are defined at the beginning of
 the file. This file is the &#8220;manifest&#8221; of the sequencing run. In the case of
-single-end reads, this is a file with
-<code class="docutils literal"><span class="pre">/path/to/read1.fastq.gz\t/path/to/read2.fastq.gz\tspecies</span></code>,
-where <code class="docutils literal"><span class="pre">\t</span></code> indicates a tab (using the <code class="docutils literal"><span class="pre">&lt;TAB&gt;</span></code> character). Here is the first
+single-end reads, this is a file where each line has:
+<code class="docutils literal"><span class="pre">/path/to/read1.fastq.gz\t/path/to/read2.fastq.gz\tspecies\n</span></code>,
+where <code class="docutils literal"><span class="pre">\t</span></code> indicates a tab (using the <code class="docutils literal"><span class="pre">&lt;TAB&gt;</span></code> character), and <code class="docutils literal"><span class="pre">\n</span></code>
+indicates a new line, created by <code class="docutils literal"><span class="pre">&lt;ENTER&gt;</span></code>. Here is the first
 10 lines of <code class="docutils literal"><span class="pre">singlecell_pnms_pe_v2.txt</span></code> (obtained via
 <code class="docutils literal"><span class="pre">singlecell_pnms_pe_v2.txt</span></code>):</p>
 <div class="code highlight-python"><div class="highlight"><pre>/home/obotvinnik/projects/singlecell_pnms/data/M1_01_R1.fastq.gz        /home/obotvinnik/projects/singlecell_pnms/data/M1_01_R2.fastq.gz        hg19
