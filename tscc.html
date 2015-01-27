@@ -770,11 +770,15 @@ and <code class="docutils literal"><span class="pre">make</span></code> and all 
 </div>
 <div class="section" id="running-rna-seq-clip-seq-ribo-seq-etc-qscripts-gatk-queue-pipelines">
 <h2>Running RNA-seq, CLIP-Seq, Ribo-Seq, etc qscripts GATK Queue pipelines<a class="headerlink" href="#running-rna-seq-clip-seq-ribo-seq-etc-qscripts-gatk-queue-pipelines" title="Permalink to this headline">¶</a></h2>
-<p>Example scripts can be found in:</p>
-<div class="code highlight-python"><div class="highlight"><pre>/home/gpratt/templates
-</pre></div>
-</div>
-<p>Gabe has created a bunch of helpful templates:</p>
+<p>We use the Broad Institute&#8217;s Genome Analysis Toolkit (<a class="reference external" href="https://www.broadinstitute.org/gatk/">GATK</a>) <a class="reference external" href="http://gatkforums.broadinstitute.org/discussion/1306/overview-of-queue">Queue</a> software
+to run our pipelines. This software solves a lot of problems for us, such as
+dealing with multiple-stage pipelines that have cross-dependencies (e.g. you
+can&#8217;t calculate splicing until you&#8217;ve mapped the reads, and you can&#8217;t map
+the reads until after you&#8217;ve removed adapters and repetitive genomic regions
+from them), and properly scheduling jobs so that one person&#8217;s analysis doesn&#8217;t
+completely take over the compute cluster.</p>
+<p>Gabe has created a bunch of helpful template scripts for GATK Queue in his
+folder <code class="docutils literal"><span class="pre">/home/gpratt/templates</span></code>:</p>
 <div class="code highlight-python"><div class="highlight"><pre>$ ls -lh /home/gpratt/templates
 total 26K
 -rwxr-xr-x 1 gpratt yeo-group 660 May  7  2014 bacode_split.sh
@@ -788,10 +792,6 @@ total 26K
 -rwxr-xr-x 1 gpratt yeo-group 527 Mar 26  2014 rnaseq.sh~
 </pre></div>
 </div>
-<dl class="docutils">
-<dt>e.g. for RNA-Seq look at this gist:</dt>
-<dd><a class="reference external" href="https://gist.github.com/gpratt/294cbdf553ac4f44648a">https://gist.github.com/gpratt/294cbdf553ac4f44648a</a></dd>
-</dl>
 <p>Each Queue job requires a manifest file with a list of all files to process,
 and the genome to process them on.</p>
 <div class="admonition warning">
@@ -881,25 +881,66 @@ where <code class="docutils literal"><span class="pre">\t</span></code> indicate
 <p>For this project, I had a mix of both paired-end and single-end reads, so
 that&#8217;s why <code class="docutils literal"><span class="pre">DIR</span></code> is the same for both the <code class="docutils literal"><span class="pre">singlecell_pnms_se_v3.sh</span></code> and
 <code class="docutils literal"><span class="pre">singlecell_pnms_pe_v2.sh</span></code> scripts, but <code class="docutils literal"><span class="pre">NAME</span></code> was different - then they&#8217;re
-saved in different files.</p>
+saved in different folders.</p>
 <div class="section" id="running-gatk-queue-pipeline-scripts">
 <h3>Running GATK Queue pipeline scripts<a class="headerlink" href="#running-gatk-queue-pipeline-scripts" title="Permalink to this headline">¶</a></h3>
 <p>Now that you&#8217;ve created manifest file called <code class="docutils literal"><span class="pre">${NAME}_${VERSION}.txt</span></code> and
 <code class="docutils literal"><span class="pre">${NAME}_${VERSION}.sh</span></code>, you are almost ready to run the pipeline.</p>
-<p>GATK Queue runs exclusively on TSCC (for now, some paths are hard coded and
-Gabe doesn&#8217;t know scala well enough to un-hardcode them)</p>
-<p>Running instructions are documented in the each queue file,
-as long as you have a checked out copy of gscripts then</p>
-<p>This command will show documentation</p>
-<div class="code highlight-python"><div class="highlight"><pre>java -Xms512m -Xmx512m -jar /projects/ps-yeolab/software/gatk/dist/Queue.jar -S ~/gscripts/qscripts/analyze_rna_seq.scala
-</pre></div>
-</div>
-<p>will show documentation</p>
-<p>Further documentations can be found at the <a class="reference external" href="http://gatkforums.broadinstitute.org/discussion/1306/overview-of-queue">GATK Queue website</a></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Sometimes the login node kills these jobs, logging into a worker node to run these pipelines is a good idea.
-Also these are long running jobs you should you be in a screen session to run these pipelines</p>
+<p>You should be using <code class="docutils literal"><span class="pre">screen</span></code> quite often now. You&#8217;ll want to run your
+pipeline in a <code class="docutils literal"><span class="pre">screen</span></code> session, because then even when you log out of
+TSCC, the pipeline will still be running.</p>
+<p>If you&#8217;ve already run <code class="docutils literal"><span class="pre">screen</span></code>, reattach the session with:</p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="n">screen</span> <span class="o">-</span><span class="n">x</span>
+</pre></div>
+</div>
+<p>If that gives you the error: <code class="docutils literal"><span class="pre">There</span> <span class="pre">is</span> <span class="pre">no</span> <span class="pre">screen</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">attached.</span></code>, then
+you haven&#8217;t run <code class="docutils literal"><span class="pre">screen</span></code> before, and you can start a session with:</p>
+<div class="code last highlight-python"><div class="highlight"><pre><span class="n">screen</span>
+</pre></div>
+</div>
+</div>
+<p>These scripts take quite a bit of memory to compile, so to be nice to everyone,
+log into a compute node by requesting an interactive job on TSCC. Also your
+script may just run out of memory and fail if you&#8217;re not a compute node, so
+that is even more incentive to log into a compute node!</p>
+<p>This command will create an interactive job for 40 hours, on the <code class="docutils literal"><span class="pre">home-scrm</span></code>
+queue, and with 1 node and 1 processor (you don&#8217;t need more than that for the
+script, and the script will submit jobs that request more nodes/processors for
+compute-intensive stuff like STAR or Sailfish). If you have a lot of samples,
+you may need more time, but try just 40 hours first.</p>
+<p>So here&#8217;s what you do:</p>
+<div class="code highlight-python"><div class="highlight"><pre>qsub -I -l walltime=40:00:00 -q home-scrm
+# Wait for the job to be ready. This may take a while
+cd ~/projects/$NAME/scripts
+sh ${NAME}_${VERSION}.sh
+</pre></div>
+</div>
+<p>For example, for the <code class="docutils literal"><span class="pre">singlecell_pnms</span></code> project from before, I would do:</p>
+<div class="code highlight-python"><div class="highlight"><pre>qsub -I -l walltime=40:00:00 -q home-scrm
+# Waited for job to get scheduled/be ready ....
+cd ~/projects/singlecell_pnms/scripts
+sh singlecell_pnms_se_v3.sh
+</pre></div>
+</div>
+<p>This outputs:</p>
+<div class="code highlight-python"><div class="highlight"><pre>INFO  12:24:42,840 QScriptManager - Compiling 1 QScript
+INFO  12:24:55,100 QScriptManager - Compilation complete
+INFO  12:24:55,359 HelpFormatter - ----------------------------------------------------------------------
+INFO  12:24:55,359 HelpFormatter - Queue v2.3-1095-gdb26a3f, Compiled 2015/01/26 15:22:32
+INFO  12:24:55,359 HelpFormatter - Copyright (c) 2012 The Broad Institute
+INFO  12:24:55,359 HelpFormatter - For support and documentation go to http://www.broadinstitute.org/gatk
+INFO  12:24:55,360 HelpFormatter - Program Args: -S /home/obotvinnik/gscripts/qscripts/analyze_rna_seq.scala --input singlecell_pnms_se_v3.txt --adapter TCGTATGCCGTCTTCTGCTTG --adapter ATCTCGTATGCCGTCTTCTGCTTG --adapter CGACAGGTTCAGAGTTCTACAGTCCGACGATC --adapter GATCGGAAGAGCACACGTCTGAACTCCAGTCAC -qsub -jobQueue home-yeo -runDir /home/obotvinnik/projects/singlecell_pnms/analysis/singlecell_pnms_se_v3 -log singlecell_pnms_se_v3.log --location singlecell_pnms_se --strict -keepIntermediates --not_stranded -single_end -run
+INFO  12:24:55,360 HelpFormatter - Date/Time: 2015/01/27 12:24:55
+INFO  12:24:55,360 HelpFormatter - ----------------------------------------------------------------------
+INFO  12:24:55,361 HelpFormatter - ----------------------------------------------------------------------
+INFO  12:24:55,370 QCommandLine - Scripting AnalyzeRNASeq
+INFO  12:24:58,436 QCommandLine - Added 773 functions
+INFO  12:24:58,438 QGraph - Generating graph.
+INFO  12:24:58,664 QGraph - Running jobs.
+... more output ...
+</pre></div>
 </div>
 </div>
 <div class="section" id="pipeline-frequently-asked-questions-faq">
@@ -925,7 +966,13 @@ Also these are long running jobs you should you be in a screen session to run th
 <dt>... deal with both single-end and paired-end reads in one project? Do I need to create separate manifest files?</dt>
 <dd>Yes, unfortunately. :( Check out the <code class="docutils literal"><span class="pre">singlecell_pnms</span></code> project above as
 an example.</dd>
+<dt>... see the documentation for a queue script?</dt>
+<dd>This command will show documentation for <code class="docutils literal"><span class="pre">analyze_rna_seq.scala</span></code>. For
+further documentation, see the <a class="reference external" href="http://gatkforums.broadinstitute.org/discussion/1306/overview-of-queue">GATK Queue website</a>.</dd>
 </dl>
+<div class="code highlight-python"><div class="highlight"><pre>java -Xms512m -Xmx512m -jar /projects/ps-yeolab/software/gatk/dist/Queue.jar -S ~/gscripts/qscripts/analyze_rna_seq.scala
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="analyze-rna-seq">
