@@ -753,9 +753,10 @@ Notice that the "``--input``" is the file ``${NAME}_${VERSION}.txt``, which
 translates to ``singlecell_pnms_se_v3.txt`` in this case, since
 ``NAME=singlecell_pnms_se`` and ``VERSION=v3`` are defined at the beginning of
 the file. This file is the "manifest" of the sequencing run. In the case of
-single-end reads, this is a file with
-``/path/to/read1.fastq.gz\tspecies``,
-where ``\t`` indicates a tab (using the ``<TAB>`` character). Here is the first
+single-end reads, this is a file where each line has,
+``/path/to/read1.fastq.gz\tspecies\n``,
+where ``\t`` indicates a tab (using the ``<TAB>`` character), and ``\n``
+indicates a new line, created by ``<ENTER>``. Here is the first
 10 lines of ``singlecell_pnms_se_v3.txt`` (obtained via
 ``head singlecell_pnms_se_v3.txt``):
 
@@ -788,9 +789,10 @@ Notice that the "``--input``" is the file ``${NAME}_${VERSION}.txt``, which
 translates to ``singlecell_pnms_pe_v2.txt`` in this case, since
 ``NAME=singlecell_pnms_pe`` and ``VERSION=v2`` are defined at the beginning of
 the file. This file is the "manifest" of the sequencing run. In the case of
-single-end reads, this is a file with
-``/path/to/read1.fastq.gz\t/path/to/read2.fastq.gz\tspecies``,
-where ``\t`` indicates a tab (using the ``<TAB>`` character). Here is the first
+single-end reads, this is a file where each line has:
+``/path/to/read1.fastq.gz\t/path/to/read2.fastq.gz\tspecies\n``,
+where ``\t`` indicates a tab (using the ``<TAB>`` character), and ``\n``
+indicates a new line, created by ``<ENTER>``. Here is the first
 10 lines of ``singlecell_pnms_pe_v2.txt`` (obtained via
 ``singlecell_pnms_pe_v2.txt``):
 
