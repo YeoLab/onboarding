@@ -810,7 +810,7 @@ where ``\t`` indicates a tab (using the ``<TAB>`` character). Here is the first
 For this project, I had a mix of both paired-end and single-end reads, so
 that's why ``DIR`` is the same for both the ``singlecell_pnms_se_v3.sh`` and
 ``singlecell_pnms_pe_v2.sh`` scripts, but ``NAME`` was different - then they're
-saved in different files.
+saved in different folders.
 
 
 Running GATK Queue pipeline scripts
@@ -819,28 +819,73 @@ Running GATK Queue pipeline scripts
 Now that you've created manifest file called ``${NAME}_${VERSION}.txt`` and
 ``${NAME}_${VERSION}.sh``, you are almost ready to run the pipeline.
 
-GATK Queue runs exclusively on TSCC (for now, some paths are hard coded and
-Gabe doesn't know scala well enough to un-hardcode them)
+.. note::
 
-Running instructions are documented in the each queue file,
-as long as you have a checked out copy of gscripts then
+    You should be using ``screen`` quite often now. You'll want to run your
+    pipeline in a ``screen`` session, because then even when you log out of
+    TSCC, the pipeline will still be running.
 
-This command will show documentation
+    If you've already run ``screen``, reattach the session with:
+
+    .. code::
+
+        screen -x
+
+    If that gives you the error: ``There is no screen to be attached.``, then
+    you haven't run ``screen`` before, and you can start a session with:
+
+    .. code::
+
+        screen
+
+These scripts take quite a bit of memory to compile, so to be nice to everyone,
+log into a compute node by requesting an interactive job on TSCC. Also your
+script may just run out of memory and fail if you're not a compute node, so
+that is even more incentive to log into a compute node!
+
+This command will create an interactive job for 40 hours, on the ``home-scrm``
+queue, and with 1 node and 1 processor (you don't need more than that for the
+script, and the script will submit jobs that request more nodes/processors for
+compute-intensive stuff like STAR or Sailfish). If you have a lot of samples,
+you may need more time, but try just 40 hours first.
+
+So here's what you do:
 
 .. code::
 
-    java -Xms512m -Xmx512m -jar /projects/ps-yeolab/software/gatk/dist/Queue.jar -S ~/gscripts/qscripts/analyze_rna_seq.scala
+    qsub -I -l walltime=40:00:00 -q home-scrm
+    # Wait for the job to be ready. This may take a while
+    cd ~/projects/$NAME/scripts
+    sh ${NAME}_${VERSION}.sh
 
-will show documentation
+For example, for the ``singlecell_pnms`` project from before, I would do:
 
-Further documentations can be found at the `GATK Queue website`_
+.. code::
 
+    qsub -I -l walltime=40:00:00 -q home-scrm
+    # Waited for job to get scheduled/be ready ....
+    cd ~/projects/singlecell_pnms/scripts
+    sh singlecell_pnms_se_v3.sh
 
-.. note::
+This outputs:
 
-    Sometimes the login node kills these jobs, logging into a worker node to run these pipelines is a good \
-    idea.
-    Also these are long running jobs you should you be in a screen session to run these pipelines
+.. code::
+
+    INFO  12:24:42,840 QScriptManager - Compiling 1 QScript
+    INFO  12:24:55,100 QScriptManager - Compilation complete
+    INFO  12:24:55,359 HelpFormatter - ----------------------------------------------------------------------
+    INFO  12:24:55,359 HelpFormatter - Queue v2.3-1095-gdb26a3f, Compiled 2015/01/26 15:22:32
+    INFO  12:24:55,359 HelpFormatter - Copyright (c) 2012 The Broad Institute
+    INFO  12:24:55,359 HelpFormatter - For support and documentation go to http://www.broadinstitute.org/gatk
+    INFO  12:24:55,360 HelpFormatter - Program Args: -S /home/obotvinnik/gscripts/qscripts/analyze_rna_seq.scala --input singlecell_pnms_se_v3.txt --adapter TCGTATGCCGTCTTCTGCTTG --adapter ATCTCGTATGCCGTCTTCTGCTTG --adapter CGACAGGTTCAGAGTTCTACAGTCCGACGATC --adapter GATCGGAAGAGCACACGTCTGAACTCCAGTCAC -qsub -jobQueue home-yeo -runDir /home/obotvinnik/projects/singlecell_pnms/analysis/singlecell_pnms_se_v3 -log singlecell_pnms_se_v3.log --location singlecell_pnms_se --strict -keepIntermediates --not_stranded -single_end -run
+    INFO  12:24:55,360 HelpFormatter - Date/Time: 2015/01/27 12:24:55
+    INFO  12:24:55,360 HelpFormatter - ----------------------------------------------------------------------
+    INFO  12:24:55,361 HelpFormatter - ----------------------------------------------------------------------
+    INFO  12:24:55,370 QCommandLine - Scripting AnalyzeRNASeq
+    INFO  12:24:58,436 QCommandLine - Added 773 functions
+    INFO  12:24:58,438 QGraph - Generating graph.
+    INFO  12:24:58,664 QGraph - Running jobs.
+    ... more output ...
 
 Pipeline frequently asked questions (FAQ)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -869,6 +914,15 @@ So you can reference multiple genomes in a single manifest file!
 ... deal with both single-end and paired-end reads in one project? Do I need to create separate manifest files?
     Yes, unfortunately. :( Check out the ``singlecell_pnms`` project above as
     an example.
+
+... see the documentation for a queue script?
+    This command will show documentation for ``analyze_rna_seq.scala``. For
+    further documentation, see the `GATK Queue website`_.
+
+.. code::
+
+    java -Xms512m -Xmx512m -jar /projects/ps-yeolab/software/gatk/dist/Queue.jar -S ~/gscripts/qscripts/analyze_rna_seq.scala
+
 
 analyze_rna_seq
 ~~~~~~~~~~~~~~~
