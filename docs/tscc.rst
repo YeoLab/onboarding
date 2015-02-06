@@ -361,6 +361,18 @@ To upgrade packages, do:
 
     pip install -U <package name>
 
+Installing R packages (beta!)
+----------------------------
+
+You can also use ``conda`` to install ``R`` and ``R`` packages. Currently, you
+need to reference one of Anaconda's developer's channel ``asmeurer`` to install
+it. Here is the command to install R in your environment. You can see the list
+of `R packages he's added so far`_.
+
+.. code::
+
+    conda install -c asmeurer r
+
 
 Submitting and managing compute jobs on TSCC
 --------------------------------------------
@@ -965,3 +977,4 @@ The queue script ``analyze_rna_seq_gently.scala`` runs:
 .. _Github's instructions     for generating SSH keys: https://help.github.com/articles/generating-ssh-keys/
 .. _GATK: https://www.broadinstitute.org/gatk/
 .. _Queue: http://gatkforums.broadinstitute.org/discussion/1306/overview-of-queue
+.. _R packages he's added so far: https://binstar.org/asmeurer/
