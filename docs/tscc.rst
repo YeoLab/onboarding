@@ -654,11 +654,6 @@ Setup IPython notebooks on TSCC
    Make sure to replace "``YOUR_TSCC_USERNAME``" with your TSCC login :) It is
    also important that these are double-quotes and not single-quotes.
 
-8. On your laptop, type the url ``http://localhost:[IPYNB_PORT]`` and replace
-   "``IPYNB_PORT``" with your actual numbers of the port you're using.
-
-You should now have IPython notebooks on TSCC!
-
 Run IPython Notebooks on TSCC
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
