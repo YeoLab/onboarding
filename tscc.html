@@ -85,6 +85,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#installing-r-packages-beta">Installing R packages (beta!)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#submitting-and-managing-compute-jobs-on-tscc">Submitting and managing compute jobs on TSCC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ipython-notebooks-on-tscc">IPython notebooks on TSCC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#random-notes">Random notes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#running-rna-seq-clip-seq-ribo-seq-etc-qscripts-gatk-queue-pipelines">Running RNA-seq, CLIP-Seq, Ribo-Seq, etc qscripts GATK Queue pipelines</a></li>
 </ul>
 </li>
@@ -136,7 +137,12 @@
 <li><a class="reference internal" href="#show-specs-of-all-nodes">Show specs of all nodes</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ipython-notebooks-on-tscc">IPython notebooks on TSCC</a></li>
+<li><a class="reference internal" href="#ipython-notebooks-on-tscc">IPython notebooks on TSCC</a><ul>
+<li><a class="reference internal" href="#setup-ipython-notebooks-on-tscc">Setup IPython notebooks on TSCC</a></li>
+<li><a class="reference internal" href="#run-ipython-notebooks-on-tscc">Run IPython Notebooks on TSCC</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#random-notes">Random notes</a></li>
 <li><a class="reference internal" href="#running-rna-seq-clip-seq-ribo-seq-etc-qscripts-gatk-queue-pipelines">Running RNA-seq, CLIP-Seq, Ribo-Seq, etc qscripts GATK Queue pipelines</a><ul>
 <li><a class="reference internal" href="#running-gatk-queue-pipeline-scripts">Running GATK Queue pipeline scripts</a></li>
 <li><a class="reference internal" href="#pipeline-frequently-asked-questions-faq">Pipeline frequently asked questions (FAQ)</a><ul>
@@ -708,24 +714,29 @@ home-mgilson       --      --       --        8   0   0 --   E R
 </div>
 <div class="section" id="ipython-notebooks-on-tscc">
 <h2>IPython notebooks on TSCC<a class="headerlink" href="#ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h2>
-<p>1. To set up IPython notebooks on TSCC, you will want to add some <code class="docutils literal"><span class="pre">alias</span></code>
+<div class="section" id="setup-ipython-notebooks-on-tscc">
+<h3>Setup IPython notebooks on TSCC<a class="headerlink" href="#setup-ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>To set up IPython notebooks on TSCC, you will want to add some <code class="docutils literal"><span class="pre">alias</span></code>
 variables to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code>. First, on your personal computer,
 you will want to set up
 <a class="reference external" href="http://www.linuxproblem.org/art_9.html">passwordless ssh</a> from your laptop to TSCC. On my laptop,
-I have this alias in my <cite>~/.bashrc</cite> file:</p>
-<div class="code highlight-python"><div class="highlight"><pre>IPYNB_PORT=[some number above 1024]
-alias tscc=&#39;ssh obotvinnik@tscc-login2.sdsc.edu&#39;
+I have this alias in my <cite>~/.bashrc</cite> file:</li>
+</ol>
+<div class="code highlight-python"><div class="highlight"><pre> IPYNB_PORT=[some number above 1024]
+ alias tscc=&#39;ssh obotvinnik@tscc-login2.sdsc.edu&#39;
+
+This way, I can just type ``tscc`` and log onto ``tscc-login2``
+**specifically**. It is important for IPython notebooks that you always log
+on to the same node. You can use ``tscc-login1`` instead, too,
+this is just what I have set up. Just replace my login name
+(&quot;``obotvinnik``&quot;) with yours.
 </pre></div>
 </div>
-<p>This way, I can just type <code class="docutils literal"><span class="pre">tscc</span></code> and log onto <code class="docutils literal"><span class="pre">tscc-login2</span></code>
-<strong>specifically</strong>. It is important for IPython notebooks that you always log
-on to the same node. You can use <code class="docutils literal"><span class="pre">tscc-login1</span></code> instead, too,
-this is just what I have set up. Just replace my login name
-(&#8220;<code class="docutils literal"><span class="pre">obotvinnik</span></code>&#8221;) with yours.</p>
-<ol class="arabic simple" start="2">
-<li>Next, type <code class="docutils literal"><span class="pre">tscc</span></code> and log on to the server.</li>
-<li>On TSCC, add these lines to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file.</li>
-</ol>
+<ol class="arabic" start="2">
+<li><p class="first">Next, type <code class="docutils literal"><span class="pre">tscc</span></code> and log on to the server.</p>
+</li>
+<li><p class="first">On TSCC, add these lines to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file.</p>
 <div class="code highlight-python"><div class="highlight"><pre>IPYNB_PORT=[same number as the above IPYNB_PORT]
 alias ipynb=&quot;ipython notebook --no-browser --port $IPYNB_PORT --matplotlib inline &amp;&quot;
 alias sshtscc=&quot;ssh -NR $IPYNB_PORT:localhost:$IPYNB_PORT tscc-login2 &amp;&quot;
@@ -734,38 +745,80 @@ alias sshtscc=&quot;ssh -NR $IPYNB_PORT:localhost:$IPYNB_PORT tscc-login2 &amp;&
 <p>Notice that in <code class="docutils literal"><span class="pre">sshtscc</span></code>, I use the same port as I logged in to,
 <cite>tscc-login2</cite>. The ampersands &#8220;<cite>&amp;</cite>&#8221; at the end of the lines tell the computer
 to run these processes in the background, which is super useful.</p>
-<p>4. Now that you have those set up, start up a <code class="docutils literal"><span class="pre">screen</span></code> session,
-which allows you to have something running continuously,
-without being logged in.</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">screen</span> <span class="o">-</span><span class="n">x</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="5">
-<li>In this <code class="docutils literal"><span class="pre">screen</span></code> session, now request an interactive job, e.g.:</li>
-</ol>
-<div class="code highlight-python"><div class="highlight"><pre>qsub -I -l walltime=8:00:00 -q home-yeo -l nodes=1:ppn=8
-</pre></div>
-</div>
-<ol class="arabic simple" start="6">
-<li>Wait for the job to start.</li>
-<li>Set up passwordless ssh between the compute nodes and TSCC with:</li>
+</li>
+<li><p class="first">Set up passwordless ssh between the compute nodes and TSCC with:</p>
+</li>
 </ol>
 <div class="code highlight-python"><div class="highlight"><pre>cat .ssh/id_rsa.pub | ssh tscc-login2 &#39;cat &gt;&gt; .ssh/authorized_keys&#39;
 </pre></div>
 </div>
-<p>8. Wait for the job to start, then type <code class="docutils literal"><span class="pre">ipynb</span></code>, press <code class="docutils literal"><span class="pre">ENTER</span></code>,
-then <code class="docutils literal"><span class="pre">sshtscc</span></code> and press <code class="docutils literal"><span class="pre">ENTER</span></code>. again.</p>
-<ol class="arabic simple" start="9">
-<li>Back on your home laptop, type</li>
-</ol>
-<div class="code highlight-python"><div class="highlight"><pre>ssh -NL $IPYNB_PORT:localhost:$IPYNB_PORT YOUR_TSCC_USERNAME@tscc-login2
-.sdsc.edu &amp;
+<ol class="arabic" start="5">
+<li><p class="first">Back on your home laptop, edit your <cite>~/.bash_profile</cite> on macs,
+<cite>~/.bashrc</cite> for other unix machines to add the lines:</p>
+<div class="code highlight-python"><div class="highlight"><pre>IPYNB_PORT=[the same number as you chose above]
+tunneltscc=&quot;ssh -NL $IPYNB_PORT:localhost:$IPYNB_PORT YOUR_TSCC_USERNAME@tscc-login2.sdsc.edu &amp;&quot;
 </pre></div>
 </div>
-<p>Make sure to replace &#8220;<code class="docutils literal"><span class="pre">YOUR_TSCC_USERNAME</span></code>&#8221; with your TSCC login :)</p>
-<p>8. On your laptop, type the url <code class="docutils literal"><span class="pre">http://localhost:[IPYNB_PORT]</span></code> and replace
-&#8220;<code class="docutils literal"><span class="pre">IPYNB_PORT</span></code>&#8221; with your actual numbers of the port you&#8217;re using.</p>
+<p>Make sure to replace &#8220;<code class="docutils literal"><span class="pre">YOUR_TSCC_USERNAME</span></code>&#8221; with your TSCC login :) It is
+also important that these are double-quotes and not single-quotes.</p>
+</li>
+</ol>
+<ol class="arabic simple" start="8">
+<li>On your laptop, type the url <code class="docutils literal"><span class="pre">http://localhost:[IPYNB_PORT]</span></code> and replace
+&#8220;<code class="docutils literal"><span class="pre">IPYNB_PORT</span></code>&#8221; with your actual numbers of the port you&#8217;re using.</li>
+</ol>
 <p>You should now have IPython notebooks on TSCC!</p>
+</div>
+<div class="section" id="run-ipython-notebooks-on-tscc">
+<h3>Run IPython Notebooks on TSCC<a class="headerlink" href="#run-ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h3>
+<p>Now that you have everything configured, you can run IPython notebooks on TSCC!
+Here are the steps to follow.</p>
+<p>1. Log on to TSCC
+4. Now that you have those set up, start up a <code class="docutils literal"><span class="pre">screen</span></code> session,</p>
+<blockquote>
+<div>which allows you to have something running continuously,
+without being logged in.</div></blockquote>
+<div class="code highlight-python"><div class="highlight"><pre>screen -x
+
+.. note::
+    If this gives you an error saying &quot;There is no screen to be attached&quot;
+    then you need to run plain old ``screen`` (no ``-x``) first.
+
+    If this gives you an error saying you need to pick one session, make
+    life easier for yourself and pick one to kill all the windows in,
+    (using ``Ctrl-j K`` if you&#39;re using the ``.screenrc`` that I recommended
+    earlier, otherwise the default is ``Ctrl-a K``). Once you&#39;ve killed all
+    screen sessions except for one, you can run ``screen -x`` with abandon,
+    and it will connect you to the only one you have open.
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>In this <code class="docutils literal"><span class="pre">screen</span></code> session, now request an interactive job, e.g.:</li>
+</ol>
+<div class="code highlight-python"><div class="highlight"><pre>qsub -I -l walltime=2:00:00 -q home-yeo -l nodes=1:ppn=2
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Wait for the job to start.</li>
+<li>Run your TSCC-specific aliases on the compute node:</li>
+</ol>
+<div class="code highlight-python"><div class="highlight"><pre><span class="n">ipynb</span>
+<span class="n">sshtscc</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><strong>Back on your laptop</strong>, now run your tunneling command:</li>
+</ol>
+<div class="code highlight-python"><div class="highlight"><pre><span class="n">tunneltscc</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Open up <code class="docutils literal"><span class="pre">http://localhost:[YOUR</span> <span class="pre">IPYNB</span> <span class="pre">PORT]</span></code> on your browser.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="random-notes">
+<h2>Random notes<a class="headerlink" href="#random-notes" title="Permalink to this headline">¶</a></h2>
 <p>Software goes in <code class="docutils literal"><span class="pre">/projects/ps-yeolab/software</span></code></p>
 <p>Make sure to recursively set group read/write permissions to the software
 directory so others can use and update the common software, using:</p>
