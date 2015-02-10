@@ -617,11 +617,11 @@ Setup IPython notebooks on TSCC
     IPYNB_PORT=[some number above 1024]
     alias tscc='ssh obotvinnik@tscc-login2.sdsc.edu'
 
-   This way, I can just type ``tscc`` and log onto ``tscc-login2``
-   **specifically**. It is important for IPython notebooks that you always log
-   on to the same node. You can use ``tscc-login1`` instead, too,
-   this is just what I have set up. Just replace my login name
-   ("``obotvinnik``") with yours.
+  This way, I can just type ``tscc`` and log onto ``tscc-login2``
+  **specifically**. It is important for IPython notebooks that you always log
+  on to the same node. You can use ``tscc-login1`` instead, too,
+  this is just what I have set up. Just replace my login name
+  ("``obotvinnik``") with yours.
 
 2. Next, type ``tscc`` and log on to the server.
 
@@ -654,11 +654,6 @@ Setup IPython notebooks on TSCC
    Make sure to replace "``YOUR_TSCC_USERNAME``" with your TSCC login :) It is
    also important that these are double-quotes and not single-quotes.
 
-8. On your laptop, type the url ``http://localhost:[IPYNB_PORT]`` and replace
-   "``IPYNB_PORT``" with your actual numbers of the port you're using.
-
-You should now have IPython notebooks on TSCC!
-
 Run IPython Notebooks on TSCC
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -674,16 +669,16 @@ Here are the steps to follow.
 
     screen -x
 
-    .. note::
-        If this gives you an error saying "There is no screen to be attached"
-        then you need to run plain old ``screen`` (no ``-x``) first.
+   .. note::
+       If this gives you an error saying "There is no screen to be attached"
+       then you need to run plain old ``screen`` (no ``-x``) first.
 
-        If this gives you an error saying you need to pick one session, make
-        life easier for yourself and pick one to kill all the windows in,
-        (using ``Ctrl-j K`` if you're using the ``.screenrc`` that I recommended
-        earlier, otherwise the default is ``Ctrl-a K``). Once you've killed all
-        screen sessions except for one, you can run ``screen -x`` with abandon,
-        and it will connect you to the only one you have open.
+       If this gives you an error saying you need to pick one session, make
+       life easier for yourself and pick one to kill all the windows in,
+       (using ``Ctrl-j K`` if you're using the ``.screenrc`` that I recommended
+       earlier, otherwise the default is ``Ctrl-a K``). Once you've killed all
+       screen sessions except for one, you can run ``screen -x`` with abandon,
+       and it will connect you to the only one you have open.
 
 2. In this ``screen`` session, now request an interactive job, e.g.:
 

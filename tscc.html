@@ -723,8 +723,8 @@ you will want to set up
 <a class="reference external" href="http://www.linuxproblem.org/art_9.html">passwordless ssh</a> from your laptop to TSCC. On my laptop,
 I have this alias in my <cite>~/.bashrc</cite> file:</li>
 </ol>
-<div class="code highlight-python"><div class="highlight"><pre> IPYNB_PORT=[some number above 1024]
- alias tscc=&#39;ssh obotvinnik@tscc-login2.sdsc.edu&#39;
+<div class="code highlight-python"><div class="highlight"><pre>  IPYNB_PORT=[some number above 1024]
+  alias tscc=&#39;ssh obotvinnik@tscc-login2.sdsc.edu&#39;
 
 This way, I can just type ``tscc`` and log onto ``tscc-login2``
 **specifically**. It is important for IPython notebooks that you always log
@@ -763,11 +763,6 @@ tunneltscc=&quot;ssh -NL $IPYNB_PORT:localhost:$IPYNB_PORT YOUR_TSCC_USERNAME@ts
 also important that these are double-quotes and not single-quotes.</p>
 </li>
 </ol>
-<ol class="arabic simple" start="8">
-<li>On your laptop, type the url <code class="docutils literal"><span class="pre">http://localhost:[IPYNB_PORT]</span></code> and replace
-&#8220;<code class="docutils literal"><span class="pre">IPYNB_PORT</span></code>&#8221; with your actual numbers of the port you&#8217;re using.</li>
-</ol>
-<p>You should now have IPython notebooks on TSCC!</p>
 </div>
 <div class="section" id="run-ipython-notebooks-on-tscc">
 <h3>Run IPython Notebooks on TSCC<a class="headerlink" href="#run-ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h3>
@@ -778,7 +773,7 @@ Here are the steps to follow.</p>
 <blockquote>
 <div>which allows you to have something running continuously,
 without being logged in.</div></blockquote>
-<div class="code highlight-python"><div class="highlight"><pre>screen -x
+<div class="code highlight-python"><div class="highlight"><pre> screen -x
 
 .. note::
     If this gives you an error saying &quot;There is no screen to be attached&quot;
