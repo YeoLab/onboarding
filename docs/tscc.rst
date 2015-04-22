@@ -120,7 +120,13 @@ Get ``gscripts`` access to software
 
     source ~/gscripts/bashrc/tscc_bash_settings_current
 
-3. "source" the ``.bashrc`` file so you load all the convenient environment
+.. note::
+
+    Make sure to add ``source ~/gscripts/bashrc/tscc_bash_settings_current``
+    to your ``~/.basrhc`` file so that it always loads up the correct yeolab
+    environment variables!
+
+3. "source the ``.bashrc`` file so you load all the convenient environment
     variables we've created.
 
 .. code::
@@ -166,6 +172,7 @@ modules that we use all the time (``numpy``, ``scipy``, ``matplotlib``, ``pandas
     .. code::
 
         conda create --yes --name ENVIRONMENT_NAME pip numpy scipy cython matplotlib nose six scikit-learn ipython networkx pandas tornado statsmodels setuptools pytest pyzmq jinja2 pyyaml pymongo biopython
+        conda install --channel https://conda.binstar.org pybedtools
         source activate ENVIRONMENT_NAME
         pip install seaborn fastcluster gspread brewer2mpl husl semantic_version joblib pybedtools gffutils matplotlib-venn HTSeq misopy
         pip install https://github.com/YeoLab/clipper/tarball/master
