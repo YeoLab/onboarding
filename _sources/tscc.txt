@@ -123,7 +123,7 @@ Get ``gscripts`` access to software
 .. note::
 
     Make sure to add ``source ~/gscripts/bashrc/tscc_bash_settings_current``
-    to your ``~/.basrhc`` file so that it always loads up the correct yeolab
+    to your ``~/.bashrc`` file so that it always loads up the correct yeolab
     environment variables!
 
 3. "source the ``.bashrc`` file so you load all the convenient environment
