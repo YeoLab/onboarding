@@ -302,9 +302,15 @@ git clone http://github.com/YeoLab/gscripts
 <div class="code highlight-python"><div class="highlight"><pre>source ~/gscripts/bashrc/tscc_bash_settings_current
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Make sure to add <code class="docutils literal"><span class="pre">source</span> <span class="pre">~/gscripts/bashrc/tscc_bash_settings_current</span></code>
+to your <code class="docutils literal"><span class="pre">~/.basrhc</span></code> file so that it always loads up the correct yeolab
+environment variables!</p>
+</div>
 <ol class="arabic" start="3">
 <li><dl class="first docutils">
-<dt>&#8220;source&#8221; the <code class="docutils literal"><span class="pre">.bashrc</span></code> file so you load all the convenient environment</dt>
+<dt>&#8220;source the <code class="docutils literal"><span class="pre">.bashrc</span></code> file so you load all the convenient environment</dt>
 <dd><p class="first last">variables we&#8217;ve created.</p>
 </dd>
 </dl>
@@ -344,6 +350,7 @@ not the literal word &#8220;USER&#8221;.</p>
 all the Anaconda Python packages, and then using <code class="docutils literal"><span class="pre">pip</span></code> in the environment
 to install the remaining packages, like so:</p>
 <div class="code highlight-python"><div class="highlight"><pre>conda create --yes --name ENVIRONMENT_NAME pip numpy scipy cython matplotlib nose six scikit-learn ipython networkx pandas tornado statsmodels setuptools pytest pyzmq jinja2 pyyaml pymongo biopython
+conda install --channel https://conda.binstar.org pybedtools
 source activate ENVIRONMENT_NAME
 pip install seaborn fastcluster gspread brewer2mpl husl semantic_version joblib pybedtools gffutils matplotlib-venn HTSeq misopy
 pip install https://github.com/YeoLab/clipper/tarball/master
@@ -1077,7 +1084,7 @@ further documentation, see the <a class="reference external" href="http://gatkfo
     </p>
     <p>
         &copy; Copyright 2014, Olga Botvinnik.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3b2.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>
 </footer>
