@@ -674,16 +674,16 @@ Here are the steps to follow.
 
     screen -x
 
-   .. note::
-       If this gives you an error saying "There is no screen to be attached"
-       then you need to run plain old ``screen`` (no ``-x``) first.
+.. note::
+   If this gives you an error saying "There is no screen to be attached"
+   then you need to run plain old ``screen`` (no ``-x``) first.
 
-       If this gives you an error saying you need to pick one session, make
-       life easier for yourself and pick one to kill all the windows in,
-       (using ``Ctrl-j K`` if you're using the ``.screenrc`` that I recommended
-       earlier, otherwise the default is ``Ctrl-a K``). Once you've killed all
-       screen sessions except for one, you can run ``screen -x`` with abandon,
-       and it will connect you to the only one you have open.
+   If this gives you an error saying you need to pick one session, make
+   life easier for yourself and pick one to kill all the windows in,
+   (using ``Ctrl-j K`` if you're using the ``.screenrc`` that I recommended
+   earlier, otherwise the default is ``Ctrl-a K``). Once you've killed all
+   screen sessions except for one, you can run ``screen -x`` with abandon,
+   and it will connect you to the only one you have open.
 
 2. In this ``screen`` session, now request an interactive job, e.g.:
 
