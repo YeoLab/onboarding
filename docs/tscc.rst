@@ -637,7 +637,7 @@ Setup IPython notebooks on TSCC
    .. code::
 
        IPYNB_PORT=[same number as the above IPYNB_PORT]
-       alias ipynb="ipython notebook --no-browser --port $IPYNB_PORT --matplotlib inline &"
+       alias ipynb="ipython notebook --no-browser --port $IPYNB_PORT &"
        alias sshtscc="ssh -NR $IPYNB_PORT:localhost:$IPYNB_PORT tscc-login2 &"
 
    Notice that in ``sshtscc``, I use the same port as I logged in to,
@@ -648,7 +648,7 @@ Setup IPython notebooks on TSCC
 
 .. code::
 
-    cat .ssh/id_rsa.pub | ssh tscc-login2 'cat >> .ssh/authorized_keys'
+    cat .ssh/id_rsa.pub >> .ssh/authorized_keys
 
 5. Back on your home laptop, edit your `~/.bash_profile` on macs,
    `~/.bashrc` for other unix machines to add the lines:
