@@ -745,7 +745,7 @@ this is just what I have set up. Just replace my login name
 </li>
 <li><p class="first">On TSCC, add these lines to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file.</p>
 <div class="code highlight-python"><div class="highlight"><pre>IPYNB_PORT=[same number as the above IPYNB_PORT]
-alias ipynb=&quot;ipython notebook --no-browser --port $IPYNB_PORT --matplotlib inline &amp;&quot;
+alias ipynb=&quot;ipython notebook --no-browser --port $IPYNB_PORT &amp;&quot;
 alias sshtscc=&quot;ssh -NR $IPYNB_PORT:localhost:$IPYNB_PORT tscc-login2 &amp;&quot;
 </pre></div>
 </div>
@@ -756,7 +756,7 @@ to run these processes in the background, which is super useful.</p>
 <li><p class="first">Set up passwordless ssh between the compute nodes and TSCC with:</p>
 </li>
 </ol>
-<div class="code highlight-python"><div class="highlight"><pre>cat .ssh/id_rsa.pub | ssh tscc-login2 &#39;cat &gt;&gt; .ssh/authorized_keys&#39;
+<div class="code highlight-python"><div class="highlight"><pre>cat .ssh/id_rsa.pub &gt;&gt; .ssh/authorized_keys
 </pre></div>
 </div>
 <ol class="arabic" start="5">
