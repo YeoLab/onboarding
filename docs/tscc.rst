@@ -668,9 +668,7 @@ Now that you have everything configured, you can run IPython notebooks on TSCC!
 Here are the steps to follow.
 
 1. Log on to TSCC
-4. Now that you have those set up, start up a ``screen`` session,
-   which allows you to have something running continuously,
-   without being logged in.
+4. Now that you have those set up, start up a ``screen`` session, which allows you to have something running continuously, without being logged in.
 
 .. code::
 
