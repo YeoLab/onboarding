@@ -87,6 +87,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ipython-notebooks-on-tscc">IPython notebooks on TSCC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#random-notes">Random notes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#running-rna-seq-clip-seq-ribo-seq-etc-qscripts-gatk-queue-pipelines">Running RNA-seq, CLIP-Seq, Ribo-Seq, etc qscripts GATK Queue pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#combining-outputs-from-the-pipeline-into-matrices">Combining outputs from the pipeline into matrices</a></li>
 </ul>
 </li>
 </ul>
@@ -153,6 +154,7 @@
 <li><a class="reference internal" href="#analyze-rna-seq-gently">analyze_rna_seq_gently</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#combining-outputs-from-the-pipeline-into-matrices">Combining outputs from the pipeline into matrices</a></li>
 </ul>
 </li>
 </ul>
@@ -349,7 +351,7 @@ not the literal word &#8220;USER&#8221;.</p>
 <p>You can also create an environment from scratch using <code class="docutils literal"><span class="pre">conda</span></code> to install
 all the Anaconda Python packages, and then using <code class="docutils literal"><span class="pre">pip</span></code> in the environment
 to install the remaining packages, like so:</p>
-<div class="code highlight-python"><div class="highlight"><pre>conda create --yes --name ENVIRONMENT_NAME pip numpy scipy cython matplotlib nose six scikit-learn ipython networkx pandas tornado statsmodels setuptools pytest pyzmq jinja2 pyyaml pymongo biopython
+<div class="code highlight-python"><div class="highlight"><pre>conda create --yes --name ENVIRONMENT_NAME pip numpy scipy cython matplotlib nose six scikit-learn ipython networkx pandas tornado statsmodels setuptools pytest pyzmq jinja2 pyyaml pymongo biopython markupsafe
 conda install --channel https://conda.binstar.org pybedtools
 source activate ENVIRONMENT_NAME
 pip install seaborn fastcluster gspread brewer2mpl husl semantic_version joblib pybedtools gffutils matplotlib-venn HTSeq misopy
@@ -1065,6 +1067,10 @@ further documentation, see the <a class="reference external" href="http://gatkfo
 <li>...</li>
 </ol>
 </div>
+</div>
+<div class="section" id="combining-outputs-from-the-pipeline-into-matrices">
+<h2>Combining outputs from the pipeline into matrices<a class="headerlink" href="#combining-outputs-from-the-pipeline-into-matrices" title="Permalink to this headline">¶</a></h2>
+<p>See the <a class="reference external" href="http://github.com/olgabot/rnaseek">rnaseek</a> software for how to combine Sailfish, STAR and MISO outputs.</p>
 </div>
 </div>
 

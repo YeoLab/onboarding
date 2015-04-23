@@ -171,7 +171,7 @@ modules that we use all the time (``numpy``, ``scipy``, ``matplotlib``, ``pandas
 
     .. code::
 
-        conda create --yes --name ENVIRONMENT_NAME pip numpy scipy cython matplotlib nose six scikit-learn ipython networkx pandas tornado statsmodels setuptools pytest pyzmq jinja2 pyyaml pymongo biopython
+        conda create --yes --name ENVIRONMENT_NAME pip numpy scipy cython matplotlib nose six scikit-learn ipython networkx pandas tornado statsmodels setuptools pytest pyzmq jinja2 pyyaml pymongo biopython markupsafe
         conda install --channel https://conda.binstar.org pybedtools
         source activate ENVIRONMENT_NAME
         pip install seaborn fastcluster gspread brewer2mpl husl semantic_version joblib pybedtools gffutils matplotlib-venn HTSeq misopy
@@ -1001,6 +1001,11 @@ The queue script ``analyze_rna_seq_gently.scala`` runs:
 1. RNA-SeQC_
 2. ...
 
+Combining outputs from the pipeline into matrices
+-------------------------------------------------
+
+See the rnaseek_ software for how to combine Sailfish, STAR and MISO outputs.
+
 .. _TSCC: http://rci.ucsd.edu/computing/index.html
 .. _dry lab: dryyeo-l@googlegroups.com
 .. _TSCC users: tscc-l@mailman.ucsd.edu
@@ -1016,3 +1021,4 @@ The queue script ``analyze_rna_seq_gently.scala`` runs:
 .. _GATK: https://www.broadinstitute.org/gatk/
 .. _Queue: http://gatkforums.broadinstitute.org/discussion/1306/overview-of-queue
 .. _R packages he's added so far: https://binstar.org/asmeurer/
+.. _rnaseek: http://github.com/olgabot/rnaseek
