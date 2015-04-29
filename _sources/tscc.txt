@@ -171,10 +171,11 @@ modules that we use all the time (``numpy``, ``scipy``, ``matplotlib``, ``pandas
 
     .. code::
 
-        conda create --yes --name ENVIRONMENT_NAME pip numpy scipy cython matplotlib nose six scikit-learn ipython networkx pandas tornado statsmodels setuptools pytest pyzmq jinja2 pyyaml pymongo biopython markupsafe
-        conda install --channel https://conda.binstar.org pybedtools
+        conda create --yes --name ENVIRONMENT_NAME pip numpy scipy cython matplotlib nose six scikit-learn ipython networkx pandas tornado statsmodels setuptools pytest pyzmq jinja2 pyyaml pymongo biopython markupsafe seaborn joblib semantic_version
         source activate ENVIRONMENT_NAME
-        pip install seaborn fastcluster gspread brewer2mpl husl semantic_version joblib pybedtools gffutils matplotlib-venn HTSeq misopy
+        conda install --yes --channel https://conda.binstar.org/daler pybedtools
+        conda install --yes --channel https://conda.binstar.org/kyleabeauchamp fastcluster
+        pip install gspread brewer2mpl husl gffutils matplotlib-venn HTSeq misopy
         pip install https://github.com/YeoLab/clipper/tarball/master
         pip install https://github.com/YeoLab/gscripts/tarball/master
         pip install https://github.com/YeoLab/flotilla/tarball/master
