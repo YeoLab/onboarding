@@ -89,6 +89,8 @@ user account for you.
 
 Currently: `Shashank Sathe`_
 
+.. include:: lab_meeting.rst
+
 .. _ethernet form: http://netapps-web.ucsd.edu/cgi-bin/etherreg/etherform.pl
 .. _Gene Yeo: geneyeo@ucsd.edu
 .. _Jim Hayes: jhayes@sdsc.edu

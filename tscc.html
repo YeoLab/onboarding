@@ -76,6 +76,11 @@
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#internal-resources">Internal Resources</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html#lab-meeting-etiquette-and-protocols">Lab meeting etiquette and protocols</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#for-speakers">For speakers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#for-the-audience">For the audience</a></li>
+</ul>
+</li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">TSCC</a><ul>
@@ -766,7 +771,7 @@ to run these processes in the background, which is super useful.</p>
 <li><p class="first">Back on your home laptop, edit your <cite>~/.bash_profile</cite> on macs,
 <cite>~/.bashrc</cite> for other unix machines to add the lines:</p>
 <div class="code highlight-python"><div class="highlight"><pre>IPYNB_PORT=[the same number as you chose above]
-tunneltscc=&quot;ssh -NL $IPYNB_PORT:localhost:$IPYNB_PORT YOUR_TSCC_USERNAME@tscc-login2.sdsc.edu &amp;&quot;
+alias tunneltscc=&quot;ssh -NL $IPYNB_PORT:localhost:$IPYNB_PORT YOUR_TSCC_USERNAME@tscc-login2.sdsc.edu &amp;&quot;
 </pre></div>
 </div>
 <p>Make sure to replace &#8220;<code class="docutils literal"><span class="pre">YOUR_TSCC_USERNAME</span></code>&#8221; with your TSCC login :) It is
