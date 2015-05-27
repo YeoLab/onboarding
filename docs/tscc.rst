@@ -657,7 +657,7 @@ Setup IPython notebooks on TSCC
    .. code::
 
        IPYNB_PORT=[the same number as you chose above]
-       alias tunneltscc="ssh -NL $IPYNB_PORT:localhost:$IPYNB_PORT YOUR_TSCC_USERNAME@tscc-login2.sdsc.edu &"
+       alias tunneltscc="ssh -NL $IPYNB_PORT\:localhost:$IPYNB_PORT YOUR_TSCC_USERNAME@tscc-login2.sdsc.edu &"
 
    Make sure to replace "``YOUR_TSCC_USERNAME``" with your TSCC login :) It is
    also important that these are double-quotes and not single-quotes.
