@@ -9,7 +9,7 @@
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.2.0/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/lumen/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="YeoLab-welcome 0.1.0 documentation" href="index.html" />
     <link rel="prev" title="Getting Started" href="getting_started.html" />
@@ -732,22 +732,22 @@ home-mgilson       --      --       --        8   0   0 --   E R
 <div class="section" id="setup-ipython-notebooks-on-tscc">
 <h3>Setup IPython notebooks on TSCC<a class="headerlink" href="#setup-ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>To set up IPython notebooks on TSCC, you will want to add some <code class="docutils literal"><span class="pre">alias</span></code>
-variables to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code>. First, on your personal computer,
+<li>First, on your personal computer,
 you will want to set up
-<a class="reference external" href="http://www.linuxproblem.org/art_9.html">passwordless ssh</a> from your laptop to TSCC. On my laptop,
-I have this alias in my <cite>~/.bashrc</cite> file:</li>
+<a class="reference external" href="http://www.linuxproblem.org/art_9.html">passwordless ssh</a> from your laptop to TSCC. For reference, <cite>a&#64;A</cite> is you from your laptop, and <cite>b&#64;B</cite> is TSCC. So everywhere you see <cite>b&#64;B</cite>, replace that with <cite>yourusername&#64;tscc.sdsc.edu</cite>. For <cite>a&#64;A</cite>, since your laptop likely doesn&#8217;t have a fixed IP address or a way to log in to it, you don&#8217;t need to worry about replacing it. Instead, use <cite>a&#64;A</cite> as a reference point for whether you should be doing the command from your laptop (<cite>a&#64;A</cite>) or TSCC (<cite>b&#64;B</cite>)</li>
+<li>To set up IPython notebooks on TSCC, you will want to add some <code class="docutils literal"><span class="pre">alias</span></code>
+variables to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code>.. On my (Mac) laptop,
+I have this alias in my <cite>~/.bash_profile</cite> file (for Linux, you&#8217;ll need to put this into <cite>~/.bashrc</cite>)</li>
 </ol>
-<div class="code highlight-python"><div class="highlight"><pre>  IPYNB_PORT=[some number above 1024]
-  alias tscc=&#39;ssh obotvinnik@tscc-login2.sdsc.edu&#39;
-
-This way, I can just type ``tscc`` and log onto ``tscc-login2``
-**specifically**. It is important for IPython notebooks that you always log
-on to the same node. You can use ``tscc-login1`` instead, too,
-this is just what I have set up. Just replace my login name
-(&quot;``obotvinnik``&quot;) with yours.
+<div class="code highlight-python"><div class="highlight"><pre>IPYNB_PORT=[some number above 1024]
+alias tscc=&#39;ssh obotvinnik@tscc-login2.sdsc.edu&#39;
 </pre></div>
 </div>
+<p>This way, I can just type <code class="docutils literal"><span class="pre">tscc</span></code> and log onto <code class="docutils literal"><span class="pre">tscc-login2</span></code>
+<strong>specifically</strong>. It is important for IPython notebooks that you always log
+on to the same node. You can use <code class="docutils literal"><span class="pre">tscc-login1</span></code> instead, too,
+this is just what I have set up. Just replace my login name
+(&#8220;<code class="docutils literal"><span class="pre">obotvinnik</span></code>&#8221;) with yours.</p>
 <ol class="arabic" start="2">
 <li><p class="first">Next, type <code class="docutils literal"><span class="pre">tscc</span></code> and log on to the server.</p>
 </li>
@@ -1093,7 +1093,7 @@ further documentation, see the <a class="reference external" href="http://gatkfo
     </p>
     <p>
         &copy; Copyright 2014, Olga Botvinnik.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>
 </footer>
