@@ -729,15 +729,15 @@ home-mgilson       --      --       --        8   0   0 --   E R
 </div>
 <div class="section" id="ipython-notebooks-on-tscc">
 <h2>IPython notebooks on TSCC<a class="headerlink" href="#ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h2>
+<p>This has two sections: Setup and Running. They should be done in order :)</p>
 <div class="section" id="setup-ipython-notebooks-on-tscc">
 <h3>Setup IPython notebooks on TSCC<a class="headerlink" href="#setup-ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li>First, on your personal computer,
 you will want to set up
-<a class="reference external" href="http://www.linuxproblem.org/art_9.html">passwordless ssh</a> from your laptop to TSCC. For reference, <cite>a&#64;A</cite> is you from your laptop, and <cite>b&#64;B</cite> is TSCC. So everywhere you see <cite>b&#64;B</cite>, replace that with <cite>yourusername&#64;tscc.sdsc.edu</cite>. For <cite>a&#64;A</cite>, since your laptop likely doesn&#8217;t have a fixed IP address or a way to log in to it, you don&#8217;t need to worry about replacing it. Instead, use <cite>a&#64;A</cite> as a reference point for whether you should be doing the command from your laptop (<cite>a&#64;A</cite>) or TSCC (<cite>b&#64;B</cite>)</li>
+<a class="reference external" href="http://www.linuxproblem.org/art_9.html">passwordless ssh</a> from your laptop to TSCC. For reference, <code class="docutils literal"><span class="pre">a&#64;A</span></code> is you from your laptop, and <code class="docutils literal"><span class="pre">b&#64;B</span></code> is TSCC. So everywhere you see <code class="docutils literal"><span class="pre">b&#64;B</span></code>, replace that with <code class="docutils literal"><span class="pre">yourusername&#64;tscc.sdsc.edu</span></code>. For <code class="docutils literal"><span class="pre">a&#64;A</span></code>, since your laptop likely doesn&#8217;t have a fixed IP address or a way to log in to it, you don&#8217;t need to worry about replacing it. Instead, use <code class="docutils literal"><span class="pre">a&#64;A</span></code> as a reference point for whether you should be doing the command from your laptop (<code class="docutils literal"><span class="pre">a&#64;A</span></code>) or TSCC (<code class="docutils literal"><span class="pre">b&#64;B</span></code>)</li>
 <li>To set up IPython notebooks on TSCC, you will want to add some <code class="docutils literal"><span class="pre">alias</span></code>
-variables to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code>.. On my (Mac) laptop,
-I have this alias in my <cite>~/.bash_profile</cite> file (for Linux, you&#8217;ll need to put this into <cite>~/.bashrc</cite>)</li>
+variables to your <code class="docutils literal"><span class="pre">~/.bash_profile</span></code> (for Mac) or <code class="docutils literal"><span class="pre">~/.bashrc</span></code> (for Linux)</li>
 </ol>
 <div class="code highlight-python"><div class="highlight"><pre>IPYNB_PORT=[some number above 1024]
 alias tscc=&#39;ssh obotvinnik@tscc-login2.sdsc.edu&#39;
@@ -748,11 +748,14 @@ alias tscc=&#39;ssh obotvinnik@tscc-login2.sdsc.edu&#39;
 on to the same node. You can use <code class="docutils literal"><span class="pre">tscc-login1</span></code> instead, too,
 this is just what I have set up. Just replace my login name
 (&#8220;<code class="docutils literal"><span class="pre">obotvinnik</span></code>&#8221;) with yours.</p>
+<ol class="arabic simple" start="2">
+<li>To activate all the commands you just added, on your laptop, type <code class="docutils literal"><span class="pre">source</span> <span class="pre">~/.bash_profile</span></code>. (<code class="docutils literal"><span class="pre">source</span></code> is a command which will run all the lines in the file you gave it, i.e. here it will assign the variable <code class="docutils literal"><span class="pre">IPYNB_PORT</span></code> to the value you gave it, and run the <code class="docutils literal"><span class="pre">alias</span></code> command so you only have to type <code class="docutils literal"><span class="pre">tscc</span></code> to log in to TSCC)</li>
+</ol>
 <ol class="arabic" start="2">
 <li><p class="first">Next, type <code class="docutils literal"><span class="pre">tscc</span></code> and log on to the server.</p>
 </li>
 <li><p class="first">On TSCC, add these lines to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file.</p>
-<div class="code highlight-python"><div class="highlight"><pre>IPYNB_PORT=[same number as the above IPYNB_PORT]
+<div class="code highlight-python"><div class="highlight"><pre>IPYNB_PORT=same number as the above IPYNB_PORT from your laptop
 alias ipynb=&quot;ipython notebook --no-browser --port $IPYNB_PORT &amp;&quot;
 alias sshtscc=&quot;ssh -NR $IPYNB_PORT:localhost:$IPYNB_PORT tscc-login2 &amp;&quot;
 </pre></div>
@@ -761,21 +764,22 @@ alias sshtscc=&quot;ssh -NR $IPYNB_PORT:localhost:$IPYNB_PORT tscc-login2 &amp;&
 <cite>tscc-login2</cite>. The ampersands &#8220;<cite>&amp;</cite>&#8221; at the end of the lines tell the computer
 to run these processes in the background, which is super useful.</p>
 </li>
+<li><p class="first">You&#8217;ll need to run <code class="docutils literal"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code> again on TSCC, so the <code class="docutils literal"><span class="pre">$IPYNB_PORT</span></code> variable, and <code class="docutils literal"><span class="pre">ipynb</span></code>, <code class="docutils literal"><span class="pre">sshtscc</span></code> aliases are available.</p>
+</li>
 <li><p class="first">Set up passwordless ssh between the compute nodes and TSCC with:</p>
 </li>
 </ol>
 <div class="code highlight-python"><div class="highlight"><pre>cat .ssh/id_rsa.pub &gt;&gt; .ssh/authorized_keys
 </pre></div>
 </div>
-<ol class="arabic" start="5">
+<ol class="arabic" start="6">
 <li><p class="first">Back on your home laptop, edit your <cite>~/.bash_profile</cite> on macs,
-<cite>~/.bashrc</cite> for other unix machines to add the lines:</p>
-<div class="code highlight-python"><div class="highlight"><pre>IPYNB_PORT=[the same number as you chose above]
-alias tunneltscc=&quot;ssh -NL $IPYNB_PORT\:localhost:$IPYNB_PORT YOUR_TSCC_USERNAME@tscc-login2.sdsc.edu &amp;&quot;
+<cite>~/.bashrc</cite> for other unix machines to add the line:</p>
+<div class="code highlight-python"><div class="highlight"><pre>alias tunneltscc=&quot;ssh -NL $IPYNB_PORT\:localhost:$IPYNB_PORT obotvinnik@tscc-login2.sdsc.edu &amp;&quot;
 </pre></div>
 </div>
-<p>Make sure to replace &#8220;<code class="docutils literal"><span class="pre">YOUR_TSCC_USERNAME</span></code>&#8221; with your TSCC login :) It is
-also important that these are double-quotes and not single-quotes.</p>
+<p>Make sure to replace &#8220;<code class="docutils literal"><span class="pre">obotvinnik</span></code>&#8221; with your TSCC login :) It is
+also important that these are double-quotes and not single-quotes, because the double-quotes evaluate the <code class="docutils literal"><span class="pre">$IPYNB_PORT</span></code> to the number you chose, e.g. <code class="docutils literal"><span class="pre">4000</span></code>, whereas the single-quotes will keep it as the letters <code class="docutils literal"><span class="pre">$IPYNB_PORT</span></code>.</p>
 </li>
 </ol>
 </div>
