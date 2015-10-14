@@ -614,22 +614,24 @@ IPython notebooks on TSCC
 Setup IPython notebooks on TSCC
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. To set up IPython notebooks on TSCC, you will want to add some ``alias``
-   variables to your ``~/.bashrc``. First, on your personal computer,
+1. First, on your personal computer,
    you will want to set up
-   `passwordless ssh`_ from your laptop to TSCC. On my laptop,
-   I have this alias in my `~/.bashrc` file:
+   `passwordless ssh`_ from your laptop to TSCC. For reference, `a@A` is you from your laptop, and `b@B` is TSCC. So everywhere you see `b@B`, replace that with `yourusername@tscc.sdsc.edu`. For `a@A`, since your laptop likely doesn't have a fixed IP address or a way to log in to it, you don't need to worry about replacing it. Instead, use `a@A` as a reference point for whether you should be doing the command from your laptop (`a@A`) or TSCC (`b@B`)
+
+2. To set up IPython notebooks on TSCC, you will want to add some ``alias``
+   variables to your ``~/.bashrc``.. On my (Mac) laptop,
+   I have this alias in my `~/.bash_profile` file (for Linux, you'll need to put this into `~/.bashrc`)
 
 .. code::
 
     IPYNB_PORT=[some number above 1024]
     alias tscc='ssh obotvinnik@tscc-login2.sdsc.edu'
 
-  This way, I can just type ``tscc`` and log onto ``tscc-login2``
-  **specifically**. It is important for IPython notebooks that you always log
-  on to the same node. You can use ``tscc-login1`` instead, too,
-  this is just what I have set up. Just replace my login name
-  ("``obotvinnik``") with yours.
+This way, I can just type ``tscc`` and log onto ``tscc-login2``
+**specifically**. It is important for IPython notebooks that you always log
+on to the same node. You can use ``tscc-login1`` instead, too,
+this is just what I have set up. Just replace my login name
+("``obotvinnik``") with yours.
 
 2. Next, type ``tscc`` and log on to the server.
 
