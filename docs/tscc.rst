@@ -611,21 +611,24 @@ Show specs of all nodes
 IPython notebooks on TSCC
 -------------------------
 
+This has two sections: Setup and Running. They should be done in order :)
+
 Setup IPython notebooks on TSCC
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. First, on your personal computer,
    you will want to set up
-   `passwordless ssh`_ from your laptop to TSCC. For reference, `a@A` is you from your laptop, and `b@B` is TSCC. So everywhere you see `b@B`, replace that with `yourusername@tscc.sdsc.edu`. For `a@A`, since your laptop likely doesn't have a fixed IP address or a way to log in to it, you don't need to worry about replacing it. Instead, use `a@A` as a reference point for whether you should be doing the command from your laptop (`a@A`) or TSCC (`b@B`)
+   `passwordless ssh`_ from your laptop to TSCC. For reference, ``a@A`` is you from your laptop, and ``b@B`` is TSCC. So everywhere you see ``b@B``, replace that with ``yourusername@tscc.sdsc.edu``. For ``a@A``, since your laptop likely doesn't have a fixed IP address or a way to log in to it, you don't need to worry about replacing it. Instead, use ``a@A`` as a reference point for whether you should be doing the command from your laptop (``a@A``) or TSCC (``b@B``)
 
 2. To set up IPython notebooks on TSCC, you will want to add some ``alias``
-   variables to your ``~/.bashrc``.. On my (Mac) laptop,
-   I have this alias in my `~/.bash_profile` file (for Linux, you'll need to put this into `~/.bashrc`)
+   variables to your ``~/.bash_profile`` (for Mac) or ``~/.bashrc`` (for Linux)
 
 .. code::
 
     IPYNB_PORT=[some number above 1024]
     alias tscc='ssh obotvinnik@tscc-login2.sdsc.edu'
+    
+
 
 This way, I can just type ``tscc`` and log onto ``tscc-login2``
 **specifically**. It is important for IPython notebooks that you always log
@@ -633,36 +636,39 @@ on to the same node. You can use ``tscc-login1`` instead, too,
 this is just what I have set up. Just replace my login name
 ("``obotvinnik``") with yours.
 
+2. To activate all the commands you just added, on your laptop, type ``source ~/.bash_profile``. (``source`` is a command which will run all the lines in the file you gave it, i.e. here it will assign the variable ``IPYNB_PORT`` to the value you gave it, and run the ``alias`` command so you only have to type ``tscc`` to log in to TSCC)
+
 2. Next, type ``tscc`` and log on to the server.
 
 3. On TSCC, add these lines to your ``~/.bashrc`` file.
 
    .. code::
 
-       IPYNB_PORT=[same number as the above IPYNB_PORT]
+       IPYNB_PORT=same number as the above IPYNB_PORT from your laptop
        alias ipynb="ipython notebook --no-browser --port $IPYNB_PORT &"
        alias sshtscc="ssh -NR $IPYNB_PORT:localhost:$IPYNB_PORT tscc-login2 &"
 
    Notice that in ``sshtscc``, I use the same port as I logged in to,
    `tscc-login2`. The ampersands "`&`" at the end of the lines tell the computer
    to run these processes in the background, which is super useful.
+   
+4. You'll need to run ``source ~/.bashrc`` again on TSCC, so the ``$IPYNB_PORT`` variable, and ``ipynb``, ``sshtscc`` aliases are available.
 
-4. Set up passwordless ssh between the compute nodes and TSCC with:
+5. Set up passwordless ssh between the compute nodes and TSCC with:
 
 .. code::
 
     cat .ssh/id_rsa.pub >> .ssh/authorized_keys
 
-5. Back on your home laptop, edit your `~/.bash_profile` on macs,
-   `~/.bashrc` for other unix machines to add the lines:
+6. Back on your home laptop, edit your `~/.bash_profile` on macs,
+   `~/.bashrc` for other unix machines to add the line:
 
    .. code::
 
-       IPYNB_PORT=[the same number as you chose above]
-       alias tunneltscc="ssh -NL $IPYNB_PORT\:localhost:$IPYNB_PORT YOUR_TSCC_USERNAME@tscc-login2.sdsc.edu &"
+       alias tunneltscc="ssh -NL $IPYNB_PORT\:localhost:$IPYNB_PORT obotvinnik@tscc-login2.sdsc.edu &"
 
-   Make sure to replace "``YOUR_TSCC_USERNAME``" with your TSCC login :) It is
-   also important that these are double-quotes and not single-quotes.
+   Make sure to replace "``obotvinnik``" with your TSCC login :) It is
+   also important that these are double-quotes and not single-quotes, because the double-quotes evaluate the ``$IPYNB_PORT`` to the number you chose, e.g. ``4000``, whereas the single-quotes will keep it as the letters ``$IPYNB_PORT``.
 
 Run IPython Notebooks on TSCC
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
