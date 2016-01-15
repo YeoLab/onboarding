@@ -378,6 +378,8 @@ Instructions for this can be found here: http://www.dropboxwiki.com/tips-and-tri
 
     ~/bin/dropbox.py start
     
+All done! If everything worked properly you should now be able to view your dropbox files on tscc located in the newly created `Dropbox` directory located in your home. Files saved to that location can also be viewed in the web browser version of Dropbox.
+
 NOTE: If you have a lot of stuff in your dropbox it may be too big to sync without using a interactive job. If you see the error listed below, try starting an interactive job FIRST and then re running the dropbox start command.
 
 ..code::
