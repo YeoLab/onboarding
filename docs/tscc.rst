@@ -338,6 +338,51 @@ In the end, your '''home''' directory should look something like this:
 Share your Dropbox account for easy figure syncing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Instructions for this can be found here: http://www.dropboxwiki.com/tips-and-tricks/using-the-official-dropbox-command-line-interface-cli
+
+1) Make a bin directory in your home
+
+.. code::
+    
+    mkdir -p ~/bin
+
+2) Download the CLI interface via wget:
+
+.. code::
+
+    wget -O ~/bin/dropbox.py "https://www.dropbox.com/download?dl=packages/dropbox.py"
+
+3) set the permissions so you can execute the CLI interface:
+
+.. code::
+
+    chmod +x ~/bin/dropbox.py
+    
+4) Run the script with help to check if it is working. A help menu should come up. 
+
+.. code::
+
+    ~/bin/dropbox.py help
+    
+5) Now download the Dropbox daemon for 64-bit Linux and run it using the following two commands: (more information found here https://www.dropbox.com/install?os=lnx) 
+
+.. code::
+
+    cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+    
+    ~/.dropbox-dist/dropboxd
+
+6) This should generate a link. Paste the link into a web browser and open your dropbox. This will complete the sync. Now try it by running the following dropbox start command on TSCC.
+
+.. code::
+
+    ~/bin/dropbox.py start
+    
+NOTE: If you have a lot of stuff in your dropbox it may be too big to sync without using a interactive job. If you see the error listed below, try starting an interactive job FIRST and then re running the dropbox start command.
+
+..code::
+
+    Fatal python error: couldn't create thread state for new thread
 
 
 Installing and upgrading Python packages
