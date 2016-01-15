@@ -382,7 +382,7 @@ All done! If everything worked properly you should now be able to view your drop
 
 NOTE: If you have a lot of stuff in your dropbox it may be too big to sync without using a interactive job. If you see the error listed below, try starting an interactive job FIRST and then re running the dropbox start command.
 
-..code::
+.. code::
 
     Fatal python error: couldn't create thread state for new thread
 
