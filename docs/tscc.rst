@@ -770,19 +770,31 @@ Uploading Data to Amazon S3 buckets
 1) Create an AWS AIM user
 
 Sign into AWS Console https://console.aws.amazon.com/ and click on Identity & Access Management (IAM)
+
 On the left, click Users
+
 At the top, click Create New Users
+
 Create a username and generate an access key
+
 Click Create in the lower right.
+
 On the next page, click Download Credentials in the lower right to download the access key for your new  user
+
 Safeguard the downloaded file. It contains a key which is like a password for the AWS account.
+
 Click Close in the lower right.
 
 While still in the IAM Users page, cluck on the newly-created user's name.
+
 Click the Permissions tab
+
 Under Manages Policies, click Attach Policy
+
 Type "S3" in the Gilter fiels and check the AmazonS3FullAccess policy.
+
 Click Attach Polucy in the power right.
+
 Now your username is setip to use AWS S3 services. 
 
 2) Download and install the AWS Command Line Interface (CLI)
@@ -795,25 +807,29 @@ Open a terminal. Run:
     aws configure
     
 Fill in the AWS Access Key ID and AWS Secret Access Key when prompted using the information downloaded in the credentials file above.
+
 Pick an appropriate region name: http://docs.aws.amazon.com/general/latest/gr/rande.html
+
 I used the default output format by not entering any information when prompted at that step.
 
 3) Create a new Bucket
 
 Login to your AWS accounts. Click on Services -> S3
+
 In the upper left hand corner, click "Create Bucket"
+
 Name your bucket as you please!
 
 4) From the command line, upload your data to the newly created bucket.
 
 You can find information about the available commands here: http://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html
+
 This is a sample of the command I used to upload my data:
 
 ..code::
 
     aws s3 sync --acl bucket-owner-full-control --sse AES256 /home/ecwheele/scratch/mds_splicing_v4/final_bams/ s3://mds-splicing-v4-bams
     
-
 
 Random notes
 ------------
