@@ -802,7 +802,7 @@ Sign into AWS Console https://console.aws.amazon.com/ and click on Identity & Ac
 - Download from https://aws.amazon.com/cli/
 - Open a terminal. Run:
 
-
+..code::
     aws configure
     
 - Fill in the AWS Access Key ID and AWS Secret Access Key when prompted using the information downloaded in the credentials file above.
