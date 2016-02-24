@@ -32,9 +32,7 @@ Set up your computer for drylab development
 
 3. Ask to get added to the YeoLab group on Github.
 
-4. Install hub_. If you have a Mac, install via brew_.
-
-5. Install the `Anaconda Python Distribution`_ to your laptop.
+5. Install the `Anaconda Python Distribution`_ to your laptop. (Get Python 2.7 for now)
 
 6. Install PyCharm_ (Community edition is fine).
 
