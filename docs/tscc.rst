@@ -146,6 +146,24 @@ To install ANaconda, run the shell script with bash (this will take some time). 
 .. code::
 
     bash Anaconda2-4.1.1-Linux-x86_64.sh 
+    
+To activate anaconda, source your .bashrc:
+
+.. code::
+
+    source ~/.bashrc
+    
+Make sure your Python is point to the Anaconda python with:
+
+.. code::
+
+    which python
+
+The output should look something like:
+
+.. code ::
+
+    ~/anaconda2/bin/python
 
 
 Make a virtual environment on TSCC 
