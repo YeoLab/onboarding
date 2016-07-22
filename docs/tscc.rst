@@ -51,6 +51,7 @@ to balance it out :)
 
 Start a screen session
 ~~~~~~~~~~~~~~~~~~~~~~
+NOTE - You can skip this on your initial setup, but you should come back and do this later because it is cool.
 
 Screen_ is an awesome tool which allows you to have multiple "tabs" open in
 the same login session, and you can easily transition between screens. Plus,
