@@ -51,6 +51,18 @@ Create ``flotilla`` inputs
 Here is an example IPython notebook of scripts to create `flotilla inputs`_.
 (really should be a few scripts in ``gscripts``, but that will come later)
 
+Uploading to GEO
+~~~~~~~~~~~~~~~~
+
+When uploading to GEO
+
+.. toctree::
+    :maxdepth: 2
+
+    geo
+
+
+
 Indices and tables
 ==================
 
