@@ -1,5 +1,10 @@
 language: python
 
+
+install:
+- sudo apt-get install pandoc libzmq-dev
+- sudo pip install --allow-all-external --pre -r docs/requirements.txt --use-mirrors
+
 before_script:
 - git config --global push.default simple
 - git config --global user.name "Olga Botvinnik"
@@ -12,14 +17,13 @@ script:
   - echo "script!"
 
 after_script:
-- sudo apt-get install pandoc libzmq-dev
-- sudo pip install --allow-all-external --pre -r docs/requirements.txt --use-mirrors
 - cd docs
 - make setup_gh_pages
 - make generate
+- cp geo_submission_example.xls _build/html
 - make deploy
 
 env:
   global:
-  - GH_REPO="YeoLab/welcome"
+  - GH_REPO="YeoLab/onboarding"
   - secure: Y8AbQwnpTwfme6II24Klxjbg83ISTB7z+Uj1XxicbMlQsKs0UP5PsaJnY0+mi+HJMoQXYXjsWpoPbxehjLYHdPICYIcK+9zoaoRj504wEjwFEAXzqzzQVfCTJuAvNnwgo/s2dQGmBb8kr4Tkiio3Q/K+ax05rsM5sU4dw6ALRIk=
