@@ -1,5 +1,6 @@
 language: python
 
+sudo: required
 
 install:
 - sudo apt-get install pandoc libzmq-dev
