@@ -9,7 +9,7 @@
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.3.4/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.6/lumen/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -26,9 +26,10 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="YeoLab-welcome 0.1.0 documentation" href="index.html" />
+    <link rel="next" title="How to upload files to GEO" href="geo.html" />
     <link rel="prev" title="Getting Started" href="getting_started.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -83,16 +84,23 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">TSCC</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TSCC</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#important-rules">Important rules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#first-steps">First Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ipython-notebooks-on-tscc">IPython notebooks on TSCC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installing-and-upgrading-python-packages">Installing and upgrading Python packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installing-r-packages-beta">Installing R packages (beta!)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#submitting-and-managing-compute-jobs-on-tscc">Submitting and managing compute jobs on TSCC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ipython-notebooks-on-tscc">IPython notebooks on TSCC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#random-notes">Random notes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#running-rna-seq-clip-seq-ribo-seq-etc-qscripts-gatk-queue-pipelines">Running RNA-seq, CLIP-Seq, Ribo-Seq, etc qscripts GATK Queue pipelines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#combining-outputs-from-the-pipeline-into-matrices">Combining outputs from the pipeline into matrices</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="geo.html">How to upload files to GEO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="geo.html#preparing-to-upload-to-geo">Preparing to upload to GEO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geo.html#the-actual-uploading-ftp-transfer-to-ncbi">The actual uploading: FTP Transfer to NCBI</a></li>
 </ul>
 </li>
 </ul>
@@ -114,6 +122,7 @@
 <li><a class="reference internal" href="#log-on">Log on!</a></li>
 <li><a class="reference internal" href="#start-a-screen-session">Start a screen session</a></li>
 <li><a class="reference internal" href="#get-gscripts-access-to-software">Get <code class="docutils literal"><span class="pre">gscripts</span></code> access to software</a></li>
+<li><a class="reference internal" href="#download-and-install-anaconda">Download and install anaconda</a></li>
 <li><a class="reference internal" href="#make-a-virtual-environment-on-tscc">Make a virtual environment on TSCC</a></li>
 <li><a class="reference internal" href="#add-the-location-of-genome-to-your-bashrc">Add the location of <code class="docutils literal"><span class="pre">GENOME</span></code> to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code></a></li>
 <li><a class="reference internal" href="#organize-your-home-directory">Organize your home directory</a><ul>
@@ -122,6 +131,11 @@
 <li><a class="reference internal" href="#let-us-see-your-stuff">Let us see your stuff</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ipython-notebooks-on-tscc">IPython notebooks on TSCC</a><ul>
+<li><a class="reference internal" href="#setup-ipython-notebooks-on-tscc">Setup IPython notebooks on TSCC</a></li>
+<li><a class="reference internal" href="#run-ipython-notebooks-on-tscc">Run IPython Notebooks on TSCC</a></li>
 <li><a class="reference internal" href="#share-your-dropbox-account-for-easy-figure-syncing">Share your Dropbox account for easy figure syncing</a></li>
 </ul>
 </li>
@@ -141,11 +155,7 @@
 <li><a class="reference internal" href="#show-available-service-units">Show available &#8220;Service Units&#8221;</a></li>
 <li><a class="reference internal" href="#show-available-processors">Show available processors</a></li>
 <li><a class="reference internal" href="#show-specs-of-all-nodes">Show specs of all nodes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#ipython-notebooks-on-tscc">IPython notebooks on TSCC</a><ul>
-<li><a class="reference internal" href="#setup-ipython-notebooks-on-tscc">Setup IPython notebooks on TSCC</a></li>
-<li><a class="reference internal" href="#run-ipython-notebooks-on-tscc">Run IPython Notebooks on TSCC</a></li>
+<li><a class="reference internal" href="#uploading-data-to-amazon-s3-buckets">Uploading Data to Amazon S3 buckets</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#random-notes">Random notes</a></li>
@@ -172,6 +182,10 @@
                 
   <li>
     <a href="getting_started.html" title="Previous Chapter: Getting Started"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Getting Started</span>
+    </a>
+  </li>
+  <li>
+    <a href="geo.html" title="Next Chapter: How to upload files to GEO"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">How to upload... &raquo;</span>
     </a>
   </li>
               
@@ -240,7 +254,7 @@ by everyone in the lab.</p>
 <div class="section" id="log-on">
 <h3>Log on!<a class="headerlink" href="#log-on" title="Permalink to this headline">¶</a></h3>
 <p>First, log in to TSCC!</p>
-<div class="code highlight-python"><div class="highlight"><pre>ssh YOUR_TSCC_USERNAME@tscc-login2.sdsc.edu
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">YOUR_TSCC_USERNAME</span><span class="nd">@tscc</span><span class="o">-</span><span class="n">login2</span><span class="o">.</span><span class="n">sdsc</span><span class="o">.</span><span class="n">edu</span>
 </pre></div>
 </div>
 <p>TSCC has two login nodes, <code class="docutils literal"><span class="pre">login1</span></code> and <code class="docutils literal"><span class="pre">login2</span></code> for load-balancing (i.e.
@@ -252,6 +266,7 @@ to balance it out :)</p>
 </div>
 <div class="section" id="start-a-screen-session">
 <h3>Start a screen session<a class="headerlink" href="#start-a-screen-session" title="Permalink to this headline">¶</a></h3>
+<p>NOTE - You can skip this on your initial setup, but you should come back and do this later because it is cool.</p>
 <p><a class="reference external" href="https://kb.iu.edu/d/acuy">Screen</a> is an awesome tool which allows you to have multiple &#8220;tabs&#8221; open in
 the same login session, and you can easily transition between screens. Plus,
 they&#8217;re persistent, so you can leave something running in a screen session,
@@ -260,8 +275,8 @@ suggestions of things to add to this <code class="docutils literal"><span class=
 request on Olga&#8217;s <a class="reference external" href="https://github.com/olgabot/rcfiles">rcfiles</a> github repo.</p>
 <p>To get a nice status bar at the bottom of your terminal window, get this
 <code class="docutils literal"><span class="pre">.screenrc</span></code> file:</p>
-<div class="code highlight-python"><div class="highlight"><pre>cd
-wget https://raw.githubusercontent.com/olgabot/rcfiles/master/.screenrc
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span>
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">olgabot</span><span class="o">/</span><span class="n">rcfiles</span><span class="o">/</span><span class="n">master</span><span class="o">/.</span><span class="n">screenrc</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -276,12 +291,12 @@ tab number 2.</p>
 <p>This <code class="docutils literal"><span class="pre">.screenrc</span></code> adds a status bar at the bottom of your screen, like this:</p>
 <img alt="_images/screen_status.png" src="_images/screen_status.png" />
 <p>Now to start a screen session do:</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">screen</span>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">screen</span>
 </pre></div>
 </div>
 <p>If you&#8217;re re-logging in and you have an old screen session,
 do this to &#8220;re-attach&#8221; the screen window.</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">screen</span> <span class="o">-</span><span class="n">x</span>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">screen</span> <span class="o">-</span><span class="n">x</span>
 </pre></div>
 </div>
 <p>Every time you log in to TSCC, you&#8217;ll want to reattach the screens from
@@ -297,16 +312,16 @@ for generating SSH keys</a>.</li>
 <li>First, clone the <code class="docutils literal"><span class="pre">gscripts</span></code> github repo to your home directory on TSCC
 (this assumes you&#8217;ve already created a github account).</li>
 </ol>
-<div class="code highlight-python"><div class="highlight"><pre># &lt;on TSCC&gt;
-cd
-git clone http://github.com/YeoLab/gscripts
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="c1"># &lt;on TSCC&gt;</span>
+<span class="n">cd</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">YeoLab</span><span class="o">/</span><span class="n">gscripts</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li>Add this line to the <strong>end</strong> of your <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file (using either
 <code class="docutils literal"><span class="pre">emacs</span></code> or <code class="docutils literal"><span class="pre">vi</span></code>/<code class="docutils literal"><span class="pre">vim</span></code>, your choice)</li>
 </ol>
-<div class="code highlight-python"><div class="highlight"><pre>source ~/gscripts/bashrc/tscc_bash_settings_current
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/</span><span class="n">gscripts</span><span class="o">/</span><span class="n">bashrc</span><span class="o">/</span><span class="n">tscc_bash_settings_current</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -323,12 +338,36 @@ environment variables!</p>
 </dl>
 </li>
 </ol>
-<div class="code highlight-python"><div class="highlight"><pre>source ~/.bashrc
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-and-install-anaconda">
+<h3>Download and install anaconda<a class="headerlink" href="#download-and-install-anaconda" title="Permalink to this headline">¶</a></h3>
+<p>Download the Anaconda Python/R package manager using wget (web-get). The link below is from the Anaconda downloads page.</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">repo</span><span class="o">.</span><span class="n">continuum</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">Anaconda2</span><span class="o">-</span><span class="mf">4.1</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>To install ANaconda, run the shell script with bash (this will take some time). It will ask you a bunch of questions, and use the defaults for them (press enter for all)</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="n">Anaconda2</span><span class="o">-</span><span class="mf">4.1</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>To activate anaconda, source your .bashrc:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>Make sure your Python is point to the Anaconda python with:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">which</span> <span class="n">python</span>
+</pre></div>
+</div>
+<p>The output should look something like:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="o">~/</span><span class="n">anaconda2</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="make-a-virtual-environment-on-tscc">
 <h3>Make a virtual environment on TSCC<a class="headerlink" href="#make-a-virtual-environment-on-tscc" title="Permalink to this headline">¶</a></h3>
+<p>WARNING - this is easy to get messed up. While this is a nice tool, it is not absolutely necessary upon initial setup and might be best to wait and configure environments after you have a better understanding of how they work.</p>
 <p>On TSCC, the easiest way to create a virtual evironment (aka <code class="docutils literal"><span class="pre">virtualenv</span></code>)
 is by making one off of the <code class="docutils literal"><span class="pre">base</span></code> environment, which already has a bunch of
 modules that we use all the time (<code class="docutils literal"><span class="pre">numpy</span></code>, <code class="docutils literal"><span class="pre">scipy</span></code>, <code class="docutils literal"><span class="pre">matplotlib</span></code>, <code class="docutils literal"><span class="pre">pandas</span></code>, <code class="docutils literal"><span class="pre">scikit-learn</span></code>, <code class="docutils literal"><span class="pre">ipython</span></code>, the list goes on). Here&#8217;s how you do it:</p>
@@ -337,18 +376,18 @@ modules that we use all the time (<code class="docutils literal"><span class="pr
 <p>The command <code class="docutils literal"><span class="pre">$USER</span></code> is meant to be literal, meaning you can exactly copy
 the below command, and TSCC will create an environment with your username.
 If you don&#8217;t believe me, compare the output of:</p>
-<div class="code highlight-python"><div class="highlight"><pre>echo USER
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="n">USER</span>
 </pre></div>
 </div>
 <p>to the output of:</p>
-<div class="code highlight-python"><div class="highlight"><pre>echo $USER
+<div class="code highlight-default"><div class="highlight"><pre><span></span>echo $USER
 </pre></div>
 </div>
 <p class="last">The second one should output your TSCC username, because the <code class="docutils literal"><span class="pre">$</span></code> dollar
 sign indicates to the shell that you&#8217;re asking for the variable <code class="docutils literal"><span class="pre">$USER</span></code>,
 not the literal word &#8220;USER&#8221;.</p>
 </div>
-<div class="code highlight-python"><div class="highlight"><pre>conda create --clone base --name $USER
+<div class="code highlight-default"><div class="highlight"><pre><span></span>conda create --clone base --name $USER
 </pre></div>
 </div>
 <div class="admonition note">
@@ -356,20 +395,20 @@ not the literal word &#8220;USER&#8221;.</p>
 <p>You can also create an environment from scratch using <code class="docutils literal"><span class="pre">conda</span></code> to install
 all the Anaconda Python packages, and then using <code class="docutils literal"><span class="pre">pip</span></code> in the environment
 to install the remaining packages, like so:</p>
-<div class="code highlight-python"><div class="highlight"><pre>conda create --yes --name ENVIRONMENT_NAME pip numpy scipy cython matplotlib nose six scikit-learn ipython networkx pandas tornado statsmodels setuptools pytest pyzmq jinja2 pyyaml pymongo biopython markupsafe seaborn joblib semantic_version
-source activate ENVIRONMENT_NAME
-conda install --yes --channel https://conda.binstar.org/daler pybedtools
-conda install --yes --channel https://conda.binstar.org/kyleabeauchamp fastcluster
-pip install gspread brewer2mpl husl gffutils matplotlib-venn HTSeq misopy
-pip install https://github.com/YeoLab/clipper/tarball/master
-pip install https://github.com/YeoLab/gscripts/tarball/master
-pip install https://github.com/YeoLab/flotilla/tarball/master
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">yes</span> <span class="o">--</span><span class="n">name</span> <span class="n">ENVIRONMENT_NAME</span> <span class="n">pip</span> <span class="n">numpy</span> <span class="n">scipy</span> <span class="n">cython</span> <span class="n">matplotlib</span> <span class="n">nose</span> <span class="n">six</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">ipython</span> <span class="n">networkx</span> <span class="n">pandas</span> <span class="n">tornado</span> <span class="n">statsmodels</span> <span class="n">setuptools</span> <span class="n">pytest</span> <span class="n">pyzmq</span> <span class="n">jinja2</span> <span class="n">pyyaml</span> <span class="n">pymongo</span> <span class="n">biopython</span> <span class="n">markupsafe</span> <span class="n">seaborn</span> <span class="n">joblib</span> <span class="n">semantic_version</span>
+<span class="n">source</span> <span class="n">activate</span> <span class="n">ENVIRONMENT_NAME</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="o">--</span><span class="n">yes</span> <span class="o">--</span><span class="n">channel</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">conda</span><span class="o">.</span><span class="n">binstar</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">daler</span> <span class="n">pybedtools</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="o">--</span><span class="n">yes</span> <span class="o">--</span><span class="n">channel</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">conda</span><span class="o">.</span><span class="n">binstar</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">kyleabeauchamp</span> <span class="n">fastcluster</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">gspread</span> <span class="n">brewer2mpl</span> <span class="n">husl</span> <span class="n">gffutils</span> <span class="n">matplotlib</span><span class="o">-</span><span class="n">venn</span> <span class="n">HTSeq</span> <span class="n">misopy</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">YeoLab</span><span class="o">/</span><span class="n">clipper</span><span class="o">/</span><span class="n">tarball</span><span class="o">/</span><span class="n">master</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">YeoLab</span><span class="o">/</span><span class="n">gscripts</span><span class="o">/</span><span class="n">tarball</span><span class="o">/</span><span class="n">master</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">YeoLab</span><span class="o">/</span><span class="n">flotilla</span><span class="o">/</span><span class="n">tarball</span><span class="o">/</span><span class="n">master</span>
 </pre></div>
 </div>
 <p class="last">These commands is how the <code class="docutils literal"><span class="pre">base</span></code> environment was created.</p>
 </div>
 <p>Then activate your environment with</p>
-<div class="code highlight-python"><div class="highlight"><pre>source activate $USER
+<div class="code highlight-default"><div class="highlight"><pre><span></span>source activate $USER
 </pre></div>
 </div>
 <p>You&#8217;ll probably stay in this environment all the time.</p>
@@ -379,7 +418,7 @@ pip install https://github.com/YeoLab/flotilla/tarball/master
 Then you will always be in your environment</p>
 </div>
 <p>If you need to switch to another environment, then exit your environment with:</p>
-<div class="code highlight-python"><div class="highlight"><pre>source deactivate
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">deactivate</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -387,8 +426,8 @@ Then you will always be in your environment</p>
 <p>Now that you&#8217;ve created your own environment, go to your gscripts folder
 and install your own personal gscripts, to make sure it&#8217;s the most updated
 version.</p>
-<div class="code last highlight-python"><div class="highlight"><pre>cd ~/gscripts
-pip install .  # The &quot;.&quot; means install &quot;this,&quot; as in &quot;this folder where I am&quot;
+<div class="code last highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">gscripts</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>  <span class="c1"># The &quot;.&quot; means install &quot;this,&quot; as in &quot;this folder where I am&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -397,7 +436,7 @@ pip install .  # The &quot;.&quot; means install &quot;this,&quot; as in &quot;t
 <h3>Add the location of <code class="docutils literal"><span class="pre">GENOME</span></code> to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code><a class="headerlink" href="#add-the-location-of-genome-to-your-bashrc" title="Permalink to this headline">¶</a></h3>
 <p>To run the analysis pipeline, you will need to specify where the genomes are
 on TSCC, and you can do this by adding this line to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code>:</p>
-<div class="code highlight-python"><div class="highlight"><pre>GENOME=/projects/ps-yeolab/genomes
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">GENOME</span><span class="o">=/</span><span class="n">projects</span><span class="o">/</span><span class="n">ps</span><span class="o">-</span><span class="n">yeolab</span><span class="o">/</span><span class="n">genomes</span>
 </pre></div>
 </div>
 </div>
@@ -417,7 +456,7 @@ read-write speeds, which is perfect for outputs from alignment algorithms.
 It can be annoying to go back and forth between your scratch directory,
 so it&#8217;s convenient to have a link to your scratch from home,
 which you can make like this:</p>
-<div class="code highlight-python"><div class="highlight"><pre>ln -s /oasis/tscc/scratch/$USER $HOME/scratch
+<div class="code highlight-default"><div class="highlight"><pre><span></span>ln -s /oasis/tscc/scratch/$USER $HOME/scratch
 </pre></div>
 </div>
 <div class="admonition note">
@@ -446,8 +485,8 @@ run.</p>
 </li>
 <li><p class="first">Use this recursive touch command to &#8220;refresh&#8221; the decay clock on your
 files before important meetings and re-analysis steps:</p>
-<div class="code highlight-python"><div class="highlight"><pre>cd important_scratch_dir
-find . | xargs touch
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">important_scratch_dir</span>
+<span class="n">find</span> <span class="o">.</span> <span class="o">|</span> <span class="n">xargs</span> <span class="n">touch</span>
 </pre></div>
 </div>
 </li>
@@ -459,11 +498,11 @@ find . | xargs touch
 <p>Create <code class="docutils literal"><span class="pre">~/workflows</span></code> for your personal bash, makefile, queue, and so on,
 scripts, before you add them to gscripts, and <code class="docutils literal"><span class="pre">~/projects</span></code> for your
 projects to organize figures, notebooks, final results, and even manuscripts.</p>
-<div class="code highlight-python"><div class="highlight"><pre>mkdir ~/workflows ~/projects
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">~/</span><span class="n">workflows</span> <span class="o">~/</span><span class="n">projects</span>
 </pre></div>
 </div>
 <p>Here&#8217;s an example project directory structure:</p>
-<div class="code highlight-python"><div class="highlight"><pre>$ ls -lha /home/gpratt/projects/fox2_iclip/
+<div class="code highlight-default"><div class="highlight"><pre><span></span>$ ls -lha /home/gpratt/projects/fox2_iclip/
 total 9.5K
 drwxr-xr-x  2 gpratt yeo-group  5 Sep 16  2013 .
 drwxr-xr-x 40 gpratt yeo-group 40 Nov 24 12:20 ..
@@ -482,19 +521,19 @@ other processing scripts.</p>
 <h4>Let us see your stuff<a class="headerlink" href="#let-us-see-your-stuff" title="Permalink to this headline">¶</a></h4>
 <p>Make everything readable by other yeo lab members and restrict access from
 other users (per HIPAA/HITECH requirements)</p>
-<div class="code highlight-python"><div class="highlight"><pre>chmod -R g+r ~/
-chmod -R g+r ~/scratch/
-chmod -R o-rwx ~/
-chmod -R o-rwx ~/scratch/
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="o">-</span><span class="n">R</span> <span class="n">g</span><span class="o">+</span><span class="n">r</span> <span class="o">~/</span>
+<span class="n">chmod</span> <span class="o">-</span><span class="n">R</span> <span class="n">g</span><span class="o">+</span><span class="n">r</span> <span class="o">~/</span><span class="n">scratch</span><span class="o">/</span>
+<span class="n">chmod</span> <span class="o">-</span><span class="n">R</span> <span class="n">o</span><span class="o">-</span><span class="n">rwx</span> <span class="o">~/</span>
+<span class="n">chmod</span> <span class="o">-</span><span class="n">R</span> <span class="n">o</span><span class="o">-</span><span class="n">rwx</span> <span class="o">~/</span><span class="n">scratch</span><span class="o">/</span>
 </pre></div>
 </div>
 <p>But <code class="docutils literal"><span class="pre">git</span></code> will get mad at you if your ~/.ssh keys private keys are visible
 by others, so make them visible to only you via:</p>
-<div class="code highlight-python"><div class="highlight"><pre>chmod -R go-rwx ~/.ssh/
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="o">-</span><span class="n">R</span> <span class="n">go</span><span class="o">-</span><span class="n">rwx</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span>
 </pre></div>
 </div>
 <p>In the end, your &#8216;&#8217;&#8216;home&#8217;&#8216;&#8217; directory should look something like this:</p>
-<div class="code highlight-python"><div class="highlight"><pre>$ ls -l $HOME
+<div class="code highlight-default"><div class="highlight"><pre><span></span>$ ls -l $HOME
 lrwxrwxrwx  1 bkakarad yeo-group    29 Jun 24  2013 scratch -&gt; /oasis/tscc/scratch/bkakarad/
 drwxr-x---+ 2 bkakarad yeo-group     2 Jun 24  2013 gscripts
 drwxr-x---+ 3 bkakarad yeo-group     3 Jun 24  2013 projects
@@ -503,39 +542,203 @@ drwxr-x---+ 2 bkakarad yeo-group     2 Jun 24  2013 workflows
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="ipython-notebooks-on-tscc">
+<h2>IPython notebooks on TSCC<a class="headerlink" href="#ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h2>
+<p>This has two sections: Setup and Running. They should be done in order :)</p>
+<div class="section" id="setup-ipython-notebooks-on-tscc">
+<h3>Setup IPython notebooks on TSCC<a class="headerlink" href="#setup-ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>First, on your personal computer,
+you will want to set up
+<a class="reference external" href="http://www.linuxproblem.org/art_9.html">passwordless ssh</a> from your laptop to TSCC. For reference, <code class="docutils literal"><span class="pre">a&#64;A</span></code> is you from your laptop, and <code class="docutils literal"><span class="pre">b&#64;B</span></code> is TSCC. So everywhere you see <code class="docutils literal"><span class="pre">b&#64;B</span></code>, replace that with <code class="docutils literal"><span class="pre">yourusername&#64;tscc.sdsc.edu</span></code>. For <code class="docutils literal"><span class="pre">a&#64;A</span></code>, since your laptop likely doesn&#8217;t have a fixed IP address or a way to log in to it, you don&#8217;t need to worry about replacing it. Instead, use <code class="docutils literal"><span class="pre">a&#64;A</span></code> as a reference point for whether you should be doing the command from your laptop (<code class="docutils literal"><span class="pre">a&#64;A</span></code>) or TSCC (<code class="docutils literal"><span class="pre">b&#64;B</span></code>)</li>
+<li>To set up IPython notebooks on TSCC, you will want to add some <code class="docutils literal"><span class="pre">alias</span></code>
+variables to your <code class="docutils literal"><span class="pre">~/.bash_profile</span></code> (for Mac) or <code class="docutils literal"><span class="pre">~/.bashrc</span></code> (for Linux)</li>
+</ol>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">IPYNB_PORT</span><span class="o">=</span><span class="p">[</span><span class="n">some</span> <span class="n">number</span> <span class="n">above</span> <span class="mi">1024</span><span class="p">]</span>
+<span class="n">alias</span> <span class="n">tscc</span><span class="o">=</span><span class="s1">&#39;ssh obotvinnik@tscc-login2.sdsc.edu&#39;</span>
+</pre></div>
+</div>
+<p>This way, I can just type <code class="docutils literal"><span class="pre">tscc</span></code> and log onto <code class="docutils literal"><span class="pre">tscc-login2</span></code>
+<strong>specifically</strong>. It is important for IPython notebooks that you always log
+on to the same node. You can use <code class="docutils literal"><span class="pre">tscc-login1</span></code> instead, too,
+this is just what I have set up. Just replace my login name
+(&#8220;<code class="docutils literal"><span class="pre">obotvinnik</span></code>&#8221;) with yours.</p>
+<ol class="arabic simple" start="2">
+<li>To activate all the commands you just added, on your laptop, type <code class="docutils literal"><span class="pre">source</span> <span class="pre">~/.bash_profile</span></code>. (<code class="docutils literal"><span class="pre">source</span></code> is a command which will run all the lines in the file you gave it, i.e. here it will assign the variable <code class="docutils literal"><span class="pre">IPYNB_PORT</span></code> to the value you gave it, and run the <code class="docutils literal"><span class="pre">alias</span></code> command so you only have to type <code class="docutils literal"><span class="pre">tscc</span></code> to log in to TSCC)</li>
+</ol>
+<ol class="arabic" start="2">
+<li><p class="first">Next, type <code class="docutils literal"><span class="pre">tscc</span></code> and log on to the server.</p>
+</li>
+<li><p class="first">On TSCC, add these lines to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file.</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">IPYNB_PORT</span><span class="o">=</span><span class="n">same</span> <span class="n">number</span> <span class="k">as</span> <span class="n">the</span> <span class="n">above</span> <span class="n">IPYNB_PORT</span> <span class="kn">from</span> <span class="nn">your</span> <span class="n">laptop</span>
+<span class="n">alias</span> <span class="n">ipynb</span><span class="o">=</span><span class="s2">&quot;ipython notebook --no-browser --port $IPYNB_PORT &amp;&quot;</span>
+<span class="n">alias</span> <span class="n">sshtscc</span><span class="o">=</span><span class="s2">&quot;ssh -NR $IPYNB_PORT:localhost:$IPYNB_PORT tscc-login2 &amp;&quot;</span>
+</pre></div>
+</div>
+<p>Notice that in <code class="docutils literal"><span class="pre">sshtscc</span></code>, I use the same port as I logged in to,
+<cite>tscc-login2</cite>. The ampersands &#8220;<cite>&amp;</cite>&#8221; at the end of the lines tell the computer
+to run these processes in the background, which is super useful.</p>
+</li>
+<li><p class="first">You&#8217;ll need to run <code class="docutils literal"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code> again on TSCC, so the <code class="docutils literal"><span class="pre">$IPYNB_PORT</span></code> variable, and <code class="docutils literal"><span class="pre">ipynb</span></code>, <code class="docutils literal"><span class="pre">sshtscc</span></code> aliases are available.</p>
+</li>
+<li><p class="first">Set up passwordless ssh between the compute nodes and TSCC with:</p>
+</li>
+</ol>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span><span class="o">.</span><span class="n">pub</span> <span class="o">&gt;&gt;</span> <span class="o">.</span><span class="n">ssh</span><span class="o">/</span><span class="n">authorized_keys</span>
+</pre></div>
+</div>
+<ol class="arabic" start="6">
+<li><p class="first">Back on your home laptop, edit your <cite>~/.bash_profile</cite> on macs,
+<cite>~/.bashrc</cite> for other unix machines to add the line:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">alias</span> <span class="n">tunneltscc</span><span class="o">=</span><span class="s2">&quot;ssh -NL $IPYNB_PORT\:localhost:$IPYNB_PORT obotvinnik@tscc-login2.sdsc.edu &amp;&quot;</span>
+</pre></div>
+</div>
+<p>Make sure to replace &#8220;<code class="docutils literal"><span class="pre">obotvinnik</span></code>&#8221; with your TSCC login :) It is
+also important that these are double-quotes and not single-quotes, because the double-quotes evaluate the <code class="docutils literal"><span class="pre">$IPYNB_PORT</span></code> to the number you chose, e.g. <code class="docutils literal"><span class="pre">4000</span></code>, whereas the single-quotes will keep it as the letters <code class="docutils literal"><span class="pre">$IPYNB_PORT</span></code>.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="run-ipython-notebooks-on-tscc">
+<h3>Run IPython Notebooks on TSCC<a class="headerlink" href="#run-ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h3>
+<p>Now that you have everything configured, you can run IPython notebooks on TSCC!
+Here are the steps to follow.</p>
+<p>1. Log on to TSCC
+4. Now that you have those set up, start up a <code class="docutils literal"><span class="pre">screen</span></code> session, which allows you to have something running continuously, without being logged in.</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">screen</span> <span class="o">-</span><span class="n">x</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If this gives you an error saying &#8220;There is no screen to be attached&#8221;
+then you need to run plain old <code class="docutils literal"><span class="pre">screen</span></code> (no <code class="docutils literal"><span class="pre">-x</span></code>) first.</p>
+<p class="last">If this gives you an error saying you need to pick one session, make
+life easier for yourself and pick one to kill all the windows in,
+(using <code class="docutils literal"><span class="pre">Ctrl-j</span> <span class="pre">K</span></code> if you&#8217;re using the <code class="docutils literal"><span class="pre">.screenrc</span></code> that I recommended
+earlier, otherwise the default is <code class="docutils literal"><span class="pre">Ctrl-a</span> <span class="pre">K</span></code>). Once you&#8217;ve killed all
+screen sessions except for one, you can run <code class="docutils literal"><span class="pre">screen</span> <span class="pre">-x</span></code> with abandon,
+and it will connect you to the only one you have open.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li>In this <code class="docutils literal"><span class="pre">screen</span></code> session, now request an interactive job, e.g.:</li>
+</ol>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">qsub</span> <span class="o">-</span><span class="n">I</span> <span class="o">-</span><span class="n">l</span> <span class="n">walltime</span><span class="o">=</span><span class="mi">2</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="o">-</span><span class="n">q</span> <span class="n">home</span><span class="o">-</span><span class="n">yeo</span> <span class="o">-</span><span class="n">l</span> <span class="n">nodes</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="n">ppn</span><span class="o">=</span><span class="mi">2</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Wait for the job to start.</li>
+<li>Run your TSCC-specific aliases on the compute node:</li>
+</ol>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">ipynb</span>
+<span class="n">sshtscc</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><strong>Back on your laptop</strong>, now run your tunneling command:</li>
+</ol>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">tunneltscc</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Open up <code class="docutils literal"><span class="pre">http://localhost:[YOUR</span> <span class="pre">IPYNB</span> <span class="pre">PORT]</span></code> on your browser.</li>
+</ol>
+</div>
 <div class="section" id="share-your-dropbox-account-for-easy-figure-syncing">
 <h3>Share your Dropbox account for easy figure syncing<a class="headerlink" href="#share-your-dropbox-account-for-easy-figure-syncing" title="Permalink to this headline">¶</a></h3>
+<p>This is not necessary, but a nice feature to have. For the initial setup, I would skip this step.</p>
+<p>Instructions for this can be found here: <a class="reference external" href="http://www.dropboxwiki.com/tips-and-tricks/using-the-official-dropbox-command-line-interface-cli">http://www.dropboxwiki.com/tips-and-tricks/using-the-official-dropbox-command-line-interface-cli</a></p>
+<ol class="arabic simple">
+<li>Make a bin directory in your home</li>
+</ol>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="nb">bin</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Download the CLI interface via wget:</li>
+</ol>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="o">-</span><span class="n">O</span> <span class="o">~/</span><span class="nb">bin</span><span class="o">/</span><span class="n">dropbox</span><span class="o">.</span><span class="n">py</span> <span class="s2">&quot;https://www.dropbox.com/download?dl=packages/dropbox.py&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>set the permissions so you can execute the CLI interface:</li>
+</ol>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="o">~/</span><span class="nb">bin</span><span class="o">/</span><span class="n">dropbox</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Run the script with help to check if it is working. A help menu should come up.</li>
+</ol>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="o">~/</span><span class="nb">bin</span><span class="o">/</span><span class="n">dropbox</span><span class="o">.</span><span class="n">py</span> <span class="n">help</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Now download the Dropbox daemon for 64-bit Linux and run it using the following two commands: (more information found here <a class="reference external" href="https://www.dropbox.com/install?os=lnx">https://www.dropbox.com/install?os=lnx</a>)</li>
+</ol>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~</span> <span class="o">&amp;&amp;</span> <span class="n">wget</span> <span class="o">-</span><span class="n">O</span> <span class="o">-</span> <span class="s2">&quot;https://www.dropbox.com/download?plat=lnx.x86_64&quot;</span> <span class="o">|</span> <span class="n">tar</span> <span class="n">xzf</span> <span class="o">-</span>
+
+<span class="o">~/.</span><span class="n">dropbox</span><span class="o">-</span><span class="n">dist</span><span class="o">/</span><span class="n">dropboxd</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li>This should generate a link. Paste the link into a web browser and open your dropbox. This will complete the sync. Now try it by running the following dropbox start command on TSCC.</li>
+</ol>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="o">~/</span><span class="nb">bin</span><span class="o">/</span><span class="n">dropbox</span><span class="o">.</span><span class="n">py</span> <span class="n">start</span>
+</pre></div>
+</div>
+<p>All done! If everything worked properly you should now be able to view your dropbox files on tscc located in the newly created <cite>Dropbox</cite> directory located in your home. Files saved to that location can also be viewed in the web browser version of Dropbox.</p>
+<p>NOTE: If you have a lot of stuff in your dropbox it may be too big to sync without using a interactive job. If you see the error listed below, try starting an interactive job FIRST and then re running the dropbox start command.</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">Fatal</span> <span class="n">python</span> <span class="n">error</span><span class="p">:</span> <span class="n">couldn</span><span class="s1">&#39;t create thread state for new thread</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="installing-and-upgrading-python-packages">
 <h2>Installing and upgrading Python packages<a class="headerlink" href="#installing-and-upgrading-python-packages" title="Permalink to this headline">¶</a></h2>
 <p>To install Python packages first try <code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span></code>:</p>
-<div class="code highlight-python"><div class="highlight"><pre>conda install &lt;package name&gt;
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">&lt;</span><span class="n">package</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>If there is no package in conda, then try <cite>bioconda</cite> (a google search for your package along with the keyword &#8220;bioconda&#8221; will tell you if this is available):</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">bioconda</span> <span class="o">&lt;</span><span class="n">package</span> <span class="n">name</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>If there is no package in conda, then (and ONLY then) try <cite>pip</cite>:</p>
-<div class="code highlight-python"><div class="highlight"><pre>pip install &lt;package name&gt;
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">&lt;</span><span class="n">package</span> <span class="n">name</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>To upgrade packages, do:</p>
 <p>(using <code class="docutils literal"><span class="pre">conda</span></code>)</p>
-<div class="code highlight-python"><div class="highlight"><pre>conda update &lt;package name&gt;
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">update</span> <span class="o">&lt;</span><span class="n">package</span> <span class="n">name</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>(using <code class="docutils literal"><span class="pre">pip</span></code>)</p>
-<div class="code highlight-python"><div class="highlight"><pre>pip install -U &lt;package name&gt;
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="o">&lt;</span><span class="n">package</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>NOTE - you can see if your package is correctly installed in your anaconda with:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">which</span> <span class="o">&lt;</span><span class="n">package</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Alternatively, you can open python on your command line with:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span>
+</pre></div>
+</div>
+<p>And then try to import the package you just installed. If it doesn&#8217;t throw an error, it installed successfully!</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="o">&lt;</span><span class="n">package</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>To get out of python on your command line:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">quit</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="installing-r-packages-beta">
 <h2>Installing R packages (beta!)<a class="headerlink" href="#installing-r-packages-beta" title="Permalink to this headline">¶</a></h2>
-<p>You can also use <code class="docutils literal"><span class="pre">conda</span></code> to install <code class="docutils literal"><span class="pre">R</span></code> and <code class="docutils literal"><span class="pre">R</span></code> packages. Currently, you
-need to reference one of Anaconda&#8217;s developer&#8217;s channel <code class="docutils literal"><span class="pre">asmeurer</span></code> to install
-it. Here is the command to install R in your environment. You can see the list
-of <a class="reference external" href="https://binstar.org/asmeurer/">R packages he&#8217;s added so far</a>.</p>
-<div class="code highlight-python"><div class="highlight"><pre>conda install -c asmeurer r
+<p>You can also use <code class="docutils literal"><span class="pre">conda</span></code> to install <code class="docutils literal"><span class="pre">R</span></code> and <code class="docutils literal"><span class="pre">R</span></code> packages. This will allow you to access a jupyter notebook in R rather than python code which can be VERY helpful for some analysis software that runs in R.</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">r</span> <span class="n">r</span><span class="o">-</span><span class="n">essentials</span>
 </pre></div>
 </div>
+<p>After the install, load your jupyter notebooks and start a new notebook. You should see options avilable to choose between Python2 and R.</p>
 </div>
 <div class="section" id="submitting-and-managing-compute-jobs-on-tscc">
 <h2>Submitting and managing compute jobs on TSCC<a class="headerlink" href="#submitting-and-managing-compute-jobs-on-tscc" title="Permalink to this headline">¶</a></h2>
@@ -543,14 +746,14 @@ of <a class="reference external" href="https://binstar.org/asmeurer/">R packages
 <h3>Submit jobs<a class="headerlink" href="#submit-jobs" title="Permalink to this headline">¶</a></h3>
 <p>To submit a script that you wrote, in this case called <code class="docutils literal"><span class="pre">myscript.sh</span></code>,
 to TSCC, do:</p>
-<div class="code highlight-python"><div class="highlight"><pre>qsub -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00 myscript.sh
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">qsub</span> <span class="o">-</span><span class="n">q</span> <span class="n">home</span><span class="o">-</span><span class="n">yeo</span> <span class="o">-</span><span class="n">l</span> <span class="n">nodes</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="n">ppn</span><span class="o">=</span><span class="mi">2</span> <span class="o">-</span><span class="n">l</span> <span class="n">walltime</span><span class="o">=</span><span class="mi">0</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span> <span class="n">myscript</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="submit-interactive-jobs">
 <h3>Submit interactive jobs<a class="headerlink" href="#submit-interactive-jobs" title="Permalink to this headline">¶</a></h3>
 <p>To submit interactive jobs, do:</p>
-<div class="code highlight-python"><div class="highlight"><pre>qsub -I -q home-yeo -l nodes=1:ppn=2 -l walltime=0:30:00
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">qsub</span> <span class="o">-</span><span class="n">I</span> <span class="o">-</span><span class="n">q</span> <span class="n">home</span><span class="o">-</span><span class="n">yeo</span> <span class="o">-</span><span class="n">l</span> <span class="n">nodes</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="n">ppn</span><span class="o">=</span><span class="mi">2</span> <span class="o">-</span><span class="n">l</span> <span class="n">walltime</span><span class="o">=</span><span class="mi">0</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span>
 </pre></div>
 </div>
 </div>
@@ -558,7 +761,7 @@ to TSCC, do:</p>
 <h3>Submit jobs to <code class="docutils literal"><span class="pre">home-scrm</span></code><a class="headerlink" href="#submit-jobs-to-home-scrm" title="Permalink to this headline">¶</a></h3>
 <p>To submit to the <code class="docutils literal"><span class="pre">home-scrm</span></code> queue, add <code class="docutils literal"><span class="pre">-W</span> <span class="pre">group_list=scrm-group</span></code> to
 your <code class="docutils literal"><span class="pre">qsub</span></code> command:</p>
-<div class="code highlight-python"><div class="highlight"><pre>qsub -I -l walltime=0:30:00 -q home-scrm -W group_list=scrm-group
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">qsub</span> <span class="o">-</span><span class="n">I</span> <span class="o">-</span><span class="n">l</span> <span class="n">walltime</span><span class="o">=</span><span class="mi">0</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span> <span class="o">-</span><span class="n">q</span> <span class="n">home</span><span class="o">-</span><span class="n">scrm</span> <span class="o">-</span><span class="n">W</span> <span class="n">group_list</span><span class="o">=</span><span class="n">scrm</span><span class="o">-</span><span class="n">group</span>
 </pre></div>
 </div>
 </div>
@@ -568,9 +771,9 @@ your <code class="docutils literal"><span class="pre">qsub</span></code> command
 you can use this script to submit them all at once. In the next example,
 <code class="docutils literal"><span class="pre">commands.sh</span></code> is a file has the commands you want on their own line,
 i.e. one command per line.</p>
-<div class="code highlight-python"><div class="highlight"><pre>java -Xms512m -Xmx512m -jar /home/yeo-lab/software/gatk/dist/Queue.jar \
--S ~/gscripts/qscripts/do_stuff.scala --input commands.sh -run -qsub \
--jobQueue &lt;queue&gt; -jobLimit &lt;n&gt; --ncores &lt;n&gt; --jobname &lt;name&gt; -startFromScratch
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">Xms512m</span> <span class="o">-</span><span class="n">Xmx512m</span> <span class="o">-</span><span class="n">jar</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">yeo</span><span class="o">-</span><span class="n">lab</span><span class="o">/</span><span class="n">software</span><span class="o">/</span><span class="n">gatk</span><span class="o">/</span><span class="n">dist</span><span class="o">/</span><span class="n">Queue</span><span class="o">.</span><span class="n">jar</span> \
+<span class="o">-</span><span class="n">S</span> <span class="o">~/</span><span class="n">gscripts</span><span class="o">/</span><span class="n">qscripts</span><span class="o">/</span><span class="n">do_stuff</span><span class="o">.</span><span class="n">scala</span> <span class="o">--</span><span class="nb">input</span> <span class="n">commands</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">run</span> <span class="o">-</span><span class="n">qsub</span> \
+<span class="o">-</span><span class="n">jobQueue</span> <span class="o">&lt;</span><span class="n">queue</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">jobLimit</span> <span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">ncores</span> <span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">jobname</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">startFromScratch</span>
 </pre></div>
 </div>
 <p>This runs a scala job that submits sub-jobs to the PBS queue under name you
@@ -579,7 +782,7 @@ fill in where &lt;name&gt; now sits as a placeholder.</p>
 <div class="section" id="check-job-status-aka-why-is-my-job-stuck">
 <h3>Check job status, aka &#8220;why is my job stuck?&#8221;<a class="headerlink" href="#check-job-status-aka-why-is-my-job-stuck" title="Permalink to this headline">¶</a></h3>
 <p>Check the status of your jobs:</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">qme</span>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">qme</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -588,7 +791,7 @@ fill in where &lt;name&gt; now sits as a placeholder.</p>
 </div>
 <p><code class="docutils literal"><span class="pre">source</span></code>&#8216;d the <code class="docutils literal"><span class="pre">~/gscripts/tscc_bash_settings_current</span></code>  :)</p>
 <p><code class="docutils literal"><span class="pre">qme</span></code> outputs,</p>
-<div class="code highlight-python"><div class="highlight"><pre>(olga)[obotvinnik@tscc-login2 ~]$ qme
+<div class="code highlight-default"><div class="highlight"><pre><span></span>(olga)[obotvinnik@tscc-login2 ~]$ qme
 
 tscc-mgr.sdsc.edu:
                                                                                   Req&#39;d    Req&#39;d       Elap
@@ -604,39 +807,39 @@ Job ID                  Username    Queue    Jobname          SessID  NDS   TSK 
 <h3>Check job status of array jobs<a class="headerlink" href="#check-job-status-of-array-jobs" title="Permalink to this headline">¶</a></h3>
 <p>Check the status of your array jobs, you need to specify <code class="docutils literal"><span class="pre">-t</span></code> to see the
 status of the individual array pieces.</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">qstat</span> <span class="o">-</span><span class="n">t</span>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">qstat</span> <span class="o">-</span><span class="n">t</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="killing-jobs">
 <h3>Killing jobs<a class="headerlink" href="#killing-jobs" title="Permalink to this headline">¶</a></h3>
 <p>If you have a job you want to stop, kill it with <code class="docutils literal"><span class="pre">qdel</span> <span class="pre">JOBID</span></code>, e.g.</p>
-<div class="code highlight-python"><div class="highlight"><pre>qdel 2006527
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">qdel</span> <span class="mi">2006527</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="kill-an-array-job">
 <h3>Kill an array job<a class="headerlink" href="#kill-an-array-job" title="Permalink to this headline">¶</a></h3>
 <p>If the job is an array job, you&#8217;ll need to add brackets, like this:</p>
-<div class="code highlight-python"><div class="highlight"><pre>qdel 2006527[]
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">qdel</span> <span class="mi">2006527</span><span class="p">[]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="kill-all-your-jobs">
 <h3>Kill all your jobs<a class="headerlink" href="#kill-all-your-jobs" title="Permalink to this headline">¶</a></h3>
 <p>To kill all the jobs that you&#8217;ve submitted, do:</p>
-<div class="code highlight-python"><div class="highlight"><pre>qdel $(qselect -u $USER)
+<div class="code highlight-default"><div class="highlight"><pre><span></span>qdel $(qselect -u $USER)
 </pre></div>
 </div>
 </div>
 <div class="section" id="which-queue-do-i-submit-to-check-status-of-queues">
 <h3>Which queue do I submit to? (check status of queues)<a class="headerlink" href="#which-queue-do-i-submit-to-check-status-of-queues" title="Permalink to this headline">¶</a></h3>
 <p>Check the status of the queue (so you know which queues to NOT submit to!)</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">qstat</span> <span class="o">-</span><span class="n">q</span>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">qstat</span> <span class="o">-</span><span class="n">q</span>
 </pre></div>
 </div>
 <p>Example output is,</p>
-<div class="code highlight-python"><div class="highlight"><pre>(olga)[obotvinnik@tscc-login2 ~]$ qstat -q
+<div class="code highlight-default"><div class="highlight"><pre><span></span>(olga)[obotvinnik@tscc-login2 ~]$ qstat -q
 
 server: tscc-mgr.local
 
@@ -678,154 +881,110 @@ since it has a bunch of both running and queued jobs!</p>
 boost. Also note that our supercomputer is separated in two: yeo-group and
 scrm-group, but the total balance is 5.29 million SU, just enough secure us
 the top honors :-)</p>
-<div class="code highlight-python"><div class="highlight"><pre>gbalance | sort -nrk 3 | head
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">gbalance</span> <span class="o">|</span> <span class="n">sort</span> <span class="o">-</span><span class="n">nrk</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">head</span>
 
-Id Name                 Amount  Reserved Balance CreditLimit Available
--- -------------------- ------- -------- ------- ----------- ---------
-19 tideker-group        5211035    27922 5183113           0   5183113
-82 yeo-group            3262925        0 3262925           0   3262925
-81 scrm-group           2039328        0 2039328           0   2039328
-14 mgilson-group         663095   208000  455095           0    455095
-73 nanosprings-ucm       650000        0  650000           0    650000
-17 kkey-group            635056     7104  627952           0    627952
-16 k4zhang-group         534430        0  534430           0    534430
+<span class="n">Id</span> <span class="n">Name</span>                 <span class="n">Amount</span>  <span class="n">Reserved</span> <span class="n">Balance</span> <span class="n">CreditLimit</span> <span class="n">Available</span>
+<span class="o">--</span> <span class="o">--------------------</span> <span class="o">-------</span> <span class="o">--------</span> <span class="o">-------</span> <span class="o">-----------</span> <span class="o">---------</span>
+<span class="mi">19</span> <span class="n">tideker</span><span class="o">-</span><span class="n">group</span>        <span class="mi">5211035</span>    <span class="mi">27922</span> <span class="mi">5183113</span>           <span class="mi">0</span>   <span class="mi">5183113</span>
+<span class="mi">82</span> <span class="n">yeo</span><span class="o">-</span><span class="n">group</span>            <span class="mi">3262925</span>        <span class="mi">0</span> <span class="mi">3262925</span>           <span class="mi">0</span>   <span class="mi">3262925</span>
+<span class="mi">81</span> <span class="n">scrm</span><span class="o">-</span><span class="n">group</span>           <span class="mi">2039328</span>        <span class="mi">0</span> <span class="mi">2039328</span>           <span class="mi">0</span>   <span class="mi">2039328</span>
+<span class="mi">14</span> <span class="n">mgilson</span><span class="o">-</span><span class="n">group</span>         <span class="mi">663095</span>   <span class="mi">208000</span>  <span class="mi">455095</span>           <span class="mi">0</span>    <span class="mi">455095</span>
+<span class="mi">73</span> <span class="n">nanosprings</span><span class="o">-</span><span class="n">ucm</span>       <span class="mi">650000</span>        <span class="mi">0</span>  <span class="mi">650000</span>           <span class="mi">0</span>    <span class="mi">650000</span>
+<span class="mi">17</span> <span class="n">kkey</span><span class="o">-</span><span class="n">group</span>            <span class="mi">635056</span>     <span class="mi">7104</span>  <span class="mi">627952</span>           <span class="mi">0</span>    <span class="mi">627952</span>
+<span class="mi">16</span> <span class="n">k4zhang</span><span class="o">-</span><span class="n">group</span>         <span class="mi">534430</span>        <span class="mi">0</span>  <span class="mi">534430</span>           <span class="mi">0</span>    <span class="mi">534430</span>
 </pre></div>
 </div>
 <p>List the available TORQUE queues, for a quick boost in motivation!</p>
-<div class="code highlight-python"><div class="highlight"><pre>qstat -q
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">qstat</span> <span class="o">-</span><span class="n">q</span>
 
-Queue            Memory CPU Time Walltime Node  Run Que Lm  State
----------------- ------ -------- -------- ----  --- --- --  -----
-home-tideker       --      --       --       16   1   0 --   E R
-home-visres        --      --       --        1   0   0 --   E R
-hotel              --      --    72:00:00   --   25  18 --   E R
-home-k4zhang       --      --       --        4  21   0 --   E R
-home-kkey          --      --       --        5   0   0 --   E R
-pdafm              --      --    72:00:00   --    0   0 --   E R
-condo              --      --    08:00:00   --    0   0 --   E R
-glean              --      --       --      --    0   0 --   E R
-home-builder       --      --       --        8   0   0 --   E R
-home               --      --       --      --    0   0 --   E R
-home-ewyeo         --      --       --       15   0   0 --   E R
-home-mgilson       --      --       --        8   0   0 --   E R
-                                           ----- -----
-                                              47    18
+<span class="n">Queue</span>            <span class="n">Memory</span> <span class="n">CPU</span> <span class="n">Time</span> <span class="n">Walltime</span> <span class="n">Node</span>  <span class="n">Run</span> <span class="n">Que</span> <span class="n">Lm</span>  <span class="n">State</span>
+<span class="o">----------------</span> <span class="o">------</span> <span class="o">--------</span> <span class="o">--------</span> <span class="o">----</span>  <span class="o">---</span> <span class="o">---</span> <span class="o">--</span>  <span class="o">-----</span>
+<span class="n">home</span><span class="o">-</span><span class="n">tideker</span>       <span class="o">--</span>      <span class="o">--</span>       <span class="o">--</span>       <span class="mi">16</span>   <span class="mi">1</span>   <span class="mi">0</span> <span class="o">--</span>   <span class="n">E</span> <span class="n">R</span>
+<span class="n">home</span><span class="o">-</span><span class="n">visres</span>        <span class="o">--</span>      <span class="o">--</span>       <span class="o">--</span>        <span class="mi">1</span>   <span class="mi">0</span>   <span class="mi">0</span> <span class="o">--</span>   <span class="n">E</span> <span class="n">R</span>
+<span class="n">hotel</span>              <span class="o">--</span>      <span class="o">--</span>    <span class="mi">72</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>   <span class="o">--</span>   <span class="mi">25</span>  <span class="mi">18</span> <span class="o">--</span>   <span class="n">E</span> <span class="n">R</span>
+<span class="n">home</span><span class="o">-</span><span class="n">k4zhang</span>       <span class="o">--</span>      <span class="o">--</span>       <span class="o">--</span>        <span class="mi">4</span>  <span class="mi">21</span>   <span class="mi">0</span> <span class="o">--</span>   <span class="n">E</span> <span class="n">R</span>
+<span class="n">home</span><span class="o">-</span><span class="n">kkey</span>          <span class="o">--</span>      <span class="o">--</span>       <span class="o">--</span>        <span class="mi">5</span>   <span class="mi">0</span>   <span class="mi">0</span> <span class="o">--</span>   <span class="n">E</span> <span class="n">R</span>
+<span class="n">pdafm</span>              <span class="o">--</span>      <span class="o">--</span>    <span class="mi">72</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>   <span class="o">--</span>    <span class="mi">0</span>   <span class="mi">0</span> <span class="o">--</span>   <span class="n">E</span> <span class="n">R</span>
+<span class="n">condo</span>              <span class="o">--</span>      <span class="o">--</span>    <span class="mi">08</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>   <span class="o">--</span>    <span class="mi">0</span>   <span class="mi">0</span> <span class="o">--</span>   <span class="n">E</span> <span class="n">R</span>
+<span class="n">glean</span>              <span class="o">--</span>      <span class="o">--</span>       <span class="o">--</span>      <span class="o">--</span>    <span class="mi">0</span>   <span class="mi">0</span> <span class="o">--</span>   <span class="n">E</span> <span class="n">R</span>
+<span class="n">home</span><span class="o">-</span><span class="n">builder</span>       <span class="o">--</span>      <span class="o">--</span>       <span class="o">--</span>        <span class="mi">8</span>   <span class="mi">0</span>   <span class="mi">0</span> <span class="o">--</span>   <span class="n">E</span> <span class="n">R</span>
+<span class="n">home</span>               <span class="o">--</span>      <span class="o">--</span>       <span class="o">--</span>      <span class="o">--</span>    <span class="mi">0</span>   <span class="mi">0</span> <span class="o">--</span>   <span class="n">E</span> <span class="n">R</span>
+<span class="n">home</span><span class="o">-</span><span class="n">ewyeo</span>         <span class="o">--</span>      <span class="o">--</span>       <span class="o">--</span>       <span class="mi">15</span>   <span class="mi">0</span>   <span class="mi">0</span> <span class="o">--</span>   <span class="n">E</span> <span class="n">R</span>
+<span class="n">home</span><span class="o">-</span><span class="n">mgilson</span>       <span class="o">--</span>      <span class="o">--</span>       <span class="o">--</span>        <span class="mi">8</span>   <span class="mi">0</span>   <span class="mi">0</span> <span class="o">--</span>   <span class="n">E</span> <span class="n">R</span>
+                                           <span class="o">-----</span> <span class="o">-----</span>
+                                              <span class="mi">47</span>    <span class="mi">18</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="show-available-processors">
 <h3>Show available processors<a class="headerlink" href="#show-available-processors" title="Permalink to this headline">¶</a></h3>
 <p>To show available processors, do</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">showbf</span>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">showbf</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="show-specs-of-all-nodes">
 <h3>Show specs of all nodes<a class="headerlink" href="#show-specs-of-all-nodes" title="Permalink to this headline">¶</a></h3>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">pbsnodes</span> <span class="o">-</span><span class="n">a</span>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">pbsnodes</span> <span class="o">-</span><span class="n">a</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="ipython-notebooks-on-tscc">
-<h2>IPython notebooks on TSCC<a class="headerlink" href="#ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h2>
-<p>This has two sections: Setup and Running. They should be done in order :)</p>
-<div class="section" id="setup-ipython-notebooks-on-tscc">
-<h3>Setup IPython notebooks on TSCC<a class="headerlink" href="#setup-ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="uploading-data-to-amazon-s3-buckets">
+<h3>Uploading Data to Amazon S3 buckets<a class="headerlink" href="#uploading-data-to-amazon-s3-buckets" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>First, on your personal computer,
-you will want to set up
-<a class="reference external" href="http://www.linuxproblem.org/art_9.html">passwordless ssh</a> from your laptop to TSCC. For reference, <code class="docutils literal"><span class="pre">a&#64;A</span></code> is you from your laptop, and <code class="docutils literal"><span class="pre">b&#64;B</span></code> is TSCC. So everywhere you see <code class="docutils literal"><span class="pre">b&#64;B</span></code>, replace that with <code class="docutils literal"><span class="pre">yourusername&#64;tscc.sdsc.edu</span></code>. For <code class="docutils literal"><span class="pre">a&#64;A</span></code>, since your laptop likely doesn&#8217;t have a fixed IP address or a way to log in to it, you don&#8217;t need to worry about replacing it. Instead, use <code class="docutils literal"><span class="pre">a&#64;A</span></code> as a reference point for whether you should be doing the command from your laptop (<code class="docutils literal"><span class="pre">a&#64;A</span></code>) or TSCC (<code class="docutils literal"><span class="pre">b&#64;B</span></code>)</li>
-<li>To set up IPython notebooks on TSCC, you will want to add some <code class="docutils literal"><span class="pre">alias</span></code>
-variables to your <code class="docutils literal"><span class="pre">~/.bash_profile</span></code> (for Mac) or <code class="docutils literal"><span class="pre">~/.bashrc</span></code> (for Linux)</li>
+<li>Create an AWS AIM user</li>
 </ol>
-<div class="code highlight-python"><div class="highlight"><pre>IPYNB_PORT=[some number above 1024]
-alias tscc=&#39;ssh obotvinnik@tscc-login2.sdsc.edu&#39;
-</pre></div>
-</div>
-<p>This way, I can just type <code class="docutils literal"><span class="pre">tscc</span></code> and log onto <code class="docutils literal"><span class="pre">tscc-login2</span></code>
-<strong>specifically</strong>. It is important for IPython notebooks that you always log
-on to the same node. You can use <code class="docutils literal"><span class="pre">tscc-login1</span></code> instead, too,
-this is just what I have set up. Just replace my login name
-(&#8220;<code class="docutils literal"><span class="pre">obotvinnik</span></code>&#8221;) with yours.</p>
+<p>Sign into AWS Console <a class="reference external" href="https://console.aws.amazon.com/">https://console.aws.amazon.com/</a> and click on Identity &amp; Access Management (IAM)</p>
+<ul class="simple">
+<li>On the left, click Users</li>
+<li>At the top, click Create New Users</li>
+<li>Create a username and generate an access key</li>
+<li>Click Create in the lower right.</li>
+<li>On the next page, click Download Credentials in the lower right to download the access key for your new  user</li>
+<li>Safeguard the downloaded file. It contains a key which is like a password for the AWS account.</li>
+<li>Click Close in the lower right.</li>
+<li>While still in the IAM Users page, cluck on the newly-created user&#8217;s name.</li>
+<li>Click the Permissions tab</li>
+<li>Under Manages Policies, click Attach Policy</li>
+<li>Type &#8220;S3&#8221; in the Gilter fiels and check the AmazonS3FullAccess policy.</li>
+<li>Click Attach Polucy in the power right.</li>
+<li>Now your username is setip to use AWS S3 services.</li>
+</ul>
 <ol class="arabic simple" start="2">
-<li>To activate all the commands you just added, on your laptop, type <code class="docutils literal"><span class="pre">source</span> <span class="pre">~/.bash_profile</span></code>. (<code class="docutils literal"><span class="pre">source</span></code> is a command which will run all the lines in the file you gave it, i.e. here it will assign the variable <code class="docutils literal"><span class="pre">IPYNB_PORT</span></code> to the value you gave it, and run the <code class="docutils literal"><span class="pre">alias</span></code> command so you only have to type <code class="docutils literal"><span class="pre">tscc</span></code> to log in to TSCC)</li>
+<li>Download and install the AWS Command Line Interface (CLI)</li>
 </ol>
-<ol class="arabic" start="2">
-<li><p class="first">Next, type <code class="docutils literal"><span class="pre">tscc</span></code> and log on to the server.</p>
-</li>
-<li><p class="first">On TSCC, add these lines to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code> file.</p>
-<div class="code highlight-python"><div class="highlight"><pre>IPYNB_PORT=same number as the above IPYNB_PORT from your laptop
-alias ipynb=&quot;ipython notebook --no-browser --port $IPYNB_PORT &amp;&quot;
-alias sshtscc=&quot;ssh -NR $IPYNB_PORT:localhost:$IPYNB_PORT tscc-login2 &amp;&quot;
-</pre></div>
-</div>
-<p>Notice that in <code class="docutils literal"><span class="pre">sshtscc</span></code>, I use the same port as I logged in to,
-<cite>tscc-login2</cite>. The ampersands &#8220;<cite>&amp;</cite>&#8221; at the end of the lines tell the computer
-to run these processes in the background, which is super useful.</p>
-</li>
-<li><p class="first">You&#8217;ll need to run <code class="docutils literal"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code> again on TSCC, so the <code class="docutils literal"><span class="pre">$IPYNB_PORT</span></code> variable, and <code class="docutils literal"><span class="pre">ipynb</span></code>, <code class="docutils literal"><span class="pre">sshtscc</span></code> aliases are available.</p>
-</li>
-<li><p class="first">Set up passwordless ssh between the compute nodes and TSCC with:</p>
-</li>
-</ol>
-<div class="code highlight-python"><div class="highlight"><pre>cat .ssh/id_rsa.pub &gt;&gt; .ssh/authorized_keys
-</pre></div>
-</div>
-<ol class="arabic" start="6">
-<li><p class="first">Back on your home laptop, edit your <cite>~/.bash_profile</cite> on macs,
-<cite>~/.bashrc</cite> for other unix machines to add the line:</p>
-<div class="code highlight-python"><div class="highlight"><pre>alias tunneltscc=&quot;ssh -NL $IPYNB_PORT\:localhost:$IPYNB_PORT obotvinnik@tscc-login2.sdsc.edu &amp;&quot;
-</pre></div>
-</div>
-<p>Make sure to replace &#8220;<code class="docutils literal"><span class="pre">obotvinnik</span></code>&#8221; with your TSCC login :) It is
-also important that these are double-quotes and not single-quotes, because the double-quotes evaluate the <code class="docutils literal"><span class="pre">$IPYNB_PORT</span></code> to the number you chose, e.g. <code class="docutils literal"><span class="pre">4000</span></code>, whereas the single-quotes will keep it as the letters <code class="docutils literal"><span class="pre">$IPYNB_PORT</span></code>.</p>
-</li>
-</ol>
-</div>
-<div class="section" id="run-ipython-notebooks-on-tscc">
-<h3>Run IPython Notebooks on TSCC<a class="headerlink" href="#run-ipython-notebooks-on-tscc" title="Permalink to this headline">¶</a></h3>
-<p>Now that you have everything configured, you can run IPython notebooks on TSCC!
-Here are the steps to follow.</p>
-<p>1. Log on to TSCC
-4. Now that you have those set up, start up a <code class="docutils literal"><span class="pre">screen</span></code> session, which allows you to have something running continuously, without being logged in.</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">screen</span> <span class="o">-</span><span class="n">x</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>If this gives you an error saying &#8220;There is no screen to be attached&#8221;
-then you need to run plain old <code class="docutils literal"><span class="pre">screen</span></code> (no <code class="docutils literal"><span class="pre">-x</span></code>) first.</p>
-<p class="last">If this gives you an error saying you need to pick one session, make
-life easier for yourself and pick one to kill all the windows in,
-(using <code class="docutils literal"><span class="pre">Ctrl-j</span> <span class="pre">K</span></code> if you&#8217;re using the <code class="docutils literal"><span class="pre">.screenrc</span></code> that I recommended
-earlier, otherwise the default is <code class="docutils literal"><span class="pre">Ctrl-a</span> <span class="pre">K</span></code>). Once you&#8217;ve killed all
-screen sessions except for one, you can run <code class="docutils literal"><span class="pre">screen</span> <span class="pre">-x</span></code> with abandon,
-and it will connect you to the only one you have open.</p>
-</div>
-<ol class="arabic simple" start="2">
-<li>In this <code class="docutils literal"><span class="pre">screen</span></code> session, now request an interactive job, e.g.:</li>
-</ol>
-<div class="code highlight-python"><div class="highlight"><pre>qsub -I -l walltime=2:00:00 -q home-yeo -l nodes=1:ppn=2
-</pre></div>
-</div>
+<ul class="simple">
+<li>Download from <a class="reference external" href="https://aws.amazon.com/cli/">https://aws.amazon.com/cli/</a></li>
+<li>Open a terminal. Run:</li>
+</ul>
+<dl class="docutils">
+<dt>..code::</dt>
+<dd>aws configure</dd>
+</dl>
+<ul class="simple">
+<li>Fill in the AWS Access Key ID and AWS Secret Access Key when prompted using the information downloaded in the credentials file above.</li>
+<li>Pick an appropriate region name: <a class="reference external" href="http://docs.aws.amazon.com/general/latest/gr/rande.html">http://docs.aws.amazon.com/general/latest/gr/rande.html</a></li>
+<li>I used the default output format by not entering any information when prompted at that step.</li>
+</ul>
 <ol class="arabic simple" start="3">
-<li>Wait for the job to start.</li>
-<li>Run your TSCC-specific aliases on the compute node:</li>
+<li>Create a new Bucket</li>
 </ol>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">ipynb</span>
-<span class="n">sshtscc</span>
-</pre></div>
-</div>
+<ul class="simple">
+<li>Login to your AWS accounts. Click on Services -&gt; S3</li>
+<li>In the upper left hand corner, click &#8220;Create Bucket&#8221;</li>
+<li>Name your bucket as you please!</li>
+</ul>
 <ol class="arabic simple" start="4">
-<li><strong>Back on your laptop</strong>, now run your tunneling command:</li>
+<li>From the command line, upload your data to the newly created bucket.</li>
 </ol>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">tunneltscc</span>
+<ul class="simple">
+<li>You can find information about the available commands here: <a class="reference external" href="http://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html">http://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html</a></li>
+<li>This is a sample of the command I used to upload my data:</li>
+</ul>
+<p>..code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">aws</span> <span class="n">s3</span> <span class="n">sync</span> <span class="o">--</span><span class="n">acl</span> <span class="n">bucket</span><span class="o">-</span><span class="n">owner</span><span class="o">-</span><span class="n">full</span><span class="o">-</span><span class="n">control</span> <span class="o">--</span><span class="n">sse</span> <span class="n">AES256</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ecwheele</span><span class="o">/</span><span class="n">scratch</span><span class="o">/</span><span class="n">mds_splicing_v4</span><span class="o">/</span><span class="n">final_bams</span><span class="o">/</span> <span class="n">s3</span><span class="p">:</span><span class="o">//</span><span class="n">mds</span><span class="o">-</span><span class="n">splicing</span><span class="o">-</span><span class="n">v4</span><span class="o">-</span><span class="n">bams</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="5">
-<li>Open up <code class="docutils literal"><span class="pre">http://localhost:[YOUR</span> <span class="pre">IPYNB</span> <span class="pre">PORT]</span></code> on your browser.</li>
-</ol>
 </div>
 </div>
 <div class="section" id="random-notes">
@@ -833,13 +992,13 @@ and it will connect you to the only one you have open.</p>
 <p>Software goes in <code class="docutils literal"><span class="pre">/projects/ps-yeolab/software</span></code></p>
 <p>Make sure to recursively set group read/write permissions to the software
 directory so others can use and update the common software, using:</p>
-<div class="code highlight-python"><div class="highlight"><pre>chmod ug+rw /projects/ps-yeolab/software
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="n">ug</span><span class="o">+</span><span class="n">rw</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">ps</span><span class="o">-</span><span class="n">yeolab</span><span class="o">/</span><span class="n">software</span>
 </pre></div>
 </div>
 <p>If your&#8217;e installing something from source and using <code class="docutils literal"><span class="pre">./configure</span></code>
 and <code class="docutils literal"><span class="pre">make</span></code> and all that, then always set the flag
 <code class="docutils literal"><span class="pre">--prefix=/projects/ps-yeolab/software</span></code> when you run <code class="docutils literal"><span class="pre">./configure</span></code></p>
-<div class="code highlight-python"><div class="highlight"><pre>./configure --prefix /projects/ps-yeolab/software
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">configure</span> <span class="o">--</span><span class="n">prefix</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">ps</span><span class="o">-</span><span class="n">yeolab</span><span class="o">/</span><span class="n">software</span>
 </pre></div>
 </div>
 <p>When possible install bins to <code class="docutils literal"><span class="pre">/projects/ps-yeolab/software/bin</span></code></p>
@@ -855,7 +1014,7 @@ from them), and properly scheduling jobs so that one person&#8217;s analysis doe
 completely take over the compute cluster.</p>
 <p>Gabe has created a bunch of helpful template scripts for GATK Queue in his
 folder <code class="docutils literal"><span class="pre">/home/gpratt/templates</span></code>:</p>
-<div class="code highlight-python"><div class="highlight"><pre>$ ls -lh /home/gpratt/templates
+<div class="code highlight-default"><div class="highlight"><pre><span></span>$ ls -lh /home/gpratt/templates
 total 26K
 -rwxr-xr-x 1 gpratt yeo-group 660 May  7  2014 bacode_split.sh
 -rwxr-xr-x 1 gpratt yeo-group 554 May  7  2014 bacode_split.sh~
@@ -875,16 +1034,16 @@ and the genome to process them on.</p>
 <p>All further instructions depend on you having followed the directions in
 <a class="reference internal" href="#create-workflow-and-projects-folders">Create workflow and projects folders</a>, where for this particular project,
 you&#8217;ve created these folders:</p>
-<div class="code highlight-python"><div class="highlight"><pre>~/projects/PROJECT_NAME
-~/processing_scripts/PROJECT_NAME/scripts
-~/scratch/PROJECT_NAME/data
-~/scratch/PROJECT_NAME/analysis
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="o">~/</span><span class="n">projects</span><span class="o">/</span><span class="n">PROJECT_NAME</span>
+<span class="o">~/</span><span class="n">processing_scripts</span><span class="o">/</span><span class="n">PROJECT_NAME</span><span class="o">/</span><span class="n">scripts</span>
+<span class="o">~/</span><span class="n">scratch</span><span class="o">/</span><span class="n">PROJECT_NAME</span><span class="o">/</span><span class="n">data</span>
+<span class="o">~/</span><span class="n">scratch</span><span class="o">/</span><span class="n">PROJECT_NAME</span><span class="o">/</span><span class="n">analysis</span>
 </pre></div>
 </div>
 <p>And that you&#8217;ve linked the scratch and home directories correctly. For
 example, here&#8217;s how you can create the project directory structure for a
 project called <code class="docutils literal"><span class="pre">singlecell_pnms</span></code>:</p>
-<div class="code last highlight-python"><div class="highlight"><pre>NAME=singlecell_pnms
+<div class="code last highlight-default"><div class="highlight"><pre><span></span>NAME=singlecell_pnms
 mkdir -p ~/projects/$NAME ~/scratch/$NAME ~/scratch/$NAME/data ~/scratch/$NAME/analysis ~/processing_scripts/$NAME/scripts
 ln -s ~/scratch/$NAME/data ~/projects/$NAME/data
 ln -s ~/scratch/$NAME/analysis ~/projects/$NAME/analysis
@@ -894,7 +1053,7 @@ ln -s ~/processing_scripts/$NAME/scripts ~/projects/$NAME/scripts
 </div>
 <p>Here&#8217;s an example queue script for single-end, not strand-specific RNA-seq,
 from the file <code class="docutils literal"><span class="pre">singlecell_pnms_se_v3.sh</span></code>:</p>
-<div class="code highlight-python"><div class="highlight"><pre>#!/bin/bash
+<div class="code highlight-default"><div class="highlight"><pre><span></span>#!/bin/bash
 
 NAME=singlecell_pnms_se
 VERSION=v3
@@ -912,21 +1071,21 @@ where <code class="docutils literal"><span class="pre">\t</span></code> indicate
 indicates a new line, created by <code class="docutils literal"><span class="pre">&lt;ENTER&gt;</span></code>. Here is the first
 10 lines of <code class="docutils literal"><span class="pre">singlecell_pnms_se_v3.txt</span></code> (obtained via
 <code class="docutils literal"><span class="pre">head</span> <span class="pre">singlecell_pnms_se_v3.txt</span></code>):</p>
-<div class="code highlight-python"><div class="highlight"><pre>/home/obotvinnik/projects/singlecell_pnms/data/CVN_01_R1.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/CVN_02_R1.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/CVN_03_R1.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/CVN_04_R1.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/CVN_05_R1.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/CVN_06_R1.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/CVN_07_R1.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/CVN_08_R1.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/CVN_09_R1.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/CVN_10_R1.fastq.gz       hg19
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">CVN_01_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">CVN_02_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">CVN_03_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">CVN_04_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">CVN_05_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">CVN_06_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">CVN_07_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">CVN_08_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">CVN_09_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">CVN_10_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
 </pre></div>
 </div>
 <p>For paired-end, not strand-specific RNA-seq, here&#8217;s the script of the file
 <code class="docutils literal"><span class="pre">singlecell_pnms_pe_v3.sh</span></code></p>
-<div class="code highlight-python"><div class="highlight"><pre>#!/bin/bash
+<div class="code highlight-default"><div class="highlight"><pre><span></span>#!/bin/bash
 
 NAME=singlecell_pnms_pe
 VERSION=v3
@@ -944,16 +1103,16 @@ where <code class="docutils literal"><span class="pre">\t</span></code> indicate
 indicates a new line, created by <code class="docutils literal"><span class="pre">&lt;ENTER&gt;</span></code>. Here is the first
 10 lines of <code class="docutils literal"><span class="pre">singlecell_pnms_pe_v3.txt</span></code> (obtained via
 <code class="docutils literal"><span class="pre">head</span> <span class="pre">singlecell_pnms_pe_v3.txt</span></code>):</p>
-<div class="code highlight-python"><div class="highlight"><pre>/home/obotvinnik/projects/singlecell_pnms/data/M1_01_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_01_R2.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_02_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_02_R2.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_03_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_03_R2.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_04_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_04_R2.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_05_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_05_R2.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_06_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_06_R2.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_07_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_07_R2.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_08_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_08_R2.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_09_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_09_R2.fastq.gz       hg19
-/home/obotvinnik/projects/singlecell_pnms/data/M1_10_R1.fastq.gz;/home/obotvinnik/projects/singlecell_pnms/data/M1_10_R2.fastq.gz       hg19
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_01_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span><span class="p">;</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_01_R2</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_02_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span><span class="p">;</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_02_R2</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_03_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span><span class="p">;</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_03_R2</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_04_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span><span class="p">;</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_04_R2</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_05_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span><span class="p">;</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_05_R2</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_06_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span><span class="p">;</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_06_R2</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_07_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span><span class="p">;</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_07_R2</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_08_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span><span class="p">;</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_08_R2</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_09_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span><span class="p">;</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_09_R2</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_10_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span><span class="p">;</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">M1_10_R2</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>       <span class="n">hg19</span>
 </pre></div>
 </div>
 <p>For this project, I had a mix of both paired-end and single-end reads, so
@@ -970,12 +1129,12 @@ saved in different folders.</p>
 pipeline in a <code class="docutils literal"><span class="pre">screen</span></code> session, because then even when you log out of
 TSCC, the pipeline will still be running.</p>
 <p>If you&#8217;ve already run <code class="docutils literal"><span class="pre">screen</span></code>, reattach the session with:</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="n">screen</span> <span class="o">-</span><span class="n">x</span>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">screen</span> <span class="o">-</span><span class="n">x</span>
 </pre></div>
 </div>
 <p>If that gives you the error: <code class="docutils literal"><span class="pre">There</span> <span class="pre">is</span> <span class="pre">no</span> <span class="pre">screen</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">attached.</span></code>, then
 you haven&#8217;t run <code class="docutils literal"><span class="pre">screen</span></code> before, and you can start a session with:</p>
-<div class="code last highlight-python"><div class="highlight"><pre><span class="n">screen</span>
+<div class="code last highlight-default"><div class="highlight"><pre><span></span><span class="n">screen</span>
 </pre></div>
 </div>
 </div>
@@ -989,35 +1148,35 @@ script, and the script will submit jobs that request more nodes/processors for
 compute-intensive stuff like STAR or Sailfish). If you have a lot of samples,
 you may need more time, but try just 40 hours first.</p>
 <p>So here&#8217;s what you do:</p>
-<div class="code highlight-python"><div class="highlight"><pre>qsub -I -l walltime=40:00:00 -q home-scrm
+<div class="code highlight-default"><div class="highlight"><pre><span></span>qsub -I -l walltime=40:00:00 -q home-scrm
 # Wait for the job to be ready. This may take a while
 cd ~/projects/$NAME/scripts
 sh ${NAME}_${VERSION}.sh
 </pre></div>
 </div>
 <p>For example, for the <code class="docutils literal"><span class="pre">singlecell_pnms</span></code> project from before, I would do:</p>
-<div class="code highlight-python"><div class="highlight"><pre>qsub -I -l walltime=40:00:00 -q home-scrm
-# Waited for job to get scheduled/be ready ....
-cd ~/projects/singlecell_pnms/scripts
-sh singlecell_pnms_se_v3.sh
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">qsub</span> <span class="o">-</span><span class="n">I</span> <span class="o">-</span><span class="n">l</span> <span class="n">walltime</span><span class="o">=</span><span class="mi">40</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="o">-</span><span class="n">q</span> <span class="n">home</span><span class="o">-</span><span class="n">scrm</span>
+<span class="c1"># Waited for job to get scheduled/be ready ....</span>
+<span class="n">cd</span> <span class="o">~/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">scripts</span>
+<span class="n">sh</span> <span class="n">singlecell_pnms_se_v3</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 <p>This outputs:</p>
-<div class="code highlight-python"><div class="highlight"><pre>INFO  12:24:42,840 QScriptManager - Compiling 1 QScript
-INFO  12:24:55,100 QScriptManager - Compilation complete
-INFO  12:24:55,359 HelpFormatter - ----------------------------------------------------------------------
-INFO  12:24:55,359 HelpFormatter - Queue v2.3-1095-gdb26a3f, Compiled 2015/01/26 15:22:32
-INFO  12:24:55,359 HelpFormatter - Copyright (c) 2012 The Broad Institute
-INFO  12:24:55,359 HelpFormatter - For support and documentation go to http://www.broadinstitute.org/gatk
-INFO  12:24:55,360 HelpFormatter - Program Args: -S /home/obotvinnik/gscripts/qscripts/analyze_rna_seq.scala --input singlecell_pnms_se_v3.txt --adapter TCGTATGCCGTCTTCTGCTTG --adapter ATCTCGTATGCCGTCTTCTGCTTG --adapter CGACAGGTTCAGAGTTCTACAGTCCGACGATC --adapter GATCGGAAGAGCACACGTCTGAACTCCAGTCAC -qsub -jobQueue home-yeo -runDir /home/obotvinnik/projects/singlecell_pnms/analysis/singlecell_pnms_se_v3 -log singlecell_pnms_se_v3.log --location singlecell_pnms_se --strict -keepIntermediates --not_stranded -single_end -run
-INFO  12:24:55,360 HelpFormatter - Date/Time: 2015/01/27 12:24:55
-INFO  12:24:55,360 HelpFormatter - ----------------------------------------------------------------------
-INFO  12:24:55,361 HelpFormatter - ----------------------------------------------------------------------
-INFO  12:24:55,370 QCommandLine - Scripting AnalyzeRNASeq
-INFO  12:24:58,436 QCommandLine - Added 773 functions
-INFO  12:24:58,438 QGraph - Generating graph.
-INFO  12:24:58,664 QGraph - Running jobs.
-... more output ...
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">INFO</span>  <span class="mi">12</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="mi">840</span> <span class="n">QScriptManager</span> <span class="o">-</span> <span class="n">Compiling</span> <span class="mi">1</span> <span class="n">QScript</span>
+<span class="n">INFO</span>  <span class="mi">12</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">55</span><span class="p">,</span><span class="mi">100</span> <span class="n">QScriptManager</span> <span class="o">-</span> <span class="n">Compilation</span> <span class="n">complete</span>
+<span class="n">INFO</span>  <span class="mi">12</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">55</span><span class="p">,</span><span class="mi">359</span> <span class="n">HelpFormatter</span> <span class="o">-</span> <span class="o">----------------------------------------------------------------------</span>
+<span class="n">INFO</span>  <span class="mi">12</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">55</span><span class="p">,</span><span class="mi">359</span> <span class="n">HelpFormatter</span> <span class="o">-</span> <span class="n">Queue</span> <span class="n">v2</span><span class="o">.</span><span class="mi">3</span><span class="o">-</span><span class="mi">1095</span><span class="o">-</span><span class="n">gdb26a3f</span><span class="p">,</span> <span class="n">Compiled</span> <span class="mi">2015</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">26</span> <span class="mi">15</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">32</span>
+<span class="n">INFO</span>  <span class="mi">12</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">55</span><span class="p">,</span><span class="mi">359</span> <span class="n">HelpFormatter</span> <span class="o">-</span> <span class="n">Copyright</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="mi">2012</span> <span class="n">The</span> <span class="n">Broad</span> <span class="n">Institute</span>
+<span class="n">INFO</span>  <span class="mi">12</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">55</span><span class="p">,</span><span class="mi">359</span> <span class="n">HelpFormatter</span> <span class="o">-</span> <span class="n">For</span> <span class="n">support</span> <span class="ow">and</span> <span class="n">documentation</span> <span class="n">go</span> <span class="n">to</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">broadinstitute</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">gatk</span>
+<span class="n">INFO</span>  <span class="mi">12</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">55</span><span class="p">,</span><span class="mi">360</span> <span class="n">HelpFormatter</span> <span class="o">-</span> <span class="n">Program</span> <span class="n">Args</span><span class="p">:</span> <span class="o">-</span><span class="n">S</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">gscripts</span><span class="o">/</span><span class="n">qscripts</span><span class="o">/</span><span class="n">analyze_rna_seq</span><span class="o">.</span><span class="n">scala</span> <span class="o">--</span><span class="nb">input</span> <span class="n">singlecell_pnms_se_v3</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">adapter</span> <span class="n">TCGTATGCCGTCTTCTGCTTG</span> <span class="o">--</span><span class="n">adapter</span> <span class="n">ATCTCGTATGCCGTCTTCTGCTTG</span> <span class="o">--</span><span class="n">adapter</span> <span class="n">CGACAGGTTCAGAGTTCTACAGTCCGACGATC</span> <span class="o">--</span><span class="n">adapter</span> <span class="n">GATCGGAAGAGCACACGTCTGAACTCCAGTCAC</span> <span class="o">-</span><span class="n">qsub</span> <span class="o">-</span><span class="n">jobQueue</span> <span class="n">home</span><span class="o">-</span><span class="n">yeo</span> <span class="o">-</span><span class="n">runDir</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">obotvinnik</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">singlecell_pnms</span><span class="o">/</span><span class="n">analysis</span><span class="o">/</span><span class="n">singlecell_pnms_se_v3</span> <span class="o">-</span><span class="n">log</span> <span class="n">singlecell_pnms_se_v3</span><span class="o">.</span><span class="n">log</span> <span class="o">--</span><span class="n">location</span> <span class="n">singlecell_pnms_se</span> <span class="o">--</span><span class="n">strict</span> <span class="o">-</span><span class="n">keepIntermediates</span> <span class="o">--</span><span class="n">not_stranded</span> <span class="o">-</span><span class="n">single_end</span> <span class="o">-</span><span class="n">run</span>
+<span class="n">INFO</span>  <span class="mi">12</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">55</span><span class="p">,</span><span class="mi">360</span> <span class="n">HelpFormatter</span> <span class="o">-</span> <span class="n">Date</span><span class="o">/</span><span class="n">Time</span><span class="p">:</span> <span class="mi">2015</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">27</span> <span class="mi">12</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">55</span>
+<span class="n">INFO</span>  <span class="mi">12</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">55</span><span class="p">,</span><span class="mi">360</span> <span class="n">HelpFormatter</span> <span class="o">-</span> <span class="o">----------------------------------------------------------------------</span>
+<span class="n">INFO</span>  <span class="mi">12</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">55</span><span class="p">,</span><span class="mi">361</span> <span class="n">HelpFormatter</span> <span class="o">-</span> <span class="o">----------------------------------------------------------------------</span>
+<span class="n">INFO</span>  <span class="mi">12</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">55</span><span class="p">,</span><span class="mi">370</span> <span class="n">QCommandLine</span> <span class="o">-</span> <span class="n">Scripting</span> <span class="n">AnalyzeRNASeq</span>
+<span class="n">INFO</span>  <span class="mi">12</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">58</span><span class="p">,</span><span class="mi">436</span> <span class="n">QCommandLine</span> <span class="o">-</span> <span class="n">Added</span> <span class="mi">773</span> <span class="n">functions</span>
+<span class="n">INFO</span>  <span class="mi">12</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">58</span><span class="p">,</span><span class="mi">438</span> <span class="n">QGraph</span> <span class="o">-</span> <span class="n">Generating</span> <span class="n">graph</span><span class="o">.</span>
+<span class="n">INFO</span>  <span class="mi">12</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">58</span><span class="p">,</span><span class="mi">664</span> <span class="n">QGraph</span> <span class="o">-</span> <span class="n">Running</span> <span class="n">jobs</span><span class="o">.</span>
+<span class="o">...</span> <span class="n">more</span> <span class="n">output</span> <span class="o">...</span>
 </pre></div>
 </div>
 </div>
@@ -1031,12 +1190,12 @@ INFO  12:24:58,664 QGraph - Running jobs.
 </dl>
 <p>Looking at <code class="docutils literal"><span class="pre">/home/gpratt/projects/msi2/scripts</span></code>, we see the file
 <code class="docutils literal"><span class="pre">msi2_v2.txt</span></code>, which has the contents:</p>
-<div class="code highlight-python"><div class="highlight"><pre>/home/gpratt/projects/msi2/data/msi2/MSI2_ACAGTG_ACAGTG_L008_R1.fastq.gz        hg19
-/home/gpratt/projects/msi2/data/msi2/MSI2_CAGATC_CAGATC_L008_R1.fastq.gz        mm9
-/home/gpratt/projects/msi2/data/msi2/MSI2_GCCAAT_GCCAAT_L008_R1.fastq.gz        mm9
-/home/gpratt/projects/msi2/data/msi2/MSI2_TAGCTT_TAGCTT_L008_R1.fastq.gz        hg19
-/home/gpratt/projects/msi2/data/msi2/MSI2_TGACCA_TGACCA_L008_R1.fastq.gz        hg19
-/home/gpratt/projects/msi2/data/msi2/MSI2_TTAGGC_TTAGGC_L008_R1.fastq.gz        hg19
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gpratt</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">msi2</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">msi2</span><span class="o">/</span><span class="n">MSI2_ACAGTG_ACAGTG_L008_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>        <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gpratt</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">msi2</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">msi2</span><span class="o">/</span><span class="n">MSI2_CAGATC_CAGATC_L008_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>        <span class="n">mm9</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gpratt</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">msi2</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">msi2</span><span class="o">/</span><span class="n">MSI2_GCCAAT_GCCAAT_L008_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>        <span class="n">mm9</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gpratt</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">msi2</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">msi2</span><span class="o">/</span><span class="n">MSI2_TAGCTT_TAGCTT_L008_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>        <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gpratt</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">msi2</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">msi2</span><span class="o">/</span><span class="n">MSI2_TGACCA_TGACCA_L008_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>        <span class="n">hg19</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gpratt</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">msi2</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">msi2</span><span class="o">/</span><span class="n">MSI2_TTAGGC_TTAGGC_L008_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>        <span class="n">hg19</span>
 </pre></div>
 </div>
 <p>So you can reference multiple genomes in a single manifest file!</p>
@@ -1048,7 +1207,7 @@ an example.</dd>
 <dd>This command will show documentation for <code class="docutils literal"><span class="pre">analyze_rna_seq.scala</span></code>. For
 further documentation, see the <a class="reference external" href="http://gatkforums.broadinstitute.org/discussion/1306/overview-of-queue">GATK Queue website</a>.</dd>
 </dl>
-<div class="code highlight-python"><div class="highlight"><pre>java -Xms512m -Xmx512m -jar /projects/ps-yeolab/software/gatk/dist/Queue.jar -S ~/gscripts/qscripts/analyze_rna_seq.scala
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">Xms512m</span> <span class="o">-</span><span class="n">Xmx512m</span> <span class="o">-</span><span class="n">jar</span> <span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">ps</span><span class="o">-</span><span class="n">yeolab</span><span class="o">/</span><span class="n">software</span><span class="o">/</span><span class="n">gatk</span><span class="o">/</span><span class="n">dist</span><span class="o">/</span><span class="n">Queue</span><span class="o">.</span><span class="n">jar</span> <span class="o">-</span><span class="n">S</span> <span class="o">~/</span><span class="n">gscripts</span><span class="o">/</span><span class="n">qscripts</span><span class="o">/</span><span class="n">analyze_rna_seq</span><span class="o">.</span><span class="n">scala</span>
 </pre></div>
 </div>
 </div>
@@ -1097,7 +1256,7 @@ further documentation, see the <a class="reference external" href="http://gatkfo
     </p>
     <p>
         &copy; Copyright 2014, Olga Botvinnik.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.<br/>
     </p>
   </div>
 </footer>

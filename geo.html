@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to upload files to GEO &mdash; YeoLab-welcome 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.6/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="YeoLab-welcome 0.1.0 documentation" href="index.html" />
+    <link rel="prev" title="TSCC" href="tscc.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Yeolab Onboarding</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="http://yeolab.ucsd.edu/yeolab/Home.html">YeoLab@UCSD</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#sanford-internet-access">Sanford Internet Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#printing">Printing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#reserving-rooms-in-scrm-building">Reserving rooms in SCRM building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#access-to-compute-environments">Access to Compute Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#online-resources">Online Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#internal-resources">Internal Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html#lab-meeting-etiquette-and-protocols">Lab meeting etiquette and protocols</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#for-speakers">For speakers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#for-the-audience">For the audience</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tscc.html">TSCC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tscc.html#important-rules">Important rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tscc.html#first-steps">First Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tscc.html#ipython-notebooks-on-tscc">IPython notebooks on TSCC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tscc.html#installing-and-upgrading-python-packages">Installing and upgrading Python packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tscc.html#installing-r-packages-beta">Installing R packages (beta!)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tscc.html#submitting-and-managing-compute-jobs-on-tscc">Submitting and managing compute jobs on TSCC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tscc.html#random-notes">Random notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tscc.html#running-rna-seq-clip-seq-ribo-seq-etc-qscripts-gatk-queue-pipelines">Running RNA-seq, CLIP-Seq, Ribo-Seq, etc qscripts GATK Queue pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tscc.html#combining-outputs-from-the-pipeline-into-matrices">Combining outputs from the pipeline into matrices</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to upload files to GEO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-to-upload-to-geo">Preparing to upload to GEO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-actual-uploading-ftp-transfer-to-ncbi">The actual uploading: FTP Transfer to NCBI</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">How to upload files to GEO</a><ul>
+<li><a class="reference internal" href="#preparing-to-upload-to-geo">Preparing to upload to GEO</a></li>
+<li><a class="reference internal" href="#the-actual-uploading-ftp-transfer-to-ncbi">The actual uploading: FTP Transfer to NCBI</a><ul>
+<li><a class="reference internal" href="#step-0-change-to-the-geo-directory-in-your-tscc-account">Step 0: Change to the GEO directory in your TSCC account</a></li>
+<li><a class="reference internal" href="#step-1-log-in-to-ncbi">Step 1: Log in to NCBI.</a></li>
+<li><a class="reference internal" href="#step-2-turn-off-interactive-mode">Step 2: Turn off interactive mode</a><ul>
+<li><a class="reference internal" href="#step-3-look-at-the-files-that-are-there">Step 3: Look at the files that are there</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#step-4-change-to-fasp-directory">Step 4: Change to <code class="docutils literal"><span class="pre">fasp</span></code> directory</a></li>
+<li><a class="reference internal" href="#step-5-make-a-directory-with-gene-s-username">Step 5: Make a directory with Gene&#8217;s username</a></li>
+<li><a class="reference internal" href="#step-6-change-to-the-new-directory">Step 6: Change to the new directory</a></li>
+<li><a class="reference internal" href="#step-7-upload-all-the-files">Step 7: Upload all the files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="tscc.html" title="Previous Chapter: TSCC"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; TSCC</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/geo.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="how-to-upload-files-to-geo">
+<h1>How to upload files to GEO<a class="headerlink" href="#how-to-upload-files-to-geo" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="preparing-to-upload-to-geo">
+<h2>Preparing to upload to GEO<a class="headerlink" href="#preparing-to-upload-to-geo" title="Permalink to this headline">¶</a></h2>
+<p>This is the most time consuming step because it&#8217;s very tedious to fill
+out the spreadsheet. An example notebook doing the soft links and
+getting the checksums for all files is
+<a class="reference external" href="http://nbviewer.jupyter.org/gist/olgabot/bb9f91996e4f414f431b047ea4a16628">here</a>.</p>
+<ol class="arabic simple">
+<li>Put all your FASTQ.gz files for a project (e.g. <code class="docutils literal"><span class="pre">singlecell_pnm</span></code>),
+into a folder which GEO wants to be called the username you upload
+with, so in our case that&#8217;s <code class="docutils literal"><span class="pre">geneyeo</span></code>. I made soft links into
+<code class="docutils literal"><span class="pre">~/projects/singlecell_pnm/data/geneyeo</span></code></li>
+<li>Put all your processed data (<code class="docutils literal"><span class="pre">.csv</span></code>, <code class="docutils literal"><span class="pre">.bed</span></code>, <code class="docutils literal"><span class="pre">.wig</span></code> files -
+only the ones you actually used in the paper, you don&#8217;t have to put
+EVERYTHING) into this GEO folder
+(<code class="docutils literal"><span class="pre">~/projects/singlecell_pnm/data/geneyeo</span></code>) too.</li>
+<li>Get the <code class="docutils literal"><span class="pre">md5</span></code> checksum/hash for each file.</li>
+<li>Fill out the GEO submission spreadsheet with all the metadata,
+protocols, and filenames, and checksums with your files.
+<a class="reference external" href="geo_submission_example.xls">Here</a> is an example.</li>
+</ol>
+</div>
+<div class="section" id="the-actual-uploading-ftp-transfer-to-ncbi">
+<h2>The actual uploading: FTP Transfer to NCBI<a class="headerlink" href="#the-actual-uploading-ftp-transfer-to-ncbi" title="Permalink to this headline">¶</a></h2>
+<p>This FTP server sucks a lot and the log in times out after 30 sec, so
+make sure you have the password ready in your clipboard. Also, the
+server times out after 60 sec so make sure you do these commands right
+after another or you&#8217;ll have to start all over (except for creating
+folders).</p>
+<div class="section" id="step-0-change-to-the-geo-directory-in-your-tscc-account">
+<h3>Step 0: Change to the GEO directory in your TSCC account<a class="headerlink" href="#step-0-change-to-the-geo-directory-in-your-tscc-account" title="Permalink to this headline">¶</a></h3>
+<p>Before you log in to GEO, it&#8217;s easiest if you&#8217;re already in the
+directory with all the files that you want.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[obotvinnik@tscc-1-50 geneyeo]$ cd ~/projects/singlecell_pnm/data/geneyeo
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-1-log-in-to-ncbi">
+<h3>Step 1: Log in to NCBI.<a class="headerlink" href="#step-1-log-in-to-ncbi" title="Permalink to this headline">¶</a></h3>
+<p>Use the username/password that GEO provides (not putting this here for
+safety reasons).</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[obotvinnik@tscc-1-50 geneyeo]$ ftp ftp-private.ncbi.nlm.nih.gov
+Connected to ftp-private.ncbi.nlm.nih.gov (130.14.29.30).
+220-
+ Warning Notice!
+
+ You are accessing a U.S. Government information system which includes this
+ computer, network, and all attached devices. This system is for
+ Government-authorized use only. Unauthorized use of this system may result in
+ disciplinary action and civil and criminal penalties. System users have no
+ expectation of privacy regarding any communications or data processed by this
+ system. At any time, the government may monitor, record, or seize any
+ communication or data transiting or stored on this information system.
+ ---
+ Welcome to the NCBI ftp server! The anonymous access URL is ftp://ftp.ncbi.nlm.nih.gov/
+
+ Public data may be downloaded by logging in as &quot;anonymous&quot; using your E-mail address as a password.
+
+ Please see ftp://ftp.ncbi.nlm.nih.gov/README.ftp for hints on large file transfers
+220 FTP Server ready.
+Name (ftp-private.ncbi.nlm.nih.gov:obotvinnik): geo
+331 Password required for geo
+Password:
+230 User geo logged in
+Remote system type is UNIX.
+Using binary mode to transfer files.
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-2-turn-off-interactive-mode">
+<h3>Step 2: Turn off interactive mode<a class="headerlink" href="#step-2-turn-off-interactive-mode" title="Permalink to this headline">¶</a></h3>
+<p>Turn off interactive prompting for &#8220;are you sure you want to upload this
+file?&#8221; with <code class="docutils literal"><span class="pre">prompt</span> <span class="pre">-n</span></code>, which requires you to respond within 60s or
+you lose your upload.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ftp</span><span class="o">&gt;</span> <span class="n">prompt</span> <span class="n">n</span>
+<span class="n">Interactive</span> <span class="n">mode</span> <span class="n">off</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="section" id="step-3-look-at-the-files-that-are-there">
+<h4>Step 3: Look at the files that are there<a class="headerlink" href="#step-3-look-at-the-files-that-are-there" title="Permalink to this headline">¶</a></h4>
+<p>Look at the files that are there (at the GEO remote host) with <code class="docutils literal"><span class="pre">ls</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ftp</span><span class="o">&gt;</span> <span class="n">ls</span>
+<span class="mi">227</span> <span class="n">Entering</span> <span class="n">Passive</span> <span class="n">Mode</span> <span class="p">(</span><span class="mi">130</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">196</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span>
+<span class="mi">150</span> <span class="n">Opening</span> <span class="n">BINARY</span> <span class="n">mode</span> <span class="n">data</span> <span class="n">connection</span> <span class="k">for</span> <span class="n">file</span> <span class="nb">list</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span> <span class="mi">10</span> <span class="mi">15</span><span class="p">:</span><span class="mi">32</span> <span class="p">:</span><span class="n">aleciajanetwigger</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span>  <span class="mi">9</span> <span class="mi">01</span><span class="p">:</span><span class="mi">15</span> <span class="p">:</span><span class="n">etkoishi</span><span class="nd">@gmail</span><span class="o">.</span><span class="n">com</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span>   <span class="mi">1</span> <span class="n">geo</span>      <span class="n">geo</span>      <span class="mi">1179149954</span> <span class="n">Aug</span> <span class="mi">10</span> <span class="mi">20</span><span class="p">:</span><span class="mi">58</span> <span class="n">CVN_01_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span>   <span class="mi">1</span> <span class="n">geo</span>      <span class="n">geo</span>      <span class="mi">1390825808</span> <span class="n">Aug</span> <span class="mi">10</span> <span class="mi">21</span><span class="p">:</span><span class="mi">02</span> <span class="n">CVN_02_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span>   <span class="mi">1</span> <span class="n">geo</span>      <span class="n">geo</span>         <span class="mi">95232</span> <span class="n">Aug</span>  <span class="mi">9</span> <span class="mi">07</span><span class="p">:</span><span class="mi">07</span> <span class="n">GEO</span> <span class="n">spreadsheet_epigenetic_inheritance</span><span class="o">.</span><span class="n">xls</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span>  <span class="mi">8</span> <span class="mi">14</span><span class="p">:</span><span class="mi">01</span> <span class="n">Jagan_Pongubala</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span>  <span class="mi">4</span> <span class="mi">18</span><span class="p">:</span><span class="mi">50</span> <span class="n">LL2697</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">7</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span> <span class="mi">10</span> <span class="mi">20</span><span class="p">:</span><span class="mi">46</span> <span class="n">NEW_SUBMISSIONS</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">3</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span> <span class="mi">10</span> <span class="mi">14</span><span class="p">:</span><span class="mi">28</span> <span class="n">Ping_Wu</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span>  <span class="mi">8</span> <span class="mi">14</span><span class="p">:</span><span class="mi">01</span> <span class="n">Rio_GEO_2</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">3</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Jul</span> <span class="mi">30</span> <span class="mi">03</span><span class="p">:</span><span class="mi">55</span> <span class="n">Rio_GEO_3</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span> <span class="mi">10</span> <span class="mi">14</span><span class="p">:</span><span class="mi">40</span> <span class="n">Users</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">3</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span>  <span class="mi">8</span> <span class="mi">12</span><span class="p">:</span><span class="mi">24</span> <span class="n">dmemoli</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span> <span class="mi">138</span> <span class="n">root</span>     <span class="n">geo</span>        <span class="mi">368640</span> <span class="n">Aug</span> <span class="mi">10</span> <span class="mi">21</span><span class="p">:</span><span class="mi">31</span> <span class="n">fasp</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span> <span class="mi">10</span> <span class="mi">04</span><span class="p">:</span><span class="mi">25</span> <span class="n">fslab</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span> <span class="mi">10</span> <span class="mi">20</span><span class="p">:</span><span class="mi">24</span> <span class="n">geneyeo</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">4</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span>  <span class="mi">1</span> <span class="mi">17</span><span class="p">:</span><span class="mi">21</span> <span class="n">jagan_pongubala</span><span class="nd">@orcid</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span>  <span class="mi">7</span> <span class="mi">14</span><span class="p">:</span><span class="mi">09</span> <span class="n">jinhyungcho</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span>  <span class="mi">3</span> <span class="mi">20</span><span class="p">:</span><span class="mi">47</span> <span class="n">johannmignolet</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span> <span class="mi">10</span> <span class="mi">04</span><span class="p">:</span><span class="mi">24</span> <span class="n">mengzhang</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span>  <span class="mi">7</span> <span class="mi">14</span><span class="p">:</span><span class="mi">17</span> <span class="n">rahulsinha</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="mi">4459</span>     <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Jul</span> <span class="mi">20</span> <span class="mi">14</span><span class="p">:</span><span class="mi">43</span> <span class="n">raw</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">5</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span>  <span class="mi">9</span> <span class="mi">22</span><span class="p">:</span><span class="mi">10</span> <span class="n">sgrann_100816</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span>  <span class="mi">7</span> <span class="mi">14</span><span class="p">:</span><span class="mi">16</span> <span class="n">sulevk_hypotrohpy</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span>  <span class="mi">8</span> <span class="mi">14</span><span class="p">:</span><span class="mi">01</span> <span class="n">tbasika</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span>  <span class="mi">4</span> <span class="mi">13</span><span class="p">:</span><span class="mi">57</span> <span class="n">vlabunskyy</span><span class="nd">@partners</span><span class="o">.</span><span class="n">org</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span> <span class="mi">10</span> <span class="mi">04</span><span class="p">:</span><span class="mi">22</span> <span class="n">wangzhonghua2016</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">2</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span>  <span class="mi">3</span> <span class="mi">07</span><span class="p">:</span><span class="mi">58</span> <span class="n">zheda_intestinalcancer</span>
+<span class="n">drwxrwsr</span><span class="o">-</span><span class="n">x</span>   <span class="mi">3</span> <span class="n">geo</span>      <span class="n">geo</span>          <span class="mi">4096</span> <span class="n">Aug</span>  <span class="mi">7</span> <span class="mi">14</span><span class="p">:</span><span class="mi">04</span> <span class="n">zjjcom682161</span>
+<span class="mi">226</span> <span class="n">Transfer</span> <span class="n">complete</span>
+</pre></div>
+</div>
+<p>Haha there&#8217;s a bunch of people who didn&#8217;t follow instructions and
+uploaded here</p>
+</div>
+</div>
+<div class="section" id="step-4-change-to-fasp-directory">
+<h3>Step 4: Change to <code class="docutils literal"><span class="pre">fasp</span></code> directory<a class="headerlink" href="#step-4-change-to-fasp-directory" title="Permalink to this headline">¶</a></h3>
+<p>Change to the <code class="docutils literal"><span class="pre">fasp</span></code> directory they want you to use:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ftp</span><span class="o">&gt;</span> <span class="n">cd</span> <span class="n">fasp</span>
+<span class="mi">250</span> <span class="n">CWD</span> <span class="n">command</span> <span class="n">successful</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-5-make-a-directory-with-gene-s-username">
+<h3>Step 5: Make a directory with Gene&#8217;s username<a class="headerlink" href="#step-5-make-a-directory-with-gene-s-username" title="Permalink to this headline">¶</a></h3>
+<p>FTP can&#8217;t copy directory structure, only files, so we have to make a
+directory manually. They want it with the uploader&#8217;s username, so make a
+directory with Gene&#8217;s username.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ftp</span><span class="o">&gt;</span> <span class="n">mkdir</span> <span class="n">geneyeo</span>
+<span class="mi">257</span> <span class="s2">&quot;/fasp/geneyeo&quot;</span> <span class="o">-</span> <span class="n">Directory</span> <span class="n">successfully</span> <span class="n">created</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-6-change-to-the-new-directory">
+<h3>Step 6: Change to the new directory<a class="headerlink" href="#step-6-change-to-the-new-directory" title="Permalink to this headline">¶</a></h3>
+<p>Change to the new directory</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ftp</span><span class="o">&gt;</span> <span class="n">cd</span> <span class="n">geneyeo</span>
+<span class="mi">250</span> <span class="n">CWD</span> <span class="n">command</span> <span class="n">successful</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-7-upload-all-the-files">
+<h3>Step 7: Upload all the files<a class="headerlink" href="#step-7-upload-all-the-files" title="Permalink to this headline">¶</a></h3>
+<p>You&#8217;ll next do a &#8220;multiple-file put&#8221; of all the files that are in your
+TSCC <code class="docutils literal"><span class="pre">geneyeo</span></code> directory to put on GEO&#8217;s <code class="docutils literal"><span class="pre">geneyeo</span></code> directory. The
+command is <code class="docutils literal"><span class="pre">mput</span> <span class="pre">*</span></code>, and example output is below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ftp</span><span class="o">&gt;</span> <span class="n">mput</span> <span class="o">*</span>
+<span class="n">local</span><span class="p">:</span> <span class="n">CVN_01_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span> <span class="n">remote</span><span class="p">:</span> <span class="n">CVN_01_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>
+<span class="mi">227</span> <span class="n">Entering</span> <span class="n">Passive</span> <span class="n">Mode</span> <span class="p">(</span><span class="mi">130</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">195</span><span class="p">,</span><span class="mi">175</span><span class="p">)</span><span class="o">.</span>
+<span class="mi">150</span> <span class="n">Opening</span> <span class="n">BINARY</span> <span class="n">mode</span> <span class="n">data</span> <span class="n">connection</span> <span class="k">for</span> <span class="n">CVN_01_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>
+<span class="mi">226</span> <span class="n">Transfer</span> <span class="n">complete</span>
+<span class="mi">1179149954</span> <span class="nb">bytes</span> <span class="n">sent</span> <span class="ow">in</span> <span class="mi">184</span> <span class="n">secs</span> <span class="p">(</span><span class="mf">6399.62</span> <span class="n">Kbytes</span><span class="o">/</span><span class="n">sec</span><span class="p">)</span>
+<span class="n">local</span><span class="p">:</span> <span class="n">CVN_02_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span> <span class="n">remote</span><span class="p">:</span> <span class="n">CVN_02_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>
+<span class="mi">227</span> <span class="n">Entering</span> <span class="n">Passive</span> <span class="n">Mode</span> <span class="p">(</span><span class="mi">130</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">196</span><span class="p">,</span><span class="mi">67</span><span class="p">)</span><span class="o">.</span>
+<span class="mi">150</span> <span class="n">Opening</span> <span class="n">BINARY</span> <span class="n">mode</span> <span class="n">data</span> <span class="n">connection</span> <span class="k">for</span> <span class="n">CVN_02_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>
+<span class="mi">226</span> <span class="n">Transfer</span> <span class="n">complete</span>
+<span class="mi">1390825808</span> <span class="nb">bytes</span> <span class="n">sent</span> <span class="ow">in</span> <span class="mf">60.8</span> <span class="n">secs</span> <span class="p">(</span><span class="mf">22857.59</span> <span class="n">Kbytes</span><span class="o">/</span><span class="n">sec</span><span class="p">)</span>
+<span class="n">local</span><span class="p">:</span> <span class="n">CVN_03_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span> <span class="n">remote</span><span class="p">:</span> <span class="n">CVN_03_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>
+<span class="mi">227</span> <span class="n">Entering</span> <span class="n">Passive</span> <span class="n">Mode</span> <span class="p">(</span><span class="mi">130</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">196</span><span class="p">,</span><span class="mi">214</span><span class="p">)</span><span class="o">.</span>
+<span class="mi">150</span> <span class="n">Opening</span> <span class="n">BINARY</span> <span class="n">mode</span> <span class="n">data</span> <span class="n">connection</span> <span class="k">for</span> <span class="n">CVN_03_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>
+<span class="mi">226</span> <span class="n">Transfer</span> <span class="n">complete</span>
+<span class="mi">1381847754</span> <span class="nb">bytes</span> <span class="n">sent</span> <span class="ow">in</span> <span class="mi">154</span> <span class="n">secs</span> <span class="p">(</span><span class="mf">8968.02</span> <span class="n">Kbytes</span><span class="o">/</span><span class="n">sec</span><span class="p">)</span>
+<span class="n">local</span><span class="p">:</span> <span class="n">CVN_04_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span> <span class="n">remote</span><span class="p">:</span> <span class="n">CVN_04_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>
+<span class="mi">227</span> <span class="n">Entering</span> <span class="n">Passive</span> <span class="n">Mode</span> <span class="p">(</span><span class="mi">130</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">196</span><span class="p">,</span><span class="mi">74</span><span class="p">)</span><span class="o">.</span>
+<span class="mi">150</span> <span class="n">Opening</span> <span class="n">BINARY</span> <span class="n">mode</span> <span class="n">data</span> <span class="n">connection</span> <span class="k">for</span> <span class="n">CVN_04_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, Olga Botvinnik.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
