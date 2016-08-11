@@ -4,7 +4,7 @@ sudo: required
 
 install:
 - sudo apt-get install pandoc
-- sudo pip install --allow-all-external --pre -r docs/requirements.txt --use-mirrors
+- sudo pip install --allow-all-external --pre -r docs/requirements.txt
 
 before_script:
 - git config --global push.default simple
