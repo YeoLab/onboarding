@@ -199,3 +199,13 @@ command is ``mput *``, and example output is below.
     227 Entering Passive Mode (130,14,29,35,196,74).
     150 Opening BINARY mode data connection for CVN_04_R1.fastq.gz
 
+
+Telling NCBI you uploaded stuff
+-------------------------------
+
+After your transfer is complete, you need to tell the NCBI so
+
+    After file transfer is complete, please `e-mail <geo@ncbi.nlm.nih.gov>`_ GEO with the following information:
+    - GEO account username (olga.botvinnik@gmail.com);
+    - Names of the directory and files deposited;
+    - Public release date (required - up to 3 years from now - see FAQ).
