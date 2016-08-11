@@ -3,7 +3,7 @@ language: python
 sudo: required
 
 install:
-- sudo apt-get install pandoc libzmq
+- sudo apt-get install pandoc
 - sudo pip install --allow-all-external --pre -r docs/requirements.txt --use-mirrors
 
 before_script:
