@@ -75,6 +75,13 @@ safety reasons).
     Remote system type is UNIX.
     Using binary mode to transfer files.
 
+.. note::
+
+    We're now using `ftp` commands, which are all for the `remote` server
+    (GEO server), so if you want to locally change directories, like on TSCC,
+    you would use `lcd` (local change directory) rather than `cd`, which is
+    implied to be for the remote server.
+
 Step 2: Turn off interactive mode
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -129,7 +136,7 @@ Look at the files that are there (at the GEO remote host) with ``ls``:
     226 Transfer complete
 
 Haha there's a bunch of people who didn't follow instructions and
-uploaded here
+uploaded here (including me ...)
 
 Step 4: Change to ``fasp`` directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
