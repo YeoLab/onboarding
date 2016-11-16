@@ -36,6 +36,9 @@ Set up your computer for drylab development
 
 6. Install PyCharm_ (Community edition is fine).
 
+TSCC
+~~~~
+
 Next, here are the TSCC-specific setups. This is pretty big so it's a
 separate page.
 
